@@ -1,0 +1,2489 @@
+.saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+body {
+  font-family: Inter;
+}
+
+/*-----------------end-welcome-page----------------*/
+/*-------------------------------end Staff Page-------------------------------*/
+/*--------------------------------Exam setup page------------------------------*/
+.exam_setup {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 660px;
+  width: auto;
+  border-radius: 4px;
+  /*--------worksheet-------------*/
+}
+
+.exam_setup .examsetup-img {
+  width: 292px;
+}
+
+.exam_setup .examsetup-description {
+  color: #8595A6;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.exam_setup button.createworksheet-btn {
+  height: 54px;
+  width: 240px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createWorksheet.modal.right {
+  right: 594px;
+}
+
+#createWorksheet.modal.right .modal-content {
+  width: 605px;
+  background-color: #ffffff;
+}
+
+#createWorksheet.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createWorksheet.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createWorksheet.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createWorksheet.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#createWorksheet.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#createWorksheet.modal.right .radio.box.active {
+  border: 1px solid #5C67E6;
+}
+
+#createWorksheet.modal.right .radio.box.active .radio-head {
+  color: #5C67E6;
+}
+
+#createWorksheet.modal.right a.step {
+  cursor: pointer;
+}
+
+.worksheettab-row {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.worksheettab-row .worksheettab {
+  width: 100%;
+  height: 48px;
+  background-color: #ffffff;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab {
+  width: 179px;
+  float: left;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab h4 {
+  color: #8595A6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.worksheettab-row .worksheettab .bloomdifficulty-tab {
+  width: 253px;
+  float: left;
+}
+
+.worksheettab-row .worksheettab .bloomdifficulty-tab h4 {
+  color: #8595A6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.worksheettab-row .worksheettab button.preview-btn {
+  width: 264px;
+  background-color: #3A5077;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  border-radius: 0px;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab.active, .worksheettab-row .worksheettab .bloomdifficulty-tab.active {
+  border-bottom: 2px solid #5C67E6;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab.active h4, .worksheettab-row .worksheettab .bloomdifficulty-tab.active h4 {
+  color: #5C67E6;
+  font-weight: 500;
+}
+
+button.preview-btn:after {
+  display: none;
+}
+
+.worksheets.bloom-summary th.wsques-nature p {
+  width: 172px;
+}
+
+.worksheets.bloom-summary th.wsmcq p {
+  width: 94px;
+}
+
+.worksheets.bloom-summary th.wssubjective p {
+  width: 140px;
+}
+
+.worksheets.bloom-summary th.wsshort-answer p {
+  width: 164px;
+}
+
+.worksheets.bloom-summary th.wslong-answer p {
+  width: 156px;
+}
+
+.worksheets.bloom-summary th.wstotal-marks p {
+  width: 80px;
+}
+
+.worksheets {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: auto;
+  width: auto;
+  border-radius: 4px;
+}
+
+.worksheets .top-head {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.worksheets .headsection-worksheet {
+  height: 45px;
+  border-top: 1px solid #D1DAE6;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.worksheets .headsection-worksheet .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+}
+
+.worksheets .headsection-worksheet .sub-head .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+}
+
+.worksheets .headsection-worksheetblank {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.worksheets .headsection-worksheetblank .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+  width: auto;
+  float: left;
+}
+
+.worksheets .headsection-worksheetblank .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+  width: 70%;
+  float: left;
+  height: 21px;
+  margin: 0 2px;
+}
+
+.worksheets .total_marksedit {
+  width: 160px;
+}
+
+.worksheets .total_marks, .worksheets .total_ques, .worksheets .total_marksedit {
+  height: 27px;
+  width: 145px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.worksheets .total_marks p, .worksheets .total_ques p, .worksheets .total_marksedit p {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheets .total_marks input, .worksheets .total_ques input, .worksheets .total_marksedit input {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  border: 0px;
+  width: 100px;
+  height: 17px;
+}
+
+.worksheets .total_marks input:focus, .worksheets .total_ques input:focus, .worksheets .total_marksedit input:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.worksheets .total_marks a, .worksheets .total_ques a, .worksheets .total_marksedit a {
+  color: #5C67E6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheets th {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheets th {
+  padding: 10px 15px;
+}
+
+.worksheets td {
+  padding: 2px 15px;
+  height: 60px;
+}
+
+.worksheets tr {
+  border: 1px solid #D1DAE6;
+}
+
+.worksheets .form-check-input.fa-check {
+  padding: 2px;
+}
+
+.worksheets td.question-nature {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.worksheets td.checkbox {
+  width: 54px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.worksheets td.question-nature {
+  width: 229px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.worksheets td.bloom-level {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.worksheets button.bloompreview-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+.worksheets .worksheet-summary .total-No {
+  background-color: #F6F7FB;
+}
+
+.worksheets .worksheet-summary td {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  height: 60px;
+}
+
+.worksheets .worksheet-summary th.quest-nature {
+  width: 254px;
+}
+
+.worksheets .worksheet-summary th.mcq {
+  width: 124px;
+}
+
+.worksheets .worksheet-summary th.subjective {
+  width: 174px;
+}
+
+.worksheets .worksheet-summary th.short-answer {
+  width: 208px;
+}
+
+.worksheets .worksheet-summary th.long-answer {
+  width: 202px;
+}
+
+.worksheets .worksheet-summary th.total-marks {
+  width: 220px;
+}
+
+.worksheets .steptext.active {
+  height: 38px;
+  width: 501px;
+  border-radius: 4px 0 0 4px;
+  background-color: rgba(92, 103, 230, 0.2);
+  border-right: 2px solid #5C67E6;
+}
+
+.worksheets .activetooltip::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-top: 5px;
+  position: absolute;
+  vertical-align: .255em;
+  content: "";
+  border-right: .4em solid;
+  border-left: 0;
+  border-top: .4em solid transparent;
+  border-bottom: .4em solid transparent;
+  color: #3A5077;
+  margin-left: -22px;
+  margin-top: 5px;
+}
+
+.worksheets .activetooltip {
+  height: 38px;
+  width: 58px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheets .genework .activetooltip {
+  height: 38px;
+  width: 95px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheets .genework .activetooltip .icon {
+  width: 30px;
+  float: left;
+  padding: 9px 0px;
+}
+
+.worksheets .genework .activetooltip .bline {
+  height: 36px;
+  width: 1px;
+  opacity: 0.1;
+  background-color: #FFFFFF;
+  float: left;
+}
+
+.worksheets .genework .activetooltip::before {
+  margin-left: -53px;
+  margin-top: 14px;
+}
+
+.worksheets h2.smart-studies {
+  color: #3A5077;
+  font-family: Sansation;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.worksheets .worksheetSetting td.question-nature {
+  padding: 10px 15px !important;
+}
+
+.worksheets .worksheetSetting td.tablespace {
+  height: 10px;
+}
+
+.worksheets .worksheetSetting td .single.alternate button.multiselect {
+  width: 80px;
+  height: 36px;
+}
+
+.worksheets .worksheetSetting td input.counternum {
+  width: 70px;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  padding: 6px 8px;
+}
+
+.worksheets .worksheetSetting td button.multiselect {
+  width: 102px;
+  height: 36px;
+}
+
+.worksheets .worksheetSetting td.chapter button.multiselect {
+  width: 130px;
+}
+
+.worksheets .worksheetSetting th, .worksheets .worksheetSetting td {
+  padding: 10px 6px;
+}
+
+.worksheets .worksheetSetting td.addques {
+  border-left: 1px solid #ced4da;
+}
+
+.worksheets .worksheetSetting td.addques .addquestion {
+  height: 36px;
+  width: 120px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  padding: 4px 10px;
+}
+
+.worksheets .worksheetSetting td.addques .addquestion a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.worksheets .worksheetSetting td.checkbox {
+  padding: 0px 2px 0px 0px;
+}
+
+.worksheets .worksheetSetting td.checkbox .checkrow {
+  width: 20px;
+  margin: auto;
+  margin-top: -10px;
+}
+
+.worksheets .worksheetSetting td .remove {
+  height: 36px;
+  width: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  padding: 4px 9px;
+}
+
+.worksheet-instruction .stepnum {
+  height: 36px;
+  width: 36px;
+  border: 1px solid #D1DAE6;
+  background-color: #fff;
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  border-radius: 50%;
+  padding: 6px 4px 6px 3px;
+}
+
+.worksheet-instruction .btwborder {
+  border-bottom: 20px solid #D1DAE6;
+  height: 20px;
+  width: 1px;
+  margin: auto;
+}
+
+.worksheet-instruction .steptext {
+  height: 21px;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.question-preview {
+  height: auto;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+  box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+}
+
+.question-preview .question-head {
+  color: #172B4D;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.question-preview .question {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.question-preview .question span {
+  font-weight: 600;
+}
+
+.question-preview .question-desc .ques-tag {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.question-preview .question-desc .chapter {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.question-preview .question-desc .Dot {
+  height: 5px;
+  width: 5px;
+  background-color: #172B4D;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.question-preview .replaceques-btn {
+  height: 36px;
+  width: 120px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.question-preview .or {
+  height: 34px;
+  width: 34px;
+  border: 1px solid #D1DAE6;
+  background-color: #F6F7FB;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.question-preview .or span {
+  color: #3A5077;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.question-preview .marks-col {
+  height: 36px;
+  width: 90px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.question-preview .marks-col p {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 7px;
+}
+
+.question-preview .marks-col input.marksinput {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 7px;
+  border: 0px !important;
+  height: 34px;
+}
+
+.question-preview.radio.active {
+  border-top: 1px solid #5C67E6;
+  border-bottom: 1px solid #5C67E6;
+  margin-bottom: 1px !important;
+}
+
+.question-preview.radio.active .question-head {
+  color: #5C67E6;
+}
+
+.worksheets button.viewAnswers-btn {
+  height: 54px;
+  width: 182px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.worksheets button.approve-btn, .worksheets button.reject-btn, .worksheets button.close-btn {
+  height: 54px;
+  width: 124px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.worksheets button.saveProceedWorksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#replaceQuestionModal.modal {
+  right: 594px;
+}
+
+#replaceQuestionModal.modal .modal-content {
+  width: 605px;
+  background-color: #ffffff;
+}
+
+#replaceQuestionModal.modal button.replaceQuestion-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#replaceQuestionModal.modal .filterbtntable .addsection-form .multiselect-container li a i.form-check-input {
+  display: none;
+}
+
+.worksheet-list {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.worksheet-list th {
+  padding: 10px 15px;
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheet-list td {
+  padding: 17px 15px;
+  color: #172B4D;
+  font-size: 16px;
+}
+
+.worksheet-list tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.worksheet-list td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheet-list td input, .worksheet-list td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.worksheet-list td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.worksheet-list .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.worksheet-list .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.worksheet-list .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.worksheet-list td.action_col {
+  padding: 8px 15px;
+}
+
+.worksheet-list td.action_col button.preview-btn {
+  height: 36px;
+  width: 101px !important;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheet-list th.worksheet-name p, .worksheet-list th.mode p, .worksheet-list th.total-ques p, .worksheet-list th p.tablespace {
+  width: 114px;
+}
+
+.worksheet-list th.status p {
+  width: 136px;
+}
+
+.worksheet-list th.standard p, .worksheet-list th.subject p {
+  width: 68px;
+}
+
+.worksheet-list th.total-marks p, .worksheet-list th.duration p, .worksheet-list th-status p {
+  width: 98px;
+}
+
+.worksheet-list th.creationDate p {
+  width: 120px;
+}
+
+.worksheet-list th.creationTime p {
+  width: 84px;
+}
+
+.worksheet-list .single.tog ul li {
+  height: 45px;
+  padding: 8px !important;
+}
+
+.worksheet-list .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheet-list .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.worksheet-list .single button.multiselect {
+  height: 36px;
+}
+
+.worksheet-list .single .multiselect-container li {
+  height: 36px;
+}
+
+.worksheet-list .form-check-input {
+  margin-top: -9px !important;
+  padding: 2px;
+}
+
+.worksheet-list td.approve {
+  color: #69BB10;
+}
+
+.worksheet-list td.inprogress {
+  color: #55CCEE;
+}
+
+.worksheet-list td.reject {
+  color: #E52254;
+}
+
+.works-list .filterbtntable .multiselect-container li a i.form-check-input {
+  display: none;
+}
+
+/*------------- end worksheet-------------*/
+/*-----------------create class test--------*/
+button.createclasstestexam-btn {
+  height: 54px;
+  width: 240px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest.modal.right {
+  right: 594px;
+}
+
+#createClassExamTest.modal.right .modal-content {
+  width: 605px;
+  background-color: #ffffff;
+}
+
+#createClassExamTest.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest.modal.right .radio.box.active {
+  border: 1px solid #5C67E6;
+}
+
+#createClassExamTest.modal.right .radio.box.active .radio-head {
+  color: #5C67E6;
+}
+
+#createClassExamTest.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+#createClassExamTest.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#createClassExamTest.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest.modal.right a.step {
+  cursor: pointer;
+}
+
+#createClassExamTest.modal.right .questionNature, #createClassExamTest.modal.right .bloomComposition {
+  border: 1px solid #D1DAE6;
+  border-radius: 0 0 4px 4px;
+  background-color: #FFFFFF;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group, #createClassExamTest.modal.right .bloomComposition .form-group {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 15px;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group i.form-check-input, #createClassExamTest.modal.right .bloomComposition .form-group i.form-check-input {
+  padding: 2px;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group p.main-text, #createClassExamTest.modal.right .bloomComposition .form-group p.main-text {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group p.text, #createClassExamTest.modal.right .bloomComposition .form-group p.text {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.fa-worksheets {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: auto;
+  width: auto;
+  border-radius: 4px;
+}
+
+.fa-worksheets .top-head {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.fa-worksheets .headsection-worksheet {
+  height: 45px;
+  border-top: 1px solid #D1DAE6;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.fa-worksheets .headsection-worksheet .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+}
+
+.fa-worksheets .headsection-worksheetblank {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.fa-worksheets .headsection-worksheetblank .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+  width: auto;
+  float: left;
+}
+
+.fa-worksheets .headsection-worksheetblank .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+  width: 70%;
+  float: left;
+  height: 21px;
+  margin: 0 2px;
+}
+
+.fa-worksheets .headsection-worksheetblank {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.fa-worksheets .headsection-worksheetblank .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+  width: auto;
+  float: left;
+}
+
+.fa-worksheets .headsection-worksheetblank .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+  width: 70%;
+  float: left;
+  height: 21px;
+  margin: 0 2px;
+}
+
+.fa-worksheets .total_marks, .fa-worksheets .total_ques {
+  height: 27px;
+  width: 145px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.fa-worksheets .total_marks p, .fa-worksheets .total_ques p {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.fa-worksheets th {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.fa-worksheets th, .fa-worksheets td {
+  padding: 10px 15px;
+}
+
+.fa-worksheets tr {
+  border: 1px solid #D1DAE6;
+}
+
+.fa-worksheets .form-check-input.fa-check {
+  padding: 2px;
+}
+
+.fa-worksheets td.question-nature {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets td.checkbox {
+  width: 54px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.fa-worksheets td.question-nature {
+  width: 220px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.fa-worksheets td.bloom-level {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.fa-worksheets button.bloompreview-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+.fa-worksheets .worksheet-summary .total-No {
+  background-color: #F6F7FB;
+}
+
+.fa-worksheets .worksheet-summary td {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  height: 60px;
+}
+
+.fa-worksheets .steptext.active {
+  height: 38px;
+  width: 501px;
+  border-radius: 4px 0 0 4px;
+  background-color: rgba(92, 103, 230, 0.2);
+  border-right: 2px solid #5C67E6;
+}
+
+.fa-worksheets .activetooltip::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-top: 5px;
+  position: absolute;
+  vertical-align: .255em;
+  content: "";
+  border-right: .4em solid;
+  border-left: 0;
+  border-top: .4em solid transparent;
+  border-bottom: .4em solid transparent;
+  color: #3A5077;
+  margin-left: -22px;
+  margin-top: 5px;
+}
+
+.fa-worksheets .activetooltip {
+  height: 38px;
+  width: 58px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.fa-worksheets .genework .activetooltip {
+  height: 38px;
+  width: 95px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.fa-worksheets .genework .activetooltip .icon {
+  width: 30px;
+  float: left;
+  padding: 9px 0px;
+}
+
+.fa-worksheets .genework .activetooltip .bline {
+  height: 36px;
+  width: 1px;
+  opacity: 0.1;
+  background-color: #FFFFFF;
+  float: left;
+}
+
+.fa-worksheets .genework .activetooltip::before {
+  margin-left: -53px;
+  margin-top: 14px;
+}
+
+.fa-worksheets h2.smart-studies {
+  color: #3A5077;
+  font-family: Sansation;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.fa-worksheets button.viewAnswers-btn {
+  height: 54px;
+  width: 182px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.fa-worksheets button.approve-btn, .fa-worksheets button.reject-btn, .fa-worksheets button.close-btn {
+  height: 54px;
+  width: 124px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.fa-worksheets button.saveProceedWorksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.modalAnswerSheet-btn {
+  height: 54px;
+  width: 223px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.exporttoword-btn {
+  height: 54px;
+  width: 175px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.openpdf-btn {
+  height: 54px;
+  width: 175px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.gotoexamlist-btn {
+  height: 54px;
+  width: 185px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.viewsummary-btn {
+  height: 54px;
+  width: 183px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.class-test-exam-setup {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.class-test-exam-setup th {
+  padding: 10px 15px;
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.class-test-exam-setup td {
+  padding: 17px 15px;
+}
+
+.class-test-exam-setup tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.class-test-exam-setup td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class-test-exam-setup td input, .class-test-exam-setup td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.class-test-exam-setup td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.class-test-exam-setup .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.class-test-exam-setup .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.class-test-exam-setup .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.class-test-exam-setup td.action_col {
+  padding: 8px 15px;
+}
+
+.class-test-exam-setup td.action_col button.preview-btn {
+  height: 36px;
+  width: 101px !important;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class-test-exam-setup th p {
+  width: 108px;
+}
+
+.class-test-exam-setup th.paper-type p {
+  width: 162px;
+}
+
+.class-test-exam-setup .single.tog ul li {
+  height: 45px;
+  padding: 10px !important;
+}
+
+.class-test-exam-setup .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class-test-exam-setup .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.class-test-exam-setup .single button.multiselect {
+  height: 36px;
+}
+
+.class-test-exam-setup .single .multiselect-container li {
+  height: 36px;
+}
+
+.class-test-exam-setup .form-check-input {
+  margin-top: -9px !important;
+  padding: 2px;
+}
+
+.class-test-exam-setup td.approve {
+  color: #69BB10;
+}
+
+.class-test-exam-setup td.inprogress {
+  color: #55CCEE;
+}
+
+.class-test-exam-setup td.reject {
+  color: #E52254;
+}
+
+.filter-row {
+  height: 93px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.filter-row .viewbtntable {
+  height: 45px;
+  width: 326px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.filter-row .viewbtntable .single.tog button {
+  height: 45px;
+  width: 326px;
+  border: 0px;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.filter-row .filterBy h4 {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.searchbartable.class-test input {
+  width: 230px;
+}
+
+.createtestbtn button.createtest-btn {
+  height: 42px;
+  width: 165px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+/*---------------create-class-test-end-----------*/
+/*--------------------assign-exam--------------*/
+.searchbartable.assign input {
+  width: 408px;
+}
+
+.assign-exam-list {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.assign-exam-list th {
+  padding: 10px 15px;
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.assign-exam-list td {
+  padding: 17px 15px;
+}
+
+.assign-exam-list tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.assign-exam-list td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.assign-exam-list td input, .assign-exam-list td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.assign-exam-list td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.assign-exam-list .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.assign-exam-list .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.assign-exam-list .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.assign-exam-list td.action_col {
+  padding: 8px 15px;
+}
+
+.assign-exam-list td.action_col button.preview-btn {
+  height: 36px;
+  width: 101px !important;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.assign-exam-list th p {
+  width: 105px;
+}
+
+.assign-exam-list th.worksheet-name p {
+  width: 164px;
+}
+
+.assign-exam-list th.subject p {
+  width: 120px;
+}
+
+.assign-exam-list .single.tog ul li {
+  height: 45px;
+  padding: 10px !important;
+  width: 221px;
+}
+
+.assign-exam-list .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.assign-exam-list .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.assign-exam-list .single button.multiselect {
+  height: 36px;
+}
+
+.assign-exam-list .single .multiselect-container li {
+  height: 36px;
+}
+
+.assign-exam-list .form-check-input {
+  margin-top: -9px !important;
+  padding: 2px;
+}
+
+.assign-exam-list td.approve {
+  color: #69BB10;
+}
+
+.assign-exam-list td.inprogress {
+  color: #55CCEE;
+}
+
+.assign-exam-list td.reject {
+  color: #E52254;
+}
+
+#AssignExam.modal .checkmark {
+  left: 0;
+  top: 0;
+}
+
+/*------------------end assign exam-------------*/
+/*------------------ template--------------------*/
+#CreateTemplate.modal {
+  right: 595px;
+}
+
+#CreateTemplate.modal .modal-content {
+  position: fixed;
+  margin: auto;
+  width: 605px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+#CreateTemplate.modal button.saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#CreateTemplate.modal h3.sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.worksheets.template .worksheetSetting td.question-nature {
+  width: 360px;
+}
+
+.worksheets.template .worksheetSetting td input.counternum {
+  width: 70px;
+}
+
+.view-previous-selection .single.tog ul.dropdown-menu {
+  height: auto;
+  width: 367px;
+  border-radius: 4px 0 0 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  padding: 15px;
+}
+
+.view-previous-selection .single.tog ul li {
+  border-bottom: 1px solid #D1DAE6;
+  padding: 15px;
+}
+
+.view-previous-selection .single.tog ul li p a {
+  color: #5C67E6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.view-previous-selection .single.tog ul li p.preview-head {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.view-previous-selection .single.tog ul li p.preview-detail {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.template.worksheets .worksheetSetting th, .template.worksheets .worksheetSetting td {
+  padding: 10px 15px;
+}
+
+.worksheets.template-bloomdiff td input {
+  height: 36px;
+  width: 80px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.worksheets.template-bloomdiff .total_marks, .worksheets.template-bloomdiff .total_ques {
+  height: 27px;
+  width: 113px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.template-list {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.template-list tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.template-list th.template-name p {
+  width: 132px;
+}
+
+.template-list th.standard p {
+  width: 65px;
+}
+
+.template-list th.subject p {
+  width: 102px;
+}
+
+.template-list th.total-marks p {
+  width: 85px;
+}
+
+.template-list th.duration p {
+  width: 72px;
+}
+
+.template-list th.created-by p, .template-list th.updated-by p {
+  width: 132px;
+}
+
+.template-list th p.tablespace {
+  width: 102px;
+}
+
+.template-list th.status p {
+  width: 138px;
+}
+
+.template-list th p {
+  margin: 0px;
+}
+
+.template-list td {
+  height: 60px;
+  padding: 17px 15px;
+}
+
+.template-list td.action_col {
+  padding: 11px 15px;
+}
+
+/*------------------end template----------------*/
+/***********radio-btn*********/
+.radio {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 24px;
+  right: 15px;
+  height: 28px;
+  width: 28px;
+  border: 1px solid #5C67E6;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+input[type=radio]:checked ~ label {
+  color: #0DFF92;
+}
+
+/* On mouse-over, add a grey background color */
+.radio:hover input ~ .checkmark {
+  background-color: #eee;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio .checkmark:after {
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  height: 19.6px;
+  width: 19.6px;
+  background-color: #5C67E6;
+}
+
+/************end-radio btn*******/
+/*--------------------------------end exam setup page---------------------------------*/
+/*---------------------breadscrumb---------------------*/
+.breadcrumb {
+  background: 0;
+}
+
+.breadcrumb li {
+  color: #8595A6;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.breadcrumb li a {
+  color: #5C67E6;
+}
+
+/*--------------------- end breadscrumb---------------------*/
+/*-----------------------Scroll bar-----------*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #D1DAE6;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*----------------------- end Scroll bar-----------*/
+.table thead th {
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+/*----------------modal with full width--------------*/
+#createWorksheet2.modal.right {
+  right: auto;
+  left: 0;
+}
+
+#createWorksheet2.modal.right .modal-dialog {
+  max-width: 100%;
+  width: 100%;
+}
+
+#createWorksheet2.modal.right .modal-content {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#createWorksheet2.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createWorksheet2.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createWorksheet2.modal.right .sectionheadright {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+#createWorksheet2.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createWorksheet2.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#createWorksheet2.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#createWorksheet2.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createWorksheet2.modal.right a.step {
+  cursor: pointer;
+}
+
+#createWorksheet2.modal.right .select-chaptermodal .head {
+  height: 60px;
+  border: 1px solid #D1DAE6;
+  border-radius: 4px 4px 0 0;
+  background-color: #F6F7FB;
+}
+
+#createWorksheet2.modal.right .select-chaptermodal .head h3.texthead {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createWorksheet2.modal.right .select-chaptermodal .head .chapter-number {
+  height: 25px;
+  width: 25px;
+  background-color: #5C67E6;
+  border-radius: 50%;
+}
+
+#createWorksheet2.modal.right .select-chaptermodal .head .chapter-number span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createWorksheet2.modal.right .select-chaptermodal .head .hide-btn a {
+  width: 40px;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createWorksheet2.modal.right .select-chaptermodal .chapter-col {
+  height: 45px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D1DAE6;
+  border-left: 1px solid #d1dae6;
+  padding: 13px !important;
+}
+
+#createWorksheet2.modal.right .select-chaptermodal .chapter-col i.form-check-input {
+  padding: 2px;
+}
+
+#createWorksheet2.modal.right .select-chaptermodal .chapter-col p {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#createWorksheet2.modal.right .select-chaptermodal .col-3 {
+  border-right: 1px solid #d1dae6;
+}
+
+#createWorksheet2.modal.right button.createworksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createWorksheet2.modal.right .modal-footer {
+  background-color: #F6F7FB;
+}
+
+#createWorksheet2.modal.right .insufficientChapterSelected {
+  height: 199px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+#createWorksheet2.modal.right .insufficientChapterSelected h4.insufficient-chapter {
+  height: 27px;
+  width: 298px;
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createWorksheet2.modal.right .insufficientChapterSelected p {
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+#createWorksheet2.modal.right .insufficientChapterSelected .createpapermanually-btn {
+  height: 42px;
+  width: 221px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createWorksheet2.modal.right .insufficientChapterSelected a {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+}
+
+#createWorksheet2.modal.right .discardCurrentPaper {
+  height: 199px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+#createWorksheet2.modal.right .discardCurrentPaper h4.discard-paper {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createWorksheet2.modal.right .discardCurrentPaper p {
+  width: 346px;
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+#createWorksheet2.modal.right .discardCurrentPaper button.yes-btn {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createWorksheet2.modal.right .discardCurrentPaper button.no-btn {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right {
+  right: auto;
+  left: 0;
+}
+
+#createClassExamTest2.modal.right .modal-dialog {
+  max-width: 100%;
+  width: 100%;
+}
+
+#createClassExamTest2.modal.right .modal-content {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#createClassExamTest2.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+#createClassExamTest2.modal.right a.view-template {
+  color: #5C67E6;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+#createClassExamTest2.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 5px 15px;
+  font-size: 22px;
+}
+
+#createClassExamTest2.modal.right .radio.box.active {
+  border: 1px solid #5C67E6;
+}
+
+#createClassExamTest2.modal.right .radio.box.active .radio-head {
+  color: #5C67E6;
+}
+
+#createClassExamTest2.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right a.step {
+  cursor: pointer;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head {
+  height: 60px;
+  border: 1px solid #D1DAE6;
+  border-radius: 4px 4px 0 0;
+  background-color: #F6F7FB;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head h3.texthead {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number {
+  height: 25px;
+  width: 25px;
+  background-color: #5C67E6;
+  border-radius: 50%;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .hide-btn {
+  width: 40px;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col {
+  height: 45px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D1DAE6;
+  border-left: 1px solid #d1dae6;
+  padding: 13px !important;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col i.form-check-input {
+  padding: 2px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col p {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .col-3 {
+  border-right: 1px solid #d1dae6;
+}
+
+#createClassExamTest2.modal.right button.createworksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .modal-footer {
+  background-color: #F6F7FB;
+}
+
+.modal-backdrop.show {
+  opacity: .5;
+  background-color: #172B4D;
+}
+
+.btn:disabled {
+  background-color: #555 !important;
+}
+
+[data-toggle="collapse"]:after {
+  display: inline-block;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f054";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: all linear 0.25s;
+  transition: all linear 0.25s;
+  float: right;
+}
+
+[data-toggle="collapse"].collapsed:after {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+#createWorksheet2.modal.right[_ngcontent-c6] .select-chaptermodal[_ngcontent-c6] .head[_ngcontent-c6] .hide-btn[_ngcontent-c6] a[_ngcontent-c6] {
+  color: #5C67E6 !important;
+  font-size: 20px;
+}
+
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #fff;
+  border: .5px solid #5c67e6;
+  border-radius: 4px;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 4px;
+  height: 10px;
+  border: solid #5c67e6;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.btn:disabled {
+  background-color: #555 !important;
+}
+
+#createClassExamTest2.modal.right[_ngcontent-c6] .select-chaptermodal[_ngcontent-c6] .head[_ngcontent-c6] .hide-btn[_ngcontent-c6] a[_ngcontent-c6] {
+  color: #5C67E6 !important;
+  font-size: 20px;
+}
+
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #fff;
+  border: .5px solid #5c67e6;
+  border-radius: 4px;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 4px;
+  height: 10px;
+  border: solid #5c67e6;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*--------------end modal with full width-----------------*/
+/*# sourceMappingURL=global-summary.component.css.map */

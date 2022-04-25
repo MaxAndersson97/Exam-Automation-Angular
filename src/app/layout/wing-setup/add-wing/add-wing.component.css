@@ -1,0 +1,62 @@
+.createwing-btn {
+  height: 42px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+.classesto .ng-select {
+  text-transform: lowercase;
+}
+
+.classesform .ng-select {
+  text-transform: lowercase;
+}
+
+.addWing-form input::-webkit-input-placeholder {
+  /* Chrome/Opera/Safari */
+  font-size: 14px;
+}
+
+.addWing-form input::-moz-placeholder {
+  /* Firefox 19+ */
+  font-size: 14px;
+}
+
+.addWing-form input:-ms-input-placeholder {
+  /* IE 10+ */
+  font-size: 14px;
+}
+
+.addWing-form input:-moz-placeholder {
+  /* Firefox 18- */
+  font-size: 14px;
+}
+
+.ng-placeholder {
+  font-size: 14px;
+  color: #8595A6;
+}
+
+.addWing-form .ng-placeholder {
+  color: #8595A6 !important;
+  font-size: 14px !important;
+}
+
+.ng-select .ng-placeholder {
+  color: red !important;
+}
+
+.ng-select {
+  font-size: 14px;
+  color: #3A5077;
+}
+
+.winghead .ng-select {
+  text-transform: capitalize;
+}
+/*# sourceMappingURL=add-wing.component.css.map */

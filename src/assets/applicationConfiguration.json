@@ -1,0 +1,6 @@
+{
+	"applicationConfiguration" : {
+			"assignExamDashboardDateFormat" : "dd/MM/yyyy",
+			"supportMobileNumber":"+91 9630911303"
+		 }
+}

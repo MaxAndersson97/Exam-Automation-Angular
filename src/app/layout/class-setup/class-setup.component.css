@@ -1,0 +1,356 @@
+button.addsectionbtn {
+  color: #ffffff !important;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  height: 42px !important;
+  width: 145px !important;
+  border-radius: 4px !important;
+  background-color: #5C67E6 !important;
+}
+
+.class_setup .class-drop-down-menu {
+  min-width: 10.5rem !important;
+}
+
+.class_setup .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.class_setup .single.tog ul li {
+  height: 45px;
+  padding: 10px !important;
+}
+
+.class_setup .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+/*---------------------class-setup-------------*/
+/*------------------------class-setup-----------------*/
+.class_setup {
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+          box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 506px !important;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.class_setup td, .class_setup th {
+  padding: 10px 15px;
+}
+
+.class_setup tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.class_setup th {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.class_setup td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class_setup td input, .class_setup td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.class_setup td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.addsectionteacher-form {
+  border: 1px solid #D1DAE6;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.addsectionteacher-form input, .addsectionteacher-form select {
+  height: 36px !important;
+}
+
+#AddSectionTeacher {
+  overflow: scroll !important;
+}
+
+#AddSectionTeacher button.save-btn {
+  height: 42px;
+  width: 165px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+#AddSectionTeacher tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+#AddSectionTeacher td .single button.multiselect {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+#AddSectionTeacher td, #AddSectionTeacher th {
+  padding: 10px 15px;
+}
+
+#AddSectionTeacher td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+#AddSectionTeacher td input, #AddSectionTeacher td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+button#addSection {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  height: 42px;
+  width: 145px;
+  border-radius: 4px;
+  background-color: #fff;
+}
+
+#AddSection .modal-dialog {
+  width: 400px;
+}
+
+.addSectionBtn {
+  line-height: 18px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  height: 42px;
+  width: 145px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+}
+
+.class_setup .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #fff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.class_setup .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.class_setup .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.class_setup .single.tog ul li {
+  height: 45px;
+  padding: 10px !important;
+}
+
+.class_setup .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class_setup {
+  /* Rounded sliders */
+}
+
+.class_setup .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.class_setup .single.tog .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.class_setup .single.tog .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: 1px solid #5C67E6;
+}
+
+.class_setup .single.tog .slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: -3px;
+  bottom: -2px;
+  -webkit-transition: .4s;
+  transition: .4s;
+  background: #5C67E6;
+}
+
+.class_setup .single.tog input:checked + .slider {
+  background-color: #fff;
+  border: 1px solid #5C67E6;
+}
+
+.class_setup .single.tog input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #2196F3;
+          box-shadow: 0 0 1px #2196F3;
+}
+
+.class_setup .single.tog input:checked + .slider:before {
+  -webkit-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+.class_setup .single.tog .slider.round {
+  border-radius: 34px;
+}
+
+.class_setup .single.tog .slider.round:before {
+  border-radius: 50%;
+}
+
+.worksheets.cherrypickQuestion .total_marks {
+  width: 108px;
+}
+
+.worksheets.cherrypickQuestion .question-block {
+  height: auto;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+  box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+}
+
+.worksheets.cherrypickQuestion .question-block .questionNum {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.worksheets.cherrypickQuestion .question-block .question {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheets.cherrypickQuestion .question-block .ques-tag {
+  height: 28px;
+  width: 111px;
+  border: 1px solid #3A5077;
+  border-radius: 2px;
+  background-color: #fff;
+}
+
+.worksheets.cherrypickQuestion .question-block .ques-tag a {
+  color: #3A5077;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.worksheets.cherrypickQuestion .question-block .chapter {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.grayedout {
+  opacity: 0.3;
+}
+
+/*-------------------------end class setup---------------*/
+#AddSectionTeacher[_ngcontent-c5] {
+  overflow: hidden !important;
+  right: 639px !important;
+}
+
+/*--------Table-fixed--------------------------*/
+/* Use overflow:scroll on your container to enable scrolling: */
+.class_setup {
+  max-width: 100%;
+  max-height: 498px;
+  overflow: scroll;
+}
+
+/* Use position: sticky to have it stick to the edge
+ * and top, right, or left to choose which edge to stick to: */
+thead th {
+  position: -webkit-sticky;
+  /* for Safari */
+  position: sticky;
+  top: -2px;
+}
+
+/* Just to display it nicely: */
+thead th {
+  border-top: 1px solid #dee2e6 !important;
+  background: #FFF;
+}
+
+thead th {
+  z-index: 9999;
+}
+
+/*----------------------table-fiexd-------------------*/
+.class_setup {
+  height: 100% !important;
+}
+
+.class_setup th {
+  font-size: 16px;
+  font-weight: 600;
+}
+
+table {
+  margin: 0px;
+  max-width: 100%;
+}
+/*# sourceMappingURL=class-setup.component.css.map */

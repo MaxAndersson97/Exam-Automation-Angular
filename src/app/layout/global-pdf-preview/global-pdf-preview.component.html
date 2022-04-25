@@ -1,0 +1,292 @@
+<div id="obrz1" class="fa-worksheets imported-data w-100 " style="padding-left:32px;padding-right:32px;min-height: 120px !important;position: absolute;"
+#pdfContainer
+    *ngIf="QuestionInstruction && QuestionInstruction.length > 0">
+    <div class="myPDF w-100"  style="float: left;">
+        <div style="display:flex;flex-wrap:wrap;margin-right:-15px;margin-left: -15px;">
+            <div
+                style="margin-left: 1rem!important;margin-bottom: 1rem!important;flex: 0 0 25%;max-width: 25%;flex: 0 0 25%;max-width: 25%;">
+                <img src="{{papaerHeader.InstituteImage}}" height="100px;" *ngIf="papaerHeader.InstituteImage !=''">
+                <!-- <img src="{{instituteInfo.SplashScreenImagePath}}" height="100px;" *ngIf="instituteInfo.SplashScreenImagePath !=''"> -->
+            </div>
+            <div
+                style="padding-left: 1rem!important;padding-right: 1rem!important;margin-bottom: 3rem!important; flex: 0 0 50%;max-width: 50%;flex: 0 0 50%;max-width: 50%;">
+                <h2
+                    style="color: #3A5077;font-family: calibri;font-size: 30px;font-weight: 600;text-align: center!important;padding-left: 1rem!important;">
+                    <span>{{papaerHeader.InstituteName}}</span>
+                    <!-- <span>{{instituteInfo.InstituteName}}</span> -->
+                </h2>
+                <p
+                    style="color: #3A5077;font-family: calibri;font-size: 15px;text-align: center!important;padding-left: 1rem!important;">
+                    {{papaerHeader.InstituteAddress}}
+                    <!-- {{instituteInfo.InstituteCode}} -->
+                </p>
+            </div>
+        </div>
+
+        <div style="border-top: 1px solid #D1DAE6;height: auto;margin: 0!important;margin-top: 0px !important;margin-right: 0px !important;margin-bottom: 0px !important;margin-left: 0px !important;display: flex;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;"
+            *ngIf="createTemplateDataObj.PaperType != 4">
+            <div
+                style="margin-bottom: .5rem!important;margin-top: .5rem!important;flex: 0 0 41.666667%;max-width: 41.666667%;">
+                <h3
+                    style="color: #3A5077;font-size: 20px;font-weight: 600;line-height: 21px;margin: 0!important;text-transform: capitalize;">
+                    Test / Exam Name: {{createTemplateDataObj.Name | lowercase}}
+                </h3>
+            </div>
+            <div style="margin-bottom: .5rem!important;margin-top: .5rem!important;flex: 0 0 25%;max-width: 25%;">
+                <h3
+                    style="color: #3A5077;font-size: 20px;font-weight: 600;line-height: 21px;margin: 0!important;text-transform: capitalize;">
+                    Standard:
+                    {{createTemplateDataObj.ClassName.toLowerCase()}}
+                </h3>
+            </div>
+            <div
+                style="margin-bottom: .5rem!important;margin-top: .5rem!important;flex: 0 0 33.3333%;max-width: 33.3333%;">
+                <h3
+                    style="color: #3A5077;font-size: 20px;font-weight: 600;line-height: 21px;margin: 0!important;text-transform: capitalize;">
+                    Subject:
+                    {{createTemplateDataObj.SubjectName.toLowerCase()}}
+                </h3>
+            </div>
+
+        </div>
+        <div style="border-top: 1px solid #D1DAE6;height: auto;margin: 0!important;margin-top: 0px !important;margin-right: 0px !important;margin-bottom: 0px !important;margin-left: 0px !important;display: flex;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;"
+            *ngIf="createTemplateDataObj.PaperType == 4">
+            <div
+                style="margin-bottom: .5rem!important;margin-top: .5rem!important;flex: 0 0 33.333333%;max-width: 33.333333%;">
+                <h3
+                    style="color: #3A5077;font-size: 20px;font-weight: 600;line-height: 21px;margin: 0!important;text-transform: capitalize;text-transform: capitalize;">
+                    Worksheet Name:
+                    {{createTemplateDataObj.Name | lowercase}}
+                </h3>
+            </div>
+            <div
+                style="margin-bottom: .5rem!important;margin-top: .5rem!important;flex: 0 0 33.333333%;max-width: 33.333333%;">
+                <h3
+                    style="color: #3A5077;font-size: 20px;font-weight: 600;line-height: 21px;margin: 0!important;text-transform: capitalize;text-transform: capitalize;">
+                    Standard:
+                    {{createTemplateDataObj.ClassName.toLowerCase()}}
+                </h3>
+            </div>
+            <div
+                style="margin-bottom: .5rem!important;margin-top: .5rem!important;flex: 0 0 33.3333%;max-width: 33.3333%;">
+                <h3
+                    style="color: #3A5077;font-size: 20px;font-weight: 600;line-height: 21px;margin: 0!important;text-transform: capitalize;text-transform: capitalize;">
+                    Subject:
+                    {{createTemplateDataObj.SubjectName.toLowerCase()}}
+                </h3>
+            </div>
+
+        </div>
+
+        <div style="display: flex;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;margin: 0!important;"
+            *ngIf="createTemplateDataObj.PaperType !=4">
+            <div
+                style="margin-bottom: .5rem!important;margin-top: .5rem!important;flex: 0 0 41.666667%;max-width: 41.666667%;">
+                <div class="header_subsection">Student Name:</div>
+                <div class="blankspace"></div>
+            </div>
+            <div style="margin-bottom: .5rem!important;margin-top: .5rem!important;flex: 0 0 25%;max-width: 25%;">
+                <div class="header_subsection">Section:</div>
+                <div class="blankspace"></div>
+            </div>
+            <div
+                style="margin-bottom: .5rem!important;margin-top: .5rem!important;flex: 0 0 33.3333%;max-width: 33.3333%;">
+                <div class="header_subsection">Roll No.:</div>
+                <div class="blankspace"></div>
+            </div>
+        </div>
+        <div style="display: flex;flex-wrap: wrap;margin-right: 0px;margin-left: -15px;justify-content:flex-end!important;border-bottom: 1px solid #dee2e6!important;border-bottom: 1px solid #D1DAE6;"
+            *ngIf="createTemplateDataObj.PaperType !=4">
+            <div
+                style="height: 27px;border: 1px solid #d1dae6;border-radius: 2px;background-color: #fff;text-align: center!important;margin-bottom: .25rem!important;margin-top: .25rem!important;border: 1px solid #D1DAE6;font-size: 18px;color: #3A5077;font-weight: 600;">
+                <p style="margin: 0 0.25rem !important;"> Questions: {{createTemplateDataObj.TotalQuestionCount}}</p>
+            </div>
+            <div
+                style="height: 27px;border: 1px solid #d1dae6;border-radius: 2px;background-color: #fff;text-align: center!important;margin-bottom: .25rem!important;margin-top: .25rem!important;border: 1px solid #D1DAE6;font-size: 18px;color: #3A5077;font-weight: 600;">
+                <p style="margin: 0 0.25rem !important;"> Time: {{createTemplateDataObj.Duration}} Mins</p>
+            </div>
+            <div style="height: 27px;border: 1px solid #d1dae6;border-radius: 2px;background-color: #fff;text-align: center!important;margin-bottom: .25rem!important;margin-top: .25rem!important;border: 1px solid #D1DAE6;font-size: 18px;color: #3A5077;font-weight: 600;"
+                *ngIf="createTemplateDataObj['IsOMRPaper']">
+                <p style="margin: 0 0.25rem !important;"> Negative Marks: {{createTemplateDataObj.NegativeMarks}}</p>
+            </div>
+            <div
+                style="height: 27px;border: 1px solid #d1dae6;border-radius: 2px;background-color: #fff;text-align: center!important;margin-bottom: .25rem!important;margin-top: .25rem!important;border: 1px solid #D1DAE6;font-size: 18px;color: #3A5077;font-weight: 600;">
+                <p style="margin: 0 0.25rem !important;"> Marks: {{createTemplateDataObj.TotalMarks}}</p>
+            </div>
+        </div>
+
+        <div class="row" *ngIf="HeaderInstruction.length > 0">
+            <div class="col-12 col-md-12 instructions ml-3" style="border-bottom: 1px solid #D1DAE6;">
+                <p class="texthead py-2 m-0 ">Instructions</p>
+                <div class="steptext" *ngFor="let instruction of HeaderInstruction; let indx = index; let last = last;">
+                    <div class="steptext mr-1"> {{indx+1}}. {{instruction.Instruction}} </div>
+
+                </div>
+
+            </div>
+        </div>
+        <div class="question-preview"
+            style="height: auto;background-color: #ffffff;margin: 0px !important;padding-bottom: .5rem!important;padding-top: .5rem!important;"
+            *ngFor="let questions of QuestionInstruction; let parentIndx = index;">
+            <ng-container
+                *ngFor="let question of questions.Questions; let chIndx = index; let last = last; let first= first">
+                <div style="width: 100%!important;font-size: 18px;line-height: 26px !important;color: #000;font-size: 18px;line-height: 26px;"
+                    *ngIf="(question.SubQuestionIndex==1) && question.IsOr ">
+                    <div class="or-tag question text-center mx-auto"><span>OR</span></div>
+                </div>
+
+                <div style="margin-left: 5px;flex: 0 0 100%;flex-grow: 0;flex-shrink: 0;flex-basis: 100%;max-width: 100%;padding: 0px !important;"
+                    *ngIf="createTemplateDataObj.PaperType != 4">
+                    <div style="flex: 0 0 97%;flex-grow: 0;flex-shrink: 0;flex-basis: 97%;max-width: 97%;"
+                        class="question_main">
+                        <div class="question"
+                            style="float: left;color: #000;font-size: 18px;line-height: 26px;width: 95%;margin-top: 20px;margin-left:0px;padding-left:0px;max-width: 90%;">
+                            <div class="question" [ngClass]="{'boldtext': boldtext === true}"
+                                style="float: left;margin-right: 0.5rem!important;font-size: 18px;line-height: 26px;">
+                                Q{{question.QueIndex}}.
+                            </div>
+                            <div style="width: 90%;float: left;">
+                                <mathjax class="question main-answer-img"
+                                    style="color: #000;font-size: 18px;line-height: 26px;font-size: 18px;line-height: 26px !important;max-width: 90%;float: left;"
+                                    [content]="question.QuestionDescription"></mathjax>
+
+                                <div class="main question mt-2"
+                                    style="display: flex;flex-wrap: wrap;width: 100%!important;max-width: 95%;float: left;font-size: 18px;line-height: 26px !important;color: #000;font-size: 18px;line-height: 26px;">
+                                    <div class="item" *ngFor="let omrOption of question.lstOption">
+                                        <span class="float-left px-2"
+                                            [ngClass]="{'boldtext': boldtext === true}">{{omrOption.OptionSlag}}</span>
+                                        <mathjax class="float-left question main-answer-img"
+                                            [content]="omrOption.OptionValue">
+                                        </mathjax>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="question" [ngClass]="{'boldtext': boldtext === true}"
+                            style="width: 10%; text-align: right;background-color: #FFFFFF;float: right !important;margin-top: 20px;"
+                            *ngIf="(chIndx == 0)">
+                            <span style="text-align: left!important;">{{questions.TotalMarks}}</span>
+                            <span style="margin-left: .25rem!important;" *ngIf="+question.Marks <2">Mark</span>
+                            <span style="margin-left: .25rem!important;" *ngIf="+question.Marks > 1">Marks</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="margin-left: 5px;flex: 0 0 100%;flex-grow: 0;flex-shrink: 0;flex-basis: 100%;max-width: 100%;padding: 0px !important;"
+                    *ngIf="createTemplateDataObj.PaperType == 4">
+                    <div style="flex: 0 0 97%;flex-grow: 0;flex-shrink: 0;flex-basis: 97%;max-width: 97%;"
+                        class="question_main">
+                        <div class="question"
+                            style="display: flex;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;margin-top: 10px;flex: 0 0 100%;max-width: 100%;float: left !important;width: 100%;">
+                            <div [ngClass]="{'boldtext': boldtext === true}"
+                                style="float:left !important;width: auto;padding-left:10px;">
+                                Q{{question.QueIndex}}.
+                            </div>
+
+                            <mathjax class="question float-left main-answer-img"
+                                style="color: #000;font-size: 18px;line-height: 26px;font-size: 18px;line-height: 26px !important;max-width: 91%;margin-left: 5px;float: left;"
+                                [content]="question.QuestionDescription"></mathjax>
+
+                            <div class="main question" *ngIf="question.lstOption != null"
+                                style="padding-top: 8px; display: flex;flex-wrap: wrap;margin-right: -15px;margin-left: -15px;width: 100%!important;font-size: 18px;line-height: 26px !important;color: #000;font-size: 18px;line-height: 26px;">
+                                <div class="item" *ngFor="let omrOption of question.lstOption">
+                                    <span [ngClass]="{'boldtext': boldtext === true}"
+                                        style="float:left !important;padding-left: 2rem!important;">{{omrOption.OptionSlag}}</span>
+                                    <mathjax style="margin-bottom: .5rem!important;float:left!important"
+                                        class="question main-answer-img" [content]="omrOption.OptionValue"></mathjax>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="width: 100%!important;color: #000;font-size: 18px;line-height: 26px;font-size: 18px;line-height: 26px!important;float: left!important;margin: 0!important;"
+                    style="width: 100%;float: left;" class="ml-0" *ngIf="isShowAnswer"
+                    [ngClass]="{'mt-1': createTemplateDataObj.PaperType != 4}">
+                    <div class="question float-left" [ngClass]="{'boldtext': boldtext === true}"
+                        style="color: #000;font-size: 18px;line-height: 26px !important;"
+                        *ngIf="createTemplateDataObj.PaperType == 4">
+                        Ans:
+                    </div>
+                    <div class="question float-left" [ngClass]="{'boldtext': boldtext === true}"
+                        style="color: #000;min-width:35px;font-size: 18px;line-height: 26px !important;"
+                        *ngIf="createTemplateDataObj.PaperType != 4">
+                        Ans:
+                    </div>
+
+                    <div class="float-left question main-answer" *ngFor="let omrOption of question.lstOption"
+                        style="width: 92%;">
+                        <span class="float-left px-2" [ngClass]="{'boldtext': boldtext === true}"
+                            *ngIf="omrOption.IsCorrect">{{omrOption.OptionSlag}} </span>
+                        <mathjax class="float-left mb-2 main-answer-img" *ngIf="omrOption.IsCorrect"
+                            [content]="omrOption.OptionValue"></mathjax>
+                    </div>
+                    <!-- <div style="clear: both;float: none;"></div> -->
+                    <div class="ml-2 pl-2 question" style="width: 92%;float: left;text-align: justify;">
+                        <mathjax class="question main-answer-img item_ans mathans" [content]="question.QuestionAnswer">
+                        </mathjax>
+                    </div>
+                </div>
+                <div style="width: 100%!important;color: #000;font-size: 18px;line-height: 26px;font-size: 18px;line-height: 26px!important;float: left;"
+                    *ngIf="(((questions.Questions.length /2)-1) == chIndx) && question.IsOr ">
+                    <div class="or-tag question text-center mx-auto"><span>OR</span></div>
+                </div>
+            </ng-container>
+        </div>
+    </div>
+</div>
+<div style="float: right;background-color: #fff;height: auto;width: auto;border-radius: 4px;font-family: calibri;padding-left: 1rem !important;padding-bottom: .5rem!important;margin: 0px !important;"
+    *ngIf="QuestionInstruction && QuestionInstruction.length > 0" class="sticky-footer">
+    <div class="col-12 col-md-12">
+        <button *ngIf='!(isSmallScreen$ | async)' type="button" id="printPDF_btn" style="height: 54px;width: 175px;border-radius: 4px;background-color: #5c67e6;color: #fff;font-size: 16px;font-weight: 600;
+                line-height: 22px;text-align: center!important;margin-left: .5rem!important;float: right!important;"
+            (click)="openInPDF()">Print PDF</button>
+        <button *ngIf='!(isSmallScreen$ | async) && this.isdownlaodlink' type="button" id="downloadPDF_btn_new" style="height: 54px;width: 175px;border-radius: 4px;background-color: #5c67e6;color: #fff;font-size: 16px;font-weight: 600;
+                line-height: 22px;text-align: center!important;margin-left: .5rem!important;float: right!important;"
+            (click)="splitMultiPagePDF()">
+            <div class="loader" *ngIf="isLoad" ></div>
+            <span *ngIf="!isLoad">Download PDF</span></button>
+
+            <!-- <button *ngIf='!(isSmallScreen$ | async) && !this.isdownlaodlink' type="button" id="downloadPDF_btn_down" style="height: 54px;width: 175px;border-radius: 4px;background-color: #5c67e6;color: #fff;font-size: 16px;font-weight: 600;
+            line-height: 22px;text-align: center!important;margin-left: .5rem!important;float: right!important;"
+        (click)="splitMultiPagePDF()">
+        <div class="loader" *ngIf="isLoad" ></div>
+        <span *ngIf="!isLoad">Download PDF</span></button> -->
+
+        <button type="button" *ngIf='(isSmallScreen$ | async) && this.isdownlaodlink' id="downloadPDF_btn"
+            style="height: 54px; width: 175px; border-radius: 4px; background-color: #5c67e6; color: #fff; font-size: 16px;
+                font-weight: 600; line-height: 22px;text-align: center!important;margin-left: .5rem!important;float: right!important;" (click)="downloadPDF()">Download PDF</button>
+
+                    <button type="button" *ngIf='(isSmallScreen$ | async) && !this.isdownlaodlink' id="downloadPDF_btn_mob"
+                    style="height: 54px; width: 175px; border-radius: 4px; background-color: #5c67e6; color: #fff; font-size: 16px;
+                        font-weight: 600; line-height: 22px;text-align: center!important;margin-left: .5rem!important;float: right!important;" (click)="downPDF()">
+                        <div class="loader" *ngIf="isLoad" ></div>
+                        <span *ngIf="!isLoad" >Download PDF</span>
+                        </button>
+
+        <div class="float-right">
+            <table>
+                <tr *ngIf='!(isSmallScreen$ | async) && isShowAnswer && imgcount>0'>
+                    <td style="text-align: left;">
+                        <input type="radio" value="true" name="imagesize" [checked]="IsMaxheight === true"
+                            (change)="maxchangeimagesize(true)"> Compress Image
+                    </td>
+                    <td style="text-align: left;">
+                        <input type="radio" value="false" name="imagesize" [checked]="IsMaxheight === false"
+                            (change)="maxchangeimagesize(false)"> Enlarge Image
+                    </td>
+                </tr>
+                <tr>
+                    <td style="text-align: left;">
+                        <input type="radio" value="false" name="textbold" [checked]="boldtext === false"
+                            (change)="changetextbold(false)"> Unbold Text
+                    </td>
+                    <td style="text-align: left;">
+                        <input type="radio" value="true" name="textbold" [checked]="boldtext === true"
+                            (change)="changetextbold(true)"> Bold Text
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>

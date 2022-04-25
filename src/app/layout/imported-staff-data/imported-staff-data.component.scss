@@ -1,0 +1,155 @@
+.class_setup {
+  height: calc(100vh - 155px);
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.imported-data {
+
+  td input,
+  td select,
+  td .multiselect {
+    width: 160px;
+  }
+
+  th.delete_col {
+    position: absolute;
+    // border-left: 1px solid #D1DAE6;
+    right: -1px;
+    background: #fff;
+    height: 50px;
+
+    .remove {
+      width: 85px;
+      height: 36px;
+      background-color: #fff;
+      text-align: center;
+    }
+  }
+
+  td.delete_col {
+    position: sticky;
+    border-left: 1px solid #D1DAE6;
+    right: -1px;
+    ;
+    background: #fff;
+
+    .remove {
+      width: 40px;
+      height: 36px;
+      border: 1px solid #D1DAE6;
+      border-radius: 2px;
+      background-color: #fff;
+      text-align: center;
+      margin: auto;
+      padding: 4px;
+    }
+  }
+
+  .overflow {
+    overflow-x: auto;
+    height: calc(100vh - 155px);
+  }
+
+  tr.errorInStudentInfo {
+    background-color: rgba(229, 34, 84, 0.1);
+    border-left: 3px solid #E52254;
+
+    td.error button.multiselect {
+      border: 1px solid #E52254 !important;
+    }
+
+    td.error input,
+    td.error td select {
+      border: 1px solid #E52254 !important;
+    }
+  }
+
+  tr.errorInStudentInfo td.error select,
+  tr.errorInStudentInfo td.error input,
+  tr.errorInStudentInfo td.error ng-select {
+    border: 1px solid #E52254 !important;
+  }
+}
+
+td input,
+td select {
+  color: #3A5077 !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+th .tablespace {
+  width: 85px;
+}
+
+.imported-data tr.errorInStaffInfo {
+  background-color: rgba(229, 34, 84, 0.1);
+  border-left: 3px solid #E52254;
+}
+
+.imported-data tr.errorInStaffInfo td.error input,
+.imported-data tr.errorInStaffInfo td.error td select {
+  border: 1px solid #E52254 !important;
+}
+
+.import .error {
+  color: #E52254;
+}
+
+.import .success {
+  color: #3A5077;
+}
+
+.import {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+  margin-top: 12px;
+}
+
+button.saveandclose-btn {
+  background-color: #01CA85;
+  color: #ffffff;
+  height: 40px;
+  width: 140px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+button.addnewrow-btn {
+  background-color: #5C67E6;
+  color: #ffffff;
+  height: 40px;
+  width: 140px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.class_setup th:nth-of-type(4),
+.class_setup td:nth-of-type(4) {
+  min-width: 225px;
+}
+
+.class_setup th:nth-of-type(6),
+.class_setup td:nth-of-type(6) {
+  min-width: 100px;
+}
+
+.class_setup td:nth-of-type(6) input {
+  width: 110px !important;
+}
+
+.class_setup td .ng-value {
+  color: #3A5077;
+  font-family: Inter;
+  font-size: 14px;
+  line-height: 21px;
+}

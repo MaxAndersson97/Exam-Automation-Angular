@@ -1,0 +1,480 @@
+<div class="container-fluid p-0" *ngIf="!isDataFound">
+    <div class="row">
+        <div class="col-md col-lg col-sm">
+            <div class="exam_setup m-3">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                    <div class=" row">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="examsetup-img mx-auto mt-5">
+                                <img src="assets/images/EmptyState-ExamSetup.svg" alt="" class="w-100 mt-5">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="examsetup-content mx-auto ">
+                                <h2 class="text-center top-header my-3">Seems like you have not assigned exam to student
+                                </h2>
+                                <p class="text-center examsetup-description mb-0">Create monthly exam question paper
+                                    manually,
+                                    add marks</p>
+                                <p class="text-center examsetup-description">and distribute it to the students</p>
+                                <!-- <div class="start_btn text-center">
+                                    <button type="button" id="create_worksheet" (click)="openAddTemplateDialog();"
+                                        class="btn createworksheet-btn ">Create Class Test / Exam</button>
+                                </div> -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Page Content -->
+<div id="page-content-wrapper" *ngIf="isDataFound">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="m-3">
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="row">
+                            <div class="col-3 col-md-3">
+                                <h2 class="top-header mb-3">Assign Exam</h2>
+                            </div>
+                            <div class="col-9 col-md-9">
+                                <div class="searchbartable assign class-test float-right mb-3">
+                                    <form action="">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                        <input type="text" placeholder="Search Assign exam" name="search"
+                                            [(ngModel)]="searchString" name="search">
+                                    </form>
+                                </div>
+
+                                <div class="float-right text-left">
+                                    <ng-select class="ngselect" [(ngModel)]="PaperModeType" [items]="PaperModeList"
+                                        bindLabel="name" placeholder="Paper Mode" bindValue="value" [searchable]=false
+                                        [clearable]=true name="PaperModeType" (change)="onPaperModeTypeChange()">
+                                    </ng-select>
+                                </div>
+
+                                <div class="filterbtntable float-right mb-3 ml-3">
+                                    <div class="single tog">
+                                        <button class="dropdown-btn dropdown-toggle " id="dropdownMenuButton"
+                                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                            (click)="showFilterBox();">Filters</button>
+                                        <ul class="dropdown-container dropdown-menu p-0 m-0" type="none"
+                                            [ngClass]="showFilter ? 'show' : ''" *ngIf="showFilter"
+                                            (blur)="showFilter  = !showFilter">
+                                            <li class="p-3">
+                                                <div class="w-100">
+                                                    <h3 class="w-50 float-left">Filter By</h3>
+                                                    <a class="w-50 float-right text-right"
+                                                        (click)="selectedOption=''; selectedSubjectId=''; showFilter  = !showFilter; clearFilter()">Clear
+                                                        Filter</a>
+                                                </div>
+                                            </li>
+                                            <form>
+                                                <div class="addsection-form py-1">
+                                                    <div class=" col-md-12 col-12 p-0">
+                                                        <div class="form-group col-md-12 col-sm-12 single">
+
+                                                            <ng-select [(ngModel)]="selectedOption"
+                                                                (change)="getClassIdFilter(selectedOption); getSectionByClassID(selectedOption)"
+                                                                [items]="classesList" bindLabel="ClassName"
+                                                                placeholder="Select Class" bindValue="ClassID"
+                                                                [searchable]=false name="classFilter" id="classFilter">
+                                                                <ng-template ng-option-tmp let-item="item">
+                                                                    <span
+                                                                        style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                                                                </ng-template>
+                                                                <ng-template ng-label-tmp let-item="item">
+                                                                    <span *ngIf="item.ClassName"
+                                                                        style="text-transform: capitalize">
+                                                                        {{item.ClassName.toLowerCase()}}</span>
+                                                                    <span *ngIf="!(!!item.ClassName)"
+                                                                        style="color: #999999;"> Select
+                                                                        Standard</span>
+                                                                </ng-template>
+                                                            </ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12 single">
+
+                                                            <ng-select [(ngModel)]="selectedSubjectId"
+                                                                [items]="subjects" bindLabel="SubjectName"
+                                                                placeholder="Select Subject" bindValue="SubjectID"
+                                                                [searchable]=false name="subjectFilter">
+                                                                <ng-template ng-option-tmp let-item="item">
+                                                                    <span
+                                                                        style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                                                                </ng-template>
+                                                                <ng-template ng-label-tmp let-item="item">
+                                                                    <span *ngIf="item.SubjectName"
+                                                                        style="text-transform: capitalize">
+                                                                        {{item.SubjectName.toLowerCase()}}</span>
+                                                                    <span *ngIf="!(!!item.SubjectName)"
+                                                                        style="color: #999999;"> Select
+                                                                        Standard</span>
+                                                                </ng-template>
+                                                            </ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <ng-select [(ngModel)]="paperType" [items]="papertypeList"
+                                                                bindLabel="paperName" placeholder="Select Paper Type"
+                                                                bindValue="paperID" [searchable]=false required
+                                                                name="paperType">
+                                                            </ng-select>
+                                                        </div>
+
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <ng-select [(ngModel)]="academicYearID"
+                                                                name="CurrentAcademicSessionID" [items]="academicYears"
+                                                                bindValue="AcademicYearID" [searchable]='false' required
+                                                                placeholder="Select Academic Year">
+                                                                <ng-template ng-option-tmp let-item="item">
+                                                                    {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo
+                                                                    | date :'yy'}}
+                                                                    Session
+                                                                </ng-template>
+                                                                <ng-template ng-label-tmp let-item="item">
+                                                                    <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                                                                        {{ item.PeriodFrom | date: 'yyyy'
+                                                                        }}-{{item.PeriodTo | date :'yy'}}
+                                                                        Session</span>
+                                                                    <span *ngIf="!(item.PeriodFrom && item.PeriodTo)"
+                                                                        style="color: #999999;"> Select Academic
+                                                                        Session</span>
+                                                                </ng-template>
+                                                            </ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <ng-select name="EA_SectionID" [(ngModel)]="sectionID"
+                                                                [items]="sectionList" bindValue="AESectionID"
+                                                                [searchable]='false' placeholder="Select Section">
+                                                                <ng-template ng-option-tmp let-item="item">
+                                                                    {{ item.SectionName}}
+                                                                </ng-template>
+                                                                <ng-template ng-label-tmp let-item="item">
+                                                                    <span *ngIf="item.SectionName">
+                                                                        {{ item.SectionName}}</span>
+                                                                    <span *ngIf="!(item.SectionName)"
+                                                                        style="color: #999999;"> Select Section</span>
+                                                                </ng-template>
+                                                            </ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <button type="button" id="filterbutton"
+                                                                class="btn filterBtn w-100 mt-1"
+                                                                (click)="filterData(selectedOption, selectedSubjectId, paperType, academicYearID, sectionID)">Apply
+                                                                Filter</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="  assign-exam-list class_setup imported-data">
+                            <div class="overflow">
+                                <table id="classTestExam" class="w-100 student-list table">
+                                    <thead>
+                                        <tr>
+                                            <th class="assignType">
+                                                <p>Paper Type</p>
+                                            </th>
+                                            <th class="assignType">
+                                                <p>Paper Mode</p>
+                                            </th>
+                                            <th class="assignMode">
+                                                <p>Paper Status</p>
+                                            </th>
+                                            <th class="assignworksheet-name">
+                                                <p>Mark Status</p>
+                                            </th>
+                                            <th class="assignMode">
+                                                <p>Test ID</p>
+                                            </th>
+                                            <th class="assignStandard">
+                                                <p>Standard</p>
+                                            </th>
+                                            <th class="assignStandard">
+                                                <p>Section</p>
+                                            </th>
+                                            <th class="assignSubject">
+                                                <p>Subject</p>
+                                            </th>
+                                            <th class="assignSubject">
+                                                <p>Date</p>
+                                            </th>
+                                            <th class="assignSubject">
+                                                <p>Time</p>
+                                            </th>
+                                            <th class="assignworksheet-name">
+                                                <p>Paper Name</p>
+                                            </th>
+                                            <th class="assignTotalQues">
+                                                <p>Total Question</p>
+                                            </th>
+                                            <th class="assignTotalMarks">
+                                                <p>Total Marks</p>
+                                            </th>
+                                            <th class="assignDuration">
+                                                <p>Duration</p>
+                                            </th>
+                                            <th>
+                                                <p class="tablespace"></p>
+                                            </th>
+                                            <th class="action_col">
+                                                <div class="action"></div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="assignExamList.length > 0">
+                                        <tr class=""
+                                            *ngFor="let exam of assignExamList | search: searchString | paginate: {itemsPerPage: rowsOnPage, currentPage:page, id: '1'}; let i = index;">
+                                            <td class="assignType">{{exam.PaperTypeName | lowercase}}</td>
+                                            <td class="assignType">{{exam?.IsOMRPaper? 'MCQ':'Descriptive' | lowercase}}
+                                            </td>
+                                            <td class="assignMode"
+                                                [ngClass]="{'text-success':exam.ExamStatus == 1 || exam.ExamStatus == 4, 'text-warning':exam.ExamStatus == 3,  'text-danger':exam.ExamStatus == 2}">
+                                                {{exam.ExamStatusName | lowercase}}</td>
+
+                                            <td class="assignworksheet-name">{{exam.ResultStatusName}}</td>
+                                            <td class="assignStandard">{{exam.TestID}}</td>
+
+                                            <td class="assignStandard">{{exam.ClassName | lowercase}}</td>
+                                            <td class="assignStandard">{{exam.SectionName | lowercase}}</td>
+                                            <td class="assignSubject">{{exam.SubjectName | lowercase}}</td>
+                                            <td class="assignSubject">{{exam.EaxmDateText | date: examDateFormat}}</td>
+                                            <td class="assignSubject">
+                                                <!-- {{exam.EaxmTimeText.split(":").slice(0,-1).join(':')}} -->
+                                                {{exam.EaxmTimeText}}
+                                            </td>
+                                            <td class="assignworksheet-name">{{exam.PaperName | lowercase}}</td>
+                                            <td class="assignTotalQues">{{exam.TotalQuestions}}</td>
+                                            <td class="assignTotalMarks">{{exam.TotalMarks}} Marks</td>
+                                            <td class="assignDuration">{{exam.Duration}} Mins</td>
+                                            <td class="action_col">
+                                                <div class="remove single tog">
+                                                    <div class="dropdown ">
+                                                        <button class="btn btn-primary dropdown-toggle form-control"
+                                                            type="button" data-toggle="dropdown"
+                                                            [ngStyle]="{'cursor': (exam.ExamStatus == 2)? 'not-allowed': 'pointer'}">Action
+                                                            <span class="caret"></span></button>
+
+                                                        <ng-container *ngIf="exam.ExamStatus !=2">
+                                                            <ul class="dropdown-menu p-0">
+                                                                <li *ngIf="exam.ExamStatus !=4">
+                                                                    <a (click)="openAssignedStudentBySectionID(exam)">Edit
+                                                                        Exam</a>
+                                                                </li>
+                                                                <li *ngIf="exam.ExamStatus != 4">
+                                                                    <a (click)="openChangeStatus(exam)">Change
+                                                                        Status</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a (click)="goToPaperSummary(exam)">Paper
+                                                                        Summary</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a (click)="goToPreviewPaper(exam)">Preview
+                                                                        Paper</a>
+                                                                </li>
+                                                                <li>
+                                                                    <a (click)="goToModalAnswersheet(exam)">View Model
+                                                                        Answer</a>
+                                                                </li>
+                                                                <li *ngIf="exam.ExamStatus == 4">
+                                                                    <a (click)="openMarkAttandance(exam, 'Attandance')">Add/View
+                                                                        Marks</a>
+                                                                </li>
+                                                                <li *ngIf="exam.ExamStatus == 4 && exam.IsOMRPaper">
+                                                                    <a (click)="openMarkAttandance(exam, 'UploadOmr')">
+                                                                        Upload OMR Answersheet</a>
+                                                                </li>
+                                                                <li
+                                                                    *ngIf="exam.ExamStatus == 4 && exam.IsOMRPaper == true">
+                                                                    <a (click)="omrResult(exam,'success')">OMR
+                                                                        Results</a>
+                                                                </li>
+                                                            </ul>
+                                                        </ng-container>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <ng-container>
+                                        <div class="no-result-found"
+                                            *ngIf="assignExamList && assignExamList.length < 1">No results found.</div>
+                                    </ng-container>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="pages w-100" *ngIf="assignExamList && assignExamList.length > 0">
+                            <pagination-controls class="pages" (pageChange)="page = $event" id="1" [maxSize]="10"
+                                directionLinks="true" previousLabel="" nextLabel="" responsive="true">
+                            </pagination-controls>
+                        </div>
+                        <div class="selectWrapper" *ngIf="assignExamList && assignExamList.length > 0">
+                            <ng-select class="select_Show" id="1" [(ngModel)]="rowsOnPageTemp"
+                                (change)="onShowPageChange(rowsOnPageTemp)">
+                                <ng-option *ngFor="let row of rowsOnPageSet" [value]="row">Show {{ row }} Results
+                                </ng-option>
+                            </ng-select>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- specific student modal -->
+<div class="modal right fade" id="specific_student1" bsModal #specific_student1="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header pb-4">
+                <button type="button" class="close float-left pt-1" data-dismiss="modal" aria-label="Close"
+                    (click)="closeModel()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center m-auto" id="AddWing_header">Select Specific Students</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="px-4 py-2 mt-1">
+                        <div class="col-md-12 col-12 p-0">
+                            <div class="select_all_chbox float-left ">
+                                <p class="m-0">Select All</p>
+                                <label class="checkbox-container">
+                                    <input type="checkbox" class="form-check-input h-auto m-0" value="" name="book_all"
+                                        [checked]="selectedAll" (change)="selectAll();">
+                                    <span class="checkmark"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="addWing-form px-4 py-2 mt-4">
+                        <div *ngFor="let student of selectedStudentDetails; let i = index"
+                            class="col-md-12 col-12 p-0 specific_students h-auto">
+                            <label class="checkbox-container">
+                                <input type="checkbox" class="form-check-input h-auto m-0" value="" name="book_{{i}}"
+                                    [checked]="student.IsSelected" (change)="updateStudent(i);">
+                                <span class="checkmark"></span>
+                            </label>
+                            <p class="ml-4 pl-2 mb-0" style="text-transform: capitalize;">{{student.StudentName}}</p>
+                        </div>
+                        <div class="clearfix"></div>
+
+                        <div class="row my-4">
+                            <div class="form-group col-md-12 col-lg-12">
+                                <button type="button" id="selectStudentBtn" class="btn selectStudentBtn w-100 mt-2"
+                                    (click)="saveSelectStudent()" [disabled]="!isStudentSelected">Select
+                                    Student</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+            </div> -->
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+<!-- Modal--------------------------------------------------------------------- -->
+<!-- Modal -->
+<div class="modal right fade" id="changeStatusModal" bsModal #changeStatusModal="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header pb-4">
+                <button type="button" (click)="closeChangeModal()" class="close float-left pt-1" data-dismiss="modal"
+                    aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center m-auto" id="AddWing_header">Change Status</h4>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="addWing-form p-4">
+                        <div class="row">
+                            <div class="form-group col-md-12 col-sm-12">
+                                <label class="">Change Status</label>
+                                <ng-select [(ngModel)]="changeStatusObj.ExamStatus" bindValue="id" bindLabel="name"
+                                    [items]="statusList" name="a" placeholder="Select Status"
+                                    (change)="validateForm(changeStatusObj)">
+                                </ng-select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 col-sm-12 single">
+                                <label class="">Reason<span style="color: red;"
+                                        *ngIf="(changeStatusObj.ExamStatus == 3) || (changeStatusObj.ExamStatus && changeStatusObj.ExamStatus == 2)">*</span></label>
+                                <textarea class="form-control" [(ngModel)]="changeStatusObj.Reason" name="Reason"
+                                    rows="3" id="Reason" placeholder="Enter Your Reason Here" required
+                                    (change)="validateForm(changeStatusObj)"></textarea>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 col-sm-12" *ngIf="changeStatusObj.ExamStatus == 3">
+                                <label class="mb-0">Select Date & Time <span style="color: red;">*</span></label>
+                                <input [owlDateTime]="dt" [owlDateTimeTrigger]="dt" class="form-control dateTimeInput"
+                                    [(ngModel)]="changeStatusObj.ExamDateTime" #dateTime1="ngModel" name="dse"
+                                    placeholder="10/30/2019 10:25 AM" [min]="min"
+                                    (dateTimeInput)="validateForm(changeStatusObj)" readonly>
+                                <owl-date-time #dt></owl-date-time>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-md-12 col-lg-12">
+                                <button type="button" id="update_btn" class="btn update-btn w-100 mt-2"
+                                    (click)="saveExamStatus()" [disabled]="!isChangeStFrmValidate">Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+
+<div class="modal fade modal-md" id="AddMarksModal" bsModal #AddMarksModal1="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title ">Add Marks</h4>
+                <button type="button" (click)="closeAddMarksModal()" class="close float-left pt-1"
+                    style="margin-top: -2px;" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body text-center">
+                <div class="row m-0">
+                    <h5>Add Marks Manually</h5>
+                    <p class="pera-text mb-1">Click this option to enter the marks of one student at a time.</p>
+                    <button type="button" class="btn btn-default btn-yes" (click)="addMarksManually()">Add
+                        Manually</button>
+                </div>
+                <hr>
+                <div class="row m-0">
+                    <h5>Add Marks via CSV</h5>
+                    <p class="pera-text mb-1">Click this option to enter the marks of all students of a class, using
+                        provided excel.</p>
+                    <button type="button" class="btn btn-default btn-no" (click)="addMarksCSV()">Add CSV</button>
+                </div>
+
+
+
+                <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+                </div> -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+</div>
+
+<style>
+    .pera-text {
+        width: 384px;
+        text-align: left;
+    }
+</style>

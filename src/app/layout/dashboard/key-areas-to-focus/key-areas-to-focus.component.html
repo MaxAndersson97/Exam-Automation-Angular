@@ -1,0 +1,147 @@
+<div class="container-fluid p-0">
+  <div class="row">
+      <div class="col-md-12 col-lg-12">
+          <div class="m-3 row">
+              <h2 class="top_performing_feculties_head">Key Areas to Focus</h2>
+
+                <!---------------low-course-completion----------->
+                <div class="col-12 mt-2 p-0">
+                  <div class="low_course_completion p-3">
+                    <h3 class="mb-0">Low Course Completion, Assessment & Poor Results</h3>
+                    <div class="low_course_table w-100 mt-2">
+                      <table class="w-100">
+                        <thead>
+                          <tr>
+                            <th>CLASS & SECTION</th>
+                            <th>SUBJECT</th>
+                            <th>SUBJECT TEACHER</th>
+                            <th>YTD COURSE COM.</th>
+                            <th>YTD ASSESMENT</th>
+                            <th>RESULTS</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let dt of low_course_completion | sortBy:'desc':'result'">
+                            <td class="b_clr">
+                              <a routerLink="/exam/dashboard/class-performance-details">
+                                {{dt?.ClassName | lowercase}}-{{dt?.SectionName}}
+                              </a>
+                            </td>
+                            <td class="b_clr">
+                              <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                {{dt?.SubjectName | lowercase}}
+                              </a>
+                            </td>
+                            <td class="" >
+                              <a routerLink="/exam/dashboard/teacher-performance-overview">
+                              <div class="name_img" *ngIf="dt?.Teacher_ProfileLink!=''"><img class="" [src]='dt?.Teacher_ProfileLink'></div>
+                              <div class="name" *ngIf="dt?.Teacher_ProfileLink==''"><p>{{dt?.TeacherName.toUpperCase().charAt(0)}}</p></div>
+                              <div class="py-2 b_clr"> {{dt?.TeacherName | lowercase}} </div>
+                              </a>
+                            </td>
+                            <td class="text-center">{{dt?.ytd_course_com}}%</td>
+                            <td class="text-center">{{dt?.ytd_assessment}}</td>
+                            <td class="text-center">{{dt?.result}}%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="col-12 p-0">
+                  <div class="row my-4">
+
+                    <!---------------exam-result-long-pending----------->
+                    <div class="col-6">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="ex_res_lo_pending p-3">
+                            <h3 class="mb-0">Exam Results Long Pending</h3>
+                            <div class="ex_res_lo_pending_table w-100 mt-2">
+                              <table class="w-100">
+                                <thead>
+                                  <tr>
+                                    <th>CLASS & SECTION</th>
+                                    <th>SUBJECT & TEACHER</th>
+                                    <th>EXAM DATE & PENDING FOR</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let dt of exam_results_pending | sortBy:'desc':'pending_for'">
+                                    <td class="b_clr">
+                                      <a routerLink="/exam/dashboard/class-performance-details">
+                                        {{dt?.ClassName | lowercase}}-{{dt?.SectionName}}
+                                      </a>
+                                    </td>
+                                    <td class="b_clr">
+                                      <div>
+                                        <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                          {{dt?.SubjectName | lowercase}} 
+                                        </a>
+                                      </div>
+                                      <a routerLink="/exam/dashboard/teacher-performance-overview">
+                                        <div class="name_img" *ngIf="dt?.Teacher_ProfileLink!=''"><img class="" *ngIf="dt.Teacher_ProfileLink" [src]='dt?.Teacher_ProfileLink'></div>
+                                        <div class="name" *ngIf="dt?.Teacher_ProfileLink==''"><p>{{dt?.TeacherName.toUpperCase().charAt(0)}}</p></div>
+                                        <div class="name_text b_clr"> {{dt?.TeacherName | lowercase}} </div>
+                                      </a>
+                                    </td>
+                                    <td>{{dt?.Exam_Date}}, {{dt?.pending_for}} days</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+    
+                    <!---------------no-assessment-for-long----------->
+                    <div class="col-6">
+                      <div class="row">
+                        <div class="col-12">
+                          <div class="ex_res_lo_pending p-3">
+                            <h3 class="mb-0">No Assessment for Long</h3>
+                            <div class="ex_res_lo_pending_table w-100 mt-2">
+                              <table class="w-100">
+                                <thead>
+                                  <tr>
+                                    <th>CLASS & SECTION</th>
+                                    <th>SUBJECT & TEACHER</th>
+                                    <th>NO ASSESMENT FROM</th>
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let dt of no_assessment_for_long | sortBy:'desc':'pending_for'">
+                                    <td class="b_clr">
+                                      <a routerLink="/exam/dashboard/class-performance-details">
+                                        {{dt?.ClassName | lowercase}}-{{dt?.SectionName}}
+                                      </a>
+                                    </td>
+                                    <td class="b_clr">
+                                      <div>
+                                        <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                          {{dt?.SubjectName | lowercase}} 
+                                        </a>
+                                      </div>
+                                      <a routerLink="/exam/dashboard/teacher-performance-overview">
+                                        <div class="name_img" *ngIf="dt?.SubjectTeacherProfileImageLink!=''"><img class="" *ngIf="dt.SubjectTeacherProfileImageLink" [src]='dt?.SubjectTeacherProfileImageLink'></div>
+                                        <div class="name" *ngIf="dt?.SubjectTeacherProfileImageLink==''"><p>{{dt?.SubjectTeacher.toUpperCase().charAt(0)}}</p></div>
+                                        <div class="name_text b_clr"> {{dt?.SubjectTeacher | lowercase}} </div>
+                                      </a>
+                                    </td>
+                                    <td>{{dt?.pending_for}} days</td>
+                                  </tr>
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+          </div>
+      <div>
+  </div>
+</div>

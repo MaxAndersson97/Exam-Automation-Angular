@@ -1,0 +1,94 @@
+<div class="login">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5 col-lg-5 login-left">
+        <div class="row pt-5 px-4 pb-3 m-2 mt-4">
+          <div class="col-md col-lg">
+            <h1 class="login-top-heading">Assesment Creation Tool</h1>
+          </div>
+        </div>
+        <form [formGroup]="verifyMobileForm" class="forgetpass-form" style="display: block;">
+
+          <div class="row pt-2 px-4 pb-1 m-2">
+            <div class="col-md-12 col-lg-12">
+              <h2 class="top-header mb-5">Verify Your Mobile</h2>
+            </div>
+
+            <label class="col-md-6 col-sm-6">Enter OTP</label>
+
+						<label class="col-md-6 col-sm-6" (click)="onResendClick()">
+              <a class="float-right" style="color:#5C67E6">Resend OTP</a>
+            </label>
+            
+            <div class="form-group col-md-12 col-sm-12">
+              <input type="text" name="OTP" class="form-control" formControlName="OTP" placeholder="eg. 0000"
+                id="otp" required (keypress)="numberOnly($event)" />  
+              
+              <div *ngIf="f.OTP.errors && (f.OTP.dirty || f.OTP.touched)" class="invalid-feedback">
+                <div *ngIf="f.OTP.errors && f.OTP.errors.required " class="danger">OTP required.</div>
+                <div *ngIf="f.OTP.errors.minlength || f.OTP.errors.maxlength"  class="danger">OTP lenght must be 4 character.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row pt-2 px-4 pb-2 m-2">
+            <div class="col-md-12 col-lg-12">
+              <button type="button" (click)="verifyOTP()" [disabled]="verifyMobileForm.invalid" class="btn verify-proceed-btn w-100">Verify and Proceed</button>
+            </div>
+          </div>
+
+          <div class="row pt-2 px-4 pb-2 m-2">
+            <div class="col-md-12 col-lg-12">
+              <a routerLink="/authentication/register">
+                <p class="text-center cancel-link">Back To Register</p>
+              </a>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+      <div class="col-md-7 col-md-7 p-0 login-right">
+        <div class="row pt-5 px-5 mx-2">
+          <div class="col-md col-lg">
+            <img src="assets/images/login.svg" class="w-100">
+          </div>
+        </div>
+        <div class="row px-5 mx-2">
+          <div class="col-md col-lg p-0">
+              <div class="quick-tip-box p-3 carousel slide" data-interval="false" id="quick-tip-box">
+                  <div class="quick-tip-header">
+                    <h3>Quick Tip</h3>
+                  </div>
+                  <div class="quick-tip-content carousel-inner">
+                    <p class="carousel-item active">
+                      Get started! A fully automated, hassle-free software. Assessment, Evaluation, Reports, Share & more.
+                    </p>
+                    <p class="carousel-item ">
+                      Graphical analysis: Reports that speak for itself. Beautiful graphical representation of performance.
+                    </p>
+                    <p class="carousel-item ">
+                      Time is Money! Design all exam papers in few clicks. Goodbye! To tedious cumbersome manual process.
+                    </p>
+                  </div>
+                  <div class="quick-tip-left-right">
+                    <a class="left-quick-tip mr-2 left"  href="#quick-tip-box" data-slide="prev" style="cursor: pointer">
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                  width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 30 30" xml:space="preserve">
+                                                  <path class="icon" fill="#8595A6" d="M17,9 L5.414,9 L8.707,5.707 C9.098,5.316 9.098,4.684 8.707,4.293 C8.316,3.902 7.684,3.902 7.293,4.293 L2.293,9.293 C1.902,9.684 1.902,10.316 2.293,10.707 L7.293,15.707 C7.488,15.902 7.744,16 8,16 C8.256,16 8.512,15.902 8.707,15.707 C9.098,15.316 9.098,14.684 8.707,14.293 L5.414,11 L17,11 C17.553,11 18,10.552 18,10 C18,9.448 17.553,9 17,9"></path>
+                                              </svg>
+                    </a>
+                    <a  style="cursor: pointer" class="left-quick-tip ml-2 right" href="#quick-tip-box" data-slide="next">
+                      <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                                                  width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 30 30" xml:space="preserve">
+                                                  <path class="icon" fill="#8595A6" d="M17.707,9.293 L12.707,4.293 C12.316,3.902 11.684,3.902 11.293,4.293 C10.902,4.684 10.902,5.316 11.293,5.707 L14.586,9 L3,9 C2.447,9 2,9.448 2,10 C2,10.552 2.447,11 3,11 L14.586,11 L11.293,14.293 C10.902,14.684 10.902,15.316 11.293,15.707 C11.488,15.902 11.744,16 12,16 C12.256,16 12.512,15.902 12.707,15.707 L17.707,10.707 C18.098,10.316 18.098,9.684 17.707,9.293"></path>
+                                              </svg>
+                    </a>
+                  </div>
+                </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

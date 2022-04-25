@@ -1,0 +1,231 @@
+<div class="create-paper m-3 " *ngIf="!showSelection">
+    <div class="row">
+        <div class="col-12">
+            <form [formGroup]="addClassTestFrm">
+                <div class="row m-0 top-header">
+                    <div class="col-md-4">
+                        <h4 class="mb-0 mt-1 create-head">Create</h4>
+                    </div>
+                    <div class="col-md-4 text-center">
+                        <div class="center-head" style="cursor: pointer;">
+                            <span [ngClass]="{'active': dataTitle == 'CTE'}"
+                                (click)="setExamType('CTE')">Exam/Test</span>
+                            <span [ngClass]="{'active': dataTitle == 'WORKSHEET'}"
+                                *ngIf="currentUrl != '/exam/create-paper-omr'"
+                                (click)="setExamType('WORKSHEET')">Worksheet</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4 text-right">
+                        <!-- <div class="step mt-2">STEP 1 OF 3</div> -->
+                    </div>
+                </div>
+                <div class="row m-0 py-2 ">
+                    <div class="col-md-12">
+                        <h4 class="create-head mt-2" *ngIf="dataTitle == 'CTE'">Exam/Test Details</h4>
+                        <h4 class="create-head mt-2" *ngIf="dataTitle == 'WORKSHEET'">Worksheet Details</h4>
+                    </div>
+                </div>
+                <div class="row m-0">
+                    <div class="form-group col-md-6 single">
+                        <label class="mb-0">Select Class</label>
+                        <ng-select formControlName="ClassID" (click)="getClassId(ClassID)" [items]="classesList"
+                            bindLabel="ClassName" placeholder="Select Class" bindValue="ClassID" [searchable]=false
+                            required>
+                            <ng-template ng-option-tmp let-item="item">
+                                <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                    {{item.ClassName.toLowerCase()}}</span>
+                                <span *ngIf="!(!!item.ClassName)" style="color: #999999;"> Select
+                                    Standard</span>
+                            </ng-template>
+
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-6 single">
+                        <label class="mb-0">Select Subject</label>
+                        <ng-select formControlName="SubjectID" [items]="subjects" bindLabel="SubjectName"
+                            placeholder="Select Subject" bindValue="SubjectID" [searchable]=false required
+                            (change)="getSubjectDetails();">
+                            <ng-template ng-option-tmp let-item="item">
+                                <span style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                                    {{item.SubjectName.toLowerCase()}}</span>
+                                <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select
+                                    Standard</span>
+                            </ng-template>
+                        </ng-select>
+
+                    </div>
+                    <div class="form-group col-md-6 single" *ngIf="dataTitle == 'CTE'">
+                        <label class="mb-0">Select Paper Type</label>
+                        <ng-select formControlName="PaperType" [items]="papertypeList" bindLabel="paperName"
+                            placeholder="Select Paper Type" bindValue="paperID" [searchable]=false required
+                            (change)="setPaperType(PaperType)">
+                            <ng-template ng-option-tmp let-item="item">
+                                <span style="text-transform: capitalize">{{item.paperName.toLowerCase()}}</span>
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.paperName" style="text-transform: capitalize">
+                                    {{item.paperName.toLowerCase()}}</span>
+                                <span *ngIf="!(!!item.paperName)" style="color: #999999;"> Select
+                                    Paper Type</span>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-6 single" *ngIf="dataTitle == 'CTE'">
+                        <label class="mb-0">Exam Group</label>
+                        <ng-select formControlName="ExamGroupID" [items]="ExamGroupList" bindLabel="ExamGroupName"
+                            placeholder="Select Exam Group" bindValue="ExamGroupID" [searchable]=false required>
+
+                            <ng-template ng-option-tmp let-item="item"> <span style="text-transform: capitalize">
+                                    {{item.ExamGroupName.toLowerCase()}}</span>
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.ExamGroupName" style="text-transform: capitalize">
+                                    {{ item.ExamGroupName.toLowerCase()}}</span>
+                                <span *ngIf="!(item.ExamGroupName)" style="color: #999999;">
+                                    Half Yearly</span>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label class="mb-0" *ngIf="dataTitle == 'CTE'">Test / Exam Name</label>
+                        <label class="mb-0" *ngIf="dataTitle == 'WORKSHEET'">Worksheet Name</label>
+                        <input type="text" name="newPassword" class="form-control" formControlName="Name"
+                            placeholder="Test/Exam Name" id="txtnewPassword" required />
+                    </div>
+                </div>
+
+                <div class="row m-0 selection-header">
+                    <h3 class="create-head my-2 col-md-12" *ngIf="subjectSettings['isfullyautomate'] || subjectSettings['issemiautomate'] || subjectSettings['ischerrypick']">Question Selection</h3>
+                    <div class="col-md-12 ">
+                        <div class="row form-group">
+                            <label *ngIf="!dataTitle=='WORKSHEET' || subjectSettings['isfullyautomate']"
+                                class="radio box col-md-4"
+                                [ngClass]="{active: f.PaperGenerationMethod.value == 1,'disabled-method': dataTitle=='WORKSHEET' || !subjectSettings['isfullyautomate'], 'd-none': dataTitle == 'WORKSHEET' || currentUrl=='/exam/create-paper-omr'}">
+                                <div class="radio-head">Fully Automated<br>
+                                    <span class="radio-text">Question paper will be generated
+                                        through system intelligence. We don’t
+                                        need any inputs from your end.</span>
+                                </div>
+                                <input type="radio" name="PaperGenerationMethod" formControlName="PaperGenerationMethod"
+                                    value="1" required>
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio box col-md-4" *ngIf="subjectSettings['issemiautomate']"
+                                [ngClass]="{active: f.PaperGenerationMethod.value == 2,'disabled-method': !subjectSettings['issemiautomate']}">
+                                <div class="radio-head">User defined System Generated<br>
+                                    <span class="radio-text">Create the blueprint and sytem will
+                                        generate a question paper based
+                                        on your requirements</span>
+                                </div>
+                                <input type="radio" name="PaperGenerationMethod" formControlName="PaperGenerationMethod"
+                                    value="2" required>
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio box col-md-4" style='margin-bottom: 4rem !important'
+                                *ngIf="subjectSettings['ischerrypick']"
+                                [ngClass]="{active: f.PaperGenerationMethod.value == 3,'disabled-method': !subjectSettings['ischerrypick'] }">
+                                <div class="radio-head">Cherry Pick<br>
+                                    <span class="radio-text">You need to cherry pick each question
+                                        and create a question paper with
+                                        desired bloom and difficulty levels</span>
+                                </div>
+                                <input type="radio" name="PaperGenerationMethod" formControlName="PaperGenerationMethod"
+                                    value="3" required>
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row m-0 sticky-footer p-3">
+                    <div class="col-md-12 text-right">
+                        <button type="button" class="saveAndProceed-btn  step step-1 btn" (click)="submitStepOne();"
+                            id="saveAndProceed_btn" [disabled]="this.addClassTestFrm.invalid">Save and Proceed</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-12 col-lg-12" *ngIf="showSelection">
+    <div class="m-3">
+        <div class="col-lg-12 col-md-12 p-0">
+            <div class="system_intelligence imported-data template">
+                <div class="row ">
+                    <div class="col-lg-5 col-md-5 my-3">
+                        <h2 class="top-head  px-3">Examination Mode</h2>
+                    </div>
+                </div>
+                <div class="px-3 mb-2 choose-nature-section row">
+                    <div class="col-md-6">
+                        <div class="section-block">
+                            <div class="row m-0 mt-3">
+                                <div class="col-12">
+                                    <div class="w-100">
+                                        <img src="assets/images/System intelligence.svg">
+                                    </div>
+                                    <h4>Offline</h4>
+                                    <p>Questions that needs answers to complete descriptive explanation about the topic.
+                                        Answers are long in nature, containing definition about the term and / or
+                                        detailed information about the term or an event. Expected answers shall have
+                                        minimum 5-7 lines.</p>
+                                </div>
+                            </div>
+                            <div class="row m-0 my-3 btn_bottom">
+                                <div class="col-12">
+                                    <button type="button" id="system_Intelligence_btn"
+                                        class="btn system_Intelligence_btn" (click)="useType('descriptive')">Informative
+                                        Question </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="section-block">
+                            <div class="row m-0 mt-3">
+                                <div class="col-12 ">
+                                    <div class="w-100">
+                                        <img src="assets/images/Define structure by yourself.svg">
+                                    </div>
+                                    <h4>Online</h4>
+                                    <p>Optical Mark Recognition technology is used for collecting data from
+                                        “fill-in-the-bubble” forms such as educational tests, surveys, assessments,
+                                        evaluations, and many other multiple choice forms.</p>
+
+                                </div>
+                            </div>
+                            <div class="row m-0 my-3 btn_bottom">
+                                <div class="col-12">
+                                    <button type="button" id="structure_urself_btn" class="btn structure_urself_btn"
+                                        (click)="useType('omr')">OMR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<style>
+    .disabled-method {
+        opacity: 0.5;
+        pointer-events: none;
+    }
+
+    .disabled-type {
+        opacity: 1;
+        pointer-events: none;
+    }
+</style>

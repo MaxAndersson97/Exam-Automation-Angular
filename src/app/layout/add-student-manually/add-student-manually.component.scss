@@ -1,0 +1,15 @@
+.go-back-btn{
+    height: 47px;
+    width: auto;
+    border-radius: 4px;
+    background-color: #5C67E6;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
+}
+.go-back-btn:disabled {
+    background-color: #BFCDDA !important;
+    opacity: 1;
+}

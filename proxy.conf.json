@@ -1,0 +1,20 @@
+{
+    "/api": {
+        "target": "http://testsrv.oyeexams.com",
+        "secure": false,
+        "pathRewrite": {
+            "^/api": "/api"
+        },
+        "changeOrigin": true,
+        "logLevel": "debug"
+    },
+    "/token": {
+        "target": "http://testsrv.oyeexams.com",
+        "secure": false,
+        "pathRewrite": {
+            "^/token": "/token"
+        },
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}

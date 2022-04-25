@@ -1,0 +1,77 @@
+<div class="container-fluid p-0">
+  <div class="row">
+      <div class="col-md-12 col-lg-12">
+          <div class="m-3 row">
+              <h2 class="top_performing_student_head">Top Performing Students</h2>
+
+              <!---------------low-course-completion----------->
+              <div class="col-12 mt-2 p-0">
+                <div class="top_performing_student p-3">
+                  <div class="top_performing_student_table w-100 mt-2">
+                    <table class="w-100">
+                      <thead>
+                        <tr>
+                          <th>STUDENT NAME</th>
+                          <th>CLASS & SECTION</th>
+                          <th>TOTAL SCORE</th>
+                          <th>BEST SUBJECT</th>
+                          <th>POOR SUBJECT</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let dt of top_performing_students | paginate: {itemsPerPage: rowsOnPage, currentPage:page, id: '1'} | sortBy:'desc':'total_per'; let i = index;">
+                          <td class="b_clr">
+                            <div class="name_img" *ngIf="dt.ProfileImageLink!=''"><img class="" [src]='dt.ProfileImageLink'></div>
+                            <div class="name" *ngIf="dt.ProfileImageLink==''"><p>{{dt.Name.toUpperCase().charAt(0)}}</p></div>
+                            <div class="mt-2 b_clr"> {{dt.Name}} </div>
+                          </td>
+                          <td class="b_clr" (click)="navigateToCWP()" style="cursor: pointer;">
+                            {{dt.ClassName | lowercase}}-{{dt.SectionName}}
+                          </td>
+                          <td>{{dt.total_per}}%</td>
+                          <td class="b_clr best_subject">
+                            <div>
+                              <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                {{dt.BestSubjectName| lowercase}}
+                              </a>
+                            </div>
+                            <a routerLink="/exam/dashboard/teacher-performance-overview">
+                              <div class="name_img" *ngIf="dt.BestSubjectTeacherProfileImageLink !=''"><img class="" [src]='dt.BestSubjectTeacherProfileImageLink'></div>
+                              <div class="name" *ngIf="dt.BestSubjectTeacherProfileImageLink ==''"><p>{{dt.BestSubjectTeacher.toUpperCase().charAt(0)}}</p></div>
+                              <div class="mt-2 b_clr small_text"> {{dt.BestSubjectTeacher}} </div>
+                            </a>
+                          </td>
+                          <td class="b_clr best_subject">
+                            <div>
+                              <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                {{dt.PoorSubjectName| lowercase}}
+                              </a>
+                            </div>
+                            <a routerLink="/exam/dashboard/teacher-performance-overview">
+                              <div class="name_img" *ngIf="dt.PoorSubjectTeacherProfileImageLink !=''"><img class="" [src]='dt.PoorSubjectTeacherProfileImageLink'></div>
+                              <div class="name" *ngIf="dt.PoorSubjectTeacherProfileImageLink ==''"><p>{{dt.PoorSubjectTeacher.toUpperCase().charAt(0)}}</p></div>
+                              <div class="mt-2 b_clr small_text"> {{dt.PoorSubjectTeacher}} </div>
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="pages w-100">
+                  <pagination-controls class="pages" (pageChange)="page = $event" id="1" [maxSize]="10" 
+                      directionLinks="true" previousLabel=""
+                      nextLabel="" responsive="true">
+                  </pagination-controls>
+              </div>
+              <div class="selectWrapper">
+                      <ng-select class="select_Show" id="1"  [(ngModel)]="rowsOnPage">
+                              <ng-option  *ngFor="let row of rowsOnPageSet" [value]="row" >Show {{ row }} Results</ng-option>
+                      </ng-select>
+              </div>
+            </div>
+
+          </div>
+      <div>
+  </div>
+</div>

@@ -1,0 +1,111 @@
+/*--------------------------------csv-upload--------------------*/
+.fileupload .csv-edit input {
+  display: none;
+}
+
+.fileupload {
+  height: 210px;
+  width: 210px;
+  border-radius: 4px;
+  background-color: #F6F7FB;
+  margin-top: 85px !important;
+}
+
+.fileupload .csv {
+  height: 57.6px;
+  width: 57.6px;
+}
+
+.fileupload .csv-upload-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.texthead {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.csv-left, .csv-right {
+  height: 598px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+          box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.csv-left .tborder, .csv-right .tborder {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.csv-left button.uploadproceedcsv-btn, .csv-right button.uploadproceedcsv-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #fff;
+  margin-top: 120px;
+}
+
+.csv-left .stepnum {
+  height: 36px;
+  width: 36px;
+  border: 1px solid #D1DAE6;
+  background-color: #F6F7FB;
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  border-radius: 50%;
+}
+
+.csv-left .btwborder {
+  border-bottom: 20px solid #D1DAE6;
+  height: 20px;
+  width: 1px;
+  margin: auto;
+}
+
+.csv-left .steptext {
+  height: 21px;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.csv-left .red-note {
+  height: 20px;
+  color: #E52254;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/*--------------------------------end-csv-upload----------------------*/
+button.uploadcsv {
+  height: 42px;
+  width: 196px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+#dvImportSegments > input[type="file"] {
+  font-size: 40px;
+  position: absolute;
+  margin: auto;
+  width: 35%;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  z-index: 999999;
+  cursor: pointer;
+}
+/*# sourceMappingURL=upload-csv.component.css.map */

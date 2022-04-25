@@ -1,0 +1,126 @@
+<div id="page-content-wrapper" class="chapter_student_per">
+  <div class="container-fluid p-0">
+      <div class="row">
+          <div class="col-md-12 col-lg-12">
+              <div class="filter-row py-3">
+                  <div class="col-md-12 col-lg-12 p-0">
+                    <div class="filterBy float-left py-2 px-3  text-left w-100">
+                      <h4>Filters</h4>
+                      <div class="clear_filter" (click)="onClearClick();">Clear Filter</div>
+                    </div>
+                    <div class="w-100 px-3 pb-2">
+                      <div class="float-left select-standard-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.ClassID" [items]="classes" bindLabel="ClassName" placeholder="Select Class"
+                            bindValue="ClassID" [searchable]=false (change)="getSectionByClassID(studentFilterObj.ClassID); getSubject(studentFilterObj.ClassID)">
+                            <ng-template ng-option-tmp let-item="item">
+                              <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                              <span *ngIf="item.ClassName" style="text-transform: capitalize"> {{item.ClassName.toLowerCase()}}</span>
+                              <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                            </ng-template>
+                
+                          </ng-select>
+                        </div>
+                      </div>
+                      <div class="float-left select-standard-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.EA_SectionID" name="EA_SectionID" 
+                          [items]="sectionList" 
+                          bindValue="AESectionID" 
+                          [searchable]='false' placeholder="Select Section" >
+                            <ng-template ng-option-tmp let-item="item" >
+                                {{ item.SectionName}}
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                                <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                            </ng-template>
+                        </ng-select>
+                        </div>
+                      </div>
+                      <div class="float-left select-standard-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.SubjectID" [items]="subjects" bindLabel="SubjectName"
+                          placeholder="Select Subject" bindValue="SubjectID" [searchable]=false required >
+                          <ng-template ng-option-tmp let-item="item">
+                              <span
+                                  style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                          </ng-template>
+                          <ng-template ng-label-tmp let-item="item">
+                              <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                                  {{item.SubjectName.toLowerCase()}}</span>
+                              <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select Subject</span>
+                          </ng-template>   
+                      </ng-select>
+                        </div>
+                      </div>
+                      
+                      <button type="button" id="showResultBtn" class="btn show-result-btn" (click)="onSearchClick()">
+                        Show Result
+                      </button>
+                    </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="ng-star-inserted  col-md-12 col-12 col-lg-12" *ngIf="!isDataShow">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="dcsetup-img mx-auto mt-3">
+                <img src="assets/images/reports.svg" alt="" class="w-100">
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="examsetup-content mx-auto ">
+                <h2 class="text-center top-header my-3">No report to show</h2>
+                <p class="text-center detailcontrol-description mb-0">Please let us know the standard and section</p>
+                <p class="text-center detailcontrol-description">from the above dropdown to get the results</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-lg-12" *ngIf="isDataShow">
+            <div class="m-3 row">
+                <h2 class="chapter_student_head">Chapter Wise & Student Wise Performance Details</h2>
+                  <!---------------low-course-completion----------->
+                  <div class="col-12 mt-2 p-0">
+                    <div class="chapter_student_wise p-3">
+                      <div class="chapter_student_table class_wise_table w-100 mt-2">
+                        <table class="w-100">
+                          <thead>
+                            <tr>
+                              <th></th>
+                              <th *ngFor="let chapter of chapter_names">{{chapter.chaptername}}</th>
+                              <th>Overall Score</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr *ngFor="let dt of wise_data;">
+                              <td class="b_clr text-left">
+                                <div class="name_img" *ngIf="dt.ProfileImageLink!=''"><img class="" [src]='dt.ProfileImageLink'></div>
+                                <div class="name" *ngIf="dt.ProfileImageLink==''"><p>{{dt.Name.toUpperCase().charAt(0)}}</p></div>
+                                <div class="mt-2 b_clr"> {{dt.Name}} </div>
+                              </td>
+                              <ng-container *ngFor="let chapter of chapter_names;">
+                                <td class="">{{dt[chapter.chaptername]}}%</td>
+                              </ng-container>
+                              <td>{{dt.overall_score}}%</td>
+                            </tr>
+                            <tr>
+                              <td class="text-left"><strong>Total Score</strong></td>
+                              <ng-container *ngFor="let chapter of chapter_names;">
+                                <td class=""><strong>{{chapter.chapter_total_score_per}}%</strong></td>
+                              </ng-container>
+                              <td></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

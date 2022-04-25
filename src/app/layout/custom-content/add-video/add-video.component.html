@@ -1,0 +1,58 @@
+	  <!-- Modal -->
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header pb-4">
+                    <button type="button" class="close float-left pt-1 pl-1" data-dismiss="modal" aria-label="Close" (click) = "close()"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center m-auto" id="AddSectionTeacher_header">Add Videos </h4>
+                </div>
+                <div class="modal-body">
+                    <form [formGroup] = "addVideoFrm">
+                        <div class="addsection-form py-2 my-3">
+                            <div class=" col-md-12 col-12 p-0">
+              <label class="col-md-12 col-sm-12">Video Index<span class="required-mark">*</span></label>
+                                <div class="form-group col-md-12 col-sm-12">
+                                    <input formControlName="VideoIndex" id="videosIndex"  class="form-control" type="text" name="videoIndex" placeholder="eg. 1" required (keypress)="numberOnly($event)" >
+                                </div>
+              <label class="col-md-12 col-sm-12">Video Title<span class="required-mark">*</span></label>
+                                <div class="form-group col-md-12 col-sm-12">
+                                    <input formControlName="VideoTitle"  id="videoTitle"  class="form-control" type="text" name="videoTitle" placeholder="eg. Chemical Reaction and Equatios" required>
+                                    <div *ngIf="f.VideoTitle.errors && f.VideoTitle.dirty" class="danger-text">
+                                        <div *ngIf="f.VideoTitle.errors.required">Video Title is required</div>                            
+                                        <div *ngIf="f.VideoTitle.errors.pattern">Please enter the valid entry.</div>
+                                    </div>
+                                </div>
+              <label class="col-md-12 col-sm-12">Video URL <span class="required-mark">*</span></label>
+                                <div class="form-group col-md-12 col-sm-12">
+                                    <input id="videoURL" formControlName="VideoURLPath"  class="form-control" type="url" name="videoURL" placeholder="eg. www.youtube.com" required (change) = "urlValidate($event)">
+                                    <div *ngIf="f.VideoURLPath.errors && f.VideoURLPath.dirty" class="danger-text">
+                                        <div *ngIf="f.VideoURLPath.errors.required">Video URL is required</div>                            
+                                        <div *ngIf="f.VideoURLPath.errors.pattern">Please enter the valid entry.</div>
+                                    </div>
+                                </div>
+              <label class="col-md-12 col-sm-12">Video Description <span class="required-mark"></span></label>
+              <div class="form-group col-md-12 col-sm-12">
+                <textarea class="form-control" formControlName="Description"   name="videoDescription" rows="3" id="videoDescription" placeholder="Write description here"></textarea>
+                                </div>
+              <label class="col-md-12 col-sm-12">Add Tags</label>
+                                <div class="form-group col-md-12 col-sm-12">
+                                    <input id="addTags" formControlName="Keywords" (keyup.enter)="addTag(f.Keywords)"   class="form-control" type="text" name="addTags" placeholder="Add tags / keywords here"> 
+                                </div>
+              <div class="tags-keywords px-3" *ngIf="videoTag && videoTag.length">
+                <div class="videotagskeywords mr-1 float-left p-1" *ngFor=" let tag of videoTag; let i = index">
+                    <a style="cursor: pointer">{{tag}}</a>
+                    <a style="cursor: pointer" class="close" (click)="removeTage(i)"><span aria-hidden="true">&times;</span></a> 
+                </div>
+                <!-- <div class="videotagskeywords mr-1 float-left p-1"><a href="">Education</a><a href="" class="close" ><span aria-hidden="true">&times;</span></a> </div> -->
+              </div>
+              
+                                      <button type="button" id="addVideo"  class="btn letsGetStart-btn addVideoBtn w-100 mt-3" [disabled]="!addVideoFrm.valid"  (click)="onSubmit()">Add Video</button>
+                                      
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+                </div> -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->

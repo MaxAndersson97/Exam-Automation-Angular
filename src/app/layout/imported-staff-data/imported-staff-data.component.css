@@ -1,0 +1,115 @@
+.imported-data td input, .imported-data td select, .imported-data td .multiselect {
+  width: 160px;
+}
+
+.imported-data th.delete_col {
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right: 0;
+  background: #fff;
+}
+
+.imported-data th.delete_col .remove {
+  width: 40px;
+  height: 36px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.imported-data td.delete_col {
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right: 0;
+  background: #fff;
+}
+
+.imported-data td.delete_col .remove {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.imported-data .overflow {
+  overflow-x: auto;
+}
+
+.imported-data tr.errorInStudentInfo {
+  background-color: rgba(229, 34, 84, 0.1);
+  border-left: 3px solid #E52254;
+}
+
+.imported-data tr.errorInStudentInfo td.error button.multiselect {
+  border: 1px solid #E52254 !important;
+}
+
+.imported-data tr.errorInStudentInfo td.error input, .imported-data tr.errorInStudentInfo td.error td select {
+  border: 1px solid #E52254 !important;
+}
+
+td input, td select {
+  color: #3A5077 !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+th .tablespace {
+  width: 85px;
+}
+
+.imported-data tr.errorInStaffInfo {
+  background-color: rgba(229, 34, 84, 0.1);
+  border-left: 3px solid #E52254;
+}
+
+.imported-data tr.errorInStaffInfo td.error input, .imported-data tr.errorInStaffInfo td.error td select {
+  border: 1px solid #E52254 !important;
+}
+
+.import .error {
+  color: #E52254;
+}
+
+.import .success {
+  color: #3A5077;
+}
+
+.import {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+  margin-top: 12px;
+}
+
+button.saveandclose-btn {
+  background-color: #01CA85;
+  color: #ffffff;
+  height: 42px;
+  width: 140px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+button.addnewrow-btn {
+  background-color: #5C67E6;
+  color: #ffffff;
+  height: 42px;
+  width: 140px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.single .role_dropdown{
+  width:143%;
+}
+
+/*# sourceMappingURL=imported-staff-data.component.css.map */

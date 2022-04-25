@@ -1,0 +1,26 @@
+.Institute_profile .nav-item .nav-link.active path {
+  fill: #5C67E6;
+}
+
+#contactAdministration .modal-dialog {
+  height: 188px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(9, 30, 66, 0.31), 0 4px 8px -2px rgba(9, 30, 66, 0.25);
+          box-shadow: 0 0 1px 0 rgba(9, 30, 66, 0.31), 0 4px 8px -2px rgba(9, 30, 66, 0.25);
+}
+
+#contactAdministration .modal-title {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#contactAdministration p {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 36px;
+}
+/*# sourceMappingURL=institute-profile.component.css.map */

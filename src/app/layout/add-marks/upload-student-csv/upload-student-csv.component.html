@@ -1,0 +1,132 @@
+<div class="container-fluid p-0">
+  <div class="row">
+      <div class="col-md-12 col-lg-12">
+          <nav aria-label="breadcrumb" class="m-3">
+              <ol class="breadcrumb p-0 m-0">
+                  <li class="breadcrumb-item"><a style="cursor: pointer;" routerLink="/exam/add-marks">Add Marks</a></li>
+                  <li class="breadcrumb-item active" aria-current="page" (click)="getcsvbyexamID()">Upload CSV</li>
+              </ol>
+          </nav>
+      </div>
+  </div>
+</div>
+<div class="container-fluid p-0">
+  <div class="row">
+      <div class="col-md-12 col-lg-12">
+          <div class="m-3">
+              <div class="col-lg-12 col-md-12 p-0">
+                  <h2 class="top-header mb-3 pl-1">Upload Student Marks in Bulk</h2>
+                  <!-- <h4>Class {{data.ClassName}}  <span>Section {{data.SectionName}} </span></h4> -->
+              </div>
+              <div class="col-lg-12 col-md-12 p-0">
+                  <div class="row">
+                      <div class="col-md-9 col-9">
+                          <div class="csv-left">
+                              <div class="col-12 col-md-12">
+                                  <div class="row py-3 tborder">
+                                      <div class="col-8 col-md-8">
+                                          <p class="texthead m-0 py-2">This feature allows you to Add Marks of multiple students simultaneously
+                                            Download the CSV and Add Marks.
+                                            </p>
+                                      </div>
+                                      <div class="col-4 col-md-4">
+                                              <button type="button" id="uploadCSV_btn"
+                                                  class="btn uploadcsv m-2 float-right" (click)="getcsvbyexamID()">Download CSV File</button>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="col-12 col-md-12">
+                                  <div class="row py-3 ">
+                                      <div class="col-12 col-md-12">
+                                          <p class="texthead m-0 pl-1 py-2">Follow the steps</p>
+                                          <div class="row mt-3">
+                                              <div class="col-md-1 col-1 pr-0">
+                                                  <div class="stepnum text-center pt-2 m-auto">1</div>
+                                                  <div class="btwborder"></div>
+                                              </div>
+                                              <div class="col-md-11 col-11">
+                                                  <div class="steptext mt-2">Click on the download button above to
+                                                      download the sample file.</div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-1 col-1 pr-0">
+                                                  <div class="stepnum text-center pt-2 m-auto">2</div>
+                                                  <div class="btwborder"></div>
+                                              </div>
+                                              <div class="col-md-11 col-11">
+                                                  <div class="steptext mt-2">Enter the marks of a Student, against each Question number.</div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-1 col-1 pr-0">
+                                                  <div class="stepnum text-center pt-2 m-auto">3</div>
+                                                  <div class="btwborder"></div>
+                                              </div>
+                                              <div class="col-md-11 col-11">
+                                                  <div class="steptext mt-2">Upload your file using the browse button
+                                                      or simply drag and drop.</div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="col-md-1 col-1 pr-0">
+                                                  <div class="stepnum text-center pt-2 m-auto">4</div>
+                                              </div>
+                                              <div class="col-md-11 col-11">
+                                                  <div class="steptext mt-2">Click the Upload and Proceed button.
+                                                  </div>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="row py-3 ">
+                                      <div class="col-12 col-md-12">
+                                          <p class="texthead m-0 pl-1 pt-2">Required Data:</p>
+                                          <div class="steptext mt-2 pl-1">
+                                          *Marks Obtained
+                                          </div><br><br>
+                                          <p class="red-note pl-1">Note: * Do not try to change the format of the downloaded excel.
+                                        </p>
+                                      </div>
+                                  </div>                                  
+                              </div>
+                          </div>
+                      </div>
+                      <div class="col-md-3 col-3 pl-0">
+                          <div class="csv-right">
+                              <div class="col-12 col-md-12 tborder">
+                                  <p class="texthead m-0 py-4 ">Upload CSV File</p>
+                              </div>
+
+                              <div id="dvImportSegments" class="fileupload mx-auto text-center p-4">
+                                  <input type="file" name="File Upload" id="txtFileUpload" accept=".csv"
+                                      (change)="changeListener($event)" />
+                                  <div class="csv-edit">
+
+                                      <label for="csupload">
+                                          <div id="csv" class="csv">
+                                              <img *ngIf="!image_upload" class="mt-3"
+                                                  src="assets/images/csv-importer.svg" alt="csv uploader" />
+                                              <img *ngIf="image_upload" class="mt-3" src="assets/images/csv.svg">
+                                          </div>
+                                      </label>
+                                      <p *ngIf="!filename" class="csv-upload-text mb-0 mt-4" >Drag or Click here <br/>to browse the CSV file</p>
+                                      <p *ngIf="filename" class="csv-upload-text mb-0 mt-5">{{data.file.name}}</p>
+                                  </div>
+                              </div>
+                              <div class="col-12 col-md-12">
+                                  <div class="m-0 py-4">
+                                      <button type="button" id="upload_and_proceedcsv" (click)="onUploadAndProceed()"
+                                          [disabled]="!(data && data1)"
+                                          class="btn uploadproceedcsv-btn w-100 float-right">Upload and
+                                          Proceed</button>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

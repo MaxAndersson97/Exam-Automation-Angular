@@ -1,0 +1,306 @@
+<div id="page-content-wrapper" class="ct_under_analysis">
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <div class="worksheettab-row">
+          <div class="col-md-12 col-lg-12 p-0 worksheettab">
+            <div class="worksheet-tab  h-100" style="cursor: pointer;" (click)="overallPerformanceReport()">
+              <h4>Overall Performance Analysis</h4>
+            </div>
+            <div class="worksheet-tab active h-100">
+              <h4>Chapter Understanding Analysis</h4>
+            </div>
+            <div class="worksheet-tab h-100" style="cursor: pointer;" (click)="subjectPerformanceReport()">
+              <h4>Subject Performance Report</h4>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <div class="filter-row row m-0">
+          <div class="col-md-9 col-lg-9 p-0 filter-border-right py-3">
+            <div class="filterBy float-left py-2 px-3  text-left w-100">
+              <h4>Filters</h4>
+              <div class="clear_filter" (click)="clearFilter();">Clear Filter</div>
+            </div>
+
+            <div class="w-100 px-3 pb-2">
+              <div class="float-left select-standard-filter">
+                <div class="single tog">
+                  <ng-select [(ngModel)]="studentFilterObj.academicYearsID" name="AcademicSessionID"
+                    [items]="academicList" placeholder="Select Academic Year" bindValue="AcademicYearID"
+                    [searchable]='false'
+                    (change)="academicChnage();">
+                    <ng-template ng-option-tmp let-item="item">
+                      {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}
+                    </ng-template>
+                    <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                        {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}</span>
+                      <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select
+                        Academic Session</span>
+                    </ng-template>
+                  </ng-select>
+                </div>
+              </div>
+              <div class="float-left select-standard-filter">
+                <div class="single tog">
+                  <ng-select [(ngModel)]="studentFilterObj.ClassID" [items]="classes" bindLabel="ClassName"
+                    placeholder="Select Class" bindValue="ClassID" [searchable]=false
+                    (change)="getSectionByClassID(studentFilterObj.ClassID); getSubject(studentFilterObj.ClassID)">
+                    <ng-template ng-option-tmp let-item="item">
+                      <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                    </ng-template>
+                    <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                        {{item.ClassName.toLowerCase()}}</span>
+                      <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                    </ng-template>
+
+                  </ng-select>
+                </div>
+              </div>
+              <div class="float-left select-section-filter">
+                <div class="single tog">
+                  <ng-select [(ngModel)]="studentFilterObj.EA_SectionID" name="EA_SectionID" [items]="sectionList"
+                    bindValue="AESectionID" [searchable]='false' placeholder="Select Section"
+                    (change)="getStudentBySection()">
+                    <ng-template ng-option-tmp let-item="item">
+                      {{ item.SectionName}}
+                    </ng-template>
+                    <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                      <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                    </ng-template>
+                  </ng-select>
+                </div>
+              </div>
+              <div class="float-left select-standard-filter">
+                <div class="single tog">
+                  <ng-select [(ngModel)]="studentFilterObj.SubjectID" [items]="subjects" bindLabel="SubjectName"
+                    placeholder="Select Subject" bindValue="SubjectID" [searchable]=false required>
+                    <ng-template ng-option-tmp let-item="item">
+                      <span style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                    </ng-template>
+                    <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                        {{item.SubjectName.toLowerCase()}}</span>
+                      <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select Standard</span>
+                    </ng-template>
+
+                  </ng-select>
+                </div>
+              </div>
+              <button type="button" id="showResultBtn" class="btn show-result-btn"
+                (click)="showResult()"
+                [disabled]="!(!!studentFilterObj['academicYearsID'] && !!studentFilterObj['EA_SectionID'] && !!studentFilterObj['SubjectID'] &&  !!studentFilterObj['ClassID']  )">Show
+                Result</button>
+            </div>
+          </div>
+          <div class="col-md-3 col-lg-3 py-3 single-range">
+            <div class="filterBy float-left py-2  text-left w-100">
+              <h4>Percentage Range</h4>
+            </div>
+            <div class="choose-range" (clickOutside)="closeDropDown($event)">
+              <button class="dropdown-btn dropdown-toggle text-left " data-toggle="dropdown"
+                (click)="showFilterBox();">Choose Range</button>
+              <div class="dropdown-container  dropdown-menu p-0 m-0 pt-2" type="none"
+                [ngClass]="showFilter ? 'show' : ''" *ngIf="showFilter" (blur)="showFilter  = !showFilter">                
+                <div class="form-group col-md-12 col-lg-12 pb-3 mb-2">
+                  <div class="row">
+
+                    <div class="col-md-6 col-6">
+                      <h5>Understanding Accepted</h5>
+                    </div>
+                    <div class="col-md-12 mb-3">                    
+                      <div class="row m-0">
+                        <div class="col-12 col-md-12 pl-0 pr-0">
+                          <input type="number" id="" class="w-100 Avg_input" [(ngModel)]="fromAvg" name="fromAvg"
+                            (change)="setAllRange(fromAvg)" min="0" max="100">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="range-avg">
+                    <mv-slider class="span2" id="slider1" [value]="fromAvg" [enabled]="false" [max]="100" [step]="1"
+                      [min]="0"></mv-slider>
+                  </div>
+                </div>
+                <!-- <div class="form-group col-md-12 col-lg-12 pb-3 mb-2">
+                        <div class="row">
+                          <div class="col-md-6 col-6"><h5>Strong</h5></div>
+                        </div>
+                        <div class="range-strong">
+                          <mv-slider class="span2" id="slider1"  [value]="strongValue" [min]="0" [max]="100" [range]="true" [enabled]="false"></mv-slider>
+                        </div>
+                      </div> -->
+
+                <div class="col-md-12 col-lg-12 px-3 pt-2">
+                  <button class="btn save-class-range w-100" id="saveClassRange" name="saveClassRange"
+                    (click)="saveRange()">Save And Show Result</button>
+                </div>
+                <p class="text-center pt-2 mb-2"><a class="reset-link" (click)="resetRange()">Reset to Default</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row " *ngIf="noDataFound">
+      <div class="col-md-12 col-lg-12">
+        <div class="m-3 ">
+          <div class="col-md-12 col-lg-12 pl-0 pr-0">
+            <div class=" row report-setup">
+              <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="reportsetup-img mx-auto mt-5">
+                  <img src="/assets/images/reports.svg" alt="" class="w-100 mt-2">
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="reportsetup-content mx-auto ">
+                  <h2 class="text-center top-header my-3">No report to show</h2>
+                  <p class="text-center reportsetup-description mb-0">Please let us know the standard, section and exam
+                    type </p>
+                  <p class="text-center reportsetup-description">from the above dropdown to get the results</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="row" *ngIf="!noDataFound">
+      <div class="col-md-12 col-lg-12">
+        <div class="m-3 ">
+          <div class="col-md-12 col-lg-12 pl-0 pr-0 w_fix">
+            <h4 class="mb-0 report-pname">Performance Distribution</h4>
+            <div class="row mt-4 mx-0">
+              <div class="col-md-12 col-12 pl-0">
+                <div class="row block mx-0 py-3">
+                  <div class="col-md-6 col-6">
+                    <h5 class="overall-rank-head">Understanding Accepted (eg. 50%)</h5>
+                  </div>
+                  <div class="col-md-6 col-6">
+                    <div class="above-accepted ml-1 mt-2 float-right">
+                      <div class="float-left mr-1"></div>Above Accepted
+                    </div>
+                    <div class="below-accepted mr-2 mt-2 float-right">
+                      <div class="float-left mr-1"></div>Below Accepted
+                    </div>
+                  </div>
+                  <div class="col-md-12 col-12 mt-3">
+                    <div class="performance-distribution-table">
+                      <table class="w-100">
+                        <thead>
+                          <tr>
+                            <th width="" class="chapterN_col">CHAPTER NAME</th>
+                            <th width="" class="studentD_col">STUDENT DISTRIBUTION</th>
+                            <th width="" class="Action_col">ACTION</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let item of preparedChapAnaDataList; let i = index">
+                            <td class="chapterN_col" style="text-transform: capitalize;">{{item.chapter_name | lowercase}}</td>
+                            <td class="studentD_col" >
+                              <div style="width:100%;">
+                                <div class="float-left sliding-row1" [ngStyle]="{'width' : item.calcBelow+'%'}">
+                                  <div class="circle-number-left">{{item['counts']['below']}}</div>
+                                  <div class="color-row w-100"></div>
+                                </div>
+                                <div class="float-left sliding-row2" [ngStyle]="{'width' : item.calcAbove+'%'}">
+                                  <div class="circle-number-right">{{item['counts']['above']}}</div>
+                                  <div class="color-row w-100"></div>
+                                </div>
+                              </div>
+                            </td>
+                            <td class="Action_col"><a (click)="studentDetails(item)" class="student-detail">Student Details</a></td>
+                          </tr>
+
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal right fade " id="ChapterNameModal" bsModal #ChapterNameModal="bs-modal">
+  <div class="modal-dialog">
+    <div class="modal-content" id="obrz">
+      <div class="modal-header pb-4">
+        <h4 class="modal-title text-center m-auto" style="text-transform:capitalize;">
+          <span>{{selectedStudents.chapter_name| lowercase}}</span></h4>
+        <button type="button" id="openInPDF_btn" class="close float-left pt-1" (click)="closeModal()"
+          data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+      </div>
+      <div class="modal-body">
+        <h5 class="accepted-head mt-3 mb-0" *ngIf="selectedStudentsbelow.length>0">Below Accepted</h5>
+        <div class="row pt-2 px-0 pb-2 " *ngIf="selectedStudentsbelow.length>0">
+          <div class="col-md-12 col-lg-12 modal-table">
+            <table class="w-100">
+              <thead>
+                <tr>
+                  <th>STUDENT NAME</th>
+                  <th>ROLL NO.</th>
+                  <th>OVERALL SCORE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let studentsdetails of selectedStudentsbelow | sortBy:'asc': 'score'">
+                  <td>{{studentsdetails.Name}}</td>
+                  <td>{{studentsdetails.RollNumber}}</td>
+                  <td>{{studentsdetails.score | number:'1.2-2'}}%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+
+        <h5 class="accepted-head mb-0" *ngIf="selectedStudentsabove.length>0">Above Accepted</h5>
+        <div class="row pt-2 px-0 pb-2 mt-0" *ngIf="selectedStudentsabove.length>0">
+          <div class="col-md-12 col-lg-12 modal-table">
+            <table class="w-100">
+              <thead>
+                <tr>
+                  <th>STUDENT NAME</th>
+                  <th>ROLL NO.</th>
+                  <th>OVERALL SCORE</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let studentsdetails of selectedStudentsabove | sortBy:'desc': 'score';">
+                  <td>{{studentsdetails.Name}}</td>
+                  <td>{{studentsdetails.RollNumber}}</td>
+                  <td>{{studentsdetails.score | number:'1.2-2'}}%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="col-md-12 col-12 my-3">
+            <!-- <button type="button" id="openInPDF_btn" (click)="openInPDF('obrz')" class="btn Print-result w-100 float-right">Print Result</button> -->
+          </div>
+        </div>
+      </div>
+      <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+          </div> -->
+    </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div><!-- modal -->

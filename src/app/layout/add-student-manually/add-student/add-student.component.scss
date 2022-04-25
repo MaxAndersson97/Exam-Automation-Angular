@@ -1,0 +1,64 @@
+.required-mark{
+    color: red;
+    font-size: 14px;
+}
+
+.danger-text{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.Secondary_rightIcon{
+    position: absolute;
+    top: 38px;
+    right: 24px;
+}
+.Secondary_Email{
+    padding-right:38px;
+}
+
+
+::ng-deep .ng-select.ng-select-single .ng-select-container .ng-value-container{
+    font-weight: 400 !important; 
+    color: #3A5077;
+    font-size: 14px;
+    line-height: 21px;
+}
+::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option{
+    font-weight: 400 !important; 
+    color: #3A5077;
+    font-size: 14px;
+    line-height: 21px;
+}
+.Institute_profile input{
+    text-transform: capitalize !important;
+}
+input#txtcity::-webkit-input-placeholder {
+    text-transform: none;
+}
+input#txtcountry::-webkit-input-placeholder {
+    text-transform: none;
+}
+input#txtstate::-webkit-input-placeholder {
+    text-transform: none;
+}
+
+
+
+::ng-deep .ng-select.disabled.reonly .ng-arrow-wrapper .ng-arrow {
+    display: none;
+ }
+ 
+::ng-deep .ng-select.disabled.reonly ng-dropdown-panel {
+   display: none;
+ }
+ 
+::ng-deep .ng-select.disabled.reonly .ng-clear-wrapper {
+  display: none;
+ }
+ ::ng-deep  .ng-select.disabled.reonly .ng-select-container{
+    background-color: #e9ecef;
+    opacity: 1;
+ }  

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+    <title>IconSet/Arrow/Left/Default</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M17,9 L5.414,9 L8.707,5.707 C9.098,5.316 9.098,4.684 8.707,4.293 C8.316,3.902 7.684,3.902 7.293,4.293 L2.293,9.293 C1.902,9.684 1.902,10.316 2.293,10.707 L7.293,15.707 C7.488,15.902 7.744,16 8,16 C8.256,16 8.512,15.902 8.707,15.707 C9.098,15.316 9.098,14.684 8.707,14.293 L5.414,11 L17,11 C17.553,11 18,10.552 18,10 C18,9.448 17.553,9 17,9" id="path-1"></path>
+    </defs>
+    <g id="IconSet/Arrow/Left/Default" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Icon" fill="#8595A6" xlink:href="#path-1"></use>
+    </g>
+</svg>

@@ -1,0 +1,204 @@
+<div id="page-content-wrapper">
+    <div class="container-fluid p-0">
+        <div class="row ">
+            <div class="col-md-12 col-lg-12">
+                <div class="m-3">
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="row works-list">
+                            <div class="col-5 col-md-5">
+                                <h2 class="top-header mb-3">Template List</h2>
+                            </div>
+                            <div class="col-7 col-md-7 text-right">
+                                <div class="createtestbtn mb-3 ml-2 float-right">
+                                    <button type="button" id="addnewrow" class="btn createtest-btn " (click) ="goToTemplateHome()">Create Template</button>
+                                </div> 
+                                <div class="searchbartable class-test float-right mb-3">
+                                    <form >
+                                        <button type="submit">
+                                            <!-- <?xml version="1.0" encoding="UTF-8"?> -->
+                                            <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+                                                <title>00067B21-DB8A-4562-9250-F329CFB39D75</title>
+                                                <desc>Created with sketchtool.</desc>
+                                                <defs>
+                                                    <path
+                                                        d="M3.600005,8.40002 C3.600005,5.75281173 5.75281173,3.600005 8.40002,3.600005 C11.0472283,3.600005 13.200035,5.75281173 13.200035,8.40002 C13.200035,11.0472283 11.0472283,13.200035 8.40002,13.200035 C5.75281173,13.200035 3.600005,11.0472283 3.600005,8.40002 M17.7656493,16.6344457 L13.4496358,12.3176322 C14.2928384,11.2344289 14.80004,9.87682461 14.80004,8.40002 C14.80004,4.87120897 11.928831,2 8.40002,2 C4.87120897,2 2,4.87120897 2,8.40002 C2,11.928831 4.87120897,14.80004 8.40002,14.80004 C9.87682461,14.80004 11.2336289,14.2920384 12.3176322,13.4496358 L16.6344457,17.7656493 C16.7904462,17.9216498 16.9952469,18.00005 17.2000475,18.00005 C17.4048481,18.00005 17.6096488,17.9216498 17.7656493,17.7656493 C18.0784502,17.4528483 18.0784502,16.9472467 17.7656493,16.6344457"
+                                                        id="path-1"></path>
+                                                </defs>
+                                                <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="36.-Staff---Staff-List" transform="translate(-1009.000000, -99.000000)">
+                                                        <g id="icon-minor/search" transform="translate(1007.000000, 97.000000)">
+                                                            <mask id="mask-2" fill="white">
+                                                                <use xlink:href="#path-1"></use>
+                                                            </mask>
+                                                            <use id="Mask" fill="#8595A6" xlink:href="#path-1"></use>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                        <input type="text" placeholder="Search templates" name="search" [(ngModel)]="searchString">
+                                    </form>
+                                </div>        
+                                <div class="filterbtntable float-right mb-3 ml-3">
+                                    <div class="single tog">
+                                        <button class="dropdown-btn dropdown-toggle " data-toggle="dropdown" (click)="showFilter  = !showFilter">Filters</button>
+                                        <ul class="dropdown-container dropdown-menu p-0 m-0" type="none"  [ngClass]="{'show': showFilter , '' : !showFilter}" (blur)="showFilter  = !showFilter">
+                                            <li class="p-3">
+                                                <div class="w-100">
+                                                    <h3 class="w-50 float-left">Filter By</h3>
+                                                    <a class="w-50 float-right text-right" (click)="selectedOption=''; selectedSubjectId=''; showFilter  = !showFilter; clearFilter()" >Clear Filter</a>
+                                                </div>
+                                            </li>
+                                            <form>
+                                                <div class="addsection-form py-1">
+                                                    <div class=" col-md-12 col-12 p-0">
+                                                        <div class="form-group col-md-12 col-sm-12 single">
+                                                            <!-- <select class="form-control"
+                                                             (change)="getClassId(selectedOption)" id="ddlClassesFrom" [(ngModel)]="selectedOption" name="classFilter">
+                                                                <option value="">Select Class Name</option>
+                                                                <option *ngFor="let class of standardList" [value]="class.ClassID">{{class.ClassName}} Standard</option>
+                                                                
+                                                            </select> -->
+                                                            <ng-select [(ngModel)]="selectedOption"  (click)="getClassId(selectedOption)" [items]="standardList" bindLabel="ClassName" placeholder="Choose Class" bindValue="ClassID" [searchable]=true  name="classFilter" id="classFilter"></ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12 single">
+                                                            <!-- <select class="form-control"  name="subjectId"
+                                                            id="ddlm"  [(ngModel)]="selectedSubjectId" [attr.disabled] = "this.isSubjectOpen ? null : true">
+                                                                <option value="">Select Subject Name </option>
+                                                                <option *ngFor="let subject of subjectList" [value]="subject.SubjectID">{{subject.SubjectName}}</option>                                    
+                                                            </select> -->
+                                                            <ng-select [(ngModel)]="selectedSubjectId"   (click)="getClassId(selectedSubjectId)" [items]="subjectList" bindLabel="SubjectName" placeholder="Choose Subject" bindValue="SubjectID" [searchable]=false required name="subjectFilter"></ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <button type="button" id="filterbutton"  class="btn filterBtn w-100 mt-1" (click)="filterData(selectedOption, selectedSubjectId)">Apply Filter</button>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                            </form>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class=" template-list class_setup imported-data">
+                            <div class="overflow">
+                                <table id="" class="w-100 table">
+                                    <thead>
+                                        <tr>
+                                            <th width="" class="template-name"><p>TEMPLATE NAME</p></th>
+                                            <th width="" class="standard"><p>STANDARD</p></th>
+                                            <th width="" class="subject"><p>SUBJECT</p></th>
+                                            <th width="" class="total-marks"><p>TOTAL MARKS</p></th>
+                                            <th width="" class="duration"><p>DURATION</p></th>
+                                            <th width="" class="created-by"><p>CREATED BY</p></th>
+                                            <th width="" class="updated-by"><p>UPDATED BY</p></th>
+                                            <th width="" class="status"><p>STATUS</p></th>
+                                            <th><p class="tablespace"></p></th>
+                                            <th class="action_col"><div class="action"></div></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="templateListData.length > 0">
+                                        <tr *ngFor="let template of templateListData | search: searchString;   let i = index;">
+                                            <td>{{template.Name}}</td>
+                                            <td>{{template.ClassName}}</td>
+                                            <td>{{template.SubjectName}}</td>
+                                            <td>{{template.TotalMarks}}</td>
+                                            <td>{{template.Duration}}</td>
+                                            <td>{{template.Name}}</td>
+                                            <td>{{template.Name}}</td>
+                                            <td>{{template.Name}}</td>
+                                            <td class="action_col">
+                                                <div class="remove single tog">
+                                                    <div class="dropdown ">
+                                                        <button class="btn btn-primary dropdown-toggle form-control" type="button" data-toggle="dropdown">Action
+                                                        <span class="caret"></span></button>
+                                                        <ul class="dropdown-menu p-0">
+                                                            <li><a (click)="editTemplate(template)">Edit Template</a></li>
+                                                            <li>
+                                                                <a ><span class="cursor-auto">Status:{{ template.PaperTemplateStatus == 1 ? ' Active' : ' InActive' }}
+                                                                </span> 
+                                                                <label class="switch">
+                                                                    <input type="checkbox" (change)="changeStatus(i); $event.stopPropagation();"
+                                                                    [checked]="template.PaperTemplateStatus == 1">
+                                                                    <span class="slider round" ></span>
+                                                                </label>
+                                                                </a>
+                                                                <!-- <a> [(ngModel)]="status"
+                                                                            <input (click)="$event.stopPropagation();" type="checkbox" (change)="updateSectionList(institutionClass); $event.stopPropagation();" [checked]="institutionClass.SectionStatus === 1">
+                                                                            <span class="slider round" [ngClass]="{'grayedout': institutionClass.SectionStatus === 2}"></span>
+                                                                        </label>
+                                                                    </a> -->
+
+
+                                                            </li>
+                                                            <li><a  class="" (click)="viewSummary()" >View Summary</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>                                                      
+                                        </tr>
+                                    </tbody>
+                                    <div *ngIf="templateListData.length < 1">No Data Found !!</div>
+                                </table>
+                               
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    // $(document).ready(function(){
+    //     $('#studentList').dataTable();
+    // });
+    $(document).ready(function() {
+        $('.multiselect').multiselect();
+        $(".multiselect-container .checkbox input").addClass("form-check-input");
+        $('input.form-check-input').RezvaniCheckbox({
+        onCheck:function (elem){
+            console.log('checked shod');
+        },
+        onUncheck:function(){
+            console.log('unChecked shod');
+        }
+    });
+    }); 
+    
+    $("#menu-toggle").click(function(e) {
+         e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    
+    $(".resetPasswordmodal").click(function(e) {
+        $("#ResetPassword.modal").modal("show");
+    });
+    
+    var dropdown = document.getElementsByClassName("dropdown-btn");
+    var i;
+    
+    for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+      } else {
+      dropdownContent.style.display = "block";
+      }
+      });
+    }
+
+
+
+
+
+    </script>

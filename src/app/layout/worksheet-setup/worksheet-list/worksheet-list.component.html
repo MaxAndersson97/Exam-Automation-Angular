@@ -1,0 +1,165 @@
+<div id="page-content-wrapper">
+    <div class="container-fluid p-0">
+        <div class="row ">
+            <div class="col-md-12 col-lg-12">
+                <div class="m-4">
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="row works-list">
+                            <div class="col-5 col-md-5">
+                                <h2 class="top-header mb-3">Worksheet</h2>
+                            </div>
+                            <div class="col-7 col-md-7 text-right">
+                                <div class="createtestbtn mb-3 ml-2 float-right">
+                                    <button type="button" id="addnewrow" class="btn createtest-btn " (click)="navigateToWorksheetHome()">Create Worksheet</button>
+                                </div> 
+                                <div class="searchbartable class-test float-right mb-3">
+                                    <form action="">
+                                        <button type="submit"><i class="fa fa-search"></i></button>
+                                        <input type="text" placeholder="Search templates" name="search" [(ngModel)]="searchString">
+                                    </form>
+                                </div>        
+                                <div class="filterbtntable float-right mb-3 ml-3">
+                                    <div class="single tog">
+                                        <button class="dropdown-btn dropdown-toggle " data-toggle="dropdown" (click)="showFilter  = !showFilter">Filters</button>
+                                        <ul class="dropdown-container dropdown-menu p-0 m-0" type="none"  [ngClass]="{'show': showFilter , '' : !showFilter}" (blur)="showFilter  = !showFilter">
+                                            <li class="p-3">
+                                                <div class="w-100">
+                                                    <h3 class="w-50 float-left">Filter By</h3>
+                                                    <a class="w-50 float-right text-right" (click)="selectedOption=''; selectedSubjectId=''; showFilter  = !showFilter; clearFilter()" >Clear Filter</a>
+                                                </div>
+                                            </li>
+                                            <form>
+                                                <div class="addsection-form py-1">
+                                                    <div class=" col-md-12 col-12 p-0">
+                                                        <div class="form-group col-md-12 col-sm-12 single">
+                                                            
+                                                            <ng-select [(ngModel)]="selectedOption"  (click)="getClassId(selectedOption)" [items]="standardList" bindLabel="ClassName" placeholder="e.g. 1st Standard" bindValue="ClassID" [searchable]=true  name="classFilter" id="classFilter"></ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12 single">
+                                                            
+                                                            <ng-select [(ngModel)]="selectedSubjectId"   (click)="getClassId(selectedSubjectId)" [items]="subjectList" bindLabel="SubjectName" placeholder="e.g. English" bindValue="SubjectID" [searchable]=false required name="subjectFilter"></ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <select class="form-control single" id="ddlStatus" [(ngModel)]="ddlStatus"  placeholder="Status" name="ddlStatus" > 
+                                                                <option value="">All Status</option>
+                                                                <option value='Approve'>Approve</option>
+                                                                <option value='Rejected'>Rejected</option>
+                                                                <option value='InProgress'>InProgress</option>
+                                                            </select> 
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <button type="button" id="filterbutton"  class="btn filterBtn w-100 mt-1" (click)="filterData(selectedOption, selectedSubjectId, ddlStatus)">Apply Filter</button>
+                                                        </div>
+                                                    </div>
+                                                </div>    
+                                            </form>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class=" worksheet-list imported-data">
+                            <div class="overflow">
+                                <table id="classTestExam" class="w-100 student-list table">
+                                    <thead>
+                                        <tr>
+                                            <th width="" class="standard"><p>STANDARD</p></th>
+                                            <th width="" class="subject"><p>SUBJECT</p></th>
+                                            <th width="" class="worksheet-name"><p>WORKSHEET NAME</p></th>
+                                            <th width="" class="total-ques"><p>TOTAL QUESTION</p></th>
+                                            <th width="" class="total-marks"><p>TOTAL MARKS</p></th>
+                                            <th width="" class="duration"><p>DURATION</p></th>
+                                            <th width="" class="creationDate"><p>DATE</p></th>
+                                            <th width="" class="creationTime"><p>TIME</p></th>
+                                            <th width="" class="status"><p>QUESTION PAPER</p></th>
+                                            <!-- <th width="" class="mode"><p>MODE</p></th> -->
+                                            <th><p class="tablespace"></p></th>
+                                            <th class="action_col"><div class="action"></div></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="templateListData.length > 0">
+                                        <tr class="" *ngFor="let template of templateListData | search: searchString; let i = index;">
+                                            <td>{{template.ClassName}}</td>
+                                            <td>{{template.SubjectName}}</td>
+                                            <td>{{template.Name}}</td>
+                                            <td>{{template.TotalQuestionCount}}</td>
+                                            <td>{{template.TotalMarks}}</td>
+                                            <td>{{template.Duration}}</td>
+                                            <td>{{template.Name}}</td>
+                                            <td>{{template.Name}}</td>
+                                            <td>{{template.Name}}</td>
+                                            <td class="">Approved</td> 
+                                            <td class="action_col">
+                                                <div class="remove single tog">
+                                                    <div class="dropdown ">
+                                                        <button class="btn btn-primary dropdown-toggle form-control" type="button" data-toggle="dropdown">Action
+                                                        <span class="caret"></span></button>
+                                                        <ul class="dropdown-menu p-0">
+                                                            <li><a href="#">Preview</a></li>
+                                                            <li><a href="#" class="resetPasswordmodal">View Summary</a></li>
+                                                            <li><a href="" class="">View Model Answers</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>                                                      
+                                        </tr> 
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+        <!-- /#page-content-wrapper -->
+        <script>
+
+            // $(document).ready(function(){
+            //     $('#studentList').dataTable();
+            // });
+            $(document).ready(function() {
+                $('.multiselect').multiselect();
+                $(".multiselect-container .checkbox input").addClass("form-check-input");
+                $('input.form-check-input').RezvaniCheckbox({
+                onCheck:function (elem){
+                    console.log('checked shod');
+                },
+                onUncheck:function(){
+                    console.log('unChecked shod');
+                }
+            });
+            }); 
+            
+            $("#menu-toggle").click(function(e) {
+                 e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+            
+            $(".resetPasswordmodal").click(function(e) {
+                $("#ResetPassword.modal").modal("show");
+            });
+            
+            var dropdown = document.getElementsByClassName("dropdown-btn");
+            var i;
+            
+            for (i = 0; i < dropdown.length; i++) {
+              dropdown[i].addEventListener("click", function() {
+              this.classList.toggle("active");
+              var dropdownContent = this.nextElementSibling;
+              if (dropdownContent.style.display === "block") {
+              dropdownContent.style.display = "none";
+              } else {
+              dropdownContent.style.display = "block";
+              }
+              });
+            }
+        
+        
+        
+        
+        
+            </script>

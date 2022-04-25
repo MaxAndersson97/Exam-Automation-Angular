@@ -1,0 +1,10 @@
+<div class="container-fluid p-0">        
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="m-3">                
+                <app-data-listing [dataArray]="staffs" [tableHeaders]="tableHeader" title="Staff List" (actionEmitter)="onActionEmitter($event)" [filterListData]="filterListData"></app-data-listing>          
+            </div>
+        </div>
+    </div>
+</div>
+

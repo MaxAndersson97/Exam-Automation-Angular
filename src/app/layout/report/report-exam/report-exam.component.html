@@ -1,0 +1,173 @@
+<div id="page-content-wrapper" class="exam_taken">
+  <div class="container-fluid p-0">
+      <div class="row">
+
+        <div class="col-md-12 col-lg-12">
+          <div class="worksheettab-row">
+              <div class="col-md-12 col-lg-12 p-0 worksheettab">
+                <div class="worksheet-tab h-100 active" ><h4>Exam Taken</h4></div>
+                <div class="worksheet-tab h-100" style="cursor: pointer;" (click)="goToExamComposition()"><h4>Exam Composition</h4></div>
+
+              </div>
+          </div>
+      </div>
+          <div class="col-md-12 col-lg-12 exam_rr">
+              <div class="filter-row row m-0">
+                  <div class="col-md-12 col-lg-12 p-0 filter-border-right py-3">
+                      <div class="filterBy float-left py-2 px-3  text-left w-100">
+                        <h4>Filters</h4>
+                        <div class="clear_filter" (click)="clearFilter();">Clear Filter</div>
+                      </div>
+                      <div class="w-100 px-3 pb-2">
+                        <div class="float-left select-standard-filter">
+                          <div class="single tog">
+                            <ng-select [(ngModel)]="studentFilterObj.academicYearsID" name="AcademicSessionID" [items]="academicList" placeholder="Select Academic Year"  bindValue="AcademicYearID" [searchable]='false' (change)="isSearchFormValid();academicChnage();">
+                              <ng-template ng-option-tmp let-item="item">
+                                  {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}
+                              </ng-template>
+                              <ng-template ng-label-tmp let-item="item">
+                                  <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                                      {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}</span>
+                                  <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select
+                                      Academic Session</span>
+                              </ng-template>
+                            </ng-select>
+                        </div>
+                        </div>
+                        <div class="float-left select-standard-filter">
+                          <div class="single tog">
+                            <ng-select [(ngModel)]="studentFilterObj.ClassID" [items]="classes" bindLabel="ClassName" placeholder="Select Class"
+                              bindValue="ClassID" [searchable]=false (change)="getSubject(studentFilterObj.ClassID); getSectionByClassID(studentFilterObj.ClassID);isSearchFormValid() ">
+                              <ng-template ng-option-tmp let-item="item">
+                                <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                              </ng-template>
+                              <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.ClassName" style="text-transform: capitalize"> {{item.ClassName.toLowerCase()}}</span>
+                                <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                              </ng-template>
+                  
+                            </ng-select>
+                          </div>
+                        </div>
+                        <!-- <div class="float-left select-section-filter">
+                          <div class="single tog">
+                            <ng-select [(ngModel)]="studentFilterObj.EA_SectionID" name="EA_SectionID" [items]="sectionList" bindValue="AESectionID" [searchable]='false' placeholder="Select Section" (change)="isSearchFormValid()">
+                              <ng-template ng-option-tmp let-item="item" >
+                                  {{ item.SectionName}}
+                              </ng-template>
+                              <ng-template ng-label-tmp let-item="item">
+                                  <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                                  <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                              </ng-template>
+                          </ng-select>
+                          </div>
+                        </div> -->
+                        <div class="float-left select-student-filter">
+                          <div class="single tog">
+                            <angular2-multiselect [data]="sectionList" [(ngModel)]="studentFilterObj.EA_SectionID"
+                              [settings]="setionsettings" (onSelect)="onItemSelect1($event)"
+                              (onDeSelect)="OnItemDeSelect1($event)" (onSelectAll)="onSelectAll1($event)"
+                              (onDeSelectAll)="onDeSelectAll1($event)" (onClose)="isSearchFormValid()">
+                            </angular2-multiselect>
+                          </div>
+                        </div>
+                        <div class="float-left select-student-filter">
+                          <div class="single tog">                         
+                            <angular2-multiselect [data]="examgroupDataList" 
+                            [(ngModel)]="studentFilterObj.ExamGroupIds" 
+                            [settings]="examGroupsettings" 
+                            (onSelect)="onItemSelect($event)"
+                            (onDeSelect)="OnItemDeSelect($event)" 
+                            (onSelectAll)="onSelectAll($event)" 
+                            (onDeSelectAll)="onDeSelectAll($event)" (onClose)="isSearchFormValid()">
+                            </angular2-multiselect>
+                          </div>
+                        </div>
+                        <div class="float-left select-student-filter">
+                          <div class="single tog">
+                        <angular2-multiselect [data]="subjects" 
+                        [(ngModel)]="studentFilterObj.SubjectID" 
+                        [settings]="subjectsettings" 
+                        (onSelect)="onItemSelect1($event)"
+                        (onDeSelect)="OnItemDeSelect1($event);" 
+                        (onSelectAll)="onSelectAll1($event)" 
+                        (onDeSelectAll)="onDeSelectAll1($event)" (onClose)="isSearchFormValid();" >
+                        </angular2-multiselect>
+                          </div>
+                        </div>
+                        
+                        <button type="button" id="showResultBtn" class="btn show-result-btn" (click)="showResult()"  [disabled] = "!isSearchValid">Show Result</button>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row" *ngIf="!noDataFound">
+          <div class="col-md-12 col-lg-12">
+              <div class="m-3 ">
+                  <div class="col-md-12 col-lg-12 pl-0 pr-0">    
+                     <h4 class="mb-0 report-pname">Exams Taken Report</h4>
+                    <div class="row mt-4 mx-0">
+                      <div class="col-md-12 col-12 pl-0">
+                        <div class="row block mx-0 py-3">
+                          <div class="col-md-12 col-12">
+                            <h5 class="exam-taken-head">Exams Taken</h5>
+                          </div>
+                          <div class="col-md-12 col-12 mt-3">
+                            <div class="exam-report-table">
+                              <table class="w-100">
+                                <thead>
+                                  <tr>
+                                    <th>SUBJECT</th>
+                                    <ng-container *ngFor="let item of monthsName">
+                                      <th>{{item}}</th>
+                                    </ng-container>
+                                    
+
+                                  </tr>
+                                </thead>
+                                <tbody>
+                                  <tr *ngFor="let item of preparedChapAnaDataList; let i = index">
+                                    <td style="text-transform: capitalize;">{{item.SubjectName | lowercase}}</td>
+                                    <ng-container *ngFor="let citem of monthsName">
+                                      <td>{{item[citem]}}</td>
+                                    </ng-container>
+                                  </tr>                 
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>          
+                        </div>
+                      </div>
+                    </div>
+              </div>
+          </div>
+      </div>
+  
+    </div>
+
+    <div class="row" *ngIf="noDataFound">
+      <div class="col-md-12 col-lg-12">
+          <div class="m-3 ">
+              <div class="col-md-12 col-lg-12 pl-0 pr-0">    
+                 <div class=" row report-setup">
+                      <div class="col-md-12 col-lg-12 col-sm-12">
+                          <div class="reportsetup-img mx-auto mt-2">
+                              <img src="/assets/images/reports.svg" alt="" class="w-100 mt-2">
+                          </div>
+                      </div>
+                      <div class="col-md-12 col-lg-12 col-sm-12">
+                          <div class="reportsetup-content mx-auto ">
+                              <h2 class="text-center top-header my-3">No report to show</h2>
+                              <p class="text-center reportsetup-description mb-0">Please let us know the standard, section and exam type </p>
+                              <p class="text-center reportsetup-description">from the above dropdown to get the results</p>
+                          </div>
+                      </div>
+                 </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+</div>
+      <!-- /#page-content-wrapper -->

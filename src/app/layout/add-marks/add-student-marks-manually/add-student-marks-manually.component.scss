@@ -1,0 +1,196 @@
+
+td input, td select{	
+  color: #3A5077 !important;	
+  font-size: 14px !important;	
+  line-height: 21px !important;
+}
+.toggled .big{
+    display:none;
+}
+.toggled.d-flex .small{
+  display: block;
+}
+.toggled.d-flex .small svg{
+    width:22px;
+}
+.d-flex .small{
+    display:none;
+}
+.class_setup td input{
+  padding: 6px 8px;
+}
+
+button.saveandclose-btn {
+  background-color: #01CA85;
+  color: #ffffff;
+  height: 42px;
+  width: 145px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  }
+/*----------------table-fixed-----------------*/
+
+.addmarksviacsv-btn{
+  background-color: #5C67E6;
+  color: #ffffff;
+  height: 42px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+.student_marks_unitTest{
+  border-radius: 4px;	
+  background-color: #FFFFFF;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+}
+.student_marks_unitTest .student_name{
+  color: #172B4D;	
+  font-size: 14px;	
+  font-weight: 600;	
+  line-height: 22px;
+}
+.student_marks_unitTest .section_name{
+  color: #8595A6;	
+  font-size: 12px;	
+  line-height: 21px;
+}
+.student_marks_unitTest .student_topb{
+  border-bottom: 1px solid #F6F7FB;
+}
+.student_marks_unitTest .edit-group-link a{
+  color: #5C67E6;	
+  font-size: 12px;	
+  line-height: 21px;	
+  text-align: center;
+}
+.aca_session .inneraca_session {
+  height: 12px;
+  width: 12px;
+  background-color: #fff;
+  border-radius: 50%;
+  margin: 3px auto;
+}
+.aca_session {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #BFCDDA;
+  background-color: #FFFFFF;
+}
+.aca_session.green{
+  background-color: #69BB10;
+  border-color: #69BB10;
+}
+.aca_session.orange{
+  background-color: #FFA338;
+  border-color: #FFA338;
+}
+.aca_session.normal .inneraca_session {
+  background-color: #BFCDDA;
+}
+#student_marks_modal th, #student_marks_modal td{
+  border: 1px solid #D1DAE6;
+}
+#student_marks_modal th{
+  color: #3A5077;	
+  font-size: 12px;	
+  font-weight: 500;	
+  line-height: 18px;
+  height: 35px;
+  padding: 0 12px;
+  text-align: center;
+}
+#student_marks_modal td{
+  color: #3A5077;	
+  font-size: 13px;	
+  font-weight: 500;	
+  line-height: 18px;
+  height: 45px;
+  padding: 0 12px;
+  text-align: center;
+}
+#student_marks_modal input{
+  width: 70px;
+  padding-left: 12px;
+}
+
+#student_marks_modal .addMarksBtn{
+  height: 47px;
+  color: #FFFFFF;	
+  font-size: 15px;	
+  font-weight: 600;	
+  line-height: 22px;	
+  text-align: center;
+  border-radius: 4px;	background-color: #5C67E6;
+}
+
+.searchbartable input{
+  width: 230px;
+  height: 40px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px 0 0 2px;
+  padding-left: 30px;
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+.searchbartable button{
+  position: absolute;
+  background: #ffffff;
+  height: 35px;
+  border: none;
+  padding: 8px 0px;
+  margin-left: 8px;
+  margin-top: 1px;
+}
+.searchbartable button i{
+  color: #8595A6;
+}
+.student_marks_p:nth-child(4n+4) {
+  padding-right: 15px !important;
+}
+
+
+#AddMarksModal .modal-title {
+  color: #172B4D;
+  font-size: 20px;
+  font-weight: 600;
+}
+#AddMarksModal .modal-dialog{
+  max-width: 400px;
+  border-radius: 4px;	
+  background-color: #FFFFFF;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+}
+#AddMarksModal .modal-body h5{
+  color: #172B4D;	font-family: Inter;	font-size: 15px;	font-weight: 600;
+}
+#AddMarksModal .modal-body p{
+  color: #3A5077;	font-family: Inter;	font-size: 13px;	font-weight: 500;	line-height: 21px; text-align: left;
+}
+#AddMarksModal .modal-body .btn-yes{
+  height: 36px;
+  width: 130px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  float: right;
+  margin: 8px 0px 0px 0px;
+}
+#AddMarksModal .modal-body .btn-no {
+  height: 36px;
+  width: 130px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+  float: right;
+  margin: 8px 8px 0px 0px;
+}

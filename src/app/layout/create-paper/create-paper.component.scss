@@ -1,0 +1,33 @@
+.exam_setup {
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+    box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+    position: relative;
+    height: 660px;
+    width: auto;
+    border-radius: 4px;
+    /*--------worksheet-------------*/
+  }
+  
+  .exam_setup .examsetup-img {
+    width: 292px;
+  }
+  
+  .exam_setup .examsetup-description {
+    color: #8595A6;
+    font-size: 17px;
+    line-height: 24px;
+  }
+
+  .exam_setup button.createworksheet-btn {
+    height: 47px;
+    width: 240px;
+    border-radius: 4px;
+    background-color: #5C67E6;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
+  }
+  

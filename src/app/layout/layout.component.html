@@ -1,0 +1,33 @@
+<mat-drawer-container class="example-container" *ngIf="isshowheader">
+  <mat-drawer #drawer [mode]="(isSmallScreen$ | async) ? 'over' : 'side'" [opened]='!(isSmallScreen$ | async)'
+    style='display: flex; flex-direction: column;'>
+
+    <div class='side-nav-container'>
+      <app-side-nav (showPaymentPopUp)="showPaymentPopUp()" (showChangePassword)="changePwd()"></app-side-nav>
+    </div>
+
+    <div class="m-2 d-block d-lg-none text-lg-right contact-info" style="padding-left: 10px;padding-right: 10px;">
+      <span style="color: #5C67E6;">For Instant Support</span><br />
+      <span style="color: #5C67E6;">CALL : +91 8827878306</span>
+    </div>
+
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-nav-bar (mobileSidenavOpen)='drawer.toggle()'></app-nav-bar>
+    <div id="page-content-wrapper">
+      <div>
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+  </mat-drawer-content> 
+</mat-drawer-container>
+
+<div class="modal fade modal-md" id="OutOfCreditDialogTemplate"  bsModal #OutOfCreditDialogTemplate="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" >
+  <app-buy-credit (closePopupEvent)="closeModalOutOfCredit($event)"></app-buy-credit>
+</div>
+
+<div id="page-content-wrapper" *ngIf="!isshowheader">
+  <div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

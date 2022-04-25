@@ -1,0 +1,260 @@
+<div id="page-content-wrapper" class="complex_anaysis">
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <div class="worksheettab-row">
+          <div class="col-md-12 col-lg-12 p-0 worksheettab">
+            <div class="worksheet-tab h-100" style="cursor: pointer;" (click)="goToChapterAnalysis()">
+              <h4>Chapter Analysis</h4>
+            </div>
+            <div class="worksheet-tab h-100" style="cursor: pointer;" (click)="goToSubLevelReport()">
+              <h4>Subject Level Report</h4>
+            </div>
+            <div class="worksheet-tab h-100" style="cursor: pointer;" (click)="gotoLearning()">
+              <h4>Learning Curve</h4>
+            </div>
+            <div class="worksheet-tab active h-100" style="cursor: pointer;" (click)="getocomplexity()">
+              <h4>Complexity Analysis</h4>
+            </div>
+
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12">
+        <div class="filter-row py-3">
+          <div class="col-md-12 col-lg-12 p-0">
+            <div class="filterBy float-left py-2 px-3  text-left w-100">
+              <h4>Filters</h4>
+              <div class="clear_filter" (click)="clearFilter();">Clear Filter</div>
+            </div>
+            <div class="w-100 px-3 pb-2">
+              <div class="float-left select-standard-filter">
+                <div class="single tog">
+                  <ng-select [(ngModel)]="studentFilterObj.academicYearsID" name="AcademicSessionID"
+                    [items]="academicList" placeholder="Select Academic Year" bindValue="AcademicYearID" 
+                    (change)="academicChnage();"
+                    [searchable]='false'>
+                    <ng-template ng-option-tmp let-item="item">
+                      {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}
+                    </ng-template>
+                    <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                        {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}</span>
+                      <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select
+                        Academic Session</span>
+                    </ng-template>
+                  </ng-select>
+                </div>
+              </div>
+              <div class="float-left select-standard-filter">
+                <div class="single tog">
+                  <ng-select [(ngModel)]="studentFilterObj.ClassID" [items]="classes" bindLabel="ClassName"
+                    placeholder="Select Class" bindValue="ClassID" [searchable]=false
+                    (change)="getSectionByClassID(studentFilterObj.ClassID); getSubject(studentFilterObj.ClassID)">
+                    <ng-template ng-option-tmp let-item="item">
+                      <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                    </ng-template>
+                    <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                        {{item.ClassName.toLowerCase()}}</span>
+                      <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                    </ng-template>
+
+                  </ng-select>
+                </div>
+              </div>
+              <div class="float-left select-standard-filter">
+                <div class="single tog">
+                  <ng-select [(ngModel)]="studentFilterObj.EA_SectionID" name="EA_SectionID" [items]="sectionList"
+                    bindValue="AESectionID" [searchable]='false' placeholder="Select Section"
+                    (change)="getStudentBySection()">
+                    <ng-template ng-option-tmp let-item="item">
+                      {{ item.SectionName}}
+                    </ng-template>
+                    <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                      <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                    </ng-template>
+                  </ng-select>
+                </div>
+              </div>
+              <div class="float-left exam-group-filter">
+                <ng-select [(ngModel)]="studentFilterObj.StudentID" [items]="students" bindLabel="StudentName"
+                  placeholder="Select Student" bindValue="StudentID" [searchable]=false #currentStudent>
+                  <ng-template ng-option-tmp let-item="item">
+                    <span style="text-transform: capitalize">{{item.StudentName.toLowerCase()}}</span>
+                  </ng-template>
+                  <ng-template ng-label-tmp let-item="item">
+                    <span *ngIf="item.StudentName" style="text-transform: capitalize">
+                      {{item.StudentName.toLowerCase()}}</span>
+                    <span *ngIf="!(!!item.StudentName)" style="color: #999999;"> Select Student</span>
+                  </ng-template>
+
+                </ng-select>
+              </div>
+              <div class="float-left select-standard-filter">
+                <div class="single tog">
+                  <ng-select [(ngModel)]="studentFilterObj.SubjectID" [items]="subjects" bindLabel="SubjectName"
+                    placeholder="Select Subject" bindValue="SubjectID" [searchable]=false required>
+                    <ng-template ng-option-tmp let-item="item">
+                      <span style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                    </ng-template>
+                    <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                        {{item.SubjectName.toLowerCase()}}</span>
+                      <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select Standard</span>
+                    </ng-template>
+
+                  </ng-select>
+                </div>
+              </div>
+              <button type="button" id="showResultBtn" class="btn show-result-btn"
+                (click)="showResult(studentFilterObj)"
+                [disabled]="!(!!studentFilterObj['academicYearsID'] && !!studentFilterObj['SubjectID'] &&!!studentFilterObj['StudentID'] &&  !!studentFilterObj['EA_SectionID'] && !!studentFilterObj['ClassID'])">Show
+                Result</button>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="!noDataFound">
+      <div class="col-md-12 col-lg-12">
+        <div class="m-3 row">
+          <div class="col-md-12 col-lg-12 pl-0 p-0">
+            <!-- <h4 class="mb-0 report-pname">Learning Strength Analysis</h4> -->
+
+            <h4 class="mb-0 report-pname" *ngIf="currentStudent['selectedValues'] &&currentStudent['selectedValues'][0] && currentStudent['selectedValues'][0]['StudentName']"> Learning Strength Analysis: {{currentStudent['selectedValues'][0]['StudentName']}}</h4>
+            <div class="row mx-0 py-3">
+              <div class="col-md-12 col-12 p-0 strength-analysis-table">
+                <table class="w-100">
+                  <thead>
+                    <tr>
+                      <th>LEARNING PARAMETERS</th>
+                      <th>EASY</th>
+                      <th>MEDIUM</th>
+                      <th>HARD</th>
+                      <th>OVERALL</th>
+                      <th>POSITION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of learning_strength_analysis; let i = index">
+                      <td class="chapter-name-text" style="text-transform: capitalize;">
+                        {{item.BloomTaxonomyName | lowercase}}</td>
+                      <td
+                        [ngClass]="{'poor-percent': item.EASY < 51, 'medium-percent': item.EASY > 51 &&item.EASY < 76, 'strong-percent': item.EASY > 75 }">
+                        <span *ngIf="item.EASY !== 'NaN'">{{item.EASY | number: '1.1-2'}}%</span>
+                        <span *ngIf="item.EASY == 'NaN'">N/A</span>
+                      </td>
+                      <td
+                        [ngClass]="{'poor-percent': item.MEDIUM < 51, 'medium-percent': item.MEDIUM > 51 &&item.MEDIUM < 76, 'strong-percent': item.MEDIUM > 75 }">
+                        <span *ngIf="item.MEDIUM !== 'NaN'">{{item.MEDIUM | number: '1.1-2'}}%</span>
+                        <span *ngIf="item.MEDIUM == 'NaN'">N/A</span>
+                      </td>
+                      <td
+                        [ngClass]="{'poor-percent': item.HARD < 51, 'medium-percent': item.HARD > 51 &&item.HARD < 76, 'strong-percent': item.HARD > 75 }">
+                        <span *ngIf="item.HARD !== 'NaN'">{{item.HARD | number: '1.1-2'}}%</span>
+                        <span *ngIf="item.HARD == 'NaN'">N/A</span>
+                      </td>
+                      <td
+                        [ngClass]="{'poor-percent': item.Overall < 51, 'medium-percent': item.Overall > 51 &&item.Overall < 76, 'strong-percent': item.Overall > 75 }">
+                        <span *ngIf="item.Overall !== 'NaN'">{{item.Overall | number: '1.1-2'}}%</span>
+                        <span *ngIf="item.Overall == 'NaN'">N/A</span>
+                      </td>
+                      <td
+                        [ngClass]="{'poor-percent': item.Overall < 51, 'medium-percent': item.Overall > 51 &&item.Overall < 76, 'strong-percent': item.Overall > 75 }">
+                        <span *ngIf="item.Overall < 51">Poor</span>
+                        <span *ngIf="item.Overall > 51 &&item.Overall < 76">Moderate</span>
+                        <span *ngIf="item.Overall > 75">Strong</span>
+                      </td>
+                    </tr>
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- <h4 class="mb-0 report-pname">Chapter Strength Analysis</h4> -->
+            <h4 class="mb-0 report-pname" *ngIf="currentStudent['selectedValues'] &&currentStudent['selectedValues'][0] && currentStudent['selectedValues'][0]['StudentName']"> Chapter Strength Analysis: {{currentStudent['selectedValues'][0]['StudentName']}}</h4>
+            <div class="row mx-0 py-3">
+              <div class="col-md-12 col-12 p-0 strength-analysis-table">
+                <table class="w-100">
+                  <thead>
+                    <tr>
+                      <th>LEARNING PARAMETERS</th>
+                      <th>EASY</th>
+                      <th>MEDIUM</th>
+                      <th>HARD</th>
+                      <th>OVERALL</th>
+                      <th>POSITION</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let item of chap_strength_analysis; let i = index">
+                      <td class="chapter-name-text" style="text-transform: capitalize;">{{item.ChapterName | lowercase}}
+                      </td>
+                      <td
+                        [ngClass]="{'poor-percent': item.EASY < 51, 'medium-percent': item.EASY > 51 &&item.EASY < 76, 'strong-percent': item.EASY > 75 }">
+                        <span *ngIf="item.EASY !== 'NaN'">{{item.EASY | number: '1.1-2'}}%</span>
+                        <span *ngIf="item.EASY == 'NaN'">N/A</span>
+                      </td>
+                      <td
+                        [ngClass]="{'poor-percent': item.MEDIUM < 51, 'medium-percent': item.MEDIUM > 51 &&item.MEDIUM < 76, 'strong-percent': item.MEDIUM > 75 }">
+                        <span *ngIf="item.MEDIUM !== 'NaN'">{{item.MEDIUM | number: '1.1-2'}}%</span>
+                        <span *ngIf="item.MEDIUM == 'NaN'">N/A</span>
+                      </td>
+                      <td
+                        [ngClass]="{'poor-percent': item.HARD < 51, 'medium-percent': item.HARD > 51 &&item.HARD < 76, 'strong-percent': item.HARD > 75 }">
+                        <span *ngIf="item.HARD !== 'NaN'">{{item.HARD | number: '1.1-2'}}%</span>
+                        <span *ngIf="item.HARD == 'NaN'">N/A</span>
+                      </td>
+                      <td
+                        [ngClass]="{'poor-percent': item.Overall < 51, 'medium-percent': item.Overall > 51 &&item.Overall < 76, 'strong-percent': item.Overall > 75 }">
+                        <span *ngIf="item.Overall !== 'NaN'">{{item.Overall | number: '1.1-2'}}%</span>
+                        <span *ngIf="item.Overall == 'NaN'">N/A</span>
+                      </td>
+                      <td
+                        [ngClass]="{'poor-percent': item.Overall < 51, 'medium-percent': item.Overall > 51 &&item.Overall < 76, 'strong-percent': item.Overall > 75 }">
+                        <span *ngIf="item.Overall < 51">Poor</span>
+                        <span *ngIf="item.Overall > 51 &&item.Overall < 76">Moderate</span>
+                        <span *ngIf="item.Overall > 75">Strong</span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" *ngIf="noDataFound">
+      <div class="col-md-12 col-lg-12">
+        <div class="m-3 ">
+          <div class="col-md-12 col-lg-12 pl-0 pr-0">
+            <div class=" row report-setup">
+              <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="reportsetup-img mx-auto mt-2">
+                  <img src="/assets/images/reports.svg" alt="" class="w-100 mt-2">
+                </div>
+              </div>
+              <div class="col-md-12 col-lg-12 col-sm-12">
+                <div class="reportsetup-content mx-auto ">
+                  <h2 class="text-center top-header my-3">No report to show</h2>
+                  <p class="text-center reportsetup-description mb-0">Please let us know the standard, section and exam
+                    type </p>
+                  <p class="text-center reportsetup-description">from the above dropdown to get the results</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<!-- /#page-content-wrapper -->

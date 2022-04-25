@@ -1,0 +1,346 @@
+<div id="page-content-wrapper" class="lern_curve">
+  <div class="container-fluid p-0">
+      <div class="row">
+          <div class="col-md-12 col-lg-12">
+              <div class="worksheettab-row">
+                  <div class="col-md-12 col-lg-12 p-0 worksheettab">
+                    <div class="worksheet-tab h-100" style="cursor: pointer;" (click)="goToChapterAnalysis()"><h4>Chapter Analysis</h4></div>
+                    <div class="worksheet-tab h-100" style="cursor: pointer;" (click)="goToSubLevelReport()"><h4>Subject Level Report</h4></div>
+                    <div class="worksheet-tab h-100 active" ><h4>Learning Curve</h4></div>
+                    <div class="worksheet-tab h-100" style="cursor: pointer;" (click)="getocomplexity()"><h4>Complexity Analysis</h4></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-12 col-lg-12">
+              <div class="filter-row py-3">
+                  <div class="col-md-12 col-lg-12 p-0">
+                    <div class="filterBy float-left py-2 px-3  text-left w-100">
+                      <h4>Filters</h4>
+                      <div class="clear_filter" (click)="clearFilter();">Clear Filter</div>
+                    </div>
+                    <div class="w-100 px-3 pb-2">
+                      <div class="float-left select-standard-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.academicYearsID" name="AcademicSessionID" [items]="academicList" placeholder="Select Academic Year"  bindValue="AcademicYearID" [searchable]='false' (change)="isSearchFormValid();academicChnage();">
+                            <ng-template ng-option-tmp let-item="item">
+                                {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                                    {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}</span>
+                                <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select
+                                    Academic Session</span>
+                            </ng-template>
+                          </ng-select>
+                      </div>
+                      </div>
+                      <div class="float-left select-standard-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.ClassID" [items]="classes" bindLabel="ClassName" placeholder="Select Class"
+                            bindValue="ClassID" [searchable]=false (change)="getSectionByClassID(studentFilterObj.ClassID); isSearchFormValid()">
+                            <ng-template ng-option-tmp let-item="item">
+                              <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                              <span *ngIf="item.ClassName" style="text-transform: capitalize"> {{item.ClassName.toLowerCase()}}</span>
+                              <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                            </ng-template>
+                
+                          </ng-select>
+                        </div>
+                      </div>
+                      <div class="float-left select-section-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.EA_SectionID" name="EA_SectionID" [items]="sectionList" bindValue="AESectionID" [searchable]='false' placeholder="Select Section" (change)="getStudentBySection(); isSearchFormValid()">
+                            <ng-template ng-option-tmp let-item="item" >
+                                {{ item.SectionName}}
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                                <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                            </ng-template>
+                        </ng-select>
+                        </div>
+                      </div>
+                      <div class="float-left select-student-filter">
+                        <div class="single tog">                         
+                          <angular2-multiselect [data]="examgroupDataList" 
+                          [(ngModel)]="studentFilterObj.ExamGroupIds" 
+                          [settings]="examGroupsettings" 
+                          (onSelect)="onItemSelect($event)"
+                          (onDeSelect)="OnItemDeSelect($event)" 
+                          (onSelectAll)="onSelectAll($event)" 
+                          (onDeSelectAll)="onDeSelectAll($event)"
+                          (onClose)="isSearchFormValid()">
+                          </angular2-multiselect>
+                        </div>
+                      </div>
+                      <div class="float-left exam-group-filter">
+                        <ng-select [(ngModel)]="studentFilterObj.StudentID" [items]="students" bindLabel="StudentName" #currentStudent
+                        placeholder="Select Student" bindValue="StudentID" [searchable]=false (change)="isSearchFormValid()">
+                        <ng-template ng-option-tmp let-item="item">
+                            <span
+                                style="text-transform: capitalize">{{item.StudentName.toLowerCase()}}</span>
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.StudentName" style="text-transform: capitalize">
+                               {{item.StudentName.toLowerCase()}}</span>
+                            <span *ngIf="!(!!item.StudentName)" style="color: #999999;"> Select Student</span>
+                        </ng-template>                    
+                    </ng-select>
+                      </div>
+                      
+                      <button type="button" id="showResultBtn" class="btn show-result-btn" (click)="showResult()" [disabled] = "!isSearchValid">Show Result</button>
+                    </div>
+                      
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row" *ngIf="!noDataFound">
+          <div class="col-md-12 col-lg-12">
+              <div class="m-3 row">
+                  <div class="col-md-12 col-lg-12 pl-0 p-0 w_fix">    
+                     <h4 class="mb-0 report-pname" *ngIf="currentStudent['selectedValues'] &&currentStudent['selectedValues'][0] && currentStudent['selectedValues'][0]['StudentName']"> Overall Learning Objective Summary: {{currentStudent['selectedValues'][0]['StudentName']}}</h4>
+     <div class="row mt-4 mx-0">
+      <div class="col-md-6 col-6 pl-0">
+        <div class="row block-1 mx-0 py-3">
+          <div class="col-md-8 col-8">
+            <h5 class="overall-rank-head">Learning Objective Rank in Class</h5>
+          </div>
+          <div class="col-md-4 col-4">
+            <div class="st-rank float-right">#{{rank}} Rank</div>
+          </div>
+          <div class="col-md-12 col-12 mt-3">
+            <div class="overall-rank-table">
+              <table class="w-100">
+                <thead>
+                  <tr>
+                    <th width="36%">SUBJECT</th>
+                    <th width="32%" class="text-center">OVERALL SCORE</th>
+                    <th width="32%" class="text-center">CLASS AVG. SCORE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let a of SubjectLevelData; let indx = index">
+                    <td style="text-transform: capitalize;">{{a.BloomTaxonomyName | lowercase}}</td>
+                    <td class="text-center">{{a.overall | number: '1.2-2'}} %</td>
+                    <td class="text-center">{{a.class_avg | number: '1.2-2'}} %</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 col-6 pr-0">
+        <div class="row block-2 mr-0 py-3">
+          <div class="col-md-6 col-6">
+            <h5 class="overall-rank-head">Learning Objective Curve</h5>
+          </div>
+          <div class="col-md-6 col-6">
+            <div class="class-avg-score ml-1 mt-2 float-right"><div class="float-left mr-1"></div> Class Avg. Score</div>
+            <div class="student-score mr-1 mt-2 float-right"><div class="float-left mr-1"></div> Overall Score</div>
+          </div>
+          <div class="col-md-12 col-12 mt-3">
+            <!--chart-place---->
+            
+            <!-- <div id="chartContainer" style="height: 370px; width: 100%;"></div> -->
+            <div id="student-chart-container"></div>
+            <!---chart place-end---------->
+          </div>
+        </div>
+      </div>
+     </div>
+     <p class="note-para my-3">* This above scores represent consolidated average score from selected exam group.</p>
+								   
+     <h4 class="mb-0 report-pname">Learning Ability Performance Report: <span *ngIf="currentStudent['selectedValues'] &&currentStudent['selectedValues'][0] && currentStudent['selectedValues'][0]['StudentName']">{{currentStudent['selectedValues'][0]['StudentName']}}</span></h4>
+
+     <div class="row mt-4 mx-0 graph-block py-3">
+      <div class="col-md-6 col-6">
+        <h5 class="overall-rank-head">Analysis Ability Performance</h5>
+      </div>
+      <div class="col-md-6 col-6">
+        <div class="class-avg-score ml-1 mt-2 float-right"><div class="float-left mr-1"></div> Class Avg. Score</div>
+        <div class="student-score mr-1 mt-2 float-right"><div class="float-left mr-1"></div> Overall Score</div>
+      </div>
+      <div class="col-md-12 col-12">
+        <!------------Analysis Ability Performance graph---->
+        <div id="analysis-highcharts-description"></div>
+            
+            
+        <!--------Analysis Ability Performance-graph-end---------->
+      </div>
+     </div>
+     <div class="row mt-4 mx-0 graph-block py-3">
+      <div class="col-md-6 col-6">
+        <h5 class="overall-rank-head">Application Ability Performance</h5>
+      </div>
+      <div class="col-md-6 col-6">
+        <div class="class-avg-score ml-1 mt-2 float-right"><div class="float-left mr-1"></div> Class Avg. Score</div>
+        <div class="student-score mr-1 mt-2 float-right"><div class="float-left mr-1"></div> Overall Score</div>
+      </div>
+      <div class="col-md-12 col-12">
+        <!------------Application Ability Performance graph---->
+        <div id="application-highcharts-description"></div>
+            
+            
+        <!--------Application Ability Performance-graph-end---------->
+      </div>
+     </div>
+
+     <div class="row mt-4 mx-0 graph-block py-3">
+      <div class="col-md-6 col-6">
+        <h5 class="overall-rank-head">Creating Ability Performance</h5>
+      </div>
+      <div class="col-md-6 col-6">
+        <div class="class-avg-score ml-1 mt-2 float-right"><div class="float-left mr-1"></div> Class Avg. Score</div>
+        <div class="student-score mr-1 mt-2 float-right"><div class="float-left mr-1"></div> Overall Score</div>
+      </div>
+      <div class="col-md-12 col-12">
+        <!------------Creating Ability Performance graph---->
+        <div id="creating-highcharts-description"></div>
+            
+            
+        <!--------Creating Ability Performance-graph-end---------->
+      </div>
+     </div>
+     
+     <div class="row mt-4 mx-0 graph-block py-3">
+      <div class="col-md-6 col-6">
+        <h5 class="overall-rank-head">Evaluation Ability Performance</h5>
+      </div>
+      <div class="col-md-6 col-6">
+        <div class="class-avg-score ml-1 mt-2 float-right"><div class="float-left mr-1"></div> Class Avg. Score</div>
+        <div class="student-score mr-1 mt-2 float-right"><div class="float-left mr-1"></div> Overall Score</div>
+      </div>
+      <div class="col-md-12 col-12">
+        <!------------Evaluation Ability Performance graph---->
+        <div id="evaluation-highcharts-description"></div>
+            
+            
+        <!--------Evaluation Ability Performance-graph-end---------->
+      </div>
+     </div>
+
+     <div class="row mt-4 mx-0 graph-block py-3">
+      <div class="col-md-6 col-6">
+        <h5 class="overall-rank-head">Remembering Ability Performance</h5>
+      </div>
+      <div class="col-md-6 col-6">
+        <div class="class-avg-score ml-1 mt-2 float-right"><div class="float-left mr-1"></div> Class Avg. Score</div>
+        <div class="student-score mr-1 mt-2 float-right"><div class="float-left mr-1"></div> Overall Score</div>
+      </div>
+      <div class="col-md-12 col-12">
+        <!------------Remembering Ability Performance graph---->
+        <div id="remembering-highcharts-description"></div>
+            
+        <!--------Remembering Ability Performance-graph-end---------->
+      </div>
+     </div>
+
+     <div class="row mt-4 mx-0 graph-block py-3">
+      <div class="col-md-6 col-6">
+        <h5 class="overall-rank-head">Understanding Ability Performance</h5>
+      </div>
+      <div class="col-md-6 col-6">
+        <div class="class-avg-score ml-1 mt-2 float-right"><div class="float-left mr-1"></div> Class Avg. Score</div>
+        <div class="student-score mr-1 mt-2 float-right"><div class="float-left mr-1"></div> Overall Score</div>
+      </div>
+      <div class="col-md-12 col-12">
+        <!------------Understanding Ability Performance graph---->
+        <div id="understanding-highcharts-description"></div>
+            
+            
+        <!--------Understanding Ability Performance-graph-end---------->
+      </div>
+     </div>
+
+     
+
+     
+     <h4 class="mb-0 report-pname mt-3">Subject Wise Learning Objective Summary: <span *ngIf="currentStudent['selectedValues'] &&currentStudent['selectedValues'][0] && currentStudent['selectedValues'][0]['StudentName']">{{currentStudent['selectedValues'][0]['StudentName']}}</span></h4>
+     
+     <div class="row mx-0 py-3">
+      <div class="col-md-12 col-12 learning-objective-summary overall-rank-table p-0">
+        <table class="w-100">
+          <thead>
+            <tr>
+              <th width="20%">LEARNING ABILITY</th>
+              <th width="15%" *ngFor="let subject of total_subject; let i=index" class="text-center">{{subject}}</th>
+              <!-- <th>ENGLISH</th>
+              <th>SOCIAL SCIENCE</th>
+              <th>MATHEMATICS</th>
+              <th>SCIENCE</th> -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let overall of subwise_learning_objective_summary; let indx = index">
+              <td style="text-transform: capitalize;">{{overall.BloomTaxonomyName | lowercase}}</td>
+              <ng-container *ngFor="let subject of total_subject; let i=index">
+                <td class="text-center">
+                  <span *ngIf="overall[subject]!='NaN'">{{overall[subject] | number: '1.2-2'}}%</span>
+                  <span *ngIf="overall[subject]=='NaN'">NaN</span>
+                </td>
+              </ng-container>
+              <!--  <td>{{overall.}}</td>
+              <td>{{overall.}}</td>
+              <td>{{overall.}}</td> -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+     </div>
+     
+     <div class="row mt-4 mx-0 graph-block py-3">
+      <div class="col-md-4 col-4">
+        <h5 class="overall-rank-head">Learning Objective Curve</h5>
+      </div>
+      <div class="col-md-8 col-8">
+       
+        <div class="Understanding-curve mr-3 mt-2 float-right"><div class="float-left mr-1"></div> Understanding</div>
+        <div class="Remembering-curve mr-3 mt-2 float-right"><div class="float-left mr-1"></div> Remembering</div>  
+        <div class="Evaluation-curve mr-3 mt-2 float-right"><div class="float-left mr-1"></div> Evaluation </div>
+        <div class="creating-curve mr-3 mt-2 float-right"><div class="float-left mr-1"></div> Creating</div>   
+        <div class="Application-curve mr-3 mt-2 float-right"><div class="float-left mr-1"></div> Application</div>
+        <div class="Analysis-curve mr-3 mt-2 float-right"><div class="float-left mr-1"></div> Analysis</div>
+      </div>
+      <div class="col-md-12 col-12">
+        <!------------Learning Objective Curve graph---->
+        <div id="learning-objective-container"></div>            
+            
+        <!--------Learning Objective Curve-graph-end---------->
+      </div>
+     </div>
+                   
+    </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row" *ngIf="noDataFound">
+        <div class="col-md-12 col-lg-12">
+            <div class="m-3 ">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">    
+                   <div class=" row report-setup">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="reportsetup-img mx-auto mt-2">
+                                <img src="/assets/images/reports.svg" alt="" class="w-100 mt-2">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="reportsetup-content mx-auto ">
+                                <h2 class="text-center top-header my-3">No report to show</h2>
+                                <p class="text-center reportsetup-description mb-0">Please let us know the standard, section and exam type </p>
+                                <p class="text-center reportsetup-description">from the above dropdown to get the results</p>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+      <!-- /#page-content-wrapper -->

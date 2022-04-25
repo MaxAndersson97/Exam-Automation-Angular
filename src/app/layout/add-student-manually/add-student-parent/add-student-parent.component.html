@@ -1,0 +1,149 @@
+<div class="tab-pane " id="schoolDetails" role="tabpanel">
+  <form [formGroup]="addStudentParentForm" #studentForm="ngForm" (ngSubmit)="onSubmit()">
+    <div class="schoolDetail-form p-4">
+      <p class="m-0 py-2" style="color: #3A5077; font-size: 14px; font-weight:600;">BASIC INFORMATION
+      </p>
+      <div class="row">
+        <div class="form-group col-md-6 col-lg-6 col-6">
+          <label class="">Relationship</label>
+          <!-- <select class="form-control" id="ddlRelationship" formControlName="Relationship" required>
+            <option value=''>eg. Mother/Father</option>
+            <option value='Father'>Father</option>
+            <option value='Mother'>Mother</option>
+          </select> -->
+          <ng-select  formControlName="Relationship" name="Relationship" [items]="relationships" [searchable]='false' >
+            <ng-template ng-option-tmp let-item="item">
+              {{item}}
+            </ng-template>
+            <ng-template ng-label-tmp let-item="item">
+                <span *ngIf="item"> {{item}}</span>
+                <span *ngIf="!(item)" style="color: #999999;"> e.g. Mother/Father</span>
+            </ng-template>
+        </ng-select>
+        </div>
+        <div class="form-group col-md-6 col-lg-6 col-6">
+            <label class="">First Name</label>
+            <input type="text" formControlName="FirstName" class="form-control" value="" placeholder="e.g. Bruce"
+              id="txtPFirstName" />
+          </div>
+      </div>
+      <div class="row">
+
+        <div class="form-group col-md-6 col-lg-6 col-6">
+          <label class="">Middle Name</label>
+          <input type="text" formControlName="MiddleName" class="form-control" value="" placeholder="e.g. Batman"
+            id="txtPMiddleName"  />
+        </div>
+        <div class="form-group col-md-6 col-lg-6 col-6">
+            <label class="">Last Name</label>
+            <input type="text" formControlName="LastName" class="form-control" value="" placeholder="e.g. Wayne"
+              id="txtPLastName" />
+          </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6 col-6">
+          <label class="">Mobile No. </label>
+          <input type="text" class="form-control" value=""
+          placeholder="e.g. 123 411 3491" id="txtMobileNo"
+            formControlName="MobileNumber" name="MobileNumber" onkeypress="if(this.value.length==10) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250" />
+            
+          <div *ngIf="addStudentParentForm.controls['MobileNumber'].errors && addStudentParentForm.controls['MobileNumber'].dirty || (submitted && addStudentParentForm.controls['MobileNumber'].errors)" class="danger-text">
+            <div *ngIf="addStudentParentForm.controls['MobileNumber'].errors.minlength">Please enter 10 digit Mobile Number.
+            </div>
+            <div *ngIf="addStudentParentForm.controls['MobileNumber'].errors.maxlength">Please enter 10 digit Mobile Number.</div>
+          </div>
+        </div>
+        <div class="form-group col-md-6 col-lg-6 col-6">
+          <label class="">Email ID (optional)</label>
+          <input type="text" formControlName="ParentEmailID" class="form-control" value="" id="txtPEmailID" placeholder="e.g. shabcreation@gmail.com" />
+            <div *ngIf="addStudentParentForm.controls['ParentEmailID'].errors && ( !addStudentParentForm.controls['ParentEmailID'].pristine || submitted ||addStudentParentForm.controls['ParentEmailID'].touched )" class="danger-text">
+              <div [hidden]="!addStudentParentForm.controls.ParentEmailID.hasError('pattern')">Please enter the valid
+                entry.</div>
+            </div>
+        </div>
+      </div>
+      <hr>
+      <div class="form-check-inline">
+          <label class="checkbox-container form-check-label">
+              <input type="checkbox"  (click)="sameAsStudent();"  class="form-check-input h-auto"
+                  [checked]="addressChecked">
+              <span class="checkmark"></span> Address: Same as Student
+          </label>
+        <!-- <label class="form-check-label">
+          <input type="checkbox" class="form-check-input h-auto" [checked]="addressChecked" (click)="sameAsStudent();">Address: Same as Student
+        </label> -->
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12 col-12 mt-1">
+          <label class="">Address </label>
+          <input type="text" formControlName="Address" class="form-control" value=""
+            placeholder="Enter your full Address" id="txtPAddress" />
+        </div>
+      </div>
+      <div class="row">
+         <div class="form-group col-md-6 col-lg-6 col-6">
+          <label class="">Pincode</label>
+          <input type="text" formControlName="Pincode" class="form-control" value="" placeholder="e.g. 453441" onkeypress="if(this.value.length==6) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250"
+          id="txtPPincode" (change)="getFullAddressDetails($event)" />
+          <div *ngIf="addStudentParentForm.controls['Pincode'].errors && ( !addStudentParentForm.controls['Pincode'].pristine || submitted ||addStudentParentForm.controls['Pincode'].touched )" class="danger-text">
+              <!-- <div [hidden]="!addStudentParentForm.controls['Pincode'].errors.required">Pincode accept only numeric value.</div> -->
+              <div [hidden]="!addStudentParentForm.controls.Pincode.hasError('minlength')">Please enter 6 digit Pincode.</div>
+            </div>
+          </div>
+        <div class="form-group col-md-6 col-lg-6 col-6">
+          <label class="">City</label>
+          <input type="text" readonly="true" formControlName="City" class="form-control" value="" placeholder="e.g. Indore" id="txtPCity" style="text-transform: capitalize;"/>
+        </div>       
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12 col-12">
+            <label class="">Locality</label>
+            <ng-select formControlName="PincodeId" name="locality" [items]="localityList" bindLabel="Locality" bindValue="PincodeId" [searchable]=false placeholder="Select Locality" style="text-transform: capitalize;">
+                <ng-template ng-option-tmp let-item="item"> <span
+                        style="text-transform: capitalize">
+                        {{item.Locality.toLowerCase()}}</span>
+                </ng-template>
+                <ng-template ng-label-tmp let-item="item">
+                    <span *ngIf="item.Locality"
+                        style="text-transform: capitalize">
+                        {{ item.Locality.toLowerCase()}}</span>
+                    <span *ngIf="!(!!item.Locality)" style="color: #999999;">
+                        Select Locality</span>
+                </ng-template>
+            </ng-select>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-6 col-lg-6 col-6">
+          <label class="">State</label>
+          <input formControlName="StateName" name="StateID" id="txtPState" class="form-control" readonly placeholder="e.g. Madhya Pradesh" style="text-transform: capitalize;">
+        </div>
+        <div class="form-group col-md-6 col-lg-6 col-6">
+            <label class="">Country</label>
+            <input formControlName="CountryName" id="txtPCountry" class="form-control"  name="CountryName" placeholder="e.g. India" readonly="" style="text-transform: capitalize;">
+        </div>
+      </div>
+
+      <hr>
+      <div class="row">
+        <div class="form-group col-md-6 col-lg-6 col-6">
+          <label class="">Aadhaar No.</label>
+          <input type="text" formControlName="AadharNumber" class="form-control" value=""
+          onkeypress="if(this.value.length==12) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250"
+            placeholder="e.g. 1122 3344 5566" id="txtPAdharNo" />
+            <div *ngIf="addStudentParentForm.controls['AadharNumber'].errors" class="danger-text">
+              <div [hidden]="!addStudentParentForm.controls['AadharNumber'].errors['pattern'] && !addStudentParentForm.controls.AadharNumber.hasError('minlength')">Please enter 12 digit valid Aadhar Number.</div>   
+
+              </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12 col-lg-12">
+          <button type="submit" *ngIf="!isEditMode" id="save_And_Proceed" class="btn saveAndProceed-btn float-right" [disabled] ="addStudentParentForm.invalid">Save
+            and Proceed</button>
+            <button type="submit" *ngIf="isEditMode" id="save_And_Proceed" class="btn saveAndProceed-btn float-right" [disabled] ="addStudentParentForm.invalid">Update</button>
+        </div>
+      </div>
+    </div>
+  </form>
+</div>

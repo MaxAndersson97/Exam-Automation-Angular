@@ -1,0 +1,215 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid p-0">
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <div class="filter-row row m-0 filter-border-right pt-3 pb-0">
+          <div class="float-left select-standard-filter col-4 col-md-4">
+            <div class=" ">
+              <label class="mb-0">Academic Year</label>
+              <!-- <select class="form-control multiselect" id="ddlAcademicYr" name="ddlAcademicYr" required>
+                <option value=''>2018/2019</option>
+                <option value=''>2017/2018</option>
+                <option value=''>2016/2017</option>
+              </select> -->
+              <ng-select [(ngModel)]="CurrentAcademicSessionID" name="CurrentAcademicSessionID" [items]="academicYears" bindValue="AcademicYearID" [searchable]='false' required placeholder="Select Academic Year" (change)="validateForm()">
+            <ng-template ng-option-tmp let-item="item" >
+              {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}} Session
+            </ng-template>
+            <ng-template ng-label-tmp let-item="item">
+              <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}} Session</span>
+              <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select Academic Session</span>
+            </ng-template>
+          </ng-select>
+          <!-- <div *ngIf="submitted && f.CurrentAcademicSessionID.errors" class="danger-text">
+            <div *ngIf="f.CurrentAcademicSessionID.errors.required">Academic Year is required.</div>
+          </div> -->
+            </div>
+          </div>
+          <div class="float-left select-section-filter col-4 col-md-4">
+            <div class="single tog">
+              <label class="mb-0">Select Date & Time</label>
+              <input [owlDateTime]="dt" [owlDateTimeTrigger]="dt" class="form-control dateTimeInput" [(ngModel)]="selectedMoment" placeholder="Ex. 10/30/2019 10:25 AM" [min]="min" (blur)="validateForm()" readonly>
+                <owl-date-time #dt></owl-date-time>
+            </div>
+          </div>
+          <div class="float-left col-4 col-md-4">
+            <button type="button" id="assignExamBtn" class=" mt-4 float-right btn assignExamBtn mb-3 mr-2" [disabled] ="!isFormValid" (click)= "submitAssignExam()">Assign Exam</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-12 col-12">
+        <div class="assign_Exam row m-3" id="assign_Exam">
+          <div class="col-md-4 col-sm-4 d-inline-block p-0 brightLine " *ngFor ="let exam of AssignedExamList; let i = index; let last=last" >
+            <div class="assign-colom">
+              <div class="row m-0 bbottomLine">
+                <div class="col-md-12 col-12">
+                  <div class="assignExam_head py-4">Assign Exam #{{i+1}}</div>
+                  <div class="deleteBtn text-right" *ngIf="AssignedExamList.length >1" (click)="deleteAssignedExam(i)">
+                    <a>
+                      <svg width="15px" height="17px" viewBox="0 0 16 20" version="1.1"
+                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin-top: -3px;">
+                        <!-- Generator: sketchtool 53 (72520) - https://sketchapp.com -->
+                        <title>Delete</title>
+                        <desc>Created with sketchtool.</desc>
+                        <defs>
+                          <path
+                            d="M17,4 L14,4 L14,2 C14,0.897 13.103,0 12,0 L8,0 C6.897,0 6,0.897 6,2 L6,4 L3,4 C2.447,4 2,4.448 2,5 C2,5.552 2.447,6 3,6 L3,19 C3,19.552 3.447,20 4,20 L16,20 C16.553,20 17,19.552 17,19 L17,6 C17.553,6 18,5.552 18,5 C18,4.448 17.553,4 17,4 L17,4 Z M5,18 L15,18 L15,6 L5,6 L5,18 Z M8,4 L12,4 L12,2 L8,2 L8,4 Z M8,16 C8.553,16 9,15.552 9,15 L9,9 C9,8.448 8.553,8 8,8 C7.447,8 7,8.448 7,9 L7,15 C7,15.552 7.447,16 8,16 M12,16 C12.553,16 13,15.552 13,15 L13,9 C13,8.448 12.553,8 12,8 C11.447,8 11,8.448 11,9 L11,15 C11,15.552 11.447,16 12,16"
+                            id="remove-1"></path>
+                        </defs>
+                        <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                          <g id="10.-SM---School-Photo" transform="translate(-992.000000, -201.000000)">
+                            <g id="IconSet/Delete/Default" transform="translate(990.000000, 201.000000)">
+                              <mask id="mask-2" fill="white">
+                                <use xlink:href="#remove-1"></use>
+                              </mask>
+                              <use id="Icon" fill="#8595A6" xlink:href="#remove-1"></use>
+                            </g>
+                          </g>
+                        </g>
+                      </svg> Delete
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="single tog my-3 px-3">
+                <label class="mb-0">Select Class</label>
+                <!-- <select class="form-control multiselect" id="ddlSubject" name="ddlSubject" required>
+                  <option value=''>10th Standard</option>
+                  <option value=''>11th Standard</option>
+                  <option value=''>12th Standard</option>
+                </select> -->
+                <ng-select [(ngModel)]="exam.ClassID" [items]="classes" bindLabel="ClassName" placeholder="Select Class"
+            bindValue="ClassID" [searchable]=false (change)="getSectionByClassID(exam.ClassID, i); getSubject(exam.ClassID, i)">
+            <ng-template ng-option-tmp let-item="item">
+              <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+            </ng-template>
+            <ng-template ng-label-tmp let-item="item">
+              <span *ngIf="item.ClassName" style="text-transform: capitalize"> {{item.ClassName.toLowerCase()}}</span>
+              <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+            </ng-template>
+
+          </ng-select>
+          <div *ngIf="submitted && f.ClassID.errors" class="danger-text">
+            <div *ngIf="f.ClassID.errors.required">Standard is required.</div>
+          </div>
+              </div>
+              <div class="single tog mb-3 px-3">
+                <label class="mb-0">Select Section</label>                
+          <ng-multiselect-dropdown
+                                [placeholder]="'Select Sections'"
+                                [data]="exam.sectionList"
+                                [(ngModel)]="exam.EA_SectionID"
+                                [settings]="natureDropdownSetting"
+                                name="question_nature"
+                                (onSelect)="onSelectItem($event, i)"
+                                (onSelectAll)="onSelectItem($event, i)"
+                                (onDeSelectAll)="onSelectItem($event, i)"
+                                (onDeSelect)="onSelectItem($event, i)"
+                                 >
+                                </ng-multiselect-dropdown>
+          <div *ngIf="submitted && f.EA_SectionID.errors" class="danger-text">
+            <div *ngIf="f.EA_SectionID.errors.required">Section is required.</div>
+          </div>
+              </div>
+              <div class="single tog mb-3 px-3">
+                <label class="mb-0">Select Subject</label>
+                <!-- <select class="form-control multiselect" id="ddlSubject" name="ddlSubject" required>
+                  <option value=''>English</option>
+                  <option value=''>Hindi</option>
+                  <option value=''>Mathematics</option>
+                </select> -->
+                <ng-select [(ngModel)]="exam.SubjectID" [items]="exam.subjects" bindLabel="SubjectName"
+                                placeholder="Select Subject" bindValue="SubjectID" [searchable]=false required (change)="validateAssignExam()">
+                                <ng-template ng-option-tmp let-item="item">
+                                    <span
+                                        style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                                </ng-template>
+                                <ng-template ng-label-tmp let-item="item">
+                                    <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                                        {{item.SubjectName.toLowerCase()}}</span>
+                                    <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select Standard</span>
+                                </ng-template>
+                            
+                            </ng-select>
+              </div>
+              <div class="form-group  px-3">
+                <form class=" row m-0">
+                  <label class="radio box active col-md-6 col-6 pl-0">
+                    <input type="radio" checked="checked" name="radio" value="1" (click)="setStudentDetails(i, 1)">
+                    <span class="checkmark"></span>
+                    <span class="checkboxText">All Students</span>
+                  </label>
+                  <label class="radio box col-md-6 col-6 p-0">
+                    <input type="radio" name="radio" value="2"  (click)="setStudentDetails(i, 2)">
+                    <span class="checkmark"></span>
+                    <span class="checkboxText">Specific Students</span>
+                  </label>
+                </form>
+              </div>
+              <!-- <div class="form-group col-md-12 col-lg-12 text-right">
+                <button type="button" id="assignMoreBtn" class="w-100 btn assignMoreBtn mb-3">Assign More</button>
+              </div> -->
+            </div>
+          </div>  
+
+          <div class="col-md-4 col-sm-4 d-inline-block px-0 brightLine" [ngClass]="{'showHideAddMoreConditionally' : (i != last || !isAssignExamValid)}">
+            <div class="assign-colom">
+              <div class="col-12 p-0 clickmoreassign" (click)="assignToMoreSection($event)">
+                <div class="circle mx-auto" ></div>
+                <h5 class="assign_more text-center">Assign More</h5>
+                <p class="assign_more_desc text-center">Click add icon to assign multiple classes</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+<!-- specific student modal -->
+<div class="modal right fade" id="specific_student" bsModal #specific_student="bs-modal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header pb-4">
+              <button type="button" class="close float-left pt-1" data-dismiss="modal" aria-label="Close" (click)="closeModel()"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title text-center m-auto" id="AddWing_header">Select Specific Students</h4>
+          </div>
+          <div class="modal-body">
+              <form>
+                  <div class="addWing-form px-4 py-2">
+                      <div class="col-md-12 col-12 p-0 top_specifc_head h-auto mt-3" *ngFor="let section of selectedStudentDetails; let indx= index;">
+                        <div>
+                          <span>Section {{section.SectionName}}</span>
+                        </div >
+                        <div *ngFor="let student of section.LstStudentData; let i = index" class="col-md-12 col-12 p-0 specific_students h-auto">
+                          <label class="checkbox-container">
+                                <input type="checkbox" class="form-check-input h-auto m-0"  
+                                value="" name="book_{{i}}" [checked]="student.isSelected" (change)="updateStudent(indx, i);"  >
+                                <span class="checkmark"></span>
+                            </label>
+                            <p class="ml-4 pl-2 mb-0" style="text-transform: capitalize;">{{student.StudentName}}</p>
+                          </div>
+                          <div class="clearfix"></div>
+                      </div>
+                     
+
+                      <div class="row my-4">
+                          <div class="form-group col-md-12 col-lg-12">
+                              <button type="button" id="selectStudentBtn"  class="btn selectStudentBtn w-100 mt-2" (click)="selectStudent()" [disabled]= "!isStudentSelected">Select Student</button>
+                          </div>      
+                      </div>
+                  </div>
+              </form>
+          </div>
+          <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+          </div> -->
+      </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div><!-- modal -->

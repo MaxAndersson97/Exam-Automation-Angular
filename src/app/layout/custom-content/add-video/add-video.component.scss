@@ -1,0 +1,66 @@
+ /*--------modal-css-------------*/
+ #AddVideos .modal-dialog {
+    width: 400px;
+    background-color: #FFFFFF;
+}
+#AddVideos.modal.right {
+    right: 390px;
+    left: auto;
+    top: -1px;
+}
+#AddVideos .videotagskeywords{
+height: 31px;	width: 87px;	border: 1px solid #D1DAE6;	border-radius: 2px;	background-color: #FFFFFF;
+}
+#AddVideos .videotagskeywords a{
+color: #3A5077;	font-family: Inter;	font-size: 14px;	font-weight: 500;	line-height: 21px;
+}
+.addVideoBtn{
+height: 54px; border-radius: 4px;	background-color: #5C67E6;
+color: #FFFFFF;	font-family: Inter;	font-size: 16px;	font-weight: 600;	line-height: 22px;	text-align: center;
+}
+
+.required-mark{
+    color: red;
+    font-size: 14px;
+}
+
+.danger-text{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+
+.tags-keywords .videotagskeywords {
+    height: 31px;	
+    width: auto;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #FFFFFF;
+    color: #3A5077;	
+    font-size: 14px;	
+    font-weight: 500;	
+    line-height: 21px;
+}
+.tags-keywords .videotagskeywords a{
+    color: #3A5077;	
+    font-size: 14px;	
+    font-weight: 500;	
+    line-height: 21px;
+}
+.tags-keywords .videotagskeywords a.close{
+    padding-left: 15px;
+    font-size: 20px;
+}
+
+.letsGetStart-btn {
+    border-radius: 4px;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 22px;
+    height: 54px;
+    width: 200px;
+    background-color: #5C67E6;
+}

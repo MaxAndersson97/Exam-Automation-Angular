@@ -1,0 +1,454 @@
+<!-- Page Content -->
+<div id="page-content-wrapper" *ngIf="!isDataFound && !showSelection" class="template_dashboard">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md col-lg col-sm">
+                <div class="exam_setup m-3">
+                    <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                        <div class=" row">
+                            <div class="col-md-12 col-lg-12 col-sm-12">
+                                <div class="examsetup-img mx-auto mt-5">
+                                    <img src="assets/images/EmptyState-ExamSetup.svg" alt="" class=" mt-5" />
+                                </div>
+                            </div>
+                            <div class="col-md-12 col-lg-12 col-sm-12">
+                                <div class="createaWing-content mx-auto ">
+                                    <h2 class="text-center top-header my-3">Seems like you have not created any
+                                        Templates</h2>
+                                    <p class="text-center examsetup-description mb-0">Create monthly exam question paper
+                                        manually, add marks</p>
+                                    <p class="text-center examsetup-description">and distribute it to the students</p>
+                                    <div class="start_btn text-center">
+                                        <button type="button" id="Create_Template" (click)="openAddTemplateDialog();"
+                                            class="btn createclasstestexam-btn ">Create Template</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page-content-wrapper" *ngIf="isDataFound && !showSelection">
+    <div class="container-fluid p-0">
+        <div class="row ">
+            <div class="col-md-12 col-lg-12">
+                <div class="m-3">
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="row works-list">
+                            <div class="col-3 col-md-3">
+                                <h2 class="top-header mb-3">Template List</h2>
+                            </div>
+                            <div class="col-9 col-md-9 text-right">
+                                <div class="createtestbtn mb-3 ml-2 float-right">
+                                    <button type="button" id="addnewrow" class="btn createtest-btn "
+                                        (click)="openAddTemplateDialog();">Create Template</button>
+                                </div>
+                                <div class="searchbartable class-test float-right mb-3">
+                                    <form>
+                                        <button type="submit">
+                                            <!-- <?xml version="1.0" encoding="UTF-8"?> -->
+                                            <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+                                                <title>00067B21-DB8A-4562-9250-F329CFB39D75</title>
+                                                <desc>Created with sketchtool.</desc>
+                                                <defs>
+                                                    <path
+                                                        d="M3.600005,8.40002 C3.600005,5.75281173 5.75281173,3.600005 8.40002,3.600005 C11.0472283,3.600005 13.200035,5.75281173 13.200035,8.40002 C13.200035,11.0472283 11.0472283,13.200035 8.40002,13.200035 C5.75281173,13.200035 3.600005,11.0472283 3.600005,8.40002 M17.7656493,16.6344457 L13.4496358,12.3176322 C14.2928384,11.2344289 14.80004,9.87682461 14.80004,8.40002 C14.80004,4.87120897 11.928831,2 8.40002,2 C4.87120897,2 2,4.87120897 2,8.40002 C2,11.928831 4.87120897,14.80004 8.40002,14.80004 C9.87682461,14.80004 11.2336289,14.2920384 12.3176322,13.4496358 L16.6344457,17.7656493 C16.7904462,17.9216498 16.9952469,18.00005 17.2000475,18.00005 C17.4048481,18.00005 17.6096488,17.9216498 17.7656493,17.7656493 C18.0784502,17.4528483 18.0784502,16.9472467 17.7656493,16.6344457"
+                                                        id="pathsearch"></path>
+                                                </defs>
+                                                <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1"
+                                                    fill="none" fill-rule="evenodd">
+                                                    <g id="36.-Staff---Staff-List"
+                                                        transform="translate(-1009.000000, -99.000000)">
+                                                        <g id="icon-minor/search"
+                                                            transform="translate(1007.000000, 97.000000)">
+                                                            <mask id="mask-2" fill="white">
+                                                                <use xlink:href="#pathsearch"></use>
+                                                            </mask>
+                                                            <use id="Mask" fill="#8595A6" xlink:href="#pathsearch">
+                                                            </use>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                        </button>
+                                        <input type="text" placeholder="Search Templates" name="search"
+                                            [(ngModel)]="searchString">
+                                    </form>
+                                </div>
+                                <div class="filterbtntable float-right mb-3 ml-3">
+                                    <div class="single tog">
+                                        <button class="dropdown-btn dropdown-toggle " id="dropdownMenuButton" data-toggle="dropdown"
+                                            (click)="showFilterBox();" aria-haspopup="true"
+                                            aria-expanded="false">Filters</button>
+                                        <ul class="dropdown-container dropdown-menu p-0 m-0" type="none"
+                                        [ngClass]="showFilter ? 'show' : ''" *ngIf="showFilter"
+                                        (blur)="showFilter  = !showFilter">    
+                                        
+                                            <li class="p-3">
+                                                <div class="w-100">
+                                                    <h3 class="w-50 float-left">Filter By</h3>
+                                                    <a class="w-50 float-right text-right"
+                                                        (click)="selectedOption=''; selectedSubjectId=''; showFilter  = !showFilter; clearFilter()">Clear
+                                                        Filter</a>
+                                                </div>
+                                            </li>
+
+                                           
+                                            
+                                            <form>
+                                                <div class="addsection-form py-1">
+                                                    <div class=" col-md-12 col-12 p-0">
+                                                        <div class="form-group col-md-12 col-sm-12 single">
+                                                            <ng-select [(ngModel)]="selectedOption"
+                                                                (click)="getClassId(selectedOption)"
+                                                                [items]="standardList" 
+                                                                placeholder="Select Standard" bindValue="ClassID"
+                                                                [searchable]=true name="classFilter" id="classFilter">
+                                                                <ng-template ng-option-tmp let-item="item">
+                                                                    <span
+                                                                        style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                                                                </ng-template>
+                                                                <ng-template ng-label-tmp let-item="item">
+                                                                    <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                                                        {{item.ClassName.toLowerCase()}}</span>
+                                                                    <span *ngIf="!(!!item.ClassName)" style="color: #999999;"> Select
+                                                                        Standard</span>
+                                                                </ng-template>
+                                                            </ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12 single">
+                                                            <ng-select [(ngModel)]="selectedSubjectId"
+                                                                [items]="subjectList"
+                                                                placeholder="Select Subject" bindValue="SubjectID"
+                                                                [searchable]=false required name="subjectFilter">
+                                                                <ng-template ng-option-tmp let-item="item">
+                                                                    <span
+                                                                        style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                                                                </ng-template>
+                                                                <ng-template ng-label-tmp let-item="item">
+                                                                    <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                                                                        {{item.SubjectName.toLowerCase()}}</span>
+                                                                    <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select Subject</span>
+                                                                </ng-template>
+                                                            </ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <button type="button" id="filterbutton"
+                                                                class="btn filterBtn w-100 mt-1"
+                                                                (click)="filterData(selectedOption, selectedSubjectId)">Apply
+                                                                Filter</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class=" template-list class_setup imported-data">
+                            <div class="overflow">
+                                <table id="" class="w-100 table">
+                                    <thead>
+                                        <tr>
+                                            <th width="" class="template-name">
+                                                <p>Template Name</p>
+                                            </th>
+                                            <th width="" class="standard">
+                                                <p>Standard</p>
+                                            </th>
+                                            <th width="" class="subject">
+                                                <p>Subject</p>
+                                            </th>
+                                            <th width="" class="total-marks">
+                                                <p>Total Marks</p>
+                                            </th>
+                                            <th width="" class="duration">
+                                                <p>Duration</p>
+                                            </th>
+                                            <th width="" class="status">
+                                                <p>Status</p>
+                                            </th>
+                                            <th width="" class="Date">Date & Time</th>
+                                            <th class="action_col">
+                                                <div class="action"></div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="templateListData.length > 0">
+                                        <tr
+                                            *ngFor="let template of templateListData | search: searchString | paginate: {itemsPerPage: rowsOnPage, currentPage:page, id: '1'}; let i = index;">
+                                            <td class="template-name" style="text-transform: capitalize;">{{template.Name | lowercase}}</td>
+                                            <td class="standard" style="text-transform: capitalize;">{{template.ClassName | lowercase}}</td>
+                                            <td class="subject" style="text-transform: capitalize;">{{template.SubjectName | lowercase}}</td>
+                                            <td class="total-marks">{{template.TotalMarks}} Marks</td>
+                                            <td class="duration">{{template.Duration}} Mins</td>
+                                            <td class="status">
+                                                <span *ngIf="template.PaperTemplateStatusText=='Active'" style="color:#69BB10" >Active</span>
+                                                <span *ngIf="template.PaperTemplateStatusText!='Active'" style="color:#E52254">Inactive</span>
+                                            </td>
+                                            <td class="Date">{{template.SystemDateTimeText}}</td>
+                                            <td class="action_col">
+                                                <div class="remove single tog">
+                                                    <div class="dropdown ">
+                                                        <button class="btn btn-primary dropdown-toggle form-control"
+                                                            type="button" data-toggle="dropdown">Action
+                                                            <span class="caret"></span></button>
+                                                        <ul class="dropdown-menu p-0">
+                                                            <li><a (click)="editTemplate(template)" class="edit_template">Edit Template</a>
+                                                            </li>
+                                                            <li>
+                                                                <a><span class="cursor-auto">Status:{{ template.PaperTemplateStatus == 1 ? ' Active' : ' Inactive  ' }}
+                                                                    </span>
+                                                                    <label class="switch">
+                                                                        <input type="checkbox"
+                                                                            (change)="changeStatus(i); $event.stopPropagation();"
+                                                                            [checked]="template.PaperTemplateStatus == 1">
+                                                                        <span class="slider round"></span>
+                                                                    </label>
+                                                                </a>
+                                                                <!-- <a> [(ngModel)]="status"
+                                                                                    <input (click)="$event.stopPropagation();" type="checkbox" (change)="updateSectionList(institutionClass); $event.stopPropagation();" [checked]="institutionClass.SectionStatus === 1">
+                                                                                    <span class="slider round" [ngClass]="{'grayedout': institutionClass.SectionStatus === 2}"></span>
+                                                                                </label>
+                                                                            </a> -->
+
+
+                                                            </li>
+                                                            <li><a class="" [routerLink]="['../summary', template.EAPaperTemplateID]">View Summary</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    
+                                    
+                                </table>
+                                 
+                            </div>
+                        </div>
+                        <div class="pages w-100">
+                            <pagination-controls class="pages" previousLabel=""
+                            nextLabel="" (pageChange)="page = $event" id="1" maxSize="10" directionLinks="true" responsive="true"
+                               >
+                            </pagination-controls>
+                        </div>
+                        <div class="selectWrapper">
+                                <ng-select class="select_Show" id="1"  [(ngModel)]="rowsOnPageTemp" (change)="onShowPageChange(rowsOnPageTemp)">
+                                        <ng-option  *ngFor="let row of rowsOnPageSet" [value]="row" >Show {{ row }} Results</ng-option>
+                                </ng-select>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="templateListData && templateListData.length < 1">
+                        <div class="no-result-found">No results found.</div>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<router-outlet></router-outlet>
+
+<!-- /#page-content-wrapper -->
+
+<!-- /#wrapper -->
+<!-- Modal--------------------------------------------------------------------- -->
+<!-- Modal -->
+<div class="modal right fade" id="addTemplate" bsModal #addTemplate="bs-modal" style=" padding-right: 17px;">
+    <!-- <app-add-template (closeEvent)="closeAddTemplateDialog($event)"></app-add-template> -->
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header pb-4">
+              <button type="button" class="close float-left pt-1" aria-label="Close"
+              (click)="close({isRefresh: false})"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center m-auto" id="AddWing_header" >Create Template</h4> 
+                <!-- <h4 class="modal-title text-center m-auto" id="AddWing_header" *ngIf="isEdit">Update Template</h4>  -->
+            </div>
+            <div class="modal-body">
+              <form [formGroup]="addTemplateform1" >
+                    <h3 class="sectionhead mt-3 px-4">Template Details</h3>
+                    <div class="addWing-form pt-1 px-4 pb-4">
+                      <div class="row addsection-form py-1">
+                          <div class="form-group col-md-12 col-sm-12">
+                              <label class="">Select Class</label>
+                              <ng-select formControlName="ClassID" (click)="getClassIds()"
+                                  [items]="classesList" placeholder="Select Class"
+                                  bindValue="ClassID" [searchable]=false required>
+  
+                                  <ng-template ng-option-tmp let-item="item">
+                                      <span
+                                          style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                                  </ng-template>
+                                  <ng-template ng-label-tmp let-item="item">
+                                      <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                          {{item.ClassName.toLowerCase()}}</span>
+                                      <span *ngIf="!(!!item.ClassName)" style="color: #999999;"> Select
+                                          Standard</span>
+                                  </ng-template>
+                              </ng-select>
+                              </div>
+                      </div>
+                      <div class="row ">
+                          <div class="form-group col-md-12 col-sm-12">
+                              <label class="">Select Subject</label>
+                              <ng-select formControlName="SubjectID" [items]="subjects" bindLabel="SubjectName"
+                                  placeholder="Select Subject" bindValue="SubjectID" [searchable]=false required>
+                                  <ng-template ng-option-tmp let-item="item">
+                                      <span
+                                          style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                                  </ng-template>
+                                  <ng-template ng-label-tmp let-item="item">
+                                      <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                                          {{item.SubjectName.toLowerCase()}}</span>
+                                      <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select Standard</span>
+                                  </ng-template>
+                              
+                              </ng-select>
+  
+  
+                          </div>
+                      </div>
+                        <div class="row mb-5 pb-5">
+                            <div class="form-group col-md-12 col-sm-12">
+                                <label class="">Template Name</label>
+                                <input type="text" name="newPassword" class="form-control"  formControlName="Name" placeholder="eg. User Template" id="txtnewPassword" required /> 
+                            </div>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="form-group col-md-12 col-lg-12">
+                                <button  type="submit" id="saveAndProceed_btn" (click)="onSubmits()" class="mt-5 btn saveAndProceed-btn w-100 mt-2" [disabled]= "!this.addTemplateform1.valid">Save and Proceed</button>
+                            </div>      
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+            </div> -->
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div>
+<div class="modal right fade" id="addTemplate" bsModal #editTemplate1="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header pb-4">
+                <button type="button" class="close float-left pt-1" aria-label="Close" (click)="closeEditModal()"><span
+                        aria-hidden="true">&times;</span></button>
+
+                <h4 class="modal-title text-center m-auto" id="AddWing_header">Edit Template</h4>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="addTemplateform">
+                    <h3 class="sectionhead mt-3 px-4">Template Details</h3>
+                    <div class="addWing-form pt-1 px-4 pb-4">
+                        <div class="row addsection-form py-1">
+                            <div class="form-group col-md-12 col-sm-12 dropdown-toggle">
+                                <label class="">Select Class</label>
+                                <input type="text" style="text-transform: capitalize;" name="newPassword" class="form-control dropdown-toggle" formControlName="ClassName" placeholder="eg. User Template" id="txtnewPassword" required disabled/><span class="caret"></span>
+
+                                </div>
+                        </div>
+                        <div class="row ">
+                            <div class="form-group col-md-12 col-sm-12 dropdown-toggle">
+                                <label class="">Select Subject</label>
+                                <input type="text" name="newPassword" style="text-transform: capitalize;" class="form-control " formControlName="SubjectName" placeholder="eg. User Template" id="txtnewPassword" required disabled/><span class="caret"></span>
+
+                            </div>
+                        </div>
+                        <div class="row mb-5 pb-5">
+                            <div class="form-group col-md-12 col-sm-12 ">
+                                <label class="">Template Name</label>
+                                <input type="text" name="newPassword" class="form-control" formControlName="Name"
+                                    placeholder="eg. User Template" id="txtnewPassword" required />
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="form-group col-md-12 col-lg-12">
+                                <button type="submit" id="saveAndProceed_btn" (click)="onSubmit()"
+                                    class="mt-5 btn saveAndProceed-btn w-100 mt-2"
+                                    [disabled]="!this.addTemplateform.valid">Update and Proceed</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+            </div> -->
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div>
+
+
+
+<div class="col-md-12 col-lg-12" *ngIf="showSelection">
+    <div class="m-3">
+        <div class="col-lg-12 col-md-12 p-0">
+            <div class="system_intelligence imported-data template">
+                <div class="row ">
+                    <div class="col-lg-5 col-md-5 my-3">
+                        <h2 class="top-head  px-3">Examination Mode</h2>
+                    </div>
+                </div>
+                <div class="px-3 mb-2 choose-nature-section row">
+                    <div class="col-md-6">
+                        <div class="section-block">
+                            <div class="row m-0 my-3">
+                                <div class="col-12">
+                                    <div class="w-100">
+                                        <img src="assets/images/System intelligence.svg">
+                                    </div>
+                                    <h4>Offline</h4>
+                                    <p>Questions that needs answers to complete descriptive explanation about the topic. Answers are long in nature, containing definition about the term and / or detailed information about the term or an event. Expected answers shall have minimum 5-7 lines.</p>
+                                    
+                                </div>
+                            </div>
+                            <div class="row m-0 my-3 btn_bottom">
+                                <div class="col-12">
+                                    <button type="button" id="system_Intelligence_btn"
+                                        class="btn system_Intelligence_btn" (click)="useType('descriptive')">Informative Question</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="section-block">
+                            <div class="row m-0 my-3">
+                                <div class="col-12 ">
+                                    <div class="w-100">
+                                        <img src="assets/images/Define structure by yourself.svg">
+                                    </div>
+                                    <h4>Online</h4>
+                                    <p>Optical Mark Recognition technology is used for collecting data from “fill-in-the-bubble” forms such as educational tests, surveys, assessments, evaluations, and many other multiple choice forms.</p>
+                                    
+                                </div>
+                            </div>
+                            <div class="row m-0 my-3 btn_bottom">
+                                <div class="col-12">
+                                    <button type="button" id="structure_urself_btn" class="btn structure_urself_btn"
+                                    (click)="useType('omr')">OMR</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

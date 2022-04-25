@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAA;EACR,KAAK,EAAE,IAAI;EACX,UAAU,EAAE,MAAM;EAClB,SAAS,EAAE,GAAG;EACd,KAAK,EAAE,OAAO;CACjB;;AAED,AAAA,0BAA0B,CAAC,SAAS,CAAC,MAAM,CAAA;EACvC,cAAc,EAAE,UAAU;CAC7B;;AACD,AAAA,0BAA0B,CAAC,WAAW,CAAC,MAAM,CAAA;EACzC,cAAc,EAAE,UAAU;CAC7B",
+    "sources": [
+        "add-staff-information.component.scss"
+    ],
+    "names": [],
+    "file": "add-staff-information.component.css"
+}

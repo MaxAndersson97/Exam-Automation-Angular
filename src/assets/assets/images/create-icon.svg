@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>IconSet/Sidenav/Create-Exam/Selected</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M17.707,4.293 L13.707,0.293 C13.52,0.105 13.266,0 13,0 L3,0 C2.447,0 2,0.447 2,1 L2,19 C2,19.553 2.447,20 3,20 L17,20 C17.553,20 18,19.553 18,19 L18,5 C18,4.734 17.895,4.48 17.707,4.293 L17.707,4.293 Z M16,18 L4,18 L4,2 L12.586,2 L16,5.414 L16,18 Z M11,7 C11,6.447 10.553,6 10,6 C9.447,6 9,6.447 9,7 L9,9 L7,9 C6.447,9 6,9.447 6,10 C6,10.553 6.447,11 7,11 L9,11 L9,13 C9,13.553 9.447,14 10,14 C10.553,14 11,13.553 11,13 L11,11 L13,11 C13.553,11 14,10.553 14,10 C14,9.447 13.553,9 13,9 L11,9 L11,7 Z" id="path-1"></path>
+    </defs>
+    <g id="IconSet/Sidenav/Create-Exam/Selected" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <mask id="mask-2" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <use id="Icon" fill="#5C67E6" xlink:href="#path-1"></use>
+    </g>
+</svg>

@@ -1,0 +1,323 @@
+<div id="page-content-wrapper" class="class_performance_D">
+  <div class="container-fluid p-0">
+
+      <div class="row">
+          <div class="col-md-12 col-lg-12">
+              <div class="filter-row py-3">
+                  <div class="col-md-12 col-lg-12 p-0">
+                    <div class="filterBy float-left py-2 px-3  text-left w-100">
+                      <h4>Filters</h4>
+                      <div class="clear_filter" (click)="onClearClick();">Clear Filter</div>
+                    </div>
+                    <div class="w-100 px-3 pb-2">
+                      <div class="float-left select-standard-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.ClassID" [items]="classes" bindLabel="ClassName" placeholder="Select Class"
+                            bindValue="ClassID" [searchable]=false (change)="getSectionByClassID(studentFilterObj.ClassID);">
+                            <ng-template ng-option-tmp let-item="item">
+                              <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                              <span *ngIf="item.ClassName" style="text-transform: capitalize"> {{item.ClassName.toLowerCase()}}</span>
+                              <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                            </ng-template>
+                
+                          </ng-select>
+                        </div>
+                      </div>
+                      <div class="float-left select-standard-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.EA_SectionID" name="EA_SectionID" [items]="sectionList" bindValue="AESectionID" [searchable]='false' placeholder="Select Section" >
+                            <ng-template ng-option-tmp let-item="item" >
+                                {{ item.SectionName}}
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                                <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                            </ng-template>
+                        </ng-select>
+                        </div>
+                      </div>
+                      
+                      <button type="button" id="showResultBtn" class="btn show-result-btn" (click)="onSearchClick();">Show Result</button>
+                    </div>
+                      
+                      
+                  </div>
+              </div>
+          </div>
+
+          <div class="ng-star-inserted  col-md-12 col-12 col-lg-12" *ngIf="!isDataShow">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="dcsetup-img mx-auto mt-3">
+                <img src="assets/images/reports.svg" alt="" class="w-100">
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="examsetup-content mx-auto ">
+                <h2 class="text-center top-header my-3">No report to show</h2>
+                <p class="text-center detailcontrol-description mb-0">Please let us know the standard and section</p>
+                <p class="text-center detailcontrol-description">from the above dropdown to get the results</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-lg-12"  *ngIf="isDataShow">
+            <div class="m-3 row">
+                <h2 class="class_performance_details_head">Class Performance Details</h2>
+  
+                  <!---------------low-course-completion----------->
+                  <div class="col-12 mt-2 p-0">
+                    <div class="row">
+                      <div class="col-4">
+                        <div class="status_block p-3">
+                          <div class="block_img">
+                            <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <!-- Generator: sketchtool 62 (101010) - https://sketch.com -->
+                              <title>02D85BEA-0DE7-4685-AABE-B4F10F2D81A9</title>
+                              <desc>Created with sketchtool.</desc>
+                              <g id="Principal-Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <g id="08.-Class-Performance-Details" transform="translate(-304.000000, -299.000000)">
+                                      <g id="Group-5" transform="translate(280.000000, 275.000000)">
+                                          <g id="ic_total_students" transform="translate(24.000000, 24.000000)">
+                                              <circle id="Oval" fill="#8547DC" cx="24" cy="24" r="24"></circle>
+                                              <g id="Group-3" transform="translate(12.000000, 12.000000)">
+                                                  <rect id="Rectangle" x="0" y="0" width="24" height="24"></rect>
+                                                  <path d="M15.0709544,12.2879497 C15.8972591,12.4745346 22.1878364,14.1804539 23.067451,19.4314866 L23.067451,19.4314866 L23.1176856,19.6728644 C23.5263629,21.751531 23.2402148,23.4731726 22.1878364,23.9095247 C21.2815668,24.2826945 18.5894129,23.4030799 17.6298333,23.056565 C16.8301837,22.8699801 16.217119,22.1502954 16.217119,21.2973358 L16.217119,21.2973358 L16.217119,21.2173708 C16.217119,20.2311363 17.0167686,19.4314866 18.0030032,19.4314866 L18.0030032,19.4314866 L18.0829681,19.4314866 C18.2962081,19.4314866 18.482793,19.4847966 18.6693779,19.5381066 L18.6693779,19.5381066 L18.6693779,16.6060578 C18.6693779,16.6060578 14.9643345,16.6060578 12.4321106,18.2586671 L12.4321106,18.2586671 L12.4587656,23.9894896 L11.7124259,23.9894896 L11.7390809,18.2586671 C9.4067694,16.736527 6.07951062,16.616358 5.56869054,16.606871 L5.50181358,16.6060578 L5.50181358,19.5381066 C5.6883985,19.4581416 5.87498342,19.4314866 6.08822333,19.4314866 L6.08822333,19.4314866 L6.16818829,19.4314866 C7.15442287,19.4314866 7.95407252,20.2311363 7.95407252,21.2173708 L7.95407252,21.2173708 L7.95407252,21.2973358 C7.95407252,21.9903655 7.52759271,22.6034302 6.94118296,22.8966351 L6.94118296,22.8966351 L6.91452797,22.8966351 C6.80790802,22.9499451 6.67463308,23.0032551 6.56801312,23.0299101 C5.58177855,23.3764249 2.9162797,24.2560395 2.03666508,23.8828697 C0.943810551,23.4563899 0.78388062,21.6171957 1.23701542,19.4314866 L1.23701542,19.4314866 L1.29737357,19.1144071 C2.36572818,14.1114573 8.29079575,12.4707268 9.10023703,12.2879497 C10.8594663,13.6473541 13.3117252,13.6473541 15.0709544,12.2879497 Z M12.0855957,0 C15.3095262,0 17.9230382,2.74478431 17.9230382,6.13064735 C17.9230382,9.51651039 15.3095262,12.2612947 12.0855957,12.2612947 C8.86166528,12.2612947 6.24815326,9.51651039 6.24815326,6.13064735 C6.24815326,2.74478431 8.86166528,0 12.0855957,0 Z" id="Combined-Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                                              </g>
+                                          </g>
+                                      </g>
+                                  </g>
+                              </g>
+                          </svg>
+                          </div>
+                          <h4 class="mb-0">{{overall_detail.total_student}} Total Students</h4>
+                          <p class="mb-0">{{overall_detail.total_girls}} Girls • {{overall_detail.total_boys}} Boys</p>
+                        </div>
+                      </div>
+                      <div class="col-4">
+                        <div class="status_block p-3">
+                          <div class="block_img">
+                            <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <!-- Generator: sketchtool 62 (101010) - https://sketch.com -->
+                              <title>7E8E6C2F-036F-4472-99B5-10D86294F238</title>
+                              <desc>Created with sketchtool.</desc>
+                              <g id="Principal-Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <g id="08.-Class-Performance-Details" transform="translate(-684.000000, -299.000000)">
+                                      <g id="Group-6" transform="translate(660.000000, 275.000000)">
+                                          <g id="ic_subjects" transform="translate(24.000000, 24.000000)">
+                                              <circle id="Oval" fill="#00CF7E" cx="24" cy="24" r="24"></circle>
+                                              <path d="M16.1817066,12 C14.9765111,12 14,12.9769202 14,14.1817066 L14,33.8182934 C14,35.023898 14.9769202,36 16.1817066,36 L31.4544711,36 C32.6600757,36 33.6361777,35.0234889 33.6361777,33.8182934 L33.6361777,32.7272355 C33.6361777,33.9271128 32.6596666,34.9089421 31.4544711,34.9089421 L16.727031,34.9089421 C15.8233389,34.9089421 15.0906488,34.1758429 15.0906488,33.2725599 C15.0906488,32.3692769 15.8233389,31.6361777 16.727031,31.6361777 L31.4544711,31.6361777 C32.6600757,31.6361777 33.6361777,30.6596666 33.6361777,29.4544711 L33.6361777,14.1817066 C33.6361777,12.9765111 32.6596666,12 31.4544711,12 L16.1817066,12 Z" id="Path" fill="#FFFFFF" fill-rule="nonzero"></path>
+                                          </g>
+                                      </g>
+                                  </g>
+                              </g>
+                          </svg>
+                          </div>
+                          <h4 class="mb-0">{{overall_detail.total_subject}} Subjects</h4>
+                          <p class="mb-0 subject_list">
+                            <span >{{overall_detail.subject_list}}, </span>
+                          </p>
+                        </div>
+                      </div>
+                      <div class="col-4"> 
+                        <div class="status_block p-3">
+                          <div class="block_img">
+                            <svg width="48px" height="48px" viewBox="0 0 48 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                              <!-- Generator: sketchtool 62 (101010) - https://sketch.com -->
+                              <title>52D1EA7E-063F-4C96-BDCE-FEDF01EB1853</title>
+                              <desc>Created with sketchtool.</desc>
+                              <g id="Principal-Dashboard" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                  <g id="08.-Class-Performance-Details" transform="translate(-1064.000000, -299.000000)">
+                                      <g id="Group-7" transform="translate(1040.000000, 275.000000)">
+                                          <g id="ic_average_score" transform="translate(24.000000, 24.000000)">
+                                              <circle id="Oval" fill="#00B4FF" cx="24" cy="24" r="24"></circle>
+                                              <g id="Group" transform="translate(12.000000, 12.000000)" fill="#FFFFFF" fill-rule="nonzero">
+                                                  <path d="M12,3 C7.035,3 3,7.035 3,12 C3,16.965 7.035,21 12,21 C16.965,21 21,16.965 21,12 C21,7.035 16.965,3 12,3 Z M8.998725,7.47 C9.82875,7.47 10.498725,8.139975 10.498725,8.97 C10.498725,9.79995 9.82875,10.47 8.998725,10.47 C8.168775,10.47 7.498725,9.79995 7.498725,8.97 C7.498725,8.139975 8.168775,7.47 8.998725,7.47 Z M8.715,16.2525 C8.41635,16.55115 7.937925,16.532925 7.6575,16.2525 C7.365,15.96 7.365,15.48 7.6575,15.1875 L15.2025,7.6425 C15.495,7.35 15.9675,7.35 16.26,7.6425 C16.56,7.935 16.56,8.4075 16.26,8.7 L8.715,16.2525 Z M15.0075,16.47 C14.177475,16.47 13.5075,15.79995 13.5075,14.97 C13.5075,14.139975 14.177475,13.47 15.0075,13.47 C15.837525,13.47 16.5075,14.139975 16.5075,14.97 C16.5075,15.79995 15.837525,16.47 15.0075,16.47 Z" id="Shape"></path>
+                                                  <path d="M12,0 C5.37,0 0,5.3775 0,12 C0,18.63 5.37,24 12,24 C18.6225,24 24,18.63 24,12 C24,5.3775 18.6225,0 12,0 Z M12,22.5 C6.21,22.5 1.5,17.79 1.5,12 C1.5,6.21 6.21,1.5 12,1.5 C17.79,1.5 22.5,6.21 22.5,12 C22.5,17.79 17.79,22.5 12,22.5 Z" id="Shape"></path>
+                                              </g>
+                                          </g>
+                                      </g>
+                                  </g>
+                              </g>
+                          </svg>
+                          </div>
+                          <h4 class="mb-0">{{overall_detail.avg_score_per}}% Mean Avg. Score</h4>
+                          <p class="mb-0">{{overall_detail.boys_score_per}}% Boys Avg. • {{overall_detail.girls_score_per}}% Girls Avg.</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="overall_data p-3 mt-4 w-100">
+                    <div class="overall_data_table ">
+                      <table class="w-100">
+                        <thead>
+                          <tr>
+                            <th>SUBJECTS</th>
+                            <th width="20%">SUBJECT TEACHER</th>
+                            <th>COURSE COMPLETED</th>
+                            <th>ASSESSMENT TAKEN</th>
+                            <th>AVG. ATTENDANCE IN EXAMS</th>
+                            <th>AVERAGE SCORE</th>
+                            <th>HIGHEST SCORE</th>
+                            <th>LOWEST SCORE</th>
+                            <th>TOPPER STUDENT</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let dt of overall_detail.data">
+                            <td class="b_clr">
+                              <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                <div class="py-2 b_clr"> {{dt?.SubjectName}}</div>
+                              </a>
+                            </td>
+                            <td>
+                              <a routerLink="/exam/dashboard/teacher-performance-overview">
+                                <div class="name_img" *ngIf="dt.SubjectTeacherProfileImageLink !=''">
+                                  <img class="" [src]='dt.SubjectTeacherProfileImageLink'>
+                                </div>
+                                <div class="name" *ngIf="dt.SubjectTeacherProfileImageLink ==''">
+                                  <p>{{dt.SubjectTeacher.toUpperCase().charAt(0)}}</p>
+                                </div>
+                                <div class="py-2 b_clr"> {{dt.SubjectTeacher}}</div>
+                              </a>
+                            </td>
+                            <td class="text-center">{{dt.course_completed}}%</td>
+                            <td class="text-center">{{dt.assessment_taken}}</td>
+                            <td class="text-center">{{dt.avg_attendance}}%</td>
+                            <td class="text-center">{{dt.avg_score}}%</td>
+                            <td class="text-center">{{dt.highest_score}}%</td>
+                            <td class="text-center">{{dt.lowest_score}}%</td>
+                            <td class="b_clr">{{dt.Topper}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+
+                  <div class="class_level p-3 mt-4 w-100">
+                    <div class="row">
+                      <div class="col">
+                        <h4 class="mb-3">Class Level Subject Detailed View</h4>
+                      </div>
+                      <div class="col">
+                        <div class="failed ml-2 mt-2 float-right">
+                          <div  class="float-left mr-1"></div> Failed
+                        </div>
+                        <div class="third-division mx-2 mt-2 float-right">
+                          <div class="float-left mr-1"></div> Third Division
+                        </div>
+                        <div class="second-division mx-2 mt-2 float-right">
+                          <div class="float-left mr-1"></div> Second Division
+                        </div>
+                        <div class="first-division mx-2 mt-2 float-right">
+                          <div class="float-left mr-1"></div> First Division
+                        </div>
+                        <div class="highest mr-2 mt-2 float-right">
+                          <div class="float-left mr-1"></div> 90%+
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="class_level_table">
+                      <table class="w-100">
+                          <thead>
+                            <tr class="table-row-1">
+                                <th class="head_row border_r fixed_row z_indx l_col"></th>
+                                <ng-container *ngFor="let dt of subject_data">
+                                  <th class="head_row  th-header th_student_col"  style="text-transform: capitalize;">
+                                      <div class="w-100 float-left th_student_name">{{dt.SubjectName}}</div> 
+                                  </th>
+                                </ng-container>
+                                <th class="head_row border_r fixed_row">OVERALL SCORE</th>
+                                <th class="head_row border_r fixed_row">RESULT</th>
+                            </tr>
+                            <tr class="table-row-2">
+                                <th class="head_row border_r fixed_row z_indx l_col">SUBJECT TEACHER</th>
+                                <ng-container *ngFor="let dt of subject_data">
+                                  <th class="th-header">
+                                    <a routerLink="/exam/dashboard/teacher-performance-overview">
+                                      <div class="name_img" *ngIf="dt.SubjectTeacherProfileImageLink != ''">
+                                        <img class="" [src]='dt.SubjectTeacherProfileImageLink'>
+                                      </div>
+                                      <div class="name " *ngIf="dt.SubjectTeacherProfileImageLink == ''">
+                                        <p>{{dt.SubjectTeacher.toUpperCase().charAt(0)}}</p>
+                                      </div>
+                                      <div class="py-2 b_clr f_style b_clr"> {{dt.SubjectTeacher}} </div>
+                                    </a>
+                                  </th>
+                                </ng-container>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr class="table-row-3">
+                                <th  class="head_row border_r fixed_row z_indx l_col">ASSESSMENT TAKEN</th>
+                                <ng-container *ngFor="let dt of subject_data">
+                                  <th class="th-header f_style">{{dt.assessment_taken}}</th>
+                                </ng-container>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr class="table-row-4">
+                                <th class="head_row border_r fixed_row z_indx l_col">AVG. SCORE</th>
+                                <ng-container *ngFor="let dt of subject_data">
+                                  <th class="th-header f_style"> {{dt.avg_score}}%</th>
+                                </ng-container>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                            <tr class="table-row-5">
+                              <th class="head_row border_r fixed_row z_indx l_col">TOPPER STUDENT</th>
+                              <ng-container *ngFor="let dt of subject_data">
+                                <th class="th-header" >
+                                    <div class="name_img" *ngIf="dt.TopperProfileImageLink !=''">
+                                      <img class="" [src]='dt.TopperProfileImageLink'>
+                                    </div>
+                                    <div class="name" *ngIf="dt.TopperProfileImageLink==''">
+                                      <p>{{dt.Topper.toUpperCase().charAt(0)}}</p>
+                                    </div>
+                                    <div class="mt-2 b_clr f_style b_clr"> {{dt.Topper}} </div>
+                                    <div class="mt-2 b_clr f_style b_clr"> ({{dt.topper_student_per}}) </div>
+                                </th>
+                              </ng-container>
+                              <th></th>
+                                <th></th>
+                            </tr>
+                            <tr class="table-row-6">
+                              <th class="head_row border_r fixed_row z_indx l_col">STUDENT NAME</th>
+                              <ng-container *ngFor="let dt of subject_data">
+                                <th class="head_row th-header" ></th>
+                              </ng-container>
+                              <th class="head_row"></th>
+                              <th class="head_row"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let dt of student_data">
+                              <td class="border_r l_col">
+                                  <div class="name_img" *ngIf="dt.ProfileImageLink != ''">
+                                    <img class="" [src]='dt.ProfileImageLink'>
+                                  </div>
+                                  <div class="name" *ngIf="dt.ProfileImageLink == ''">
+                                    <p>{{dt.Name.toUpperCase().charAt(0)}}</p>
+                                  </div>
+                                  <div class="mt-2 b_clr">{{dt.Name}}</div>
+                              </td>
+                              <ng-container *ngFor="let data of subject_data">
+                                <td [ngClass]="{'red':(dt[data.SubjectName] < 33) , 'orange':(dt[data.SubjectName] >= 33 && dt[data.SubjectName] < 45), 'blue':(dt[data.SubjectName] >= 45 && dt[data.SubjectName] < 60), 'green':(dt[data.SubjectName] >= 60 && dt[data.SubjectName] < 90), 'purple':(dt[data.SubjectName] >= 90)}">
+                                  {{dt[data.SubjectName]}}%
+                                </td>
+                              </ng-container>
+                              <td [ngClass]="{'red':(dt.overall_score < 33) , 'orange':(dt.overall_score >= 33 && dt.overall_score < 45), 'blue':(dt.overall_score >= 45 && dt.overall_score < 60), 'green':(dt.overall_score >= 60 && dt.overall_score < 90), 'purple':(dt.overall_score >= 90)}">{{dt.overall_score}}%</td>
+                              <td [ngClass]="{'red':(dt.result_status =='Third Division') , 'orange':(dt.result_status =='Second Division'),  'green':(dt.result_status =='First Division')}">{{dt.result_status}}</td>
+                            </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+            </div>
+          </div>
+      </div>
+  </div>
+</div>

@@ -1,0 +1,158 @@
+.imported-data {
+
+  td input,
+  td select,
+  td .multiselect {
+    width: 160px;
+  }
+
+  th.delete_col {
+    position: -webkit-sticky;
+    position: sticky;
+    border-left: 1px solid #D1DAE6;
+    right: -1px;
+    background: #fff;
+
+    .remove {
+      width: 85px;
+      height: 36px;
+      background-color: #fff;
+      text-align: center;
+    }
+  }
+
+  td.delete_col {
+    position: -webkit-sticky;
+    position: sticky;
+    border-left: 1px solid #D1DAE6;
+    right: -1px;
+    background: #fff;
+
+    .remove {
+      width: 40px;
+      height: 36px;
+      border: 1px solid #D1DAE6;
+      border-radius: 2px;
+      background-color: #fff;
+      text-align: center;
+      margin: auto;
+      padding: 4px;
+    }
+  }
+
+  th .tablespace {
+    width: 85px;
+  }
+
+  .overflow {
+    overflow-x: auto;
+    height: calc(100vh - 155px);
+  }
+
+  tr.errorInStudentInfo {
+    background-color: rgba(229, 34, 84, 0.1);
+    border-left: 3px solid #E52254;
+
+    td.error button.multiselect {
+      border: 1px solid #E52254 !important;
+    }
+
+    td.error input,
+    td.error td select {
+      border: 1px solid #E52254 !important;
+    }
+  }
+
+  tr.errorInStudentInfo td.error select,
+  tr.errorInStudentInfo td.error input,
+  tr.errorInStudentInfo td.error ng-select {
+    border: 1px solid #E52254 !important;
+  }
+}
+
+.imported-data tr.errorInStaffInfo {
+  background-color: rgba(229, 34, 84, 0.1);
+  border-left: 3px solid #E52254;
+}
+
+.imported-data tr.errorInStaffInfo td.error input,
+.imported-data tr.errorInStaffInfo td.error td select {
+  border: 1px solid #E52254 !important;
+}
+
+.import .error {
+  color: #E52254;
+}
+
+.imported-data td input,
+.imported-data td select,
+.imported-data td .multiselect {
+  width: 160px;
+}
+
+td input,
+td select {
+  color: #3A5077 !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+}
+
+.class_setup td input,
+.class_setup td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+button.saveandclose-btn {
+  background-color: #01CA85;
+  color: #ffffff;
+  height: 42px;
+  width: 145px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+button.addnewrow-btn {
+  background-color: #5C67E6;
+  color: #ffffff;
+  height: 42px;
+  width: 145px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.import .error {
+  color: #E52254;
+}
+
+.import .success {
+  color: #3A5077;
+}
+
+.import {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+  margin-top: 12px;
+}
+
+.top-tag{
+  color: #172B4D;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+.Dot{
+  height: 5px;
+  width: 5px;
+  background-color: #172B4D;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 6px;
+  float: left;
+}

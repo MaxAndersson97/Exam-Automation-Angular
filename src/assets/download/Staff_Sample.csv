@@ -1,0 +1,5 @@
+Email,SecondaryEmail,FirstName,MiddleName,LastName,Role,Gender,DOB,CountryName,StateName,City,Pincode,AadharNumber,Mobile
+a12@g.com,b1@gmail.com,Shivani,Bai,Chouhan,Teacher,Female,09/10/1970,India,Madhya Pradesh,Indore,452004,8.99E+11,8989756741
+b12@g.com,b2@gmail.com,Madhuri,Narayan,Biyani,Director,Female,09/10/1970,India,Maharashtra,Pune,411027,9.82E+11,7878235178
+c12@g.com,b3@gmail.com,Deepak,Shankar,Pandey,Teacher,Male,09/10/1970,India,Madhya Pradesh,Bangalore,560037,5.68E+11,9981807676
+d12@g.com,b4@gmail.com,Anand,Manoj,Goyal,Teacher,Male,12/12/1993,India,Maharashtra,Mumbai,400080,7.63E+11,7869553821

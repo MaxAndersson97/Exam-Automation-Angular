@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53 (72520) - https://sketchapp.com -->
+    <title>F08711BF-CAC6-453E-A20C-68C2D4F3149E</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M19,18 C19.552,18 20,18.448 20,19 C20,19.552 19.552,20 19,20 L1,20 C0.448,20 0,19.552 0,19 C0,18.448 0.448,18 1,18 L19,18 Z M19,0 C19.552,0 20,0.448 20,1 L20,15 C20,15.552 19.552,16 19,16 L1,16 C0.448,16 0,15.552 0,15 L0,9 C0,8.448 0.448,8 1,8 L6,8 L6,5 C6,4.448 6.448,4 7,4 L12,4 L12,1 C12,0.448 12.448,0 13,0 L19,0 Z M14,14 L18,14 L18,2 L14,2 L14,14 Z M8,14 L12,14 L12,6 L8,6 L8,14 Z M2,14 L6,14 L6,10 L2,10 L2,14 Z" id="path-1"></path>
+    </defs>
+    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="07.-SM---School-Academic-Details" transform="translate(-24.000000, -200.000000)">
+            <g id="sidebar-normal" transform="translate(0.000000, 60.000000)">
+                <g id="IconSet/Sidenav/Graphical-Result-Analysis/Default" transform="translate(24.000000, 140.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Icon" fill="#3A5077" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

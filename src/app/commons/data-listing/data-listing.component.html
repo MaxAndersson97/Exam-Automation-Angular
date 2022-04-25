@@ -1,0 +1,1129 @@
+<div class="col-lg-12 col-md-12 p-0">
+    <div class="row">
+        <div class="title_name ">
+            <h2 class="top-header mb-3 pl-3">{{title}}</h2>
+        </div>
+        <div class="col-12 col-md-12 text-right title_name_right">
+            <div class="addstaff mb-3 ml-2 float-right">
+                <div class="dropdown">
+                    <button type="button" id="addnewrow" class="dropdown-toggle btn addnewrow-btn"
+                        data-toggle="dropdown" ng-click='open=!open'>Add {{moduleName}}</button>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="addnewrow">
+                        <a class="dropdown-item" (click)="onAddClick()">Add {{moduleName}} Manually</a>
+                        <a class="dropdown-item" (click)="onUploadCSVCLick()">Upload CSV</a>
+                    </div>
+                </div>
+            </div>
+            <div class="searchbartable float-right mb-3">
+                <button type="submit">
+                    <!-- <?xml version="1.0" encoding="UTF-8"?> -->
+                    <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+                        <title>00067B21-DB8A-4562-9250-F329CFB39D75</title>
+                        <desc>Created with sketchtool.</desc>
+                        <defs>
+                            <path
+                                d="M3.600005,8.40002 C3.600005,5.75281173 5.75281173,3.600005 8.40002,3.600005 C11.0472283,3.600005 13.200035,5.75281173 13.200035,8.40002 C13.200035,11.0472283 11.0472283,13.200035 8.40002,13.200035 C5.75281173,13.200035 3.600005,11.0472283 3.600005,8.40002 M17.7656493,16.6344457 L13.4496358,12.3176322 C14.2928384,11.2344289 14.80004,9.87682461 14.80004,8.40002 C14.80004,4.87120897 11.928831,2 8.40002,2 C4.87120897,2 2,4.87120897 2,8.40002 C2,11.928831 4.87120897,14.80004 8.40002,14.80004 C9.87682461,14.80004 11.2336289,14.2920384 12.3176322,13.4496358 L16.6344457,17.7656493 C16.7904462,17.9216498 16.9952469,18.00005 17.2000475,18.00005 C17.4048481,18.00005 17.6096488,17.9216498 17.7656493,17.7656493 C18.0784502,17.4528483 18.0784502,16.9472467 17.7656493,16.6344457"
+                                id="search"></path>
+                        </defs>
+                        <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="36.-Staff---Staff-List" transform="translate(-1009.000000, -99.000000)">
+                                <g id="icon-minor/search" transform="translate(1007.000000, 97.000000)">
+                                    <mask id="mask-2" fill="white">
+                                        <use xlink:href="#search"></use>
+                                    </mask>
+                                    <use id="Mask" fill="#8595A6" xlink:href="#search"></use>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </button>
+
+                <input type="text" placeholder="Search {{title}}" name="search" [(ngModel)]="searchStr" (blur)="filtertextBlur()">
+            </div>
+           
+            <div class="viewbtntable float-right mb-3 ">
+                <div class="single tog">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            View
+                        </button>
+                        <div class="dropdown-menu dropdown-menu-right p-0" id="colDDL"
+                            aria-labelledby="dropdownMenuButton">
+                            <ng-container *ngFor="let th of tableHeaders">
+                                <div *ngIf="th.columnname !== 'action' && th.columnname !== 'Name' && th.columnname !== 'FirstName' && th.columnname !== 'Email'"
+                                    class="custom-control custom-checkbox p-1">
+                                    <label class="checkbox-container m-0" *ngIf="th.displayname">
+
+                                        <input type="checkbox" class="form-check-input h-auto m-0 custom-control-input"
+                                            [checked]="th.visible" value="th.visible" [id]="th.columnname"
+                                            name="example1" (click)="OnCheckBoxSelected(th)">
+                                        <span class="checkmark"></span>
+                                        <label class="m-0" [for]="th.columnname"
+                                            style="text-transform: capitalize">{{th.displayname.toLowerCase()}}</label>
+
+                                    </label>
+
+                                </div>
+                            </ng-container>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="viewchangable float-right mb-3 mr-3 ">
+                <div class="single tog">
+                    <div class="dropdown">
+                        <button class="btn " type="button" id="dropdownMenuButton1" [ngClass]="{'active': isshowgrid}"
+                             aria-haspopup="true" aria-expanded="false" (click)="showgrid()">
+                             <svg width="18px" height="18px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: sketchtool 60.1 (101010) - https://sketch.com -->
+                                <title>Grid View</title>
+                                <desc>Created with sketchtool.</desc>
+                                <g id="Staff" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="36.1-Staff---Staff-Grid" transform="translate(-675.000000, -97.000000)" fill="#8595A6">
+                                        <g id="IconSet/Grid/Default-IconSet/Grid/Selected" transform="translate(675.000000, 97.000000)">
+                                            <path d="M19,11 C19.553,11 20,11.448 20,12 L20,12 L20,19 C20,19.552 19.553,20 19,20 L19,20 L12,20 C11.447,20 11,19.552 11,19 L11,19 L11,12 C11,11.448 11.447,11 12,11 L12,11 Z M8,11 C8.553,11 9,11.448 9,12 L9,12 L9,19 C9,19.552 8.553,20 8,20 L8,20 L1,20 C0.447,20 0,19.552 0,19 L0,19 L0,12 C0,11.448 0.447,11 1,11 L1,11 Z M18,13 L13,13 L13,18 L18,18 L18,13 Z M7,13 L2,13 L2,18 L7,18 L7,13 Z M19,0 C19.553,0 20,0.448 20,1 L20,1 L20,8 C20,8.552 19.553,9 19,9 L19,9 L12,9 C11.447,9 11,8.552 11,8 L11,8 L11,1 C11,0.448 11.447,0 12,0 L12,0 Z M8,0 C8.553,0 9,0.448 9,1 L9,1 L9,8 C9,8.552 8.553,9 8,9 L8,9 L1,9 C0.447,9 0,8.552 0,8 L0,8 L0,1 C0,0.448 0.447,0 1,0 L1,0 Z M18,2 L13,2 L13,7 L18,7 L18,2 Z M7,2 L2,2 L2,7 L7,7 L7,2 Z" id="Combined-Shapepotrait"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </button>
+                        <button class="btn" [ngClass]="{'active': isshowlist}" type="button" id="dropdownMenuButton2"
+                             aria-haspopup="true" aria-expanded="false" (click)="showlist()">
+                             <svg width="18px" height="18px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: sketchtool 60.1 (101010) - https://sketch.com -->
+                                <title>List View</title>
+                                <desc>Created with sketchtool.</desc>
+                                <g id="Staff" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="36.1-Staff---Staff-Grid" transform="translate(-724.000000, -97.000000)" fill="#8595A6">
+                                        <g id="IconSet/List/Default" transform="translate(724.000000, 97.000000)">
+                                            <path d="M19,0 L1,0 C0.447,0 0,0.447 0,1 L0,19 C0,19.553 0.447,20 1,20 L19,20 C19.553,20 20,19.553 20,19 L20,1 C20,0.447 19.553,0 19,0 L19,0 Z M2,18 L18,18 L18,2 L2,2 L2,18 Z M9,7 L15,7 C15.553,7 16,6.553 16,6 C16,5.447 15.553,5 15,5 L9,5 C8.447,5 8,5.447 8,6 C8,6.553 8.447,7 9,7 M5,7 C5.553,7 6,6.553 6,6 C6,5.447 5.553,5 5,5 C4.447,5 4,5.447 4,6 C4,6.553 4.447,7 5,7 M9,11 L15,11 C15.553,11 16,10.553 16,10 C16,9.447 15.553,9 15,9 L9,9 C8.447,9 8,9.447 8,10 C8,10.553 8.447,11 9,11 M5,11 C5.553,11 6,10.553 6,10 C6,9.447 5.553,9 5,9 C4.447,9 4,9.447 4,10 C4,10.553 4.447,11 5,11 M9,15 L15,15 C15.553,15 16,14.553 16,14 C16,13.447 15.553,13 15,13 L9,13 C8.447,13 8,13.447 8,14 C8,14.553 8.447,15 9,15 M5,15 C5.553,15 6,14.553 6,14 C6,13.447 5.553,13 5,13 C4.447,13 4,13.447 4,14 C4,14.553 4.447,15 5,15" id="Iconlandscape"></path>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row m-0  mb-3">
+        <div class="col-12 pl-0" style="padding-right: 82px;">
+            <div class="filter-row h-100" *ngIf="moduleName == 'Student'">
+                <div class="reset float-right  px-3 h-100">
+                    <a type="reset" (click)="onClearFilter()"  class="reset_link" title="Reset Filter">
+                    Clear Filter
+                    </a>
+                </div>
+                <div class="form-group filterbtntable common_filter single four">
+                    <span class="label-name">Ac.Year:</span>
+                    <ng-select 
+                    name="filtername_{{i}}"
+                    [items]="academicList" 
+                    bindValue="AcademicYearID"
+                    [(ngModel)]="filtermodel.academicYearsID"
+                    placeholder="Select Academic Year" 
+                        [searchable]=false>
+                        <ng-template ng-option-tmp let-item="item">
+                            {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                            {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}</span>
+                            <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select
+                            Academic Session</span>
+                        </ng-template>
+                    </ng-select>
+                </div>
+
+                <div class="form-group filterbtntable common_filter single three">
+                    <span class="label-name">Class:</span>
+                    <ng-select [items]="classes" bindLabel="ClassName"
+                        placeholder="All Class" bindValue="ClassID"
+                        [searchable]=false name="filtername_{{i}}"
+                        (change)="getSectionForFilter($event);selectSubjectChangeforFilter(filtermodel.ClassID)"
+                        [(ngModel)]="filtermodel.ClassID">
+                        <ng-template ng-option-tmp let-item="item">
+                            <span
+                                style="text-transform: capitalize">
+                                {{item.ClassName.toLowerCase()}}</span>
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                {{item.ClassName.toLowerCase()}}</span>
+                            <span *ngIf="!item.ClassName" style="color: #999999;"> Select
+                                Standard</span>
+                        </ng-template>
+                    </ng-select>
+                </div>
+
+                <div class="form-group filterbtntable common_filter single four">
+                    <span class="label-name">Section:</span>
+                    <ng-select [items]="sectionList" bindLabel="SectionName"
+                        placeholder="All Section" bindValue="AESectionID"
+                        [searchable]=false name="filtername_{{i}}"
+                        [(ngModel)]="filtermodel.AESectionID" >
+                        <ng-template ng-option-tmp let-item="item">
+                            <span
+                                style="text-transform: capitalize">{{item.SectionName | titlecase}}</span>
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.SectionName"> {{item.SectionName | titlecase}}</span>
+                            <span *ngIf="!item.SectionName"> Select Section</span>
+                        </ng-template>
+                    </ng-select>
+                </div>
+
+                <div class="form-group filterbtntable common_filter single one">
+                    <span class="label-name">Status:</span>
+                    <ng-select [items]="allStatus" bindLabel="name"
+                        placeholder="All Status" bindValue="name"
+                        [searchable]=false name="filtername_{{i}}"
+                        (change)="selectChange($event, filterListData[1].name)"
+                        [(ngModel)]="filtermodel.statusFilterModel">
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.name"> {{item.name}}</span>
+                            <span *ngIf="!item.name"> Select Status</span>
+                        </ng-template>
+                    </ng-select>
+                </div>
+                
+                <div class="form-group filterbtntable common_filter single five">
+                    <span class="label-name">Gender:</span>
+                    <ng-select [items]="filterListData[2].filterList" bindLabel="name"
+                        placeholder="All {{filterListData[2].name}}" bindValue="name"
+                        [searchable]=false name="filtername_{{i}}"
+                        (change)="selectChange($event, filterListData[2].name)"
+                        [(ngModel)]="filtermodel.genderFilterModel">
+                        <ng-template ng-option-tmp let-item="item">
+                            <span
+                                style="text-transform: capitalize">{{item.name | titlecase}}</span>
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.name"> {{item.name | titlecase}}</span>
+                            <span *ngIf="!item.name"> Select Gender</span>
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+
+            <div class="filter-row h-100" *ngIf="moduleName == 'Staff'">
+                <div class="reset float-right  px-3 h-100">
+                    <a type="reset" (click)="onClearFilter()"  class="reset_link" title="Reset Filter">
+                    Clear Filter
+                    </a>
+                </div>
+               
+                <div class="form-group filterbtntable common_filter single three">
+                    <span class="label-name">Class:</span>
+                    <ng-select [items]="classes" bindLabel="ClassName"
+                        placeholder="All Class" bindValue="ClassID"
+                        [searchable]=false name="filtername_{{i}}"
+                        (change)="getSectionForFilter($event);selectSubjectChangeforFilter(filtermodel.ClassID)"
+                        [(ngModel)]="filtermodel.ClassID">
+                        <ng-template ng-option-tmp let-item="item">
+                            <span
+                                style="text-transform: capitalize">
+                                {{item.ClassName.toLowerCase()}}</span>
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                {{item.ClassName.toLowerCase()}}</span>
+                            <span *ngIf="!item.ClassName" style="color: #999999;"> Select
+                                Standard</span>
+                        </ng-template>
+                    </ng-select>
+                </div>
+
+                <div class="form-group filterbtntable common_filter single four">
+                    <span class="label-name">Section:</span>
+                    <ng-select [items]="sectionList" bindLabel="SectionName"
+                        placeholder="All Section" bindValue="AESectionID"
+                        [searchable]=false name="filtername_{{i}}"
+                        [(ngModel)]="filtermodel.AESectionID" >
+                        <ng-template ng-option-tmp let-item="item">
+                            <span
+                                style="text-transform: capitalize">{{item.SectionName | titlecase}}</span>
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.SectionName"> {{item.SectionName | titlecase}}</span>
+                            <span *ngIf="!item.SectionName"> Select Section</span>
+                        </ng-template>
+                    </ng-select>
+                </div>
+
+                <div class="form-group filterbtntable common_filter single six">
+                    <span class="label-name">Subject:</span>
+                    <ng-select [items]="subjectList" bindLabel="SubjectName"
+                        placeholder="All Subject" bindValue="SubjectID"
+                        [searchable]=false name="filternamesubject"
+                        [(ngModel)]="filtermodel.SubjectID">
+                        <ng-template ng-option-tmp let-item="item">
+                            <span
+                                style="text-transform: capitalize">{{item.SubjectName | titlecase}}</span>
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.SubjectName"> {{item.SubjectName | titlecase}}</span>
+                            <span *ngIf="!item.SubjectName"> Select Subject</span>
+                        </ng-template>
+                    </ng-select>
+                </div>
+
+                <div class="form-group filterbtntable common_filter single one">
+                    <span class="label-name">Status:</span>
+                    <ng-select [items]="allStatus" bindLabel="name"
+                        placeholder="All Status" bindValue="name"
+                        [searchable]=false name="filtername_{{i}}"
+                        (change)="selectChange($event, filterListData[1].name)"
+                        [(ngModel)]="filtermodel.statusFilterModel">
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.name"> {{item.name}}</span>
+                            <span *ngIf="!item.name"> Select Status</span>
+                        </ng-template>
+                    </ng-select>
+                </div>   
+
+                <div class="form-group filterbtntable common_filter single two">
+                    <span class="label-name">Role:</span>
+                    <ng-select [items]="roles" bindLabel="name"
+                        placeholder="All Role" bindValue="name"
+                        [searchable]=false name="{{filterListData[0].name}}"
+                        (change)="selectChange($event, filterListData[0].name)"
+                        [(ngModel)]="filtermodel.roleFilterModel">
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.name"> {{item.name}}</span>
+                            <span *ngIf="!item.name"> Select Role</span>
+                        </ng-template>
+                    </ng-select>
+                </div>
+            </div>
+        </div>
+        <div class="btn_right_filter pr-0">
+            <div class="button Save_filter_btn reset h-100">
+                <button class="btn " type="button" *ngIf="moduleName == 'Student'" id="dropdownMenuButton1" (click)="onApplyStudentFilter()">Show</button>
+                <button class="btn" *ngIf="moduleName != 'Student'"  type="button" id="dropdownMenuButton1" (click)="onApplyFilter()">Show</button>
+                <!-- <button type="reset" *ngIf="moduleName == 'Student'" (click)="resetStudentFilter()">Reset Filter</button> -->
+                
+            </div> 
+        </div>
+    </div>
+</div>
+
+<div class="col-lg-12 col-md-12 mb-3 steptext"><strong>Note:</strong>just double click on <strong>Email Id</strong> and <strong>Mobile No</strong> to copy it</div>
+
+
+<div class="col-lg-12 col-md-12 p-0" *ngIf="!isshowgrid" [ngClass]="{'active':  !isshowgrid}">
+    <div class="class_setup ">
+        <div class="overflow" style="overflow-x:auto;">
+            <table class="w-100 table staff-list">
+                <thead>
+                    <tr style="text-transform: capitalize;position: fixed;z-index: 1;width: 100%;">
+                        <!-- <th *ngIf="isDemo && isAllEnable"> -->
+                        <th *ngIf="isDemo">
+                            <label class="checkbox-container" *ngIf="isAllEnable">
+                                <input type="checkbox"
+                                    (click)="checkUncheckAll()"
+                                    [(ngModel)]="isAllCheck">
+                                <span class="checkmark" style="bottom: -11px !important;"></span>
+                            </label>
+                        </th>
+                        <th>Total Select : {{checkedcount}}</th>
+                        <ng-container *ngFor="let th of tableHeaders">
+                            <th *ngIf="th.visible && th.displayname !== ''">
+                                {{th.displayname.toLowerCase()}}</th>
+                        </ng-container>
+                        <!-- <th></th>--->
+                        <th class="action_col">
+                            <div class="action"></div>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody id="myTable" *ngIf="displayArr && displayArr.length > 0" style="padding-top: 40px;">
+                    <tr *ngFor="let dt of displayArr | search:searchStr | paginate: {itemsPerPage: rowsOnPage, currentPage:page, id: '1'} ; let i = index; let last = last">
+                        <td *ngIf="isDemo">
+                            <label class="checkbox-container" style="float:left;">
+                                <input type="checkbox"
+                                    (click)="checkItemenable(dt)"
+                                    [(ngModel)]="dt.isChecked">
+                                <span class="checkmark"></span>
+                            </label>
+                        </td>
+                        
+                        <td class="imgtd">
+                            <span *ngIf="dt.ProfileImageLink!=''">
+                                <img [src]='dt.ProfileImageLink'>
+                            </span>
+                            <div class="name" *ngIf="dt.ProfileImageLink=='' && dt.FirstName">
+                                <p>{{dt.FirstName.toUpperCase().charAt(0)}}</p>
+                            </div>
+                            <div class="name" *ngIf="dt.ProfileImageLink=='' && dt.Name">
+                                <p>{{dt.Name.toUpperCase().charAt(0)}}</p>
+                            </div>
+                        </td>
+                        <td>
+                            <span *ngIf="moduleName == 'Student'">{{dt.Name}} {{dt.LastName}}</span>
+                            <span *ngIf="moduleName == 'Staff'">{{dt.FirstName}} {{dt.LastName}}</span>
+                        </td>
+                        <ng-container *ngFor="let th of tableHeaders ">
+                            <td style="text-transform: capitalize" *ngIf="th.visible && !(th.columnname == 'Status') && th.columnname != 'Email' && th.columnname != 'Name' && th.columnname != 'FirstName' && th.columnname != 'UserName' && th.columnname != 'CreatedDateTime'">
+                                <ng-container *ngIf="th.columnname == 'Mobile'">
+                                    <span appDoubleClick>{{dt[th.columnname] | lowercase }}</span>
+                                </ng-container> 
+                                
+                                <ng-container *ngIf="th.columnname != 'Mobile'">
+                                    {{dt[th.columnname] | lowercase }}
+                            </ng-container>    
+                            </td>
+                            <td *ngIf="th.visible && th.columnname == 'Email'">
+                                <span appDoubleClick>{{dt.Email}}</span>
+                            </td>
+                            <td *ngIf="th.visible && th.columnname == 'CreatedDateTime'">
+                                <span appDoubleClick>{{dt.CreatedDateTime  | date:'dd MMM yy'}}</span>
+                            </td>
+                            <td *ngIf="th.visible && th.columnname == 'Status' && moduleName== 'Student'">
+                                <span  style="color:#69BB10" *ngIf="dt.Status==1; else elseBlock">Active</span>
+                                <ng-template #elseBlock><span style="color:#E52254">Inactive </span>
+                                </ng-template>
+                            </td>
+                            <td *ngIf="th.visible && th.columnname == 'Status' && moduleName== 'Staff'">
+                                <span style="color:#69BB10" *ngIf="dt.ProfileStatus==1; else elseBlock">Active</span>
+                                <ng-template #elseBlock><span style="color:#E52254">Inactive </span>
+                                </ng-template>
+                            </td>
+                        </ng-container>
+
+                        <td class="action_col" [ngClass]="{'staff_list': (title == 'Staff List'), 'student_list':(title == 'Student List')}">
+                            <div class="remove single tog">
+                                <div class="dropdown ">
+                                    <button class="btn btn-primary dropdown-toggle form-control" type="button"
+                                        data-toggle="dropdown" style="color:#3A5077;">Action
+                                        <span class="caret"></span></button>
+                                    <ul class="dropdown-menu p-0">
+                                        <li *ngIf="title == 'Staff List'"><a (click)="showChildModal(dt)">Assign Options</a></li>
+                                        <li><a (click)="onSelection(dt, 'EditInfo')">Edit Information</a></li>
+                                        <li><a (click)="confirmDelete(dt, confirmDialogTemplate)">Reset Password</a></li>
+                                        <li *ngIf="title == 'Student List'" class="single tog"><a
+                                                (change)="changeStudentStatus(dt, 'Status', i)"><span>
+                                                    Status: {{ dt.Status == 1 ? 'Active' : 'Inactive' }}</span>
+                                                <label class="switch">
+                                                    <input type="checkbox" [checked]="dt.Status == 1">
+                                                    <span class="slider round"></span>
+                                                </label>
+                                            </a>
+                                        </li>
+                                        <li *ngIf="title == 'Staff List'" class="single tog" (click)="openStaffStatusModal1(dt, i)" >
+                                            <a >
+                                                Change Status
+                                            </a>
+                                        </li>
+                                    </ul>
+
+                                </div>
+                            </div>
+
+                        </td>
+                        
+                    </tr>
+
+                </tbody>
+            </table>
+            <ng-container *ngIf="displayArr && displayArr.length < 1">
+                <div class="no-result-found">No results found.</div>
+            </ng-container>
+        </div>
+    </div>
+    <div class="pages w-100">
+        <pagination-controls class="pages" (pageChange)="page = $event" id="1" [maxSize]="10" 
+            directionLinks="true" previousLabel=""
+            nextLabel="" responsive="true">
+        </pagination-controls>
+    </div>
+    <div class="selectWrapper list-pagination">
+        <ng-select class="select_Show" id="1"  [(ngModel)]="rowsOnPageTemp" (change)="onShowPageChange(rowsOnPageTemp)">
+                <ng-option  *ngFor="let row of rowsOnPageSet" [value]="row">
+                    Show {{ row }} Results
+                </ng-option>
+        </ng-select>
+    </div>
+    
+    <button class="btn_all" *ngIf="isDemo" (click)="confirmMultiDelete(confirmMultiDeleteDialogTemplate);" type="button">
+        DELETE SELECTED
+    </button>
+
+</div>
+
+<div class="col-lg-12 col-md-12 p-0 " *ngIf="!isshowlist" [ngClass]="{'active':  !isshowlist}">
+    <div class="">
+        <ng-container *ngIf="displayArr && displayArr.length < 1">
+            <div class="no-result-found">No results found.</div>
+        </ng-container>
+        <div class="row" *ngIf="displayArr && displayArr.length > 0">
+            <div class="mb-4 col-md-3 col-12 staff-student-colom" *ngFor="let dt of displayArr | search:searchStr ; let i = index; let last = last" >
+                <!----------for staff------------>
+                <div class="staff-student-box staff-box  py-3" *ngIf="dt.Role!='Student' && dt.Rolename!='Student'">
+                    <div class="card-img">
+                        <div *ngIf="dt.ProfileImageLink!=''"><img [src]='dt.ProfileImageLink'></div>
+                        <div class="name" *ngIf="dt.ProfileImageLink=='' && dt.FirstName"><p>{{dt.FirstName.toUpperCase().charAt(0)}}</p></div>
+                    </div>
+                    <div class="card-img-name">
+                        <h4 class="mb-0" style="text-transform: capitalize;">{{dt.FirstName | lowercase}} {{dt.LastName | lowercase}}</h4>
+                        <h6>{{dt.Role}}</h6>
+                    </div>
+                    <div class="w-100">
+                        <div class="Icon">
+                            <svg width="14px" height="12px" viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: sketchtool 60.1 (101010) - https://sketch.com -->
+                                <title>0E5B6513-C860-427B-A3BF-9137D6F5A9F1</title>
+                                <desc>Created with sketchtool.</desc>
+                                <g id="Staff" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="36.1-Staff---Staff-Grid" transform="translate(-122.000000, -246.000000)" fill="#8595A6">
+                                        <g id="Group-7" transform="translate(100.000000, 146.000000)">
+                                            <g id="Group-4" transform="translate(22.000000, 98.000000)">
+                                                <g id="IconSet/Email/Default" transform="translate(0.000000, 1.000000)">
+                                                    <path d="M1.6,12.8000004 L1.6,4.33120003 L7.4344,10.1656003 C7.5904,10.3216003 7.7952,10.4000003 8,10.4000003 C8.2048,10.4000003 8.4096,10.3216003 8.5656,10.1656003 L14.4,4.33120003 L14.4,12.8000004 L1.6,12.8000004 Z M13.2688,3.2 L8,8.46879997 L2.73120003,3.2 L13.2688,3.2 Z M15.2,1.6 L0.8,1.6 C0.3584,1.6 0,1.9576 0,2.4 L0,13.6 C0,14.0424 0.3584,14.4 0.8,14.4 L15.2,14.4 C15.6416,14.4 16,14.0424 16,13.6 L16,2.4 C16,1.9576 15.6416,1.6 15.2,1.6 L15.2,1.6 Z" id="Iconmail"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="mb-2" title="{{dt.Email}}">{{dt.Email}}</p>
+                    </div>
+                    <div class="w-100" *ngIf="!!dt.Mobile">
+                        <div class="Icon">
+                            <svg width="14px" height="14px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: sketchtool 60.1 (101010) - https://sketch.com -->
+                                <title>80232EFC-D8D4-4F83-8D6E-D6D65CE7D481</title>
+                                <desc>Created with sketchtool.</desc>
+                                <defs>
+                                    <path d="M14.4008854,14.3998397 C10.5182358,14.4788895 7.45913012,13.4049301 5.28993154,11.2426385 C2.13887677,8.10220551 1.6679376,3.41431274 1.60956993,1.59696579 L4.94932019,1.59696579 L5.49541773,4.34853767 L4.44160139,4.87473786 C4.12737543,5.03203898 3.95307197,5.37458812 4.01064009,5.72033119 C4.32006871,7.5720129 6.02392502,11.2602052 10.2647762,11.966064 C10.6069867,12.0195623 10.9523954,11.850284 11.1099081,11.5380772 L11.6424132,10.4840798 L14.4008854,11.0342345 L14.4008854,14.3998397 Z M15.357156,9.59696577 L11.3593701,8.79848288 C11.0043668,8.72661942 10.6501629,8.90148717 10.4886524,9.22247729 L9.95854597,10.2708853 C7.11052331,9.53228865 6.06470252,7.12486276 5.72808895,6.01816549 L6.75551992,5.50474099 C7.07774146,5.34424593 7.25284448,4.98812257 7.18248345,4.63519313 L6.38932273,0.64277872 C6.31576347,0.269088731 5.98794503,0 5.6057567,0 L0.808413638,0 C0.38304922,0 0.0320436197,0.332168879 0.00965601872,0.75616329 C-0.00553556764,1.04601258 -0.312565524,7.90498054 4.15216175,12.3645074 C6.57082221,14.7799182 9.9001783,16 14.0618734,16 C14.4488591,16 14.8422412,15.9896197 15.2428194,15.9688592 C15.6673842,15.9465016 16,15.5959677 16,15.1711748 L16,10.3802775 C16,9.99940114 15.7305492,9.67202316 15.357156,9.59696577 L15.357156,9.59696577 Z" id="path-1call"></path>
+                                </defs>
+                                <g id="Staff" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="36.1-Staff---Staff-Grid" transform="translate(-122.000000, -283.000000)">
+                                        <g id="Group-7" transform="translate(100.000000, 146.000000)">
+                                            <g id="Group-5" transform="translate(22.000000, 136.000000)">
+                                                <g id="IconSet/Phone/Default" transform="translate(0.000000, 1.000000)">
+                                                    <mask id="mask-2" fill="white">
+                                                        <use xlink:href="#path-1call"></use>
+                                                    </mask>
+                                                    <use id="Icon" fill="#8595A6" xlink:href="#path-1call"></use>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="mb-2">{{dt.Mobile}}</p>
+                    </div>
+                    <div class="w-100" *ngIf="!!dt.DOBFormated">
+                        <div class="Icon">
+                            <svg width="14px" height="14px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: sketchtool 60.1 (101010) - https://sketch.com -->
+                                <title>504E752B-03FF-41EB-895A-26F8A42564ED</title>
+                                <desc>Created with sketchtool.</desc>
+                                <g id="Staff" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="36.1-Staff---Staff-Grid" transform="translate(-122.000000, -317.000000)" fill="#8595A6">
+                                        <g id="Group-7" transform="translate(100.000000, 146.000000)">
+                                            <g id="Group-6" transform="translate(22.000000, 170.000000)">
+                                                <g id="IconSet/Birthday/Default" transform="translate(0.000000, 1.000000)">
+                                                    <path d="M15.2,1.6 L12.8,1.6 L12.8,0.8 C12.8,0.3576 12.4424,0 12,0 C11.5576,0 11.2,0.3576 11.2,0.8 L11.2,1.6 L4.8,1.6 L4.8,0.8 C4.8,0.3576 4.4424,0 4,0 C3.5576,0 3.2,0.3576 3.2,0.8 L3.2,1.6 L0.8,1.6 C0.3576,1.6 0,1.9576 0,2.4 L0,15.2 C0,15.6424 0.3576,16 0.8,16 L15.2,16 C15.6424,16 16,15.6424 16,15.2 L16,2.4 C16,1.9576 15.6424,1.6 15.2,1.6 L15.2,1.6 Z M1.6,14.4 L14.4,14.4 L14.4,6.4 L1.6,6.4 L1.6,14.4 Z M1.6,4.8 L14.4,4.8 L14.4,3.2 L1.6,3.2 L1.6,4.8 Z M4.8,8 C4.3576,8 4,8.3576 4,8.8 C4,9.2424 4.3576,9.6 4.8,9.6 C5.2424,9.6 5.6,9.2424 5.6,8.8 C5.6,8.3576 5.2424,8 4.8,8 M4.8,11.2 C4.3576,11.2 4,11.5576 4,12 C4,12.4424 4.3576,12.8 4.8,12.8 C5.2424,12.8 5.6,12.4424 5.6,12 C5.6,11.5576 5.2424,11.2 4.8,11.2 M8,11.2 C7.5576,11.2 7.2,11.5576 7.2,12 C7.2,12.4424 7.5576,12.8 8,12.8 C8.4424,12.8 8.8,12.4424 8.8,12 C8.8,11.5576 8.4424,11.2 8,11.2 M8,8 C7.5576,8 7.2,8.3576 7.2,8.8 C7.2,9.2424 7.5576,9.6 8,9.6 C8.4424,9.6 8.8,9.2424 8.8,8.8 C8.8,8.3576 8.4424,8 8,8 M11.2,8 C10.7576,8 10.4,8.3576 10.4,8.8 C10.4,9.2424 10.7576,9.6 11.2,9.6 C11.6424,9.6 12,9.2424 12,8.8 C12,8.3576 11.6424,8 11.2,8" id="Iconbirthday"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="mb-2">{{dt.DOBFormated}}</p>
+                    </div>
+                    <!-- <div class="w-100">
+                        <p class="spantext pl-0">Standard/subject</p>
+                        <h5 class="status">Assigned</h5>
+                    </div> -->
+                    <div class="text-center pl-0 mb-0 remove single tog" >
+                        <div class="dropdown">
+                            <a href="" class="" data-toggle="dropdown">More Actions</a>
+                            <ul class="dropdown-menu p-0">
+                                <li *ngIf="title == 'Staff List'"><a (click)="showChildModal(dt)">Assign Options</a></li>
+                                <li><a (click)="onSelection(dt, 'EditInfo')">Edit Information</a></li>
+                                <li><a (click)="confirmDelete(dt, confirmDialogTemplate)">Reset Password</a></li>
+                                <li *ngIf="title == 'Student List'" class="">
+                                    <a
+                                        (change)="onSelection(dt, 'Status', i)"><span>
+                                            Status: {{ dt.Status == 1 ? 'Active' : 'Inactive' }}</span>
+                                        <label class="switch">
+                                            <input type="checkbox" [checked]="dt.Status == 1">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </a>
+                                </li>
+                                <li *ngIf="title == 'Staff List'" (click)="openStaffStatusModal1(dt, i)" >
+                                    <a >
+                                        Change Status
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!----------for student------------>
+                <div class="staff-student-box student-box py-3" *ngIf="dt.Role=='Student' || dt.Rolename=='Student'">
+                    <div class="card-img">
+                        <div *ngIf="dt.ProfileImageLink!=''"><img [src]='dt.ProfileImageLink'></div>
+                        <div class="name" *ngIf="dt.ProfileImageLink=='' && dt.Name"><p>{{dt.Name.toUpperCase().charAt(0)}}</p></div>
+                    </div>
+                    <div class="card-img-name">
+                        <h4 class="mb-0" style="text-transform: capitalize;">{{dt.Name | lowercase}} {{dt.LastName | lowercase}}</h4>
+                        <h6>{{dt.Rolename}}</h6>
+                    </div>
+                    
+                    <div class="w-100">
+                        <div class="Icon">
+                            <svg width="14px" height="12px" viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: sketchtool 60.1 (101010) - https://sketch.com -->
+                                <title>0E5B6513-C860-427B-A3BF-9137D6F5A9F1</title>
+                                <desc>Created with sketchtool.</desc>
+                                <g id="Staff" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="36.1-Staff---Staff-Grid" transform="translate(-122.000000, -246.000000)" fill="#8595A6">
+                                        <g id="Group-7" transform="translate(100.000000, 146.000000)">
+                                            <g id="Group-4" transform="translate(22.000000, 98.000000)">
+                                                <g id="IconSet/Email/Default" transform="translate(0.000000, 1.000000)">
+                                                    <path d="M1.6,12.8000004 L1.6,4.33120003 L7.4344,10.1656003 C7.5904,10.3216003 7.7952,10.4000003 8,10.4000003 C8.2048,10.4000003 8.4096,10.3216003 8.5656,10.1656003 L14.4,4.33120003 L14.4,12.8000004 L1.6,12.8000004 Z M13.2688,3.2 L8,8.46879997 L2.73120003,3.2 L13.2688,3.2 Z M15.2,1.6 L0.8,1.6 C0.3584,1.6 0,1.9576 0,2.4 L0,13.6 C0,14.0424 0.3584,14.4 0.8,14.4 L15.2,14.4 C15.6416,14.4 16,14.0424 16,13.6 L16,2.4 C16,1.9576 15.6416,1.6 15.2,1.6 L15.2,1.6 Z" id="Iconmail"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="mb-2" title="{{dt.Email}}">{{dt.Email}}</p>
+                    </div>
+                    <div class="w-100" >
+                        <div class="Icon">
+                            <svg width="14px" height="14px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: sketchtool 60.1 (101010) - https://sketch.com -->
+                                <title>80232EFC-D8D4-4F83-8D6E-D6D65CE7D481</title>
+                                <desc>Created with sketchtool.</desc>
+                                <defs>
+                                    <path d="M14.4008854,14.3998397 C10.5182358,14.4788895 7.45913012,13.4049301 5.28993154,11.2426385 C2.13887677,8.10220551 1.6679376,3.41431274 1.60956993,1.59696579 L4.94932019,1.59696579 L5.49541773,4.34853767 L4.44160139,4.87473786 C4.12737543,5.03203898 3.95307197,5.37458812 4.01064009,5.72033119 C4.32006871,7.5720129 6.02392502,11.2602052 10.2647762,11.966064 C10.6069867,12.0195623 10.9523954,11.850284 11.1099081,11.5380772 L11.6424132,10.4840798 L14.4008854,11.0342345 L14.4008854,14.3998397 Z M15.357156,9.59696577 L11.3593701,8.79848288 C11.0043668,8.72661942 10.6501629,8.90148717 10.4886524,9.22247729 L9.95854597,10.2708853 C7.11052331,9.53228865 6.06470252,7.12486276 5.72808895,6.01816549 L6.75551992,5.50474099 C7.07774146,5.34424593 7.25284448,4.98812257 7.18248345,4.63519313 L6.38932273,0.64277872 C6.31576347,0.269088731 5.98794503,0 5.6057567,0 L0.808413638,0 C0.38304922,0 0.0320436197,0.332168879 0.00965601872,0.75616329 C-0.00553556764,1.04601258 -0.312565524,7.90498054 4.15216175,12.3645074 C6.57082221,14.7799182 9.9001783,16 14.0618734,16 C14.4488591,16 14.8422412,15.9896197 15.2428194,15.9688592 C15.6673842,15.9465016 16,15.5959677 16,15.1711748 L16,10.3802775 C16,9.99940114 15.7305492,9.67202316 15.357156,9.59696577 L15.357156,9.59696577 Z" id="path-1call"></path>
+                                </defs>
+                                <g id="Staff" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="36.1-Staff---Staff-Grid" transform="translate(-122.000000, -283.000000)">
+                                        <g id="Group-7" transform="translate(100.000000, 146.000000)">
+                                            <g id="Group-5" transform="translate(22.000000, 136.000000)">
+                                                <g id="IconSet/Phone/Default" transform="translate(0.000000, 1.000000)">
+                                                    <mask id="mask-2" fill="white">
+                                                        <use xlink:href="#path-1call"></use>
+                                                    </mask>
+                                                    <use id="Icon" fill="#8595A6" xlink:href="#path-1call"></use>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="mb-2">{{dt.Mobile}}</p>
+                    </div>
+                    <div class="w-100" >
+                        <div class="Icon">
+                            <svg width="14px" height="14px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: sketchtool 60.1 (101010) - https://sketch.com -->
+                                <title>504E752B-03FF-41EB-895A-26F8A42564ED</title>
+                                <desc>Created with sketchtool.</desc>
+                                <g id="Staff" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                    <g id="36.1-Staff---Staff-Grid" transform="translate(-122.000000, -317.000000)" fill="#8595A6">
+                                        <g id="Group-7" transform="translate(100.000000, 146.000000)">
+                                            <g id="Group-6" transform="translate(22.000000, 170.000000)">
+                                                <g id="IconSet/Birthday/Default" transform="translate(0.000000, 1.000000)">
+                                                    <path d="M15.2,1.6 L12.8,1.6 L12.8,0.8 C12.8,0.3576 12.4424,0 12,0 C11.5576,0 11.2,0.3576 11.2,0.8 L11.2,1.6 L4.8,1.6 L4.8,0.8 C4.8,0.3576 4.4424,0 4,0 C3.5576,0 3.2,0.3576 3.2,0.8 L3.2,1.6 L0.8,1.6 C0.3576,1.6 0,1.9576 0,2.4 L0,15.2 C0,15.6424 0.3576,16 0.8,16 L15.2,16 C15.6424,16 16,15.6424 16,15.2 L16,2.4 C16,1.9576 15.6424,1.6 15.2,1.6 L15.2,1.6 Z M1.6,14.4 L14.4,14.4 L14.4,6.4 L1.6,6.4 L1.6,14.4 Z M1.6,4.8 L14.4,4.8 L14.4,3.2 L1.6,3.2 L1.6,4.8 Z M4.8,8 C4.3576,8 4,8.3576 4,8.8 C4,9.2424 4.3576,9.6 4.8,9.6 C5.2424,9.6 5.6,9.2424 5.6,8.8 C5.6,8.3576 5.2424,8 4.8,8 M4.8,11.2 C4.3576,11.2 4,11.5576 4,12 C4,12.4424 4.3576,12.8 4.8,12.8 C5.2424,12.8 5.6,12.4424 5.6,12 C5.6,11.5576 5.2424,11.2 4.8,11.2 M8,11.2 C7.5576,11.2 7.2,11.5576 7.2,12 C7.2,12.4424 7.5576,12.8 8,12.8 C8.4424,12.8 8.8,12.4424 8.8,12 C8.8,11.5576 8.4424,11.2 8,11.2 M8,8 C7.5576,8 7.2,8.3576 7.2,8.8 C7.2,9.2424 7.5576,9.6 8,9.6 C8.4424,9.6 8.8,9.2424 8.8,8.8 C8.8,8.3576 8.4424,8 8,8 M11.2,8 C10.7576,8 10.4,8.3576 10.4,8.8 C10.4,9.2424 10.7576,9.6 11.2,9.6 C11.6424,9.6 12,9.2424 12,8.8 C12,8.3576 11.6424,8 11.2,8" id="Iconbirthday"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                        </div>
+                        <p class="mb-2">{{dt.DOBFormated}}</p>
+                    </div>
+                    <div class="w-100 standard-subject px-3">
+                        <p class="spantext pl-0">Status</p>
+                        <h5 class="status"><span style="color:#69BB10" *ngIf="dt.Status==1; else elseBlock">Active</span>
+                            <ng-template #elseBlock><span style="color:#E52254">Inactive </span></ng-template></h5>
+                    </div>
+                    <div class="text-center pl-0 mb-0 remove single tog" >
+                        <div class="dropdown">
+                            <a href="" class="" data-toggle="dropdown">More Actions</a>
+                            <ul class="dropdown-menu p-0">
+                                <!-- <li ><a (click)="showChildModal(dt)">Assign Options</a></li> -->
+                                <li><a (click)="onSelection(dt, 'EditInfo')">Edit Information</a></li>
+                                <li><a (click)="confirmDelete(dt, confirmDialogTemplate)">Reset Password</a></li>
+                                <li *ngIf="title == 'Student List'" class=""><a
+                                    (change)="changeStudentStatus(dt, 'Status', i)"><span>
+                                            Status: {{ dt.Status == 1 ? 'Active' : 'Inactive' }}</span>
+                                        <label class="switch">
+                                            <input type="checkbox" [checked]="dt.Status == 1">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </a>
+                                </li>
+                                <li *ngIf="title == 'Staff List'" class=""><a
+                                        (change)="onSelection(dt, 'Status', i)"><span>
+                                            Status:{{ dt.ProfileStatus == 1 ? ' Active' : ' InActive' }}</span>
+                                        <label class="switch">
+                                            <input type="checkbox" [checked]="dt.ProfileStatus == 1">
+                                            <span class="slider round"></span>
+                                        </label>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- add teacher to class -->
+
+<div class="modal right fade"   id="AddSectionTeacher" bsModal #childModal2="bs-modal" tabindex="-1" role="dialog" aria-labelledby="add-section-name">
+    <div class="modal-dialog" style="right: 30px !important">
+        <div class="modal-content">
+            <div class="modal-header pb-4">
+                <button type="button" class="close float-left pt-1 pl-0" data-dismiss="modal" aria-label="Close" (click)="hideChildModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 *ngIf="selectedStaff && selectedStaff.FirstName " class="modal-title text-center m-auto" style="text-transform: capitalize;">{{selectedStaff.FirstName | lowercase}}  {{selectedStaff.LastName | lowercase}} <span>({{selectedStaff.Role | lowercase}})</span></h4>
+                <!-- <h4 *ngIf="selectedClass" class="modal-title text-center m-auto" id="AddSectionTeacher_header">Class Details for
+                    <span *ngIf="selectedClass.ClassName">{{ selectedClass.ClassName.toLowerCase() }} Standard</span>
+                    <span class="pl-1" *ngIf="selectedClass.SectionName">({{ selectedClass.SectionName }})</span>
+                </h4> -->
+            </div>
+            <!-- <div class="modal-body border-bottom-line">
+                
+            </div> -->
+
+            <div class="modal-body">
+                <div class="  h-auto w-100 mt-3 pb-2" >
+                    <div class="row">
+                        <h5 class="rowhead col-md-8 mb-0">Assign Class Teacher</h5>
+                        <div class="col-md-4  float-right">
+                            <div class="plus-box float-right" (click)="addClassTeacher()" *ngIf="!!classmodl && !!sectionmodal">
+                                <svg _ngcontent-wrb-c28="" xmlns:xlink="http://www.w3.org/1999/xlink" height="12px" version="1.1" viewBox="0 0 12 12" width="12px" xmlns="http://www.w3.org/2000/svg"><title _ngcontent-wrb-c28="">Add</title><desc _ngcontent-wrb-c28="">Created with sketchtool.</desc><defs _ngcontent-wrb-c28=""><path _ngcontent-wrb-c28="" d="M11.9,6.3 L7.7,6.3 L7.7,2.1 C7.7,1.7136 7.3864,1.4 7,1.4 C6.6136,1.4 6.3,1.7136 6.3,2.1 L6.3,6.3 L2.1,6.3 C1.7136,6.3 1.4,6.6136 1.4,7 C1.4,7.3864 1.7136,7.7 2.1,7.7 L6.3,7.7 L6.3,11.9 C6.3,12.2871 6.6136,12.6 7,12.6 C7.3864,12.6 7.7,12.2871 7.7,11.9 L7.7,7.7 L11.9,7.7 C12.2871,7.7 12.6,7.3864 12.6,7 C12.6,6.6136 12.2871,6.3 11.9,6.3" id="path-plus"></path></defs><g _ngcontent-wrb-c28="" fill="none" fill-rule="evenodd" id="Reports---2" stroke="none" stroke-width="1"><g _ngcontent-wrb-c28="" id="03.-Report---Student-Report---Chapter-&amp;-Topic" transform="translate(-550.000000, -834.000000)"><g _ngcontent-wrb-c28="" id="Group" transform="translate(544.000000, 828.000000)"><g _ngcontent-wrb-c28="" id="IconSet/Add-Icon/Default" transform="translate(5.000000, 5.000000)"><mask _ngcontent-wrb-c28="" fill="white" id="mask-2"><use _ngcontent-wrb-c28="" xlink:href="#path-plus"></use></mask><use _ngcontent-wrb-c28="" xlink:href="#path-plus" fill="#5C67E6" id="Mask"></use></g></g></g></g></svg>
+                                Add 
+                            </div>
+                        </div> 
+                    </div>
+                    <div class="row p-0 mt-2">
+                        <label  class="col-md-12 col-sm-12 mb-1">Select Class</label>
+                        <div class="col-md-12 ">
+                            <div class="form-group w-100 single">
+                                <ng-select [(ngModel)]="classmodl" [items]="classes"
+                                    bindLabel="ClassName" placeholder="Select Class" bindValue="ClassID"
+                                    [searchable]=false (change)="getSectionByClassID1($event)">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <span
+                                            style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                                    </ng-template>
+                                    <ng-template ng-label-tmp let-item="item">
+                                        <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                            {{item.ClassName.toLowerCase()}}</span>
+                                        <span *ngIf="!item.ClassName" style="color: #999999;"> Select
+                                            Standard</span>
+                                    </ng-template>
+
+                                </ng-select>
+                            </div>
+                            
+                        </div>
+                        <label  class="col-md-12 col-sm-12 mb-1">Select Section</label>
+                        <div class="col-md-12">
+                            <div class="form-group w-100 single">
+                                <ng-select [(ngModel)]="sectionmodal"
+                                     placeholder="Select Section" [items]="sectionList1"
+                                    bindValue="AESectionID"  bindLabel="SectionName" [searchable]='false'(change)="changeSection1($event)">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        {{ item.SectionName | titlecase}}
+                                    </ng-template>
+                                    <ng-template ng-label-tmp let-item="item">
+                                        <span *ngIf="item.SectionName"> {{ item.SectionName | titlecase}}</span>
+                                        <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select
+                                            Section</span>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row px-0 pt-2 m-0 border-top-line text-append"  *ngFor="let item of selectedClassSectionList; let i=index" style="margin-bottom: 10px;">
+                        <ng-container>
+                                <h5 class="rowhead pl-0 col-md-8 mb-0"></h5>
+                                <div class="col-md-4 pr-0 float-right" *ngIf="!item.isSaved">
+                                    <div class="delete-box float-right" (click)="deleteclass(i)">
+                                        <svg width="14.4px" height="18px" viewBox="0 0 16 20"
+                                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <title>Delete Instruction</title>
+                                                    <desc>Created with sketchtool.</desc>
+                                                    <defs>
+                                                        <path
+                                                            d="M17,4 L14,4 L14,2 C14,0.897 13.103,0 12,0 L8,0 C6.897,0 6,0.897 6,2 L6,4 L3,4 C2.447,4 2,4.448 2,5 C2,5.552 2.447,6 3,6 L3,19 C3,19.552 3.447,20 4,20 L16,20 C16.553,20 17,19.552 17,19 L17,6 C17.553,6 18,5.552 18,5 C18,4.448 17.553,4 17,4 L17,4 Z M5,18 L15,18 L15,6 L5,6 L5,18 Z M8,4 L12,4 L12,2 L8,2 L8,4 Z M8,16 C8.553,16 9,15.552 9,15 L9,9 C9,8.448 8.553,8 8,8 C7.447,8 7,8.448 7,9 L7,15 C7,15.552 7.447,16 8,16 M12,16 C12.553,16 13,15.552 13,15 L13,9 C13,8.448 12.553,8 12,8 C11.447,8 11,8.448 11,9 L11,15 C11,15.552 11.447,16 12,16"
+                                                            id="removeimg"></path>
+                                                    </defs>
+                                                    <g id="Login-&amp;-Onboarding" stroke="none"
+                                                        stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g id="10.-SM---School-Photo"
+                                                            transform="translate(-992.000000, -201.000000)">
+                                                            <g id="IconSet/Delete/Default"
+                                                                transform="translate(990.000000, 201.000000)">
+                                                                <mask id="mask-2" fill="white">
+                                                                    <use xlink:href="#removeimg"></use>
+                                                                </mask>
+                                                                <use id="Icon" fill="#E52254"
+                                                                    xlink:href="#removeimg"></use>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                                Remove
+                                    </div>
+                                </div>
+
+                                <div class="col-md-4 pr-0 float-right" *ngIf="item.isSaved">
+                                    <div class="delete-box float-right" (click)="confirmdeleteClassTeacherMapping(confirmClassTeacherAssignmentDelete,item)">
+                                        <svg width="14.4px" height="18px" viewBox="0 0 16 20"
+                                                    version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <title>Delete Instruction</title>
+                                                    <desc>Created with sketchtool.</desc>
+                                                    <defs>
+                                                        <path
+                                                            d="M17,4 L14,4 L14,2 C14,0.897 13.103,0 12,0 L8,0 C6.897,0 6,0.897 6,2 L6,4 L3,4 C2.447,4 2,4.448 2,5 C2,5.552 2.447,6 3,6 L3,19 C3,19.552 3.447,20 4,20 L16,20 C16.553,20 17,19.552 17,19 L17,6 C17.553,6 18,5.552 18,5 C18,4.448 17.553,4 17,4 L17,4 Z M5,18 L15,18 L15,6 L5,6 L5,18 Z M8,4 L12,4 L12,2 L8,2 L8,4 Z M8,16 C8.553,16 9,15.552 9,15 L9,9 C9,8.448 8.553,8 8,8 C7.447,8 7,8.448 7,9 L7,15 C7,15.552 7.447,16 8,16 M12,16 C12.553,16 13,15.552 13,15 L13,9 C13,8.448 12.553,8 12,8 C11.447,8 11,8.448 11,9 L11,15 C11,15.552 11.447,16 12,16"
+                                                            id="removeimg"></path>
+                                                    </defs>
+                                                    <g id="Login-&amp;-Onboarding" stroke="none"
+                                                        stroke-width="1" fill="none" fill-rule="evenodd">
+                                                        <g id="10.-SM---School-Photo"
+                                                            transform="translate(-992.000000, -201.000000)">
+                                                            <g id="IconSet/Delete/Default"
+                                                                transform="translate(990.000000, 201.000000)">
+                                                                <mask id="mask-2" fill="white">
+                                                                    <use xlink:href="#removeimg"></use>
+                                                                </mask>
+                                                                <use id="Icon" fill="#E52254"
+                                                                    xlink:href="#removeimg"></use>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                                Delete
+                                    </div>
+                                </div>
+
+                            <label class="col-md-12 p-0 col-sm-12 mb-1">Select Class</label>
+                            <div class="col-md-12 p-0"><p>{{item.classDetails['ClassName']}}</p></div>
+                            <label class="col-md-12 p-0 col-sm-12 mb-1">Select Section</label>
+                            <div class="col-md-12 p-0"><p>{{item.sectionDetails['SectionName']}}</p></div>
+                            
+                        </ng-container>
+                    </div>
+  
+                </div>
+                <div class="h-auto w-100 mt-3 pb-2 ">
+                    <div class="row">
+                        <h5 class="rowhead mb-0 col-md-8">Assign Subject Teacher</h5>
+                        <div class="col-md-4 float-right" *ngIf="!!classmodl1 && !!sectionmodal1 && !!subjectmodl1">
+                            <div class="plus-box float-right" (click)="addClassTeacher2()" >
+                                <svg _ngcontent-wrb-c28="" xmlns:xlink="http://www.w3.org/1999/xlink" height="12px" version="1.1" viewBox="0 0 12 12" width="12px" xmlns="http://www.w3.org/2000/svg"><title _ngcontent-wrb-c28="">Add</title><desc _ngcontent-wrb-c28="">Created with sketchtool.</desc><defs _ngcontent-wrb-c28=""><path _ngcontent-wrb-c28="" d="M11.9,6.3 L7.7,6.3 L7.7,2.1 C7.7,1.7136 7.3864,1.4 7,1.4 C6.6136,1.4 6.3,1.7136 6.3,2.1 L6.3,6.3 L2.1,6.3 C1.7136,6.3 1.4,6.6136 1.4,7 C1.4,7.3864 1.7136,7.7 2.1,7.7 L6.3,7.7 L6.3,11.9 C6.3,12.2871 6.6136,12.6 7,12.6 C7.3864,12.6 7.7,12.2871 7.7,11.9 L7.7,7.7 L11.9,7.7 C12.2871,7.7 12.6,7.3864 12.6,7 C12.6,6.6136 12.2871,6.3 11.9,6.3" id="path-plus"></path></defs><g _ngcontent-wrb-c28="" fill="none" fill-rule="evenodd" id="Reports---2" stroke="none" stroke-width="1"><g _ngcontent-wrb-c28="" id="03.-Report---Student-Report---Chapter-&amp;-Topic" transform="translate(-550.000000, -834.000000)"><g _ngcontent-wrb-c28="" id="Group" transform="translate(544.000000, 828.000000)"><g _ngcontent-wrb-c28="" id="IconSet/Add-Icon/Default" transform="translate(5.000000, 5.000000)"><mask _ngcontent-wrb-c28="" fill="white" id="mask-2"><use _ngcontent-wrb-c28="" xlink:href="#path-plus"></use></mask><use _ngcontent-wrb-c28="" xlink:href="#path-plus" fill="#5C67E6" id="Mask"></use></g></g></g></g></svg>
+                                Add
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row p-0 mt-2 ">
+                        <label class="col-md-12 col-sm-12 mb-1">Select Class</label>
+                        <div class=" col-md-12 ">
+                            <div class="form-group w-100 single">
+                                <ng-select [(ngModel)]="classmodl1" [items]="classes"  name="classmodl1" 
+                                    bindLabel="ClassName" placeholder="Select Class" bindValue="ClassID"
+                                    [searchable]=false (change)="getSectionByClassID2($event);">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <span
+                                            style="text-transform: capitalize">
+                                            {{item.ClassName.toLowerCase()}}</span>
+                                    </ng-template>
+                                    <ng-template ng-label-tmp let-item="item">
+                                        <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                            {{item.ClassName.toLowerCase()}}</span>
+                                        <span *ngIf="!item.ClassName" style="color: #999999;"> Select
+                                            Standard</span>
+                                    </ng-template>
+
+                                </ng-select>
+                            </div>
+                        </div>
+                        <label class="col-md-12 col-sm-12 mb-1">Select Section</label>
+                        <div class="col-md-12">
+                            <div class="form-group w-100 single">
+                                <ng-select [(ngModel)]="sectionmodal1"
+                                     placeholder="Select Section" [items]="sectionList2"
+                                    bindValue="AESectionID"  bindLabel="SectionName" [searchable]='false' (change)="changeSection2($event)"   name="EA_SectionID" >
+                                    <ng-template ng-option-tmp let-item="item">
+                                        {{ item.SectionName | titlecase}}
+                                    </ng-template>
+                                    <ng-template ng-label-tmp let-item="item">
+                                        <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                                        <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select
+                                            Section</span>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                        <label class="col-md-12 col-sm-12 mb-1">Select Subject</label>
+                        <div class="col-md-12">
+                            <div class="form-group w-100 single">
+                                <ng-select [(ngModel)]="subjectmodl1" placeholder="Select Subject" [items]="subjectList2" bindLabel="SubjectName"
+                                    bindValue="SubjectID" name="SubjectName" [searchable]='false'
+                                    (change)="changeSubject2($event)">
+                                    <ng-template ng-option-tmp let-item="item"  style="text-transform: capitalize;">
+                                        {{ item.SubjectName | titlecase}}
+                                    </ng-template>
+                                    <ng-template ng-label-tmp let-item="item" style="text-transform: capitalize;">
+                                        <span *ngIf="item.SubjectName"> {{ item.SubjectName | titlecase}}</span>
+                                        <span *ngIf="!(item.SubjectName)" style="color: #999999;"> Select
+                                            Subject</span>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row px-0 m-0 pt-2 text-append border-top-line"  *ngFor="let item of selectedClassSectionList1; let i=index" style="margin-bottom: 10px;">
+                        <ng-container>
+                            <h5 class="rowhead mb-0 pl-0 col-md-8"></h5>
+                            <div class="col-md-4 pr-0 float-right" *ngIf="!item.isSaved">
+                                <div class="delete-box float-right" (click)="deleteclass2(i)">
+                                    <svg width="14.4px" height="18px" viewBox="0 0 16 20"
+                                                version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <title>Delete Instruction</title>
+                                                <desc>Created with sketchtool.</desc>
+                                                <defs>
+                                                    <path
+                                                        d="M17,4 L14,4 L14,2 C14,0.897 13.103,0 12,0 L8,0 C6.897,0 6,0.897 6,2 L6,4 L3,4 C2.447,4 2,4.448 2,5 C2,5.552 2.447,6 3,6 L3,19 C3,19.552 3.447,20 4,20 L16,20 C16.553,20 17,19.552 17,19 L17,6 C17.553,6 18,5.552 18,5 C18,4.448 17.553,4 17,4 L17,4 Z M5,18 L15,18 L15,6 L5,6 L5,18 Z M8,4 L12,4 L12,2 L8,2 L8,4 Z M8,16 C8.553,16 9,15.552 9,15 L9,9 C9,8.448 8.553,8 8,8 C7.447,8 7,8.448 7,9 L7,15 C7,15.552 7.447,16 8,16 M12,16 C12.553,16 13,15.552 13,15 L13,9 C13,8.448 12.553,8 12,8 C11.447,8 11,8.448 11,9 L11,15 C11,15.552 11.447,16 12,16"
+                                                        id="removeimg"></path>
+                                                </defs>
+                                                <g id="Login-&amp;-Onboarding" stroke="none"
+                                                    stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="10.-SM---School-Photo"
+                                                        transform="translate(-992.000000, -201.000000)">
+                                                        <g id="IconSet/Delete/Default"
+                                                            transform="translate(990.000000, 201.000000)">
+                                                            <mask id="mask-2" fill="white">
+                                                                <use xlink:href="#removeimg"></use>
+                                                            </mask>
+                                                            <use id="Icon" fill="#E52254"
+                                                                xlink:href="#removeimg"></use>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            Remove
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 pr-0 float-right" *ngIf="item.isSaved">
+                                <div class="delete-box float-right" (click)="confirmdeleteSubjectTeacherMapping(confirmSubjectTeacherAssignmentDelete,item)">
+                                    <svg width="14.4px" height="18px" viewBox="0 0 16 20"
+                                                version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <title>Delete Instruction</title>
+                                                <desc>Created with sketchtool.</desc>
+                                                <defs>
+                                                    <path
+                                                        d="M17,4 L14,4 L14,2 C14,0.897 13.103,0 12,0 L8,0 C6.897,0 6,0.897 6,2 L6,4 L3,4 C2.447,4 2,4.448 2,5 C2,5.552 2.447,6 3,6 L3,19 C3,19.552 3.447,20 4,20 L16,20 C16.553,20 17,19.552 17,19 L17,6 C17.553,6 18,5.552 18,5 C18,4.448 17.553,4 17,4 L17,4 Z M5,18 L15,18 L15,6 L5,6 L5,18 Z M8,4 L12,4 L12,2 L8,2 L8,4 Z M8,16 C8.553,16 9,15.552 9,15 L9,9 C9,8.448 8.553,8 8,8 C7.447,8 7,8.448 7,9 L7,15 C7,15.552 7.447,16 8,16 M12,16 C12.553,16 13,15.552 13,15 L13,9 C13,8.448 12.553,8 12,8 C11.447,8 11,8.448 11,9 L11,15 C11,15.552 11.447,16 12,16"
+                                                        id="removeimg"></path>
+                                                </defs>
+                                                <g id="Login-&amp;-Onboarding" stroke="none"
+                                                    stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <g id="10.-SM---School-Photo"
+                                                        transform="translate(-992.000000, -201.000000)">
+                                                        <g id="IconSet/Delete/Default"
+                                                            transform="translate(990.000000, 201.000000)">
+                                                            <mask id="mask-2" fill="white">
+                                                                <use xlink:href="#removeimg"></use>
+                                                            </mask>
+                                                            <use id="Icon" fill="#E52254"
+                                                                xlink:href="#removeimg"></use>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>
+                                            Delete
+                                </div>
+                            </div>
+
+                            <label class="col-md-12 p-0 col-sm-12 mb-1">Select Class</label>
+                            <div class="col-md-12 p-0"><p>{{item.classDetails['ClassName']}}</p></div>
+                            <label class="col-md-12 col-sm-12 mb-1 p-0">Select Section</label>
+                            <div class="col-md-12 p-0"><p>{{item.sectionDetails['SectionName']}}</p></div>
+                            <label class="col-md-12 p-0 col-sm-12 mb-1">Select Subject</label>
+                            <div class="col-md-12 p-0"><p>{{item.subjectDetails['SubjectName']}}</p></div>
+
+                            
+                        </ng-container>
+                    </div>
+                    <br/>
+                </div>
+                <!-- </form> -->
+                <div class="row pt-2 px-0 pb-2 mt-2">
+                    <div class="col-md-12 col-lg-12" style="position:fixed !important;bottom: 5px !important;">
+                        <button type="button" id="save" (click)="saveAllListData()" class="btn save-btn w-100 float-right" [disabled]="ClassTeacherList.length == 0 && SubjectTeacherList.length == 0">Assign </button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+                    </div> -->
+        </div>
+        <!-- modal-content -->
+    </div>
+    <!-- modal-dialog -->
+</div>
+
+  	 <!-- Modal changeStaffStatusModal-->
+<div class="modal right fade" id="changeStatusModal"  bsModal #changeStaffStatusModal="bs-modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header pb-4">
+                    <button type="button" (click)="closeChangeModal()" class="close float-left pt-1" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title text-center m-auto" id="AddWing_header">Change Status</h4>
+                </div>
+                <div class="modal-body">
+                    <form>
+                     <div class="addWing-form p-4"> 
+                            <div class="row">
+                                <div class="form-group col-md-12 col-sm-12">
+                                    <label class="">Change Status</label>
+                                    <ng-select [(ngModel)]="changeStatusObj.staffStatus" bindValue="value" bindLabel="name" [items]="allStatus" name="a" placeholder="Select Status">
+                                    </ng-select>
+                                </div>
+                            </div>
+                            <div class="row" *ngIf="changeStatusObj.staffStatus == '2'">
+                            <div class="form-group col-md-12 col-sm-12">
+                                <label class="">Reason <span style="color: red;"> *</span></label>
+                                <ng-select [(ngModel)]="changeStatusObj.reason" bindValue="reasons" bindLabel="reasons" [items]="reasons" name="ab" placeholder="Select Reason" >
+                                </ng-select>
+                            </div>
+                        </div>
+                            <div class="row" *ngIf="changeStatusObj.reason == 'Other' && changeStatusObj.staffStatus == '2'">
+                                <div class="form-group col-md-12 col-sm-12 single">
+                                    <label class="">Other Reason <span style="color: red;"> *</span></label>
+                                    <textarea class="form-control" [(ngModel)]="changeStatusObj.otherReason" name="Reason" rows="3" id="Reason" placeholder="Enter Your Reason Here"></textarea>
+                                </div>
+                            </div>
+                            <div class="row addstaff">
+                                <div class="form-group col-md-12 col-lg-12  dropdown">
+                                    <button type="button" id="update_btn"  class="btn update-btn w-100 mt-2 dropdown-toggle btn addnewrow-btn" (click)="saveStaffStatus()" [disabled] = "changeStatusObj.staffStatus == '2' &&!!!changeStatusObj.reason ||(changeStatusObj.staffStatus == '2' && changeStatusObj.reason == 'Other' && !!!changeStatusObj.otherReason ) ">Change Status</button>
+                                </div>      
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+                </div> -->
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+</div><!-- modal changeStaffStatusModal-->
+
+
+    <div class="reset_Password">
+        <ng-template #confirmDialogTemplate>
+            <div class="modal-body text-center">
+                <h4 class="text-left">Reset Password?</h4>
+                <p class="text-left">Do you want to confirm?</p>
+                <div class="col-md-12 col-lg-12 p-0">
+                    <button type="button" class="btn btn-yes float-right ml-2"
+                        (click)="onSelection(dt, 'Reset')">Yes</button>
+                    <button type="button" class="btn btn-no float-right ml-2"
+                        (click)="modalRef.hide()">No</button>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+
+    <div class="reset_Password">
+        <ng-template #confirmMultiDeleteDialogTemplate>
+            <div class="modal-body text-center">
+                <h4 class="text-left">Delete All ?</h4>
+                <p class="text-left">Are you sure you want to delete all data ?</p>
+                <p class="text-left">
+                    Data will be deleted from below modules and once you delete it you are not able to recover it.
+                </p>
+                <p class="text-left">
+                    <strong>{{deletemodulenames}}</strong>
+                </p>
+                <div class="col-md-12 col-lg-12 p-0">
+                    <button type="button" class="btn btn-yes float-right ml-2"
+                        (click)="deleteSelected()">Yes</button>
+                    <button type="button" class="btn btn-no float-right ml-2"
+                        (click)="modalRef.hide()">No</button>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+    
+    <div class="reset_Password">
+        <ng-template #confirmClassTeacherAssignmentDelete>
+            <div class="modal-body text-center">
+                <h4 class="text-left">Delete Class Teacher Assignment ?</h4>
+                <p class="text-left">Are you sure you want to delete this mapping ?</p>
+                <p class="text-left">
+                    Once you delete it you are not able to recover it.
+                </p>
+                <div class="col-md-12 col-lg-12 p-0">
+                    <button type="button" class="btn btn-yes float-right ml-2"
+                        (click)="deleteClassTeacherMapping()">Yes</button>
+                    <button type="button" class="btn btn-no float-right ml-2"
+                        (click)="modalRef.hide()">No</button>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+
+    <div class="reset_Password">
+        <ng-template #confirmSubjectTeacherAssignmentDelete>
+            <div class="modal-body text-center">
+                <h4 class="text-left">Delete Subject Teacher Assignment ?</h4>
+                <p class="text-left">Are you sure you want to delete this subject mapping ?</p>
+                <p class="text-left">
+                    Once you delete it you are not able to recover it.
+                </p>
+                <div class="col-md-12 col-lg-12 p-0">
+                    <button type="button" class="btn btn-yes float-right ml-2"
+                        (click)="deleteSubjectTeacherMapping()">Yes</button>
+                    <button type="button" class="btn btn-no float-right ml-2"
+                        (click)="modalRef.hide()">No</button>
+                </div>
+            </div>
+        </ng-template>
+    </div>
+
+    <style>
+    ::ng-deep .addnewrow-btn {
+        background-color: #5C67E6;
+        color: #fff;
+        height: 42px;
+        width: 145px;
+        font-size: 14px;
+        font-weight: 600;
+        line-height: 18px;
+}
+    </style>

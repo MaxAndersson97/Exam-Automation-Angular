@@ -1,0 +1,324 @@
+<div class="container-fluid p-0" *ngIf="!isDataFound">
+    <div class="row m-0">
+        <div class="col-md col-lg col-sm">
+            <div class="exam_setup mt-4 mx-2">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                    <div class=" row">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="examsetup-img mx-auto">
+                                <img src="assets/images/EmptyState-ExamSetup.svg" alt="" class="w-100 mt-5">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12" *ngIf="isShowAddButton">
+                            <div class="examsetup-content mx-auto ">
+                                <h2 class="text-center top-header m-2">Seems like you have not created any Class
+                                    Test/Exam
+                                </h2>
+                                <p class="text-center examsetup-description mb-0">Create monthly exam question paper
+                                    manually,
+                                    add marks</p>
+                                <p class="text-center examsetup-description">and distribute it to the students</p>
+                                <div class="start_btn text-center">
+                                    <button type="button" id="create_worksheet" (click)="openAddTemplateDialog();"
+                                        class="btn createworksheet-btn">Create Class Test / Exam</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12" *ngIf="!isShowAddButton">
+                            <div class="examsetup-content mx-auto ">
+                                <h2 class="text-center top-header my-3">Seems like you are out of credit
+                                </h2>
+                                <p class="text-center examsetup-description mb-0">
+                                    You have utilized all of your free credit for papers and worksheets.
+                                </p>
+                                <br />
+                                <div class="start_btn text-center" (click)="openAddTemplateDialog();">
+                                    <button type="button" id="create_worksheet" class="btn createworksheet-btn">Buy
+                                        Credit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #filters>
+    <div class="createtestbtn mb-3 ml-2 float-right">
+        <button type="button" id="addnewrow" class="btn createtest-btn " (click)="openAddTemplateDialog();">Create
+            Test/Exam</button>
+    </div>
+    <div class="searchbartable class-test float-right mb-3">
+        <button (click)="searchData()"><i class="fa fa-search"></i></button>
+        <input type="text" placeholder="Search Test / Exam" name="search" [(ngModel)]="searchString">
+    </div>
+    <div class="float-right text-left filterselect">
+        <ng-select class="ngselect" [(ngModel)]="paperModeType" [items]="PaperModeTypeList" bindLabel="name"
+            placeholder="Paper Mode" bindValue="value" [searchable]=false [clearable]=true name="PaperModeType"
+            (change)="onPaperModeTypeChange()">
+        </ng-select>
+    </div>
+
+    <div class="filterbtntable float-right mb-3 ml-3">
+        <!-- <div class="single tog" (focusout)="hideDropdown()"> -->
+        <div class="single tog">
+            <button class="dropdown-btn dropdown-toggle " id="dropdownMenuButton" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" (click)="showFilterBox();">Filters</button>
+            <ul class="dropdown-container dropdown-menu p-0 m-0" type="none" [ngClass]="showFilter ? 'show' : ''"
+                *ngIf="showFilter" (blur)="showFilter  = !showFilter">
+                <li class="p-3">
+                    <div class="w-100">
+                        <h3 class="w-50 float-left">Filter By</h3>
+                        <a class="w-50 float-right text-right"
+                            (click)="selectedClassId=''; selectedSubjectId=''; showFilter  = !showFilter; clearFilter()">Clear
+                            Filter</a>
+                    </div>
+                </li>
+                <form>
+                    <div class="addsection-form py-1">
+                        <div class=" col-md-12 col-12 p-0">
+                            <div class="form-group col-md-12 col-sm-12 single">
+
+                                <ng-select [(ngModel)]="selectedClassId" (change)="getClassIdFilter(selectedClassId)"
+                                    [items]="classesList" bindLabel="ClassName" placeholder="Select Class"
+                                    bindValue="ClassID" [searchable]=true name="classFilter" id="classFilter">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                                    </ng-template>
+                                    <ng-template ng-label-tmp let-item="item">
+                                        <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                            {{item.ClassName.toLowerCase()}}</span>
+                                        <span *ngIf="!(!!item.ClassName)" style="color: #999999;"> Select
+                                            Standard</span>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                            <div class="form-group col-md-12 col-sm-12 single">
+
+                                <ng-select [(ngModel)]="selectedSubjectId" [items]="subjects" bindLabel="SubjectName"
+                                    placeholder="Select Subject" bindValue="SubjectID" [searchable]=false
+                                    name="subjectFilter">
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <span
+                                            style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                                    </ng-template>
+                                    <ng-template ng-label-tmp let-item="item">
+                                        <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                                            {{item.SubjectName.toLowerCase()}}</span>
+                                        <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select
+                                            Standard</span>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                            <div class="form-group col-md-12 col-sm-12">
+                                <ng-select [(ngModel)]="paperType" [items]="papertypeList" bindLabel="paperName"
+                                    placeholder="Select Paper Type" bindValue="paperID" [searchable]=false required
+                                    name="paperType">
+                                </ng-select>
+                            </div>
+                            <div class="form-group col-md-12 col-sm-12">
+                                <ng-select [(ngModel)]="paperStatus" [items]="PaperStatusList" bindLabel="name"
+                                    placeholder="Select Status" bindValue="value" [searchable]=false required
+                                    name="paperStatus">
+                                </ng-select>
+                            </div>
+                            <div class="form-group col-md-12 col-sm-12">
+                                <button type="button" id="filterbutton" class="btn filterBtn w-100 mt-1"
+                                    (click)="filterData()">Apply
+                                    Filter</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </ul>
+        </div>
+    </div>
+</ng-template>
+
+<div id="page-content-wrapper " class="class_text_exam" *ngIf="isDataFound">
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+            <div class="col-md-12 col-lg-12">
+                <div class="m-3">
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="row works-list align-items-start">
+                            <div class="d-block d-sm-none col-9">
+                                <h2 class="top-header mb-3"> Class Test/Exam </h2>
+                            </div>
+
+                            <button
+                                class="d-inline-flex d-sm-none col-3 btn btn-primary align-items-center justify-content-center"
+                                type="button" data-toggle="collapse" data-target="#collapseExample"
+                                aria-expanded="false" aria-controls="collapseExample">
+                                <span style='margin-right: 10px'>Filters</span>
+                            </button>
+
+                            <div class='d-block d-sm-none'>
+                                <div class="collapse" id='collapseExample' style='border: 0;'>
+                                    <ng-template *ngTemplateOutlet='filters'></ng-template>
+                                </div>
+                            </div>
+
+                            <div class="d-none d-sm-block col-sm-3">
+                                <h2 class="top-header mb-3"> Class Test/Exam </h2>
+                            </div>
+
+                            <div class="d-none d-sm-block col-sm-9 text-right">
+                                <ng-template *ngTemplateOutlet='filters'></ng-template>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class=" worksheet-list imported-data">
+                            <div class="overflow">
+                                <table id="classTestExam" class="w-100 student-list table">
+                                    <thead>
+                                        <tr>
+                                            <th class="standard">
+                                                <p>Standard</p>
+                                            </th>
+                                            <th class="subject">
+                                                <p>Subject</p>
+                                            </th>
+                                            <th class="paper-type">
+                                                <p>Paper Type</p>
+                                            </th>
+                                            <th width="" class="paper-type">
+                                                <p>Paper Mode</p>
+                                            </th>
+                                            <th width="" class="paper-name">
+                                                <p>Paper Name</p>
+                                            </th>
+                                            <th class="total-question">
+                                                <p>Total Question</p>
+                                            </th>
+                                            <th class="duration">
+                                                <p>Duration</p>
+                                            </th>
+                                            <th class="ques-paper">
+                                                <p>Paper Status</p>
+                                            </th>
+                                            <th class="Date">Date & Time</th>
+                                            <th class="action_col">
+                                                <div class="action"></div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="templateListData.length > 0">
+                                        <tr class=""
+                                            *ngFor="let template of templateListData | paginate: {itemsPerPage: rowsOnPage, currentPage:page, id: '1',totalItems: totalRecords}; let i = index;">
+                                            <td class="standard">{{template.ClassName | lowercase}}</td>
+                                            <td class="subject">{{template.SubjectName | lowercase}}</td>
+                                            <td class="paper-type">{{template.PaperType == 1? 'Exam' : 'Test' |
+                                                lowercase}}</td>
+                                            <td class="paper-type">{{template.IsOMRPaper? 'MCQ' : 'Descriptive' |
+                                                lowercase}}</td>
+                                            <td class="paper-name">{{template.Name | lowercase}}</td>
+                                            <td class="total-question">{{template.TotalQuestionCount}} </td>
+                                            <td class="duration">{{template.Duration}} Mins</td>
+                                            <td class="ques-paper">
+                                                <span *ngIf="template.PaperTemplateStatusText=='Approved'"
+                                                    style="color: #69BB10;">{{template.PaperTemplateStatusText}}</span>
+                                                <span *ngIf="template.PaperTemplateStatusText=='Pending'"
+                                                    style="color: #ffc107;">{{template.PaperTemplateStatusText}}</span>
+                                                <span *ngIf="template.PaperTemplateStatusText=='Ready'"
+                                                    style="color: #69BB10;">{{template.PaperTemplateStatusText}}</span>
+                                                <span *ngIf="template.PaperTemplateStatusText=='Rejected'"
+                                                    style="color: #E52254;">{{template.PaperTemplateStatusText}}</span>
+                                                <span *ngIf="template.PaperTemplateStatusText=='Process'"
+                                                    style="color: #ffc107;">{{template.PaperTemplateStatusText}}</span>
+                                            </td>
+                                            <td class="Date">
+                                                <span style="font-size: 12px;">{{template.SystemDateTimeText}}</span>
+                                                <br />
+                                                <span style="font-size: 12px;">{{template.CreatedByName}}</span>
+                                            </td>
+                                            <td class="action_col">
+                                                <div class="remove single tog">
+                                                    <div class="dropdown ">
+                                                        <button class="btn btn-primary dropdown-toggle form-control"
+                                                            type="button" data-toggle="dropdown">Action
+                                                            <span class="caret"></span></button>
+                                                        <ul class="dropdown-menu p-0"
+                                                            style="text-transform: capitalize;">
+                                                            <li *ngIf="template.PaperGenerationMethod  == 3"><a
+                                                                    href="javascript:void(0)"
+                                                                    (click)="createDuplicatePaper(template.EAPaperTemplateID)">Duplicate
+                                                                    Paper</a></li>
+                                                            <li *ngIf="( template.PaperTemplateStatus == 5 )"><a
+                                                                    [routerLink]="['../view-paper', template.EAPaperTemplateID,1]">Preview
+                                                                    Paper</a></li>
+                                                            <li *ngIf="(template.PaperTemplateStatus == 5 )"><a
+                                                                    (click)="viewAnswerSheet(template.EAPaperTemplateID)">Model
+                                                                    Answers</a></li>
+                                                            <li
+                                                                *ngIf="(template.PaperTemplateStatus == 5) && (template.PaperGenerationMethod != 3)">
+                                                                <a [routerLink]="['../summary', template.EAPaperTemplateID]"
+                                                                    class="resetPasswordmodal">Paper Summary</a>
+                                                            </li>
+                                                            <li *ngIf="template.PaperTemplateStatus != 5"
+                                                                (click)="editPaper(template)"><a
+                                                                    class="resetPasswordmodal">Edit Paper</a></li>
+                                                            <li *ngIf="(template.PaperTemplateStatus != 5) && !isGuestTeacher"
+                                                                (click)="confirmDeleteWing(confirmDialogTemplate, template.EAPaperTemplateID)">
+                                                                <a class="resetPasswordmodal">
+                                                                    Delete Paper</a>
+                                                            </li>
+                                                            <li
+                                                                *ngIf="isAssignExamShow && ((template.PaperTemplateStatus == 5) && !isGuestTeacher)">
+                                                                <a class="resetPasswordmodal"
+                                                                    [routerLink]="['/exam/assign-exam/add-exam', template.EAPaperTemplateID]">Assign
+                                                                    Exam</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <ng-container *ngIf="templateListData && templateListData.length < 1">
+                                        <div class="no-result-found">No results found.</div>
+                                    </ng-container>
+                                </table>
+
+
+                            </div>
+                        </div>
+                        <div class="pages w-100" *ngIf="templateListData && templateListData.length > 0">
+                            <pagination-controls class="pages" (pageChange)="getCurrentPage(page = $event)" id="1"
+                                [maxSize]="10" directionLinks="true" previousLabel="" nextLabel="" responsive="true">
+                            </pagination-controls>
+                        </div>
+                        <!-- <div class="selectWrapper class-list-pagination"
+                            *ngIf="templateListData && templateListData.length > 0">
+                            <ng-select class="select_Show" id="1" [(ngModel)]="rowsOnPageTemp"
+                                (change)="onShowPageChange(rowsOnPageTemp)">
+                                <ng-option *ngFor="let row of rowsOnPageSet" [value]="row">Show {{ row }} Results
+                                </ng-option>
+                            </ng-select>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #confirmDialogTemplate>
+    <div class="modal-body text-center">
+        <h4>Are you sure?</h4>
+        <p>You won't be able to revert this!</p>
+        <div class="col-md-12 col-lg-12 p-0">
+            <button type="button" class="btn btn-default btn-yes" (click)="deletePaper()">Yes</button>
+            <button type="button" class="btn btn-primary btn-no" (click)="modalRef.hide()">No</button>
+        </div>
+
+    </div>
+</ng-template>
+
+<div class="modal fade modal-md" id="OutOfCreditDialogTemplate" bsModal #OutOfCreditDialogTemplate="bs-modal"
+    [config]="{backdrop: 'static',  keyboard: false}">
+    <app-buy-credit (closePopupEvent)="closeModalOutOfCredit($event)"></app-buy-credit>
+</div>

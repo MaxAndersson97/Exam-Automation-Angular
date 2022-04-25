@@ -1,0 +1,434 @@
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <nav aria-label="breadcrumb" class="m-3 ">
+                <ol class="breadcrumb p-0 m-0">
+                    <li class="breadcrumb-item"><a routerLinkActive="active" routerLink="/exam/staff">Staff</a></li>
+                    <!-- <li class="breadcrumb-item" ><a>Upload CSV</a></li> -->
+                    <li class="breadcrumb-item active" aria-current="page" *ngIf="!isEditMode"> Add Staff Manually</li>
+                    <li class="breadcrumb-item active" aria-current="page" *ngIf="isEditMode"> Edit Staff Manually</li>
+
+                    <!-- staff-photo -->
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md col-lg col-sm">
+            <div class="Institute_profile m-3">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                    <button type="submit" id="save"  class="btn btn-success m-2 float-right go-back-btn mt-3 mx-4" style="background-color: #5C67E6; border-color: #5C67E6" routerLink="/exam/staff">Go Back To Staff List</button>
+
+                    <h2 class=" border-bottom p-4 m-0 main-title" *ngIf="!isEditMode">Add Staff Manually</h2>
+                    <h2 class=" border-bottom p-4 m-0 main-title" *ngIf="isEditMode">Edit Staff Manually</h2>
+
+                </div>
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                    <div class="row">
+                        <div class="col-md-4 col-lg-4 pr-0">
+                            <ul class="nav nav-tabs" role="">
+                                <li class="nav-item w-100  ">
+                                    <a class="nav-link py-3 active" routerLinkActive="active"
+                                        routerLink="/exam/add-staff-manually/information">
+                                        <svg version="1.1" class="mr-2" xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px"
+                                            height="20px" viewBox="0 0 20 20" enable-background="new 0 0 30 30"
+                                            xml:space="preserve">
+                                            <path class="icon" fill="currentColor"
+                                                d="M10,0 C4.486,0 0,4.486 0,10 C0,15.513 4.486,20 10,20 C15.514,20 20,15.513 20,10 C20,4.486 15.514,0 10,0 M15.603,15.7 C14.199,14.841 12.257,14 10,14 C7.744,14 5.801,14.842 4.396,15.7 C2.919,14.248 2,12.23 2,10 C2,5.589 5.589,2 10,2 C14.411,2 18,5.589 18,10 C18,12.23 17.081,14.248 15.603,15.7 M6.149,17.009 C7.218,16.457 8.537,16 10,16 C11.464,16 12.782,16.457 13.851,17.008 C12.707,17.638 11.395,18 10,18 C8.604,18 7.292,17.638 6.149,17.009 M10,9.9998 C8.897,9.9998 8,9.1028 8,7.9998 C8,6.8968 8.897,5.9998 10,5.9998 C11.103,5.9998 12,6.8968 12,7.9998 C12,9.1028 11.103,9.9998 10,9.9998 M10,3.9998 C7.794,3.9998 6,5.7938 6,7.9998 C6,10.2058 7.794,11.9998 10,11.9998 C12.206,11.9998 14,10.2058 14,7.9998 C14,5.7938 12.206,3.9998 10,3.9998">
+                                            </path>
+                                        </svg>
+                                        <span *ngIf="!isEditMode">Add Staff Information</span>
+                                        <span *ngIf="isEditMode">Edit Staff Information</span>
+                                    </a>
+                                </li>
+                                <li class="nav-item w-100 " (click)="goToPhoto();">
+                                    <a class="nav-link py-3">
+                                        <img src="assets/images/icons/addstudent/studentphoto.svg" alt="studentinfo"
+                                            class="mr-2">Staff's
+                                        Photo
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-md-8 col-lg-8 content-right pl-0">
+                            <div class="tab-content ">
+                                <div class="tab-pane active" id="schoolAcademicDetails" role="tabpanel">
+                                    <form [formGroup]="addStaffForm" #staffForm="ngForm" (ngSubmit)="onSubmit()">
+                                        <div class="schoolacademicdetail-form p-4">
+                                            <p class="m-0 py-2"
+                                                style="color: #3A5077; font-size: 14px; font-weight:600;">BASIC
+                                                INFORMATION</p>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-lg-6">
+                                                    <label class="">First Name <span
+                                                            class="required-mark">*</span></label>
+                                                    <input type="text" class="form-control" value=""
+                                                        placeholder="e.g. Bruce" minlength="3"
+                                                        formControlName="FirstName" name="FirstName" />
+                                                    <div *ngIf="submitted && f.FirstName.errors || f.FirstName.errors && f.FirstName.dirty"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.FirstName.errors.required">First Name is required.
+                                                        </div>
+                                                        <div *ngIf=" f.FirstName.errors.pattern">
+                                                            Please enter the valid
+                                                            entry.</div>
+                                                        <div
+                                                            *ngIf="f.FirstName.errors.minlength && !f.FirstName.errors.pattern">
+                                                            Please enter atleast 3 letters First Name.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6 col-6">
+                                                    <label class="">Middle Name </label>
+                                                    <input type="text" class="form-control" value=""
+                                                        placeholder="e.g. DarkNight" minlength="3" id="txtmiddleName"
+                                                        formControlName="MiddleName" name="MiddleName" />
+                                                    <div *ngIf="submitted && f.MiddleName.errors || f.MiddleName.errors && f.MiddleName.dirty"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.MiddleName.errors.required">Middle Name is
+                                                            required.</div>
+                                                        <div
+                                                            *ngIf="f.MiddleName.errors.minlength && !f.MiddleName.errors.pattern">
+                                                            Please enter atleast 3 letters Middle Name.</div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-6">
+                                                    <label class="">Last Name <span
+                                                            class="required-mark">*</span></label>
+                                                    <input type="text" class="form-control" value=""
+                                                        placeholder="e.g. Wayne" minlength="3" id="txtlastName"
+                                                        formControlName="LastName" name="LastName" />
+                                                    <div *ngIf="submitted && f.LastName.errors || f.LastName.errors && f.LastName.dirty"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.LastName.errors.required">Last Name is required.
+                                                        </div>
+                                                        <div
+                                                            *ngIf="f.LastName.errors.minlength && !f.LastName.errors.pattern">
+                                                            Please enter atleast 3 letters Last Name.</div>
+                                                        <div *ngIf="f.LastName.errors.pattern">
+                                                            Please enter the valid
+                                                            entry.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6 col-6 single" >
+                                                    <label class="">Role <span class="required-mark">*</span></label>
+                                                    <ng-select formControlName="Role" name="Role" [items]="roles"
+                                                        bindLabel="name" bindValue="id" [searchable]=false required
+                                                        [ngClass]="{ 'is-invalid': submitted && f.Role.errors || f.Role.errors && f.Role.dirty}">
+                                                        <ng-template ng-option-tmp let-item="item">
+                                                            {{item.name}}
+                                                        </ng-template>
+                                                        <ng-template ng-label-tmp let-item="item">
+                                                            <span *ngIf="item.name"> {{item.name}}</span>
+                                                            <span *ngIf="!item.name" style="color: #999999;"> Select
+                                                                Roles</span>
+                                                        </ng-template>
+                                                    </ng-select>
+
+                                                    <div *ngIf="submitted && f.Role.errors||  f.Role.dirty && f.Role.errors"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.Role.errors.required">Role is required.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-lg-6 single">
+                                                    <label class="">Gender </label>
+                                                    <ng-select formControlName="Gender" name="Gender" [items]="genders"
+                                                        bindLabel="name" bindValue="name" [searchable]=false>
+                                                        <ng-template ng-option-tmp let-item="item">
+                                                            {{item.name}}
+                                                        </ng-template>
+                                                        <ng-template ng-label-tmp let-item="item">
+                                                            <span *ngIf="item.name"> {{item.name}}</span>
+                                                            <span *ngIf="!item.name" style="color: #999999;"> Select
+                                                                Gender</span>
+                                                        </ng-template>
+                                                    </ng-select>
+                                                    <div *ngIf="submitted && f.Gender.errors || f.Gender.dirty && f.Gender.errors"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.Gender.errors.required">Gender is required.</div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6 col-lg-6 ">
+                                                    <label class="">Date of Birth</label><br>
+                                                    <input type="text" value="" 
+                                                        placeholder="e.g. DD/ MM /YY"
+                                                        formControlName="DOB" 
+                                                        name="DOB" 
+                                                        class="form-control bg-white"
+                                                        #dp="bsDatepicker" bsDatepicker 
+                                                        [maxDate]="maxDate"
+                                                        readonly="true"
+                                                        [bsConfig]="{ dateInputFormat:'DD/MM/YYYY' }" />
+                                                    <div *ngIf="submitted && f.DOB.errors || f.DOB.errors && f.DOB.dirty"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.DOB.errors.required">Date of Birth is required.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <p class="m-0 py-2"
+                                                style="color: #3A5077; font-size: 14px; font-weight:600;">ADDRESS</p>
+                                            <div class="row">
+
+                                                <div class="form-group col-md-6 col-6">
+                                                    <label class="">Aadhaar No.</label>
+                                                    <input type="text" class="form-control" value=""
+                                                        placeholder="e.g. 1122 3344 5566" id="txtadharno"
+                                                        onkeypress="if(this.value.length==12) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250"
+                                                        formControlName="AadharNumber" name="AadharNumber"
+                                                        (keydown)="avoidSpace($event)"
+                                                        (keypress)="numberOnly($event)" />
+                                                    <div *ngIf="f.AadharNumber.errors && f.AadharNumber.dirty || (submitted && f.AadharNumber.errors)"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.AadharNumber.errors.minlength ">
+                                                            Please enter 12 digit Aadhaar Number.</div>
+                                                        <div *ngIf="f.AadharNumber.errors.maxlength ">Please enter 12
+                                                            digit Aadhaar Number.</div>
+
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-6 col-6">
+                                                    <label class="">Pincode </label>
+                                                    <input type="text" class="form-control" value=""
+                                                        placeholder="e.g. 452002" id="txtpincode"
+                                                        onkeypress="if(this.value.length==6) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250"
+                                                        formControlName="Pincode" name="Pincode"
+                                                        (keydown)="avoidSpace($event)" (keypress)="numberOnly($event)"
+                                                        (change)="getFullAddressDetails($event)" />
+                                                    <div *ngIf="f.Pincode.errors && f.Pincode.dirty || (submitted && f.Pincode.errors)"
+                                                        class="danger-text">
+                                                        <!-- <div *ngIf="f.Pincode.errors.required">Pincode is required.</div> -->
+                                                        <!-- <div
+                                                            *ngIf="f.Pincode.errors.pattern &&!f.Pincode.errors.maxlength">
+                                                            Pincode accept only numeric value.</div> -->
+                                                        <div *ngIf="f.Pincode.errors.minlength">
+                                                            Please enter 6 digit Pincode.</div>
+                                                        <div *ngIf="f.Pincode.errors.maxlength ">Please enter 6 digit
+                                                            Pincode.</div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-6">
+                                                    <label class="">Locality</label>
+                                                    <ng-select formControlName="PincodeId" name="locality"
+                                                        [items]="localityList" bindLabel="Locality"
+                                                        bindValue="PincodeId" [searchable]=false
+                                                        placeholder="Select Locality">
+                                                        <ng-template ng-option-tmp let-item="item"> <span
+                                                                style="text-transform: capitalize">
+                                                                {{item.Locality.toLowerCase()}}</span>
+                                                        </ng-template>
+                                                        <ng-template ng-label-tmp let-item="item">
+                                                            <span *ngIf="item.Locality"
+                                                                style="text-transform: capitalize">
+                                                                {{ item.Locality.toLowerCase()}}</span>
+                                                            <span *ngIf="!(!!item.Locality)" style="color: #999999;">
+                                                                Select Locality</span>
+                                                        </ng-template>
+                                                    </ng-select>
+                                                </div>
+                                                <div class="form-group col-md-6 col-6">
+                                                    <label class="">City </label>
+                                                    <input type="text" class="form-control" value=""
+                                                    placeholder="e.g. Indore" id="txtcity" formControlName="City"
+                                                    name="City" autocomplete="off" readonly style="text-transform: capitalize;"/>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-lg-6 single">
+                                                    <label class="">State</label>
+                                                    <input formControlName="StateName" id="txtstate" name="StateName" class="form-control" placeholder="e.g. Madhya Paresh" autocomplete="off" readonly style="text-transform: capitalize;">
+                                                </div>
+                                                <div class="form-group col-md-6 col-lg-6 single">
+                                                    <label class="">Country</label>
+                                                    <input formControlName="CountryName" id="txtcountry" name="CountryName" class="form-control" placeholder="e.g. India" autocomplete="off" readonly style="text-transform: capitalize;">
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-12 col-12">
+                                                    <label class="">Address</label>
+                                                    <input type="text" class="form-control" value=""
+                                                        placeholder="Enter your full address" id="txtaddress"
+                                                        formControlName="Address" name="Address" />
+                                                    <div *ngIf="submitted && f.Address.errors || f.Address.errors && f.Address.dirty"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.Address.errors.required">Address is required.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12 col-12">
+                                                    <label class="">Landmark</label>
+                                                    <input type="text" class="form-control" value=""
+                                                        placeholder="Landmark" id="txtlandmark"
+                                                        formControlName="Landmark" name="Landmark" />
+                                                    <div *ngIf="submitted && f.Landmark.errors || f.Landmark.errors && f.Landmark.dirty"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.Landmark.errors.required">Landmark is required.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                            <hr>
+                                            <p class="m-0 py-2"
+                                                style="color: #3A5077; font-size: 14px; font-weight:600;">CONTACT
+                                                INFORMATION</p>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-6">
+                                                    <label class="">Mobile No. </label>
+                                                    <input type="text" class="form-control" value=""
+                                                        placeholder="e.g. 1234113491" id="txtMobileNo"
+                                                        formControlName="Mobile" name="Mobile"
+                                                        onkeypress="if(this.value.length==10) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250"
+                                                        (keydown)="avoidSpace($event)"
+                                                        (keypress)="numberOnly($event)" />
+                                                    <div *ngIf="f.Mobile.dirty && f.Mobile.errors" class="danger-text">
+                                                        <div *ngIf="f.Mobile.errors.minlength">
+                                                            Please enter 10 digit Mobile Number.</div>
+                                                    </div>
+                                                </div>
+
+                                                <!-- <div class="form-group col-md-6 col-6">
+                                                                <label class="">Mobile No. </label>
+                                                                <input type="text" class="form-control" value="" placeholder="e.g. 123 411 3491" id="txtMobileNo"
+                                                                  formControlName="Mobile" name="Mobile" />
+                                                                <div *ngIf="submitted && f.Mobile.errors" class="danger-text">
+                                                                  <div *ngIf="f.Mobile.errors.required">Mobile no is required</div>
+                                                                  <div *ngIf="f.Mobile.errors.pattern">Please enter the valid entry.</div>
+                                                                </div>
+                                                              </div> -->
+                                                <div class="form-group col-md-6 col-6">
+                                                    <label class="">Email ID
+                                                        <span class="required-mark">*</span></label>
+                                                    <input type="text" class="form-control" value=""
+                                                        placeholder="e.g. shabcreation.com" id="txtEmailID"
+                                                        autocomplete="off" formControlName="Email" name="Email" [readonly]="isEditMode"/>
+                                                    <div *ngIf="submitted && f.Email.errors || f.Email.dirty && f.Email.errors"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.Email.errors.required">Email id is required.</div>
+                                                        <div *ngIf="f.Email.errors.pattern">Please enter the valid
+                                                            entry.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-6">
+                                                    <label for="txtSecondaryEmail">Secondary Email<span class="required-mark">*</span></label>
+                                                    <input [readonly]="isVerifiedEmail" type="text" class="form-control" value="" placeholder="e.g. shabcreation.com" id="txtSecondaryEmail" formControlName="SecondaryEmail"
+                                                        name="SecondaryEmail" required/>
+
+                                                    <span class="Secondary_rightIcon" *ngIf="isVerifiedEmail">
+                                                        <svg width="16px" height="16px" viewBox="0 0 16 16"
+                                                            version="1.1" xmlns="http://www.w3.org/2000/svg"
+                                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                            <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+                                                            <title>Verified</title>
+                                                            <desc>Created with sketchtool.</desc>
+                                                            <defs>
+                                                                <path
+                                                                    d="M8,0 C3.5888,0 0,3.5888 0,8 C0,12.4112 3.5888,16 8,16 C12.4112,16 16,12.4112 16,8 C16,3.5888 12.4112,0 8,0 M8,14.4 C4.4712,14.4 1.6,11.5288 1.6,8 C1.6,4.4712 4.4712,1.6 8,1.6 C11.5288,1.6 14.4,4.4712 14.4,8 C14.4,11.5288 11.5288,14.4 8,14.4 M9.83439994,5.8344001 L7.20000003,8.46880004 L6.16560006,7.43440007 C5.85280007,7.12160008 5.34720009,7.12160008 5.0344001,7.43440007 C4.72160011,7.74720006 4.72160011,8.25280005 5.0344001,8.56560004 L6.63440005,10.1656 C6.79040004,10.3216 6.99520003,10.4 7.20000003,10.4 C7.40480002,10.4 7.60960001,10.3216 7.76560001,10.1656 L10.9655999,6.96560008 C11.2783999,6.65280009 11.2783999,6.1472001 10.9655999,5.8344001 C10.6527999,5.52160011 10.1471999,5.52160011 9.83439994,5.8344001"
+                                                                    id="path-right"></path>
+                                                            </defs>
+                                                            <g id="Login-&amp;-Onboarding" stroke="none"
+                                                                stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <g id="04.-Forgot-Password---OTP-Entered---Resend-OTP"
+                                                                    transform="translate(-436.000000, -268.000000)">
+                                                                    <g id="IconSet/Tick/Active"
+                                                                        transform="translate(436.000000, 268.000000)">
+                                                                        <mask id="mask-2" fill="white">
+                                                                            <use xlink:href="#path-right"></use>
+                                                                        </mask>
+                                                                        <use id="Icon" fill="#69BB10"
+                                                                            xlink:href="#path-right"></use>
+                                                                    </g>
+                                                                </g>
+                                                            </g>
+                                                        </svg>
+                                                    </span>
+                                                    <div class="danger-text"
+                                                        *ngIf="!isVerifiedEmail && !!f.SecondaryEmail.value && isEditMode">
+                                                        <div>Verify your email ID.
+                                                            <a (click)="verifyEmailID()" style="color: #007bff;">
+                                                                Verify
+                                                            </a>
+                                                        </div>
+                                                    </div>
+                                                    <!-- <div class="danger-text" *ngIf="f.Email.value && f.SecondaryEmail.value">
+                                                        <div *ngIf="f.Email.value == f.SecondaryEmail.value">
+                                                            Email and Secondary Email can not be the same.
+                                                        </div>
+                                                    </div> -->
+
+                                                    <div *ngIf="submitted && f.SecondaryEmail.errors || f.SecondaryEmail.errors && f.SecondaryEmail.dirty" class="danger-text">
+                                                        <div *ngIf="f.SecondaryEmail.errors.required">Secondary Email is required.</div>
+                                                        <div *ngIf="f.SecondaryEmail.errors.pattern">Please enter the valid entry.</div>
+                                                      </div>
+                                                </div>
+                                                <div class="form-group col-md-6 col-6" *ngIf="!isEditMode">
+                                                    <label for="txtpassword">Password <span
+                                                            class="required-mark">*</span></label>
+                                                    <input type="password" class="form-control" value=""
+                                                        placeholder="eg. ********" id="txtpassword"
+                                                        (keydown)="avoidSpace($event)" formControlName="Password"
+                                                        name="Password" />
+
+                                                    <div *ngIf="submitted && f.Password.errors|| f.Password.dirty && f.Password.errors"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.Password.errors.required">Password is required.
+                                                        </div>
+                                                        <div *ngIf="f.Password.errors.minlength">
+                                                            Please enter atleast 8 characters Password.
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="form-group col-md-6 col-6" *ngIf="!isEditMode">
+                                                    <label class="">Confirm Password <span
+                                                            class="required-mark">*</span></label>
+                                                    <input type="password" class="form-control" value=""
+                                                        placeholder="eg. ********" id="txtConfirmPassword"
+                                                        (keydown)="avoidSpace($event)" formControlName="ConfirmPassword"
+                                                        name="ConfirmPassword" />
+                                                    <div *ngIf="submitted && f.ConfirmPassword.errors || f.ConfirmPassword.dirty && f.ConfirmPassword.errors"
+                                                        class="danger-text">
+                                                        <div *ngIf="f.ConfirmPassword.errors.required">Confirm Password
+                                                            is required.</div>
+                                                        <div *ngIf="f.ConfirmPassword.errors.mustMatch">Passwords must
+                                                            match.</div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <hr>
+                                            <div class="row">
+                                                <div class="form-group col-md-12 col-lg-12">
+                                                    <button type="submit" *ngIf="!btnSave"
+                                                        class="btn saveAndProceed-btn float-right ">Save & Proceed</button>
+                                                    <button type="submit" *ngIf="btnUpdate"
+                                                        class="btn saveAndProceed-btn float-right ">Update</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

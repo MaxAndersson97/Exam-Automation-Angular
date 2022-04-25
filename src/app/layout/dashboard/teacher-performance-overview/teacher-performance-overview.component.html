@@ -1,0 +1,257 @@
+<div id="page-content-wrapper" class="teacher_p_overview">
+  <div class="container-fluid p-0">
+      <div class="row m-0">
+        <div class="col-md-12 col-lg-12">
+          <div class="Teacher_Performance_Overview row py-3">
+            <div class="col-md-6 col-lg-6 p-0">
+                <div class="Teacher_Performance_Overview_text float-left py-2 px-3  text-left w-100"><h3 class="mb-0">Teacher Performance Overview</h3></div>
+            </div>
+            <div class="col-md-6 col-lg-6 p-0">
+              <div class="float-right select-standard-filter px-3 py-2">
+                <div class="single tog">
+                  <ng-select  
+                    name="selectedTeacher"  
+                    [(ngModel)]="selectedTeacher"
+                    placeholder="Select Teacher"
+                    (change)="onTeacherChage()">
+                    <!-- <ng-option style="color: #999999;">Select Teacher</ng-option> -->
+                    <ng-option  *ngFor="let data of teachers;let i = index;" value={{i}}>{{data}}</ng-option>
+                  </ng-select>
+                </div>
+              </div>
+            </div>     
+          </div>
+        </div>
+
+        <div class="ng-star-inserted  col-md-12 col-12 col-lg-12" *ngIf="!isDataShow">
+          <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="dcsetup-img mx-auto mt-3">
+              <img src="assets/images/reports.svg" alt="" class="w-100">
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12 col-sm-12">
+            <div class="examsetup-content mx-auto ">
+              <h2 class="text-center top-header my-3">No report to show</h2>
+              <p class="text-center detailcontrol-description mb-0">Please let us know the teachername</p>
+              <p class="text-center detailcontrol-description">from the above dropdown to get the results</p>
+            </div>
+          </div>
+        </div>
+        
+
+        <div class="col-md-12 col-lg-12 my-4" *ngIf="isDataShow">
+          <div class="row">
+            <div class="col-4">
+              <div class="p_overview_block p-4">
+                <div class="t_image">
+                  <div class="name_img" *ngIf="objData.teacherprofile!=''">
+                    <img class=""  [src]='objData.teacherprofile'>
+                  </div>
+                  <div class="name " *ngIf="objData.teacherprofile==''"><p>{{teacherdata.teacher_name.toUpperCase().charAt(0)}}</p></div>
+                </div>
+                <h4 class="mb-0 l_pad">{{teacherdata.teacher_name}}</h4>
+                <p class="mb-0 l_pad">{{teacherdata.subject_name[0]}}</p>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="p_overview_block p-4">
+                <h4 class="mb-0">{{teacherdata.current_rank}}</h4>
+                <p class="mb-0 ">Current Rank</p>
+                <div class="right_image">
+                  <img src="assets/images/ic_graph_purple.svg" class="w-100">
+                </div>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="p_overview_block p-4">
+                <h4 class="mb-0 ">{{teacherdata.previous_rank}}</h4>
+                <p class="mb-0 ">Previous Year Rank</p>
+                <div class="right_image">
+                  <img src="assets/images/ic_graph_blue.svg" class="w-100">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-lg-12 mb-2" *ngIf="isDataShow">
+          <h4 class="class_level_text mb-3">Class Level Subject Detailed View</h4>
+          <div class="row">
+            <div class="col ">
+              <div class="class_level_block c_purple p-4">
+                <h4 class="mb-0 l_pad">{{academic_performance_overview.class_and_subject_assigned}}</h4>
+                <p class="mb-0 l_pad">Class & Subject Assigned</p>
+              </div>
+            </div>
+            <div class="col ">
+              <div class="class_level_block c_green p-4">
+                <h4 class="mb-0 l_pad">{{academic_performance_overview.total_students}}</h4>
+                <p class="mb-0 l_pad">Total Students</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="class_level_block c_blue p-4">
+                <h4 class="mb-0 l_pad">{{academic_performance_overview.total_assessment}}</h4>
+                <p class="mb-0 l_pad">Total Assessment</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="class_level_block c_sblue p-4">
+                <h4 class="mb-0 l_pad">{{academic_performance_overview.avg_attendance}}%</h4>
+                <p class="mb-0 l_pad">Avg. Attendance</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="class_level_block c_red p-4">
+                <h4 class="mb-0 l_pad">{{academic_performance_overview.avg_time}} Days</h4>
+                <p class="mb-0 l_pad">Avg. Time</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-lg-12 my-3" *ngIf="isDataShow">
+          <div class="row">
+            <div class="col ">
+              <div class="class_level_block c_purple p-4">
+                <h4 class="mb-0 l_pad">{{academic_performance_overview.avg_score_completed}}%</h4>
+                <p class="mb-0 l_pad">Avg. Score Completed</p>
+              </div>
+            </div>
+            <div class="col ">
+              <div class="class_level_block c_green p-4">
+                <h4 class="mb-0 l_pad">{{academic_performance_overview.avg_assesment_class}}</h4>
+                <p class="mb-0 l_pad">Avg. Assessment/class</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="class_level_block c_blue p-4">
+                <h4 class="mb-0 l_pad">{{academic_performance_overview.avg_result}}%</h4>
+                <p class="mb-0 l_pad">Avg. Result</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="class_level_block c_sblue p-4">
+                <h4 class="mb-0 l_pad">{{academic_performance_overview.exam_difficulty_mix}}%</h4>
+                <p class="mb-0 l_pad">Exam Difficulty Mix</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="class_level_block c_red p-4">
+                <h4 class="mb-0 l_pad">{{academic_performance_overview.exam_bloom_mix}}%</h4>
+                <p class="mb-0 l_pad">Exam Bloom Mix</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-lg-12 my-3" *ngIf="isDataShow">
+          <div class="class_level_subject p-3">
+            <div class="class_level_subject_table">
+              <table class="w-100">
+                <thead>
+                  <tr>
+                    <th>CLASS & SECTION</th>
+                    <th>SUBJECT</th>
+                    <th>COURSE COMPLETED</th>
+                    <th>ASSESSMENT TAKEN</th>
+                    <th>RESULT%</th>
+                    <th>AVG. ATTENDENCE</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of academic_performance_overview_data">
+                    <td class="b_clr">
+                      <a routerLink="/exam/dashboard/class-performance-details">
+                        {{data.ClassName }}-{{data.SectionName}}
+                      </a>
+                    </td>
+                    <td class="b_clr">
+                      <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                        {{data.SubjectName}}
+                      </a>
+                    </td>
+                    <td>{{data.course_completed}}%</td>
+                    <td>{{data.assessment_taken}}</td>
+                    <td>{{data.result_percentage}}%</td>
+                    <td>{{data.avg_attendance}}%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-lg-12 mb-3" *ngIf="isDataShow">
+          <h4 class="class_level_text mb-3">Class Level Subject Detailed View</h4>
+          <div class="row">
+            <div class="col ">
+              <div class="class_level_block c_purple p-4">
+                <h4 class="mb-0 l_pad">{{cognitive_performance_overview.student_base}}</h4>
+                <p class="mb-0 l_pad">Student Base</p>
+              </div>
+            </div>
+            <div class="col ">
+              <div class="class_level_block c_green p-4">
+                <h4 class="mb-0 l_pad">{{cognitive_performance_overview.avg_score}}%</h4>
+                <p class="mb-0 l_pad">Avg. Score</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="class_level_block c_blue p-4">
+                <h4 class="mb-0 l_pad">{{cognitive_performance_overview.lots_avg_score}}%</h4>
+                <p class="mb-0 l_pad">LOTs Avg. Score</p>
+              </div>
+            </div>
+            <div class="col">
+              <div class="class_level_block c_sblue p-4">
+                <h4 class="mb-0 l_pad">{{cognitive_performance_overview.hots_avg_score}}%</h4>
+                <p class="mb-0 l_pad">HOTs Avg. Score</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-lg-12 my-3" *ngIf="isDataShow">
+          <div class="class_level_subject p-3">
+            <div class="class_level_subject_table">
+              <table class="w-100">
+                <thead>
+                  <tr>
+                    <th>CLASS & SECTION</th>
+                    <th>SUBJECT</th>
+                    <th>RESULT%</th>
+                    <th>ASSESSMENT TAKEN</th>
+                    <th>REMEMBERING</th>
+                    <th>UNDERSTANDING</th>
+                    <th>APPLICATION</th>
+                    <th>EVALUATION</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let data of cognitive_performance_overview_data">
+                    <td class="b_clr">
+                      <a routerLink="/exam/dashboard/class-performance-details">
+                        {{data.ClassName }}-{{data.SectionName}}
+                      </a>
+                    </td>
+                    <td class="b_clr">
+                      <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                        {{data.SubjectName}}
+                      </a>
+                    </td>
+                    <td>{{data.result_percentage}} %</td>
+                    <td>{{data.assessment_taken}}</td>
+                    <td>{{data.REMEMBERING}} %</td>
+                    <td>{{data.UNDERSTANDING}} %</td>
+                    <td>{{data.APPLICATION}} %</td>
+                    <td>{{data.EVALUATION}} %</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>

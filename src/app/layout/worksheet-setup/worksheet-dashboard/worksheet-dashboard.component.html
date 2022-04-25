@@ -1,0 +1,592 @@
+<div class="container-fluid p-0" *ngIf="!isDataFound">
+    <div class="row">
+        <div class="col-md col-lg col-sm">
+            <div class="exam_setup m-4">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                    <div class=" row">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="examsetup-img mx-auto mt-5">
+                                <img src="assets/images/EmptyState-ExamSetup.svg" alt="" class="w-100 mt-5">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12" *ngIf="isShowAddButton">
+                            <div class="examsetup-content mx-auto ">
+                                <h2 class="text-center top-header my-3">Seems like you have not created any worksheet
+                                </h2>
+                                <p class="text-center examsetup-description mb-0">Create monthly worksheets manually,
+                                    add marks</p>
+                                <p class="text-center examsetup-description">and distribute it to the students</p>
+                                <div class="start_btn text-center" (click)="openWorksheetModal1();">
+                                    <button type="button" id="create_worksheet" class="btn createworksheet-btn">Create
+                                        Worksheet</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12" *ngIf="!isShowAddButton">
+                            <div class="examsetup-content mx-auto ">
+                                <h2 class="text-center top-header my-3">Seems like you are out of credit
+                                </h2>
+                                <p class="text-center examsetup-description mb-0">
+                                    You have utilized all of your free credit for papers and worksheets.
+                                </p>
+                                <br />
+                                <div class="start_btn text-center" (click)="openWorksheetModal1();">
+                                    <button type="button" id="create_worksheet" class="btn createworksheet-btn">Buy
+                                        Credit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page-content-wrapper" *ngIf="isDataFound">
+    <div class="container-fluid p-0">
+        <div class="row ">
+            <div class="col-md-12 col-lg-12">
+                <div class="m-3">
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="row works-list">
+                            <div class="col-4 col-md-4">
+                                <h2 class="top-header mb-3">Worksheet</h2>
+                            </div>
+                            <div class="col-8 col-md-8 text-right">
+                                <div class="createtestbtn mb-3 ml-2 float-right">
+                                    <button type="button" id="addnewrow" class="btn createtest-btn "
+                                        (click)="navigateToWorksheetHome()">Create Worksheet</button>
+                                </div>
+                                <div class="searchbartable class-test float-right mb-3">
+                                    <button (click)="searchData()"><i class="fa fa-search"></i></button>
+                                    <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+                                    <input type="text" placeholder="Search Worksheet" name="search"
+                                        [(ngModel)]="searchString">
+                                </div>
+                                <div class="filterbtntable float-right mb-3 ml-3">
+                                    <div class="single tog">
+                                        <button class="dropdown-btn dropdown-toggle " data-toggle="dropdown"
+                                            id="dropdownMenuButton" data-toggle="dropdown" (click)="showFilterBox();"
+                                            aria-haspopup="true" aria-expanded="false">Filters</button>
+                                        <ul class="dropdown-container dropdown-menu p-0 m-0" type="none"
+                                            [ngClass]="showFilter ? 'show' : ''" *ngIf="showFilter"
+                                            (blur)="showFilter  = !showFilter">
+                                            <li class="p-3">
+                                                <div class="w-100">
+                                                    <h3 class="w-50 float-left">Filter By</h3>
+                                                    <a class="w-50 float-right text-right"
+                                                        (click)="selectedOption=''; selectedSubjectId=''; showFilter  = !showFilter; clearFilter()">Clear
+                                                        Filter</a>
+                                                </div>
+                                            </li>
+                                            <form>
+                                                <div class="addsection-form py-1">
+                                                    <div class=" col-md-12 col-12 p-0">
+                                                        <div class="form-group col-md-12 col-sm-12 single">
+                                                            <ng-select [(ngModel)]="selectedOption"
+                                                                (change)="getClassIdFilter(selectedOption)"
+                                                                [items]="classesList" placeholder="Select Class"
+                                                                bindValue="ClassID" [searchable]=true name="classFilter"
+                                                                id="classFilter">
+                                                                <ng-template ng-option-tmp let-item="item">
+                                                                    <span
+                                                                        style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                                                                </ng-template>
+                                                                <ng-template ng-label-tmp let-item="item">
+                                                                    <span *ngIf="item.ClassName"
+                                                                        style="text-transform: capitalize">
+                                                                        {{item.ClassName.toLowerCase()}}</span>
+                                                                    <span *ngIf="!(!!item.ClassName)"
+                                                                        style="color: #999999;"> Select
+                                                                        Standard</span>
+                                                                </ng-template>
+                                                            </ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12 single">
+                                                            <ng-select [(ngModel)]="selectedSubjectId"
+                                                                [items]="subjects" bindLabel="SubjectName"
+                                                                placeholder="Select Subject" bindValue="SubjectID"
+                                                                [searchable]=false required name="subjectFilter">
+                                                                <ng-template ng-option-tmp let-item="item">
+                                                                    <span
+                                                                        style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                                                                </ng-template>
+                                                                <ng-template ng-label-tmp let-item="item">
+                                                                    <span *ngIf="item.SubjectName"
+                                                                        style="text-transform: capitalize">
+                                                                        {{item.SubjectName.toLowerCase()}}</span>
+                                                                    <span *ngIf="!(!!item.SubjectName)"
+                                                                        style="color: #999999;"> Select
+                                                                        Standard</span>
+                                                                </ng-template>
+                                                            </ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <ng-select [(ngModel)]="ddlStatus" [items]="status"
+                                                                bindLabel="name" placeholder="Select Status/Mode"
+                                                                bindValue="value" [searchable]=false required
+                                                                name="statustFilter">
+                                                            </ng-select>
+                                                        </div>
+                                                        <div class="form-group col-md-12 col-sm-12">
+                                                            <button type="button" id="filterbutton"
+                                                                class="btn filterBtn w-100 mt-1"
+                                                                (click)="filterData(selectedOption, selectedSubjectId, ddlStatus)">Apply
+                                                                Filter</button>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </form>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class=" worksheet-list imported-data">
+                            <div class="overflow">
+                                <table id="classTestExam" class="w-100 student-list table">
+                                    <thead>
+                                        <tr>
+                                            <th width="" class="standard">
+                                                <p>Standard</p>
+                                            </th>
+                                            <th width="" class="subject">
+                                                <p>Subject</p>
+                                            </th>
+                                            <th width="" class="worksheet-name">
+                                                <p>Worksheet Name</p>
+                                            </th>
+                                            <th width="" class="total-ques">
+                                                <p>Total Question</p>
+                                            </th>
+                                            <th width="" class="total-marks">
+                                                <p>Total Marks</p>
+                                            </th>
+                                            <th width="" class="duration">
+                                                <p>Duration</p>
+                                            </th>
+                                            <!-- <th width="" class="creationDate">
+                                                <p>DATE</p>
+                                            </th>
+                                            <th width="" class="creationTime">
+                                                <p>TIME</p>
+                                            </th> -->
+                                            <!-- <th width="" class="ques-paper">
+                                                <p>Question Paper</p>
+                                            </th> -->
+                                            <!-- <th width="" class="mode"><p>MODE</p></th> -->
+                                            <th class="status">
+                                                <p class="tablespace">Paper Status</p>
+                                            </th>
+                                            <th class="Date">Date & Time</th>
+                                            <th class="action_col">
+                                                <div class="action"></div>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody *ngIf="templateListData.length > 0">
+                                        <tr class=""
+                                            *ngFor="let template of templateListData | paginate: {itemsPerPage: rowsOnPage, currentPage:page, id: '1',totalItems: totalRecords}; let i = index;">
+                                            <td class="standard">{{template.ClassName | lowercase}}</td>
+                                            <td class="subject">{{template.SubjectName | lowercase}}</td>
+                                            <td class="worksheet-name">{{template.Name | lowercase}}</td>
+                                            <td class="total-ques">{{template.TotalQuestionCount}} </td>
+                                            <td class="total-marks">{{template.TotalMarks}} Marks</td>
+                                            <td class="duration">{{template.Duration}} Mins</td>
+                                            <!-- <td class="ques-paper">{{template.Name}}</td> -->
+                                            <!-- <td>{{template.Name}}</td>
+                                            <td>{{template.Name}}</td> -->
+                                            <td class="status">
+                                                <span *ngIf="template.PaperTemplateStatusText=='Approved'"
+                                                    style="color: #69BB10;">{{template.PaperTemplateStatusText}}</span>
+                                                <span *ngIf="template.PaperTemplateStatusText=='Pending'"
+                                                    style="color: #ffc107;">{{template.PaperTemplateStatusText}}</span>
+                                                <span *ngIf="template.PaperTemplateStatusText=='Ready'"
+                                                    style="color: #69BB10;">{{template.PaperTemplateStatusText}}</span>
+                                                <span *ngIf="template.PaperTemplateStatusText=='Rejected'"
+                                                    style="color: #E52254;">{{template.PaperTemplateStatusText}}</span>
+                                                <span *ngIf="template.PaperTemplateStatusText=='Process'"
+                                                    style="color: #ffc107;">{{template.PaperTemplateStatusText}}</span>
+                                            </td>
+                                            <td class="Date">
+                                                <span style="font-size: 12px;">{{template.SystemDateTimeText}}</span>
+                                                <br />
+                                                <span style="font-size: 12px;">{{template.CreatedByName}}</span>
+                                            </td>
+                                            <td class="action_col">
+                                                <div class="remove single tog">
+                                                    <div class="dropdown ">
+                                                        <button class="btn btn-primary dropdown-toggle form-control"
+                                                            type="button" data-toggle="dropdown">Action
+                                                            <span class="caret"></span></button>
+                                                        <ul class="dropdown-menu p-0">
+                                                            <li *ngIf="template.PaperGenerationMethod  == 3">
+                                                                <a href="javascript:void(0)"
+                                                                    (click)="createDuplicatePaper(template.EAPaperTemplateID)">
+                                                                    Duplicate Paper</a>
+                                                            </li>
+                                                            <li *ngIf="template.PaperTemplateStatus == 5">
+                                                                <a target="_blank"
+                                                                    [routerLink]="['../view-paper', template.EAPaperTemplateID,1]">
+                                                                    Preview Paper</a>
+                                                            </li>
+                                                            <li *ngIf="template.PaperTemplateStatus == 5">
+                                                                <a [routerLink]="['../answersheet', template.EAPaperTemplateID]"
+                                                                    target="_blank"> Model Answers</a>
+                                                            </li>
+                                                            <li *ngIf="template.PaperTemplateStatus == 5">
+                                                                <a [routerLink]="['../summary', template.EAPaperTemplateID]"
+                                                                    class="resetPasswordmodal">Paper Summary</a>
+                                                            </li>
+                                                            <li
+                                                                *ngIf="template.PaperTemplateStatus != 5 && template.PaperTemplateStatus != 8">
+                                                                <a
+                                                                    [routerLink]="['../chepters', template.EAPaperTemplateID]">
+                                                                    Edit Paper</a>
+                                                            </li>
+                                                            <li *ngIf="template.PaperTemplateStatus == 8">
+                                                                <!-- Ready Status -->
+                                                                <a
+                                                                    [routerLink]="['../generate-paper', template.EAPaperTemplateID]">
+                                                                    Edit Paper</a>
+                                                            </li>
+                                                            <li *ngIf="template.PaperTemplateStatus != 5 && !isGuestTeacher"
+                                                                (click)="confirmDeleteWing(confirmDialogTemplate, template.EAPaperTemplateID)">
+                                                                <a class="resetPasswordmodal">
+                                                                    Delete Paper</a>
+                                                            </li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                    <ng-container *ngIf="templateListData && templateListData.length < 1">
+                                        <div class="no-result-found">No results found.</div>
+                                    </ng-container>
+                                </table>
+
+                            </div>
+                        </div>
+                        <div class="pages w-100" *ngIf="templateListData && templateListData.length > 0">
+                            <pagination-controls class="pages" (pageChange)="getCurrentPage(page = $event)" id="1"
+                                [maxSize]="10" directionLinks="true" previousLabel="" nextLabel="" responsive="true">
+                            </pagination-controls>
+                        </div>
+                        <!-- <div class="selectWrapper worksheet-pagination"
+                            *ngIf="templateListData && templateListData.length > 0">
+                            <ng-select class="select_Show" id="1" [(ngModel)]="rowsOnPageTemp"
+                                (change)="onShowPageChange(rowsOnPageTemp)">
+                                <ng-option *ngFor="let row of rowsOnPageSet" [value]="row">Show {{ row }} Results
+                                </ng-option>
+                            </ng-select>
+                        </div> -->
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- step 1 -->
+<div class="modal right multi-step modalstep1 fade" id="createWorksheet" bsModal #addWorksheetstep1="bs-modal"
+    style=" padding-right: 10px;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header pt-0 px-0 ">
+                <div class="col-md-12 col-12 p-0">
+                    <div class="m-progress w-100">
+                        <div class="m-progress-bar-wrapper">
+                            <div class="m-progress-bar">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100 row ml-0 mt-2">
+                        <div class="col-md-4 col-4 mt-1">
+                            <a class="close step step-1 float-left pt-1 p-0" data-dismiss="modal" aria-label="Close"
+                                (click)="closeStep1Model()"><span aria-hidden="true">&times;</span></a>
+
+                        </div>
+                        <div class="col-md-4 col-4">
+                            <h4 class="modal-title text-center m-auto" id="AddWing_header">Create Worksheet</h4>
+                        </div>
+                        <div class="col-md-4 col-4 mt-2">
+                            <h4 class="modal-step step-1 m-0" data-step="1">Step 1 of 2</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body step-1 px-4" data-step="1">
+                <form [formGroup]="addWorksheetFrm">
+                    <h3 class="sectionhead mt-3">Worksheet Details</h3>
+                    <div class="row">
+                        <div class="form-group col-md-12 col-sm-12 single">
+                            <label class="mb-0">Select Class</label>
+                            <ng-select formControlName="ClassID" (change)="getClassId();" [items]="classesList"
+                                bindLabel="ClassName" placeholder="Select Class" bindValue="ClassID" [searchable]=false
+                                required>
+                                <ng-template ng-option-tmp let-item="item">
+                                    <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                                </ng-template>
+                                <ng-template ng-label-tmp let-item="item">
+                                    <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                        {{item.ClassName.toLowerCase()}}</span>
+                                    <span *ngIf="!(!!item.ClassName)" style="color: #999999;"> Select
+                                        Standard</span>
+                                </ng-template>
+
+                            </ng-select>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12 col-sm-12 single">
+                            <label class="mb-0">Select Subject</label>
+                            <ng-select formControlName="SubjectID" [items]="subjects" bindLabel="SubjectName"
+                                placeholder="Select Subject" bindValue="SubjectID" [searchable]=false required>
+
+                                <ng-template ng-option-tmp let-item="item">
+                                    <span style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                                </ng-template>
+                                <ng-template ng-label-tmp let-item="item">
+                                    <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                                        {{item.SubjectName.toLowerCase()}}</span>
+                                    <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select
+                                        Subject</span>
+                                </ng-template>
+                            </ng-select>
+
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col-md-12 col-sm-12">
+                            <label class="mb-0">Worksheet Name</label>
+                            <input type="text" autocomplete="off" name="newPassword" class="form-control"
+                                formControlName="Name" placeholder="Worksheet Name" id="txtnewPassword" required />
+
+                        </div>
+                    </div>
+                    <h3 class="sectionhead my-2">Question Selection</h3>
+                    <div class="row">
+                        <div class="form-group col-md-12 col-sm-12">
+                            <label class="radio box" [ngClass]="{active: f.PaperGenerationMethod.value == 2}">
+                                <span class="radio-head">User Defined System Generated<br>
+                                    <span class="radio-text">Create the blueprint and generate the paper</span>
+                                </span>
+                                <input type="radio" name="PaperGenerationMethod" formControlName="PaperGenerationMethod"
+                                    value="2">
+                                <span class="checkmark"></span>
+                            </label>
+                            <label class="radio box" [ngClass]="{active: f.PaperGenerationMethod.value == 3}">
+                                <span class="radio-head">Cherry Pick<br>
+                                    <span class="radio-text">Select question based on previous inputs</span>
+                                </span>
+                                <input type="radio" name="PaperGenerationMethod" formControlName="PaperGenerationMethod"
+                                    value="3">
+                                <!-- <input type="radio" name="radio"> -->
+                                <span class="checkmark"></span>
+                            </label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-body step-2" data-step="2">
+            </div>
+            <div class="modal-footer px-4">
+                <button type="button" class="saveAndProceed-btn w-100 step step-1 btn" data-step="1" data-toggle="modal"
+                    data-dismiss="modal" (click)="submitStepOne(addWorksheetFrm);" id="saveAndProceed_btn"
+                    [disabled]="this.addWorksheetFrm.invalid">Save and Proceed</button>
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div>
+
+
+<!-- step 2 -->
+<div class="modal right multi-step modalstep2 fade p-0" id="createWorksheet2" bsModal #addWorksheetstep2="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header pt-0 px-0 ">
+                <div class="col-md-12 col-12 p-0">
+                    <div class="m-progress w-100">
+                        <div class="m-progress-bar-wrapper">
+                            <div class="m-progress-bar">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-100 row ml-0 mt-2 px-2">
+                        <div class="col-md-4 col-4 mt-1">
+                            <a (click)="goBackStepOne()" class="step step-3">
+                                <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+                                    <title>IconSet/Arrow/Left/Default</title>
+                                    <desc>Created with Sketch.</desc>
+                                    <defs>
+                                        <path
+                                            d="M17,9 L5.414,9 L8.707,5.707 C9.098,5.316 9.098,4.684 8.707,4.293 C8.316,3.902 7.684,3.902 7.293,4.293 L2.293,9.293 C1.902,9.684 1.902,10.316 2.293,10.707 L7.293,15.707 C7.488,15.902 7.744,16 8,16 C8.256,16 8.512,15.902 8.707,15.707 C9.098,15.316 9.098,14.684 8.707,14.293 L5.414,11 L17,11 C17.553,11 18,10.552 18,10 C18,9.448 17.553,9 17,9"
+                                            id="lefticon"></path>
+                                    </defs>
+                                    <g id="IconSet/Arrow/Left/Default" stroke="none" stroke-width="1" fill="none"
+                                        fill-rule="evenodd">
+                                        <mask id="mask-2" fill="white">
+                                            <use xlink:href="#lefticon"></use>
+                                        </mask>
+                                        <use id="Icon" fill="#8595A6" xlink:href="#lefticon"></use>
+                                    </g>
+                                </svg>
+                            </a>
+                            <!-- <a class="step step-3" click="goBackStepOne();"></a> -->
+                        </div>
+                        <div class="col-md-4 col-4">
+                            <h4 class="modal-title text-center m-auto" id="AddWing_header" click="goBackStepOne();">
+                                Create Worksheet</h4>
+                        </div>
+                        <div class="col-md-4 col-4 mt-2">
+                            <h4 class="modal-step step-2 m-0 d-block" data-step="2">Step 2 of 2</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body step-2 px-4 d-block" data-step="2">
+                <form>
+                    <div class="row">
+                        <div class="col-6 col-md-6">
+                            <h3 class="sectionhead mt-3">Select Chapters</h3>
+                        </div>
+                        <div class="col-6 col-md-6">
+                            <h4 class="text-right sectionheadright mt-4">{{countChepter}} Chapters from
+                                {{selectedTextBook && selectedTextBook.length}} Book</h4>
+                        </div>
+                    </div>
+                    <div class="row m-0">
+                        <div class="select-chaptermodal w-100">
+                            <div class="row w-100 m-0">
+                                <div class="col-lg-12 col-md-12 my-3" *ngFor="let book of cheptersList; let i= index">
+                                    <div class="head row py-3">
+                                        <div class="col-6 col-md-6">
+                                            <h3 class="texthead float-left">{{book.TextBookName }}</h3>
+                                        </div>
+                                        <div class="col-6 col-md-6">
+                                            <div class="float-right">
+                                                <div class="hide-btn float-right "><a data-toggle="collapse"
+                                                        attr.data-target="#englishcomm_{{i+1}}"></a></div>
+                                                <div class="chapter-number text-center float-right mr-3">
+                                                    <span>{{book.listEAChapterInfoMember.length}}</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row collapse show" id="englishcomm_{{i+1}}">
+                                        <div class="col-xs-4 col-md-4 col-4 chapter-col h-auto"
+                                            *ngFor="let chepter of book.listEAChapterInfoMember let chIndex = index;">
+                                            <label class="checkbox-container">
+
+                                                <input type="checkbox" class="form-check-input h-auto m-0"
+                                                    value="{{chepter.ChapterID}}" name="chepter_{{chIndex}}"
+                                                    [(ngModel)]="chepter.isChecked" (click)="countBooksAndChepter()">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <p class="ml-4 pl-3 mb-0">{{chepter.ChapterName}} </p>
+                                            <div class="clearfix" *ngIf="($index+1)%4==0"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer px-4 border-0">
+                <button type="button" class="saveAndProceed-btn step step-1 btn" data-step="2" (click)="submitStepTwo()"
+                    [disabled]="countChepter < 1">Save and Proceed</button>
+
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+
+<!-----------popup display on click on save and Proceed btn-->
+<div class="modal fade p-0 discardCurrentPaper" id="noBooksAvalModal" bsModal #noBooksAvalModal="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Insufficient Chapter Selected</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="insufficientChapterSelected p-4">
+                    <p>Seems like you have not selected the chapters as
+                        per the composition of Bloom and Difficulty</p>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" (click)="hideModel();">Select More
+                    Chapters</button>
+                <button type="button" id="create_paperManu" class="btn createpapermanually-btn mt-2 float-right"
+                    (click)="createPaperManually();">Create Paper Manually</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-----------popup display on click on save and Proceed btn-->
+<div class="modal fade p-0 discardCurrentPaper" id="confirmationBox" bsModal #confirmationBox="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Discard the Current Paper?</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+
+            <!-- Modal body -->
+            <div class="modal-body">
+                <div class="discardCurrentPaper p-4">
+                    <h4 class="discard-paper"></h4>
+                    <p>Are you sure you want to discard the Paper you are
+                        currently creating?</p>
+                </div>
+            </div>
+
+            <!-- Modal footer -->
+            <div class="modal-footer">
+                <button type="button" id="Yes" click="" class="btn yes-btn mt-2 ml-2 float-right"
+                    (click)="navigateToDashboard()">Yes</button>
+                <button type="button" id="No" class="btn no-btn mt-2 mr-2 float-right"
+                    (click)="hideConfrmtionModal()">No</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #confirmDialogTemplate>
+    <div class="modal-body text-center">
+        <h4>Are you sure?</h4>
+        <p>You won't be able to revert this!</p>
+        <div class="col-md-12 col-lg-12 p-0">
+            <button type="button" class="btn btn-default btn-yes" (click)="deletePaper()">Yes</button>
+            <button type="button" class="btn btn-primary btn-no" (click)="modalRef.hide()">No</button>
+        </div>
+
+    </div>
+</ng-template>
+
+
+<div class="modal fade modal-md" id="OutOfCreditDialogTemplate" bsModal #OutOfCreditDialogTemplate="bs-modal"
+    [config]="{backdrop: 'static',  keyboard: false}">
+    <app-buy-credit (closePopupEvent)="closeModalOutOfCredit($event)"></app-buy-credit>
+</div>

@@ -1,0 +1,120 @@
+<div id="page-content-wrapper">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <nav aria-label="breadcrumb" class="m-3  ">
+                    <ol class="breadcrumb p-0 m-0">
+                        <li class="breadcrumb-item"><a routerLink="/exam/add-marks">Add Marks</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Imported Data</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="m-3">
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="row">
+                            <div class="col-6 col-md-6">
+                                <h2 class="top-header mb-3">Imported Student Marks ({{studentList
+                                    &&studentList.length}})</h2>
+                            </div>
+                            <div class="col-6 col-md-6 text-right">
+                                <div class="w-100 m-0">
+                                    <div class="float-right" style="display: flex;">
+                                        <button type="button" id="saveandclose" class="btn saveandclose-btn mb-3 mr-2"
+                                            (click)="readyToPublish()"
+                                            [disabled]="!isFormValid || !isFormValid1 || selectedExam['ResultStatus'] == 3">
+                                            Ready to Publish</button>
+                                        <button type="button" id="saveandclose" class="btn saveandclose-btn mb-3 mr-2"
+                                            (click)="saveMarks('manual')"
+                                            [disabled]="!isFormValid || !isFormValid1 || selectedExam['ResultStatus'] == 3">
+                                            Save & Close</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 col-md-12 text-right">
+                                <div class="w-100 m-0">
+                                    <div class="float-right" style="display: flex;">
+                                        <p *ngIf="!isFormValid || !isFormValid1" class="err-msg text-danger row">
+                                        <span *ngFor="let error_Msg of errorMsg" class="col-12">
+                                            {{error_Msg}}
+                                        </span>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="class_setup ">
+                            <div class="">
+                                <table class="table-fixed"
+                                    style="max-width: 100%; border-right: 1px solid rgba(173, 189, 203, 0.4);">
+                                    <thead>
+                                        <tr class="table-row-1">
+                                            <th colspan="2" class="border_r fixed_row">STUDENT NAME</th>
+                                            <th class="th-header th_student_col"
+                                                *ngFor="let student of studentList; let indx = index;"
+                                                style="text-transform: capitalize;">
+                                                <div class="w-100 float-left th_student_name">{{student.StudentName |
+                                                    lowercase}}</div>
+                                                <div class="w-100 float-left th_student_marks">
+                                                    ({{student.TotalObtainedMark}} Marks)</div>
+                                            </th>
+                                        </tr>
+                                        <tr class="table-row-2">
+                                            <th colspan="2" class="border_r fixed_row">ROLL NUMBER</th>
+                                            <th class="th-header"
+                                                *ngFor="let student of studentList; let indx = index;">
+                                                {{student.RollNumber}}</th>
+                                        </tr>
+                                        <tr class="table-row-3">
+                                            <th colspan="2" class="border_r fixed_row">ATTENDANCE</th>
+                                            <th class="th-header"
+                                                *ngFor="let student of studentList; let indx = index;">
+                                                <ng-select [items]="attandance" bindValue="attandance"
+                                                    [(ngModel)]="student.IsAttempted"
+                                                    (ngModelChange)="changeAppearStudent(student, indx)"
+                                                    name="attandce_indx"></ng-select>
+                                            </th>
+                                        </tr>
+                                        <tr class="table-row-4">
+                                            <th class="question-index th-width">Q INDEX</th>
+                                            <th class="marks border_r th-width">MARKS</th>
+                                            <th class="th-header"
+                                                *ngFor="let student of studentList; let indx = index;">
+                                                <span *ngIf="!student.isvalidMark" class="err-msg text-danger">invalid
+                                                    data</span>
+                                            </th>
+
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+
+                                        <tr *ngFor="let marks of questionWiseMarksList; let i = index">
+                                            <th class="th-header th-width">{{marks.QueNumber}}</th>
+                                            <th class="th-header border_r th-width">{{marks.marks}}</th>
+                                            <td *ngFor="let stdMarks of marks.studentMarks; let chIndx = index">
+                                                <input type="number" name="quantity" [min]="0" [max]="marks.marks"
+                                                    name="obtainedmark_chIndx" [(ngModel)]="stdMarks.ObtainedMark"
+                                                    [disabled]="!stdMarks.isAttampted || selectedExam['ResultStatus'] == 3"
+                                                    onKeyDown="if(this.value.length==3 && event.keyCode>47 && event.keyCode < 58)return false;"
+                                                    (blur)="validateForm(marks)"
+                                                    [ngClass]="{'marks-border': marks.marks < stdMarks.ObtainedMark || stdMarks.ObtainedMark < 0 || stdMarks.ObtainedMark == null }"
+                                                    [tabindex]="stdMarks.tabIndex" (keypress)="numericOnly($event)">
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

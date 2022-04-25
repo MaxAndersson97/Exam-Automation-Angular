@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 54 (76480) - https://sketchapp.com -->
+    <title>FECF9151-09BF-42F9-9C51-4B685DF7DBB8</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M11.9,6.3 L7.7,6.3 L7.7,2.1 C7.7,1.7136 7.3864,1.4 7,1.4 C6.6136,1.4 6.3,1.7136 6.3,2.1 L6.3,6.3 L2.1,6.3 C1.7136,6.3 1.4,6.6136 1.4,7 C1.4,7.3864 1.7136,7.7 2.1,7.7 L6.3,7.7 L6.3,11.9 C6.3,12.2871 6.6136,12.6 7,12.6 C7.3864,12.6 7.7,12.2871 7.7,11.9 L7.7,7.7 L11.9,7.7 C12.2871,7.7 12.6,7.3864 12.6,7 C12.6,6.6136 12.2871,6.3 11.9,6.3" id="path-1"></path>
+    </defs>
+    <g id="Reports---2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="03.-Report---Student-Report---Chapter-&amp;-Topic" transform="translate(-550.000000, -834.000000)">
+            <g id="Group" transform="translate(544.000000, 828.000000)">
+                <g id="IconSet/Add-Icon/Default" transform="translate(5.000000, 5.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#8595A6" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,194 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid p-0">
+      <div class="row">
+          <div class="col-md-12 col-lg-12">
+              <nav aria-label="breadcrumb" class="m-3  ">
+                  <ol class="breadcrumb p-0 m-0">
+                      <li class="breadcrumb-item"><a routerLink = "/exam/add-marks">Add Marks</a></li>
+
+                      <li class="breadcrumb-item active" aria-current="page">{{selectedExam.PaperName}}</li>
+                  </ol>
+              </nav>
+          </div>
+      </div>
+  </div>
+  <div class="container-fluid p-0">
+      <div class="row">
+          <div class="col-md-12 col-lg-12">
+              <div class="mt-0 mx-3  mb-3">
+                  <div class="col-lg-12 col-md-12 p-0">
+                      <div class="row">
+                          <div class="col-5 col-md-5">
+                              <h2 class="top-header mb-3" style="text-transform: capitalize;">{{selectedExam.PaperName | lowercase}}</h2>
+                          </div>
+                          <div class="col-7 col-md-7 text-right">
+                              <div class="addstudent mb-3 ml-2 float-right">
+                                <button type="button" id="saveandclose" *ngIf="selectedExam['ResultStatus'] == 3" class="btn saveandclose-btn " (click)="OpenAddMarks()" [disabled]="selectedExam['ResultStatus'] == 3">Published</button>
+                                <button type="button" id="saveandclose" *ngIf="selectedExam['ResultStatus'] != 3" class="btn saveandclose-btn mr-2" (click)="OpenAddMarks()" >Publish</button>
+                                
+                                  <button type="button" id="addmarksviacsv" *ngIf="selectedExam['ResultStatus'] != 3" class="btn addmarksviacsv-btn" (click)="addMarksInBulk()">Add Marks in Bulk</button>
+
+                                  
+                              </div>
+                              <div class="searchbartable float-right mb-3">
+                                  <form action="">
+                                      <button type="submit">
+            <!-- <?xml version="1.0" encoding="UTF-8"?> -->
+              <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                xmlns:xlink="http://www.w3.org/1999/xlink">
+                <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+                <title>00067B21-DB8A-4562-9250-F329CFB39D75</title>
+                <desc>Created with sketchtool.</desc>
+                <defs>
+                  <path
+                    d="M3.600005,8.40002 C3.600005,5.75281173 5.75281173,3.600005 8.40002,3.600005 C11.0472283,3.600005 13.200035,5.75281173 13.200035,8.40002 C13.200035,11.0472283 11.0472283,13.200035 8.40002,13.200035 C5.75281173,13.200035 3.600005,11.0472283 3.600005,8.40002 M17.7656493,16.6344457 L13.4496358,12.3176322 C14.2928384,11.2344289 14.80004,9.87682461 14.80004,8.40002 C14.80004,4.87120897 11.928831,2 8.40002,2 C4.87120897,2 2,4.87120897 2,8.40002 C2,11.928831 4.87120897,14.80004 8.40002,14.80004 C9.87682461,14.80004 11.2336289,14.2920384 12.3176322,13.4496358 L16.6344457,17.7656493 C16.7904462,17.9216498 16.9952469,18.00005 17.2000475,18.00005 C17.4048481,18.00005 17.6096488,17.9216498 17.7656493,17.7656493 C18.0784502,17.4528483 18.0784502,16.9472467 17.7656493,16.6344457"
+                    id="search"></path>
+                </defs>
+                <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                  <g id="36.-Staff---Staff-List" transform="translate(-1009.000000, -99.000000)">
+                    <g id="icon-minor/search" transform="translate(1007.000000, 97.000000)">
+                      <mask id="mask-2" fill="white">
+                        <use xlink:href="#search"></use>
+                      </mask>
+                      <use id="Mask" fill="#8595A6" xlink:href="#search"></use>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </button>
+                    <input type="text" placeholder="Search student list" name="search" [(ngModel)]="searchString">
+                </form>
+            </div>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 p-0">
+                      <div class="student_marks">
+      <div class="row">
+        <div class="col-md-3 col-3 pr-0 student_marks_p" *ngFor="let student of studentList | search: searchString ; let indx = index;">
+          <div class="student_marks_unitTest mb-4">
+            <div class="col-md-12 student_topb">
+              <div class="p-3 row">
+                <div class="col-md-9 pl-0">
+                  <h3 class="student_name" style="text-transform:capitalize;">{{student.StudentName | lowercase}} </h3>
+                </div>
+                <div class="col-md-3 text-right pr-0">
+                  <a [ngStyle]="selectedExam['ResultStatus'] == 3 ? {'pointer-events': 'none'}: {'cursor': 'pointer'}" (click)="changeStatus(student)">
+                    <div class="aca_session float-right " [ngClass]="student.IsAttempted ? 'green' : 'normal'">
+                      <div class="inneraca_session"></div>
+                    </div> 
+                  </a>
+                </div>
+                <div class="col-md-12 p-0">
+                  <p class="section_name m-0">{{student.TotalObtainedMark}} Marks 
+                    • {{student.RollNumber}}</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 text-center">
+              <p class="edit-group-link py-2">
+                <a (click)="openAddMarksModal(student)" *ngIf="selectedExam['ResultStatus'] != 3" [ngClass]="student.IsAttempted && selectedExam['ResultStatus'] != 3 ? '' : 'disabled-marks'">Add/Edit Marks</a>
+                <a (click)="openAddMarksModal(student)" *ngIf="selectedExam['ResultStatus'] == 3">View Marks</a>
+              </p>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+      <!-- /#page-content-wrapper -->
+    <!-- /#wrapper -->
+
+
+    <div class="modal right fade" id="student_marks_modal" bsModal #student_marks_modal="bs-modal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header pb-4">
+                  <button type="button" class="close float-left pt-1" data-dismiss="modal" aria-label="Close" (click)="closeModal()"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title text-center m-auto" id="AddWing_header" style="text-transform: capitalize;">{{selectedStudent.StudentName | lowercase}}</h4>
+                  
+              </div>
+              <div class="modal-body">
+                  <p *ngIf="!isFormValid" class="err-msg text-danger">{{errorMsg}}</p>
+                  <form>
+                    <div class="addWing-form p-4">
+                      <table class="w-100">
+                        <thead>
+                          <tr>
+                            <th>Q INDEX</th>
+                            <th>MARKS</th>
+                            <th>MARKS OBTAINED</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let marks of selectedStudent.LstQuestionMarks; let indx = index;">
+                            <td>{{marks.QueNumber}}</td>
+                            <td >{{marks.Marks}}</td>
+                            <td>
+                              <span *ngIf="selectedExam['ResultStatus'] != 3">
+                                <input type="number" class="markstxt h-auto m-0" name="marks_{{indx+1}}" [(ngModel)]="marks.ObtainedMark" min="-1" [max]="marks.Marks" onKeyDown="if(this.value.length==3 && event.keyCode>47 && event.keyCode < 58)return false;" 
+                                (blur)="validateMark();"  
+                                (keypress)="numericOnly($event)"  
+                                [ngClass]="{'marks-border': marks.Marks < marks.ObtainedMark || marks.ObtainedMark <0 || marks.ObtainedMark == null}">
+                              </span>
+                                <span *ngIf="selectedExam['ResultStatus'] == 3">{{marks.ObtainedMark}}</span>
+                              </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <div class="row my-4">
+                          <div class="form-group col-md-12 col-lg-12">
+                              <button type="button" id="addMarksBtn" *ngIf="selectedExam['ResultStatus'] != 3" class="btn addMarksBtn w-100 mt-2" (click)="addMarks()" [disabled]="!isFormValid">Add Marks</button>
+                          </div>      
+                      </div>
+                    </div>
+                  </form>
+              </div>
+          </div><!-- modal-content -->
+      </div><!-- modal-dialog -->
+  </div><!-- modal -->
+
+
+ <!-- Modal -->
+
+
+ <div class="modal fade modal-md" id="AddMarksModal"  bsModal #AddMarksModal1="bs-modal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+            <h4 class="modal-title " >Publish Result</h4>
+              <button type="button" (click)="closeAddMarksModal()" class="close float-left pt-1" style="margin-top: -2px;" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          </div>
+          <div class="modal-body text-center">
+            <p class="text-left">Are you sure you want to publish the result, you will not be able to change student’s marks later?</p>
+            <div class="col-md-12 col-lg-12 p-0">
+                <button type="button" class="btn btn-yes float-right ml-2"
+                    (click)="readyToPublish()">Yes</button>
+                <button type="button" class="btn btn-no float-right ml-2"
+                    (click)="closeAddMarksModal()">No</button>
+            </div>
+        </div>
+  </div><!-- modal-dialog -->
+</div><!-- modal -->
+</div>
+
+  <style>
+   .disabled-marks{
+     pointer-events: none;
+     opacity: 0.5;
+   }
+
+   .marks-border{
+     border-color: red;
+   }
+
+   .err-msg{
+    margin-top: 20px;
+    margin-bottom: 0;
+   }
+  </style>

@@ -1,0 +1,40 @@
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12 col-lg-12 col-12 mt-3">
+        <div class="admin-panel-top row m-auto">
+          <div class="col-2 col-md-2 col-lg-2">
+            <!-- <div class="sidebar-heading">Smart Studies</div> -->
+          </div>
+          <div class="col-6 col-md-6 col-lg-6">
+            <p class="custom-content m-0">Custom Content Admin Portal</p>
+          </div>
+          <div class="col-4 col-md-4 col-lg-4 p-0" *ngIf="!isAdvanceSetting">
+            <button class="btn float-right saveSettingbtn" id="save_settingBtn" type="button" (click)="onSubmit()">
+            Save Settings
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-12 col-lg-12">
+        <div class="custom-content-body my-4 mx-auto">
+          <div class="toggleBtnrow row m-0" *ngFor = "let item of settings; let i = index;">
+            <div class="col-6 col-md-6">
+              <p class="m-0" style="text-transform: capitalize;">{{item.CustomContentSettingModuleName.toLowerCase()}}</p>
+              <a class="dropdown-toggle" *ngIf="item.CustomContentSettingModuleDetailedControl && isAdvanceSetting" (click)="goToAdvanceSetting(item)">View Advance Settings <span class="arrow"></span></a>
+            </div>
+            <div class="col-6 col-md-6 single tog">
+              <div class="switch-box" *ngIf="!isAdvanceSetting">
+                  <label class="switch">
+                    <input type="checkbox" (change)="changeStatus(i);"
+                    [checked]="item.ShowInAppStatus == 1">
+                    <span class="slider round" ></span>
+                </label>
+              </div>
+            </div>
+          </div>   
+        </div>
+      </div>
+    </div>
+  </div>
+  
+     

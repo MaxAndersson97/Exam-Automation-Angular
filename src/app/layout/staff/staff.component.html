@@ -1,0 +1,102 @@
+<div class="container-fluid p-0" *ngIf="staffs" [ngStyle]="{'display' : staffs.length === 0 ? 'block' : 'none'}">
+    <div class="row">
+        <div class="col-md col-lg col-sm">
+            <div class="wing_setup m-3">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                    <div class=" row">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="wing-img mx-auto mt-5" style="width: 283px;">
+                                <img src="assets/images/EmptyState-Staff.svg" alt="" class=" mt-5" />
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="createaWing-content mx-auto ">
+                                <h2 class="text-center top-header my-3">Seems like you have not added any staff</h2>
+                                <p class="text-center createaWing-description mb-0">Now add the staff quickly through
+                                    the CSV else you can add</p>
+                                <p class="text-center createaWing-description">manually by adding information</p>
+                                <div class="start_btn text-center">
+                                    <button type="button" id="create_a_wing" class="btn createaWing-btn m-2"
+                                        style="width: 240px;" (click)="onAddStaffManually()">Add Staff Manually 
+                                    </button>
+                                    <button type="button" id="create_a_wing" class="btn createaWing-btn m-2"
+                                        style="width: 240px; background-color: #01CA85;" (click)="onUploadCSV()">Upload
+                                        CSV </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid p-0" *ngIf="staffs" [ngStyle]="{'display' : staffs.length > 0 ? 'block' : 'none'}">
+    <div class="row m-0">
+        <div class="col-md-12 col-lg-12">
+            <div class="m-3">
+                <app-data-listing [dataArray]="staffs" [tableHeaders]="tableHeader" [title]="title" moduleName="Staff" (actionEmitter)="onActionEmitter($event)"
+                    [filterListData]="filterListData" (addClickEmitter)="onAddClick($event)" (uploadCSVClickEmitter)="onUploadCSVClick($event)">
+                </app-data-listing>
+            </div>
+          
+        </div>
+    </div>
+</div>
+
+<button type="button" id="resetPasswordBtn" class="btn btn-primary d-none" data-toggle="modal" data-target="#resetPasswordModal">
+    Open modal
+</button>
+
+<div class="modal right" id="resetPasswordModal">
+    <!-- <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header pb-5">
+                <button type="button" class="close float-left pt-1" aria-label="Close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center m-auto" id="AddWing_header">Reset Password</h4>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="resetForm" (ngSubmit)="resetPassword()">                    
+                    <div class="form-group">
+                      <label class="font-weight-bold">New Password</label>
+                      <div class="position-relative">
+                        <input type="password" formControlName="password" class="form-control form-control-lg" #showPassword
+                          [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                        <div class="input-group-append">
+                          <span class="eye-icon"
+                            (click)="showPassword.type=showPassword.type=='password'?'text':'password'">
+                            <i class="far fa-eye"></i>
+                          </span>
+                        </div>
+                        <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                          <div *ngIf="f.password.errors.required">Password is required</div>
+                          <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <label class="font-weight-bold">Confirm New Password</label>
+                      <div class="position-relative">
+                        <input type="password" formControlName="confirmPassword" class="form-control form-control-lg"
+                          #showConfirmPassword [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
+                        <div class="input-group-append">
+                          <span class="eye-icon"
+                            (click)="showConfirmPassword.type=showConfirmPassword.type=='password'?'text':'password'">
+                            <i class="far fa-eye"></i>
+                          </span>
+                        </div>
+                        <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
+                          <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                          <div *ngIf="f.confirmPassword.errors.mustMatch">Passwords must match</div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-group">
+                      <button class="btn btn-red w-100 mt-2">Submit</button>
+                    </div>
+                  </form>
+            </div>
+        </div>
+    </div> -->
+</div>

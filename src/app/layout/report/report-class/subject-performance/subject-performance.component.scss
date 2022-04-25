@@ -1,0 +1,616 @@
+         
+          .toggled .big{
+            display:none;
+        }
+        .toggled.d-flex .small{
+          display: block;
+        }
+        .toggled.d-flex .small svg{
+            width:22px;
+        }
+        .d-flex .small{
+            display:none;
+        }
+        td.action_col{
+            border-top:0px;
+        }
+      
+      .worksheet-tab{
+       width: auto!important;
+       padding-left: 15px;
+       padding-right: 15px;
+       }
+       .filter-border-right{
+       border-right: 1px solid #D1DAE6;
+       }
+      .select-standard-filter, .select-section-filter, .exam-group-filter, .select-student-filter{
+       width: 20%;
+      }
+      .select-standard-filter .dropdown-btn, .select-section-filter .dropdown-btn, .choose-range .dropdown-btn{
+       border: 1px solid #D1DAE6;	
+       border-radius: 2px;	
+       background-color: #FFFFFF;
+       color: #8595A6;	
+       font-family: Inter;	
+       font-size: 13px;	
+       line-height: 21px;
+       width: 94%;
+       height: 36px;
+       margin-right: 14px;
+      }
+      .select-standard-filter .dropdown-btn:after, .select-section-filter .dropdown-btn:after, .choose-range .dropdown-btn:after{
+          float: right;
+         margin-top: 8px;
+      }
+      .select-standard-filter .single.show .dropdown-btn:after, .select-section-filter .single.show .dropdown-btn:after, .choose-range.show .dropdown-btn:after{
+          border-right: .3em solid transparent;
+         border-bottom: .3em solid;
+         border-left: .3em solid transparent;
+         border-top: 0;
+      }
+      .choose-range .dropdown-container{
+       height: auto;	
+       width: 367px;	
+       background-color: #FFFFFF;	
+       box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+       transform: translate3d(-120px, 110px, 0px) !important;
+       
+      }
+      .choose-range .range-avg, .choose-range .range-poor, .choose-range .range-strong {
+        width: 100%;
+        height: 36px;
+        border: 1px solid #D1DAE6;
+        border-radius: 2px;
+        background-color: #F6F7FB;
+     }
+     .choose-range .form-group{
+        border-bottom: 1px solid #D1DAE6;
+     }
+     ::ng-deep .sub_perfor_report .choose-range .slider{
+        width: 90%;
+        margin: 10px 15px;
+       }
+       ::ng-deep .sub_perfor_report .choose-range .slider-track{
+        height: 3px !important;
+        width: 100%;
+        margin-top: -3px !important;
+        top: 50%;
+        left: 0;
+        background-color: #D1DAE6;
+       }
+       ::ng-deep .sub_perfor_report .choose-range .slider-handle{
+        background-color: #5C67E6 !important;
+        background-image: none;
+        width: 24px;
+        height: 20px;
+        border-radius: 10px !important;
+        top: -2px;
+       }
+       ::ng-deep .sub_perfor_report .choose-range .slider-track .slider-selection{
+        background: #5C67E6;
+       }
+       ::ng-deep .sub_perfor_report .choose-range .dropdown-container h5{
+        color: #172B4D;	font-family: Inter;	font-size: 12px;	font-weight: 600;	line-height: 22px;
+       }
+       ::ng-deep .sub_perfor_report .choose-range .dropdown-container p{
+        color: #172B4D;	font-family: Inter;	font-size: 12px;	line-height: 21px;
+       }
+       .choose-range .tooltip-main.top{
+        display: none !important;
+       }
+       
+       ::ng-deep .sub_perfor_report .choose-range .tooltip-min, ::ng-deep .sub_perfor_report .choose-range .tooltip-max{
+        display: block !important;
+        opacity: 1;
+        margin-top: -3px !important;
+       }
+       ::ng-deep .sub_perfor_report .choose-range .tooltip-inner{
+        background: none;
+        font-size:10px;
+       }
+       ::ng-deep .sub_perfor_report .slider.slider-disabled .slider-handle {
+        background-image: inherit !important;
+        background-repeat: repeat-x;
+       }
+       .Avg_input{
+        border: 1px solid #D1DAE6;
+        border-radius: 2px;
+        font-size: 12px;
+        line-height: 21px;
+        height: 32px;
+        color: #172B4D;
+        padding: 0 12px;
+      }
+      .choose-range .form-group{
+       border-bottom: 1px solid #D1DAE6;
+      }
+      .show-result-btn{
+        width: 18%;
+       height: 45px;
+       border-radius: 4px;	
+       background-color: #4952B9;
+       color: #FFFFFF;	
+       font-family: Inter;	
+       font-size: 14px;	
+       font-weight: 600;	
+       line-height: 18px;
+      }
+      .report-setup .reportsetup-img {
+       width: 292px;
+     }		
+     .report-setup .reportsetup-description{
+       color: #8595A6;	
+       font-size: 17px;	
+       line-height: 24px;
+     }
+     .filter-row .single .dropdown-container li{
+       padding: 10px;
+     }
+     .filter-row .single .dropdown-container li span{
+       padding-left: 28px;
+     }
+     .save-class-range{
+       height: 36px;	
+       border-radius: 4px;	
+       background-color: #01CA85;
+       color: #FFFFFF;	
+       font-size: 13px;	
+       font-weight: 600;	
+       line-height: 18px;	
+       text-align: center;
+     }
+     .reset-link{
+     color: #8595A6;	font-family: Inter;	font-size: 12px;	line-height: 21px; cursor:pointer;
+     }
+     
+     .report-pname{
+       color: #172B4D;	
+       font-family: Inter;	
+       font-size: 28px;	
+       font-weight: 500;	
+       line-height: 34px;
+     }
+     .performance-grouping{
+       color: #172B4D;
+       font-size: 21px;
+       font-weight: 600;
+       line-height: 27px;
+     }
+     .poor-score, .average-score, .only-score{
+       color: #3A5077;
+       font-family: Inter;
+       font-size: 12px;
+       font-weight: 500;
+       line-height: 15px;
+     }
+     .poor-score div{
+       height: 12px;
+       width: 12px;
+       background: #00A1FF;
+     }
+     .average-score div{
+       height: 12px;
+       width: 12px;
+       background: #00D264;
+     }
+     .only-score div{
+       height: 12px;
+       width: 12px;
+       background: #7357CD;
+     }
+     .block-1, .block-2{
+       height: auto;
+       border-radius: 4px;	
+       background-color: #FFFFFF;	
+       box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+     }
+     .performance-report-table th{
+       color: #3A5077;	font-family: Inter;	font-size: 11px;	font-weight: 500;	line-height: 18px;
+       height: 45px;	
+       background-color: #FFFFFF;	
+       border: 1px solid #D1DAE6;
+       padding: 10px;
+     }
+     .performance-report-table td{
+       color: #172B4D;	font-family: Inter;	font-size: 14px;	font-weight: 600;	line-height: 18px;
+       height: 60px;	
+       background-color: #FFFFFF;	
+       border: 1px solid #D1DAE6;
+       padding: 10px;
+       word-break: break-word;
+     }
+
+     
+.worksheet-tab{
+   width: auto!important;
+   padding-left: 15px;
+   padding-right: 15px;
+  }
+  .filter-border-right{
+   border-right: 1px solid #D1DAE6;
+  }
+
+  ::ng-deep .sub_perfor_report ng-select{
+    border: 0px solid #D1DAE6;
+    border-radius: 2px;
+    background-color: #FFFFFF;
+    color: #8595A6;
+    font-family: Inter;
+    font-size: 13px;
+    line-height: 21px;
+    width: 94%;
+    height: 36px;
+    margin-right: 14px;
+  }
+
+ .select-standard-filter .dropdown-btn, .select-section-filter .dropdown-btn, .select-subject-filter .dropdown-btn, .select-level-filter .dropdown-btn{
+   border: 1px solid #D1DAE6;	
+   border-radius: 2px;	
+   background-color: #FFFFFF;
+   color: #8595A6;	
+   font-family: Inter;	
+   font-size: 13px;	
+   line-height: 21px;
+   width: 94%;
+   height: 36px;
+   margin-right: 14px;
+ }
+ .select-standard-filter .dropdown-btn:after, .select-section-filter .dropdown-btn:after, .select-subject-filter .dropdown-btn:after,  .select-level-filter .dropdown-btn:after{
+     float: right;
+     margin-top: 8px;
+ }
+ .select-standard-filter .single.show .dropdown-btn:after, .select-section-filter .single.show .dropdown-btn:after, .select-subject-filter .single.show .dropdown-btn:after,  .select-level-filter .single.show .dropdown-btn{
+     border-right: .3em solid transparent;
+     border-bottom: .3em solid;
+     border-left: .3em solid transparent;
+     border-top: 0;
+ }
+ 
+ 
+ .show-result-btn{
+   width: 16%;
+   height: 36px;
+   border-radius: 4px;	
+   background-color: #4952B9;
+   color: #FFFFFF;	
+   font-family: Inter;	
+   font-size: 13px;	
+   font-weight: 600;	
+   line-height: 18px;
+ }
+ .report-setup .reportsetup-img {
+   width: 292px;
+ }		
+ .report-setup .reportsetup-description{
+   color: #8595A6;	
+   font-size: 17px;	
+   line-height: 24px;
+ }
+ .filter-row .single .dropdown-container li, .select-level-filter .dropdown-container li {
+   padding: 10px;
+ }
+ .filter-row .single .dropdown-container li span , .select-level-filter .dropdown-container li span{
+   padding-left: 28px;
+ }
+ .save-class-range{
+   height: 36px;	
+   border-radius: 4px;	
+   background-color: #01CA85;
+   color: #FFFFFF;	
+   font-size: 13px;	
+   font-weight: 600;	
+   line-height: 18px;	
+   text-align: center;
+ }
+ .reset-link{
+ color: #8595A6;	font-family: Inter;	font-size: 12px;	line-height: 21px; cursor:pointer;
+ }
+ 
+ .report-pname{
+   color: #172B4D;	
+   font-family: Inter;	
+   font-size: 24px;	
+   font-weight: 500;	
+   line-height: 34px;
+ }
+ .performance-grouping{
+   color: #172B4D;
+   font-size: 21px;
+   font-weight: 600;
+   line-height: 27px;
+ }
+ .very-hard-gr, .hard-gr, .medium-gr, .easy-gr{
+   color: #3A5077;
+   font-family: Inter;
+   font-size: 11px;
+   font-weight: 500;
+   line-height: 15px;
+ }
+ .very-hard-gr div{
+   height: 12px;
+   width: 12px;
+   background: #2352F5;
+ }
+ .hard-gr div{
+   height: 12px;
+   width: 12px;
+   background: #00A1FF;
+ }
+ .medium-gr div{
+   height: 12px;
+   width: 12px;
+   background: #00D264;
+ }
+ .easy-gr div{
+   height: 12px;
+   width: 12px;
+   background: #7357CD;
+ }
+ .block, .block-1, .block-2{
+   height: auto;
+   border-radius: 4px;	
+   background-color: #FFFFFF;	
+   box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+ }
+ .exam-report-table th{
+   color: #3A5077;	font-family: Inter;	font-size: 12px;	font-weight: 500;	line-height: 18px;
+   height: 45px;	
+   background-color: #FFFFFF;	
+   border: 1px solid #D1DAE6;
+   padding: 10px;
+   text-align: center;
+ }
+ .exam-report-table td{
+   color: #172B4D;	font-family: Inter;	font-size: 14px;	font-weight: 600;	line-height: 18px;
+   height: 60px;	
+   background-color: #FFFFFF;	
+   border: 1px solid #D1DAE6;
+   padding: 10px;
+   text-align: center;
+ }
+ 
+ .exam-report-table td:first-of-type, .exam-report-table th:first-of-type{
+   text-align: left;
+ }
+ .exam-taken-head{
+   color: #172B4D;	font-family: Inter;	font-size: 21px;	font-weight: 600;	line-height: 27px;
+ }
+ 
+ 
+ .worksheettab-row {
+   border-bottom: 1px solid #D1DAE6;
+ }
+ 
+ .exam-taken-head, .overall-rank-head{
+   color: #172B4D;	font-family: Inter;	font-size: 19px;	font-weight: 600;	line-height: 27px;
+ }
+ 
+ .report-setup .top-header{
+   font-size: 22px;
+ }
+ .report-setup .reportsetup-description{
+   font-size: 15px;
+ }
+ .filter-row .filterBy h4 {
+   color: #172B4D;
+   font-size: 18px;
+   font-weight: 600;
+   line-height: 27px;
+ }
+ ::ng-deep .sub_perfor_report .ng-select{
+   font-size: 13px;
+ }
+ .filter-row{
+   height: 100%;
+   background-color: #FFFFFF;
+   box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+ }
+ .worksheettab-row .worksheettab {
+   width: 100%;
+   height: 48px;
+   background-color: #ffffff;
+ }
+ 
+ .worksheettab-row .worksheettab .worksheet-tab {
+   width: 179px;
+   float: left;
+ }
+ 
+ .worksheettab-row .worksheettab .worksheet-tab h4 {
+   color: #8595A6;
+   font-size: 13px;
+   font-weight: 400;
+   line-height: 20px;
+   text-align: center;
+   margin-top: 12px;
+ }
+ 
+ .worksheettab-row .worksheettab .bloomdifficulty-tab {
+   width: 253px;
+   float: left;
+ }
+ 
+ .worksheettab-row .worksheettab .bloomdifficulty-tab h4 {
+   color: #8595A6;
+   font-size: 14px;
+   font-weight: 400;
+   line-height: 20px;
+   text-align: center;
+   margin-top: 12px;
+ }
+ 
+ .worksheettab-row .worksheettab button.preview-btn {
+   width: 264px;
+   background-color: #3A5077;
+   color: #ffffff;
+   font-size: 14px;
+   font-weight: 500;
+   line-height: 22px;
+   border-radius: 0px;
+ }
+ 
+ .worksheettab-row .worksheettab .worksheet-tab.active, .worksheettab-row .worksheettab .bloomdifficulty-tab.active {
+   border-bottom: 2px solid #5C67E6;
+ }
+ 
+ .worksheettab-row .worksheettab .worksheet-tab.active h4, .worksheettab-row .worksheettab .bloomdifficulty-tab.active h4 {
+   color: #5C67E6;
+   font-weight: 500;
+ }
+ .report-setup .reportsetup-img {
+   width: 170px;
+ }
+ ::ng-deep .sub_perfor_report .highcharts-title {
+   display: none !important;
+ }
+ 
+ ::ng-deep .sub_perfor_report .highcharts-credits {
+   display: none !important;
+ }
+
+ 
+
+ .report-setup .top-header{
+  font-size: 22px;
+}
+.report-setup .reportsetup-description{
+  font-size: 15px;
+}
+.filter-row .filterBy h4 {
+  color: #172B4D;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+
+::ng-deep .sub_perfor_report .select-student-filter .cuppa-dropdown{
+  border: 1px solid #ced4da !important;
+  height: 36px;
+}
+::ng-deep .sub_perfor_report .select-student-filter .cuppa-dropdown .selected-list{
+  color: #999999;
+}
+::ng-deep .sub_perfor_report .select-student-filter .cuppa-dropdown .c-btn{
+  display: block;
+  min-height: 34px !important;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 1.5;
+  padding: 8px 10px;
+}
+::ng-deep .sub_perfor_report .list-area label {
+  font-size: 13px;
+  font-weight: 500 !important;
+}
+::ng-deep .sub_perfor_report .list-area span .grp-item label {
+  font-size: 13px;
+  font-weight: 400 !important;
+}
+::ng-deep .sub_perfor_report .select-student-filter .cuppa-dropdown .c-btn:focus{
+  outline: none;
+}
+::ng-deep .sub_perfor_report .pure-checkbox input[type=checkbox]+label:before{
+  border: 1px solid #5c67e6;
+  box-sizing: content-box;
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 15px;
+  height: 15px;
+  margin-top: -9px;
+  text-align: center;
+  transition: .4s;
+  border-radius: 3px;
+}
+::ng-deep .sub_perfor_report .pure-checkbox input[type=checkbox]:checked+label:after{
+  width: 3px;
+  height: 8px;
+  border: solid #5c67e6;
+  transform: rotate(45deg) !important;
+  border-width: 0 2px 2px 0;
+  left: 6px;
+  top: 8px;
+}
+::ng-deep .sub_perfor_report .select-student-filter .cuppa-dropdown .selected-list .c-angle-up{
+  border-color: transparent transparent #999999;
+  border-width: 0 5px 5px;
+  width: 0px;
+  height: 0px;
+  border-style: solid;
+}
+::ng-deep .sub_perfor_report .select-student-filter .cuppa-dropdown .selected-list .c-angle-down{
+  border-color: #999999 transparent transparent;
+  border-style: solid;
+  border-width: 5px 5px 2.5px;
+  width: 0px;
+  height: 0px;
+}
+::ng-deep .sub_perfor_report .selected-list .c-list .c-token{
+  background: #3A5077;
+  color: #fff;
+  margin-right: 9px !important;
+  margin-left: -4px;
+  display: none;
+  margin-top: -4px !important;
+}
+::ng-deep .sub_perfor_report .selected-list .c-list .c-token:nth-child(1),::ng-deep .sub_perfor_report .selected-list .c-list .c-token:nth-child(2) {
+  display: block;
+}
+
+.select-student-filter{
+  width: 28%;
+  margin-right: 0px;
+}
+
+.dropdown-menu.show {
+  top:0 !important;
+}
+
+::ng-deep .sub_perfor_report .slider.slider-disabled .slider-handle {
+  background-image: inherit !important;
+  background-repeat: repeat-x;
+ }
+
+ .errortext{
+  color: rgb(184, 68, 32);
+}
+
+::ng-deep .sub_perfor_report .dropdown-list .list-area{
+  width: max-content !important;
+}
+
+
+.w_fix{
+  max-width:1200px;
+  margin: auto;
+}
+
+
+::ng-deep .sub_perfor_report .select-student-filter .cuppa-dropdown .list-message{
+  font-size: 13px !important;
+  color: #cccccc;
+  padding: 8px 10px;
+  font-weight:400;
+}
+.filter-row .filterBy{
+  position: relative;
+  .clear_filter{
+      position: absolute;
+      right: 16px;
+      top: 9px;
+      font-family: Inter;
+      font-size: 12px;
+      line-height: 21px;
+      text-align: center;
+      padding-top: 10px;
+      border-radius: 0px !important;
+      border: 1px solid #ced4da !important;
+      padding: 5px 15px;
+      cursor: pointer;
+  }
+  .clear_filter:hover{
+      color: #5C67E6;
+  }
+}

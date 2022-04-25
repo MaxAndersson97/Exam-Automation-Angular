@@ -1,0 +1,67 @@
+
+<div class="tab-pane active" id="schoolDetails" role="tabpanel">
+    <form>
+        <div class="schoolDetail-form p-4" *ngIf="schoolProfile">
+            <div class="row">
+                <div class="form-group col-md-12 col-lg-12">
+                    <label class="">Address </label>
+                    <input type="text" name="PlotNo" class="form-control" [(ngModel)]="schoolProfile.Address1"
+                        placeholder="Address" id="txtPlotNo" />
+                </div>
+                <div class="form-group col-md-6 col-6">
+                    <label class="">Pincode </label>
+                    <input type="text" [(ngModel)]="schoolProfile.Pincode" class="form-control" value="" placeholder="e.g. 452002" id="txtpincode" onkeypress="if(this.value.length==6) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250" name="Pincode" (keydown)="avoidSpace($event)" (keypress)="numberOnly($event)" (change)="getFullAddressDetails($event)"/>
+                </div>
+                <div class="form-group col-md-6 col-6">
+                    <label class="">Locality</label>
+                    <ng-select name="locality" [(ngModel)]="schoolProfile.PincodeId" [items]="localityList" bindLabel="Locality" bindValue="PincodeId" [searchable]=false>
+                        <ng-template ng-option-tmp let-item="item"> <span
+                                style="text-transform: capitalize">
+                                {{item.Locality.toLowerCase()}}</span>
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.Locality"
+                                style="text-transform: capitalize">
+                                {{ item.Locality.toLowerCase()}}</span>
+                            <span *ngIf="!(item.Locality)" style="color: #999999;">
+                                Select Locality</span>
+                        </ng-template>
+                    </ng-select>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 col-lg-6">
+                    <label class="">Landmark</label>
+                    <input type="text" name="Landmark" class="form-control" [(ngModel)]="schoolProfile.Landmark" placeholder="Landmark" id="txtLandmark"/>
+                </div>
+                <div class="form-group col-md-6 col-lg-6">
+                    <label class="">City</label>
+                    <input type="text" name="City" class="form-control" [(ngModel)]="schoolProfile.City"
+                    placeholder="e.g. Indore" id="txtCity" readonly="true" style="text-transform: capitalize;"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 col-lg-6 single">
+                    <label class="">State</label>
+                    <input id="ddlState" id="txtState" name="ddlState" class="form-control" [(ngModel)]="schoolProfile.StateName" placeholder="e.g. Madhya Pradesh" readonly="true" style="text-transform: capitalize;">
+                </div>
+                <div class="form-group col-md-6 col-lg-6 single">
+                    <label class="">Country</label>
+                    <input id="ddlCountry" id="txtCountry" class="form-control" name="ddlCountry" [(ngModel)]="schoolProfile.CountryName"  placeholder="e.g. India" readonly="true" style="text-transform: capitalize;">
+                            
+                </div>
+                
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 col-lg-12">
+                    <button type="button" id="save_And_Proceed" (click)="onSubmit();"
+                        class="btn saveAndProceed-btn float-right "
+                        [ngClass]="{'disableValidationButton': !schoolProfile.Address1 || !schoolProfile.Landmark || !schoolProfile.City}"
+                        [disabled]="!schoolProfile.Address1 || !schoolProfile.Landmark || !schoolProfile.City || !schoolProfile.PincodeId">Save
+                        and Proceed</button>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

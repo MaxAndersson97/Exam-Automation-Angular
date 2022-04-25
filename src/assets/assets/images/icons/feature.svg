@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="4px" viewBox="0 0 16 4" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53 (72520) - https://sketchapp.com -->
+    <title>AF9B677B-8BDF-4968-82BA-FE1641904784</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M16,8 C17.103,8 18,8.897 18,10 C18,11.103 17.103,12 16,12 C14.897,12 14,11.103 14,10 C14,8.897 14.897,8 16,8 Z M10,8 C11.103,8 12,8.897 12,10 C12,11.103 11.103,12 10,12 C8.897,12 8,11.103 8,10 C8,8.897 8.897,8 10,8 Z M4,8 C5.103,8 6,8.897 6,10 C6,11.103 5.103,12 4,12 C2.897,12 2,11.103 2,10 C2,8.897 2.897,8 4,8 Z" id="path-1"></path>
+    </defs>
+    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="15.-AS---WingSetup---Wings" transform="translate(-982.000000, -186.000000)">
+            <g id="Group" transform="translate(660.000000, 158.000000)">
+                <g id="IconSet/More/Default" transform="translate(320.000000, 20.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Mask" fill="#8595A6" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

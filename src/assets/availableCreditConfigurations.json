@@ -1,0 +1,40 @@
+{
+	"availableCreditConfigurations":{
+		"minimumCreditForFreeOrUnlimited": 25,
+		"dateRangeByTodayForExpireSoonMessage": 7,
+		"creditLimitForFree":{
+			"expireSoon":{
+				"showUpgradeNowLink" : true,
+				"showToolTipIcon" : false,
+				"tooltipMessage" : ""
+			},
+			"expired":{
+				"showUpgradeNowLink" : true,
+				"showToolTipIcon" : false,
+				"tooltipMessage" : ""
+			},
+			"freePlan":{
+				"showUpgradeNowLink" : true,
+				"showToolTipIcon" : false,
+				"tooltipMessage" : ""
+			}
+		},
+		"creditLimitForUnlimited":{
+			"expireSoon":{
+				"showUpgradeNowLink" : true,
+				"showToolTipIcon" : false,
+				"tooltipMessage" : ""
+			},
+			"expired":{
+				"showUpgradeNowLink" : true,
+				"showToolTipIcon" : false,
+				"tooltipMessage" : ""
+			},
+			"unlimitedPlan":{
+				"showUpgradeNowLink" : true,
+				"showToolTipIcon" : true,
+				"tooltipMessage" : "Out of credits, call us to add more credit in your unlimited plan"
+			}
+		}
+	}
+}

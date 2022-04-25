@@ -1,0 +1,239 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid p-0">
+      <div class="row">
+        <div class="col-12 steptext mt-3 mx-3"><strong>Note:</strong> After the OMR file/s are uploaded successfully, it will take couple of minutes to provide you with the results. Kindly refresh the pages after some time. </div>
+          <div class="col-md-12 col-lg-12">
+              <div class="m-3 detail_omr">
+                  <div class="col-lg-12 col-md-12 p-0">
+                      <div class="row d-none">
+                          <div class="col-6 col-md-6">
+                              <h2 class="top-header mb-3">OMR {{sharedService.getOmrResult() | titlecase}} Results</h2>
+                          </div>
+                          <div class="col-6 col-md-6 text-right d-none">
+                            <button class="btn  publish-btn"  *ngIf="sharedService.getOmrResult() != 'failed'" type="button" (click)="changeResultStaus()" >{{resultStatus == 3 ?'PUBLISHED':'PUBLISH'}}</button>
+                        </div>
+                      </div>
+                        <div class="row m-0 top-headerS">
+                          <div class="col-md-2">
+                            <p class="test_id mb-0" *ngIf="TestId!=''">TEST ID: {{TestId}}</p>
+                          </div>
+                          <div class="col-md-8 text-center">
+                              <div class="center-head" style="cursor: pointer;">
+                                  <span class="tabs" [ngClass]="{'active': sharedService.getOmrResult() != 'failed'}" (click)="omrResult('success')">OMR Success Results <span>({{omrCount}})</span></span>
+                                  <span class="tabs" [ngClass]="{'active': sharedService.getOmrResult() == 'failed'}" (click)="omrResult('failed')">OMR Failed Results <span>({{omrRejectedCount}})</span></span>
+                              </div>
+                          </div>
+                          <div class="col-md-2 text-right">
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-lg-12 col-md-12 p-0">
+                      <div class="  assign-exam-list class_setup imported-data">
+                          <div class="overflow">
+                              <table id="classTestExam" class="w-100 student-list table">
+                                  <thead>
+                                      <tr>
+                                          <th class="serialNo text-center" width="7%">Serial No.</th>
+                                          <th class="assignType" *ngIf="sharedService.getOmrResult() != 'failed'" width="15%"><p>Student Name</p></th>
+                                          <th class="assignMode" *ngIf="sharedService.getOmrResult() != 'failed'" width="10%"><p>Roll Number</p></th>
+                                          <th class="assignMode" *ngIf="sharedService.getOmrResult() != 'failed'" width="8%"><p>Attendance</p></th>
+                                          <th class="assignTotalMarks" *ngIf="sharedService.getOmrResult() != 'failed'" width="8%"><p>Marks</p></th>
+
+                                          <th class="assignTotalMarks" *ngIf="sharedService.getOmrResult() == 'failed'"><p>Message</p></th>
+
+                                          <th class="assignTotalMarks" width="8%"><p>Created Date</p></th>
+                                          <th class="assignTotalMarks" width="7%"><p>Created By</p></th>
+                                          <th class="assignTotalMarks" width="7%"><p>Updated Date</p></th>
+                                          <th class="assignTotalMarks" width="7%"><p>Updated By</p></th>
+
+                                          <th ><p class="tablespace"></p></th>
+                                          <th class="action_col"><div class="action"></div></th>
+                                      </tr>
+                                  </thead>
+                                  <tbody>
+                                      <tr *ngFor="let exam of paperDetails; let i = index;">
+                                          <td class="serialNo text-center">{{i+1}}</td>
+                                          <td class="assignType" *ngIf="sharedService.getOmrResult() != 'failed'">{{exam.StudentName | lowercase}}</td>
+                                          <td class="assignMode" *ngIf="sharedService.getOmrResult() != 'failed'">{{exam.RollNumber}}</td>
+                                          <td class="assignMode" *ngIf="sharedService.getOmrResult() != 'failed'" [ngClass]="{'text-success':exam.IsAttempted, 'text-danger':!exam.IsAttempted}">{{exam.IsAttempted? 'Present' : 'Absent'}}</td>
+                                          
+                                          <td  class="assignTotalMarks" *ngIf="sharedService.getOmrResult() != 'failed'">
+                                              {{exam.TotalMarks}} Marks
+                                          </td>
+
+                                          <td class="text-danger" *ngIf="sharedService.getOmrResult() == 'failed'">
+                                            {{exam.ResponseMessage}}
+                                          </td>
+
+                                          <td  class="assignTotalMarks">
+                                            {{exam.CreatedDateTime}}
+                                          </td>
+
+                                          <td  class="assignTotalMarks">
+                                            {{exam.CreatedByName}}
+                                          </td>
+                                          <td  class="assignTotalMarks">
+                                            {{exam.UpdatedDateTime}}
+                                          </td>
+                                          <td  class="assignTotalMarks">
+                                            {{exam.CreatedByName}}
+                                          </td>
+
+                                          <td class="action_col">
+                                                <div class="remove single tog">
+                                                  <div class="dropdown "> 
+                                                        <button class="btn btn-primary dropdown-toggle form-control margin-4"
+                                                            type="button" data-toggle="dropdown"
+                                                            [ngStyle]="{'cursor': (exam.ExamStatus == 2 || exam.IsAttempted == false) ? 'not-allowed': 'pointer'}">
+                                                            Action
+                                                            <span class="caret"></span>
+                                                        </button>
+
+                                                        <ng-container *ngIf="sharedService.getOmrResult() != 'failed'">
+                                                            <ul class="dropdown-menu p-0">
+                                                                <li *ngIf="(!exam.IsManualEntry || exam.EAOmrsheetStatus == 9)"><a (click)="viewOMRSheet(exam)">VIEW</a></li>
+                                                                <li *ngIf="((!exam.IsManualEntry || exam.EAOmrsheetStatus == 9) && resultStatus != 3)"><a (click)="OMRQuestionEdit(exam)">EDIT</a></li>
+                                                                <li *ngIf="(exam.EAOmrsheetStatus != 9 && exam.IsAttempted)">
+                                                                  <a (click)="OMRQuestion(exam)">MANUAL</a>
+                                                                </li>
+                                                            </ul>
+                                                        </ng-container>
+
+                                                        <ng-container *ngIf="sharedService.getOmrResult() == 'failed'">
+                                                          <ul class="dropdown-menu p-0">
+                                                              <li *ngIf="(exam.OmrSheetFilePath != '')"><a  (click)="getomrfile(exam)" >OMR File</a></li>
+                                                              <li *ngIf="(exam.jsonFileName != null)"><a (click)="getomrjson(exam)" >OMR JSON</a></li>            
+                                                          </ul>
+                                                      </ng-container>
+                                                  </div>
+                                                </div>
+                                          </td>
+                                      </tr>                                          
+                                  </tbody>                         
+                                  <ng-container *ngIf="paperDetails && paperDetails.length < 1">
+                                      <div class="no-result-found">No Results Uploaded.</div>
+                                  </ng-container>
+                              </table>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+<!-- modal for answer view modal -->
+
+<div class="modal right fade" id="student_answer_modal" bsModal #student_answer_modal="bs-modal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header pb-4">
+              <button type="button" class="close float-left pt-1" data-dismiss="modal" aria-label="Close" (click)="closeModal('answer')"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title text-center m-auto" id="AddWing_header" style="text-transform: capitalize;">{{selectedStudentData?.StudentName | lowercase}}</h4>
+          </div>
+          <div class="modal-body">
+            <div class="addWing-form ptb-1">
+              <table class="w-100">
+                <thead>
+                  <tr>
+                    <th class="text-center">Q INDEX</th>
+                    <th class="text-center">ANSWER MARKED</th>
+                    <th class="text-center">MARKS OBTAINED</th>
+                    <th class="text-center">CORRECT ANSWER</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let omrSheet of OMRDetails">
+                    <td class="text-center">{{omrSheet.QuestionNumber}}</td>
+                    <td class="text-center">{{omrSheet.SelectedAnswer}}</td>
+                    <td class="text-center">{{omrSheet.Marks}}</td>
+                    <td class="text-center">{{omrSheet.CorrectOption}}</td>
+                  </tr>
+                  <tr>
+                    <td colspan="2">
+                      TOTAL SCORE
+                    </td>
+                    <td colspan="2">
+                      {{totalMarks}}
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+      </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div>
+
+<!-- modal -->
+
+<!-- modal for question view modal -->
+
+<div class="modal right fade" id="student_question_modal" bsModal #student_question_modal="bs-modal">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header pb-4">
+              <button type="button" class="close float-left pt-1" data-dismiss="modal" aria-label="Close" (click)="closeModal('question')"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title text-center m-auto" id="AddWing_header" style="text-transform: capitalize;">{{selectedStudentData?.StudentName | lowercase}}</h4>
+              
+          </div>
+          <div class="modal-body">
+                <div class="addWing-form p-4">
+                  <table class="w-100">
+                    <thead>
+                      <tr>
+                        <th>Q INDEX</th>
+                        <th class="text-center" colspan="4">OPTIONS</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let question of OMRQuestionList; let queIndx = index;">
+                        <td>{{question.QueNumber}}</td>
+                        <td *ngFor="let mcq of question?.lstOption; let optIndx = index;"> 
+                          <label>
+                            <span>{{mcq.OptionSlag}}</span>
+                            <input type="radio" class="height-12" 
+                            (change)="onSelectOption($event.target.value,queIndx,optIndx)" 
+                            name="opt_{{queIndx +1}}" [value]="mcq.OptionSlag"
+                            [checked]="mcq.OptionSlag == question.SelectedAnswer">
+                          </label>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="row my-4">
+                      <div class="form-group col-md-12 col-lg-12">
+                          <button *ngIf="!questionModalisUpdate" type="button" id="addMarksBtn"  class="btn addMarksBtn w-100 mt-2" (click)="addMarksManual()" [disabled]="!(questionInfo.length > 0)">Upload Result</button>
+                          <button *ngIf="questionModalisUpdate" type="button" id="addMarksBtn"  class="btn addMarksBtn w-100 mt-2" (click)="updateMarksManual()" [disabled]="!(questionInfo.length > 0)">Update Result</button>
+                      </div>
+                  </div>
+                </div>
+          </div>
+      </div><!-- modal-content -->
+  </div><!-- modal-dialog -->
+</div>
+
+<!-- modal -->
+
+<style>
+  td{
+    word-break: keep-all;
+    font-size: 15px;
+  }
+  .test_id{
+    color: #3A5077;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    padding-top: 10px;
+  }
+  .steptext{
+    color: #3A5077;
+    font-size: 14px;
+    line-height: 21px;
+  }
+</style>
+
+
+

@@ -1,0 +1,144 @@
+.quick-tip-left-right .left-quick-tip:hover{
+  text-decoration:none;
+}
+.quick-tip-left-right .left-quick-tip:hover path{
+  fill: #5C67E6;
+}
+.quick-tip-left-right .right-quick-tip:hover path{
+  fill: #5C67E6;
+}
+
+.danger{
+  color: #dc3545;
+  font-size: 14px;
+}
+
+
+input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #8595A6;
+}
+input::-moz-placeholder { /* Firefox 19+ */
+  color: #8595A6;
+}
+input:-ms-input-placeholder { /* IE 10+ */
+  color: #8595A6;
+}
+input:-moz-placeholder { /* Firefox 18- */
+  color: #8595A6;
+}
+.login-form .passwordfield svg{
+position: absolute;
+right: 25px;
+margin-top: -30px;
+cursor: pointer;
+}
+.login-form .passwordfield svg path{
+fill: #8595A6;
+}
+.login-form .passwordfield svg.color-change path{
+fill: #5C67E6;
+}
+
+
+.ml-25 {
+margin-left: -25px !important;
+}
+
+@media screen and (min-width: 290px) {
+.ml-25 {
+  margin-left: 0px !important;
+}
+.login .login-left {
+  margin-bottom: 360px;
+}
+.login .login-right img {
+  height: 250px;
+}
+// .container {
+//   width: 1370px;
+// }
+}
+
+
+@media screen and (min-width: 360px) {
+.ml-25 {
+  margin-left: 0px !important;
+  margin-top: 5px !important;
+}
+.login .login-left {
+  margin-bottom: 320px;
+}
+.login .login-right img {
+  height: 250px;
+}
+// .container {
+//   width: 1370px;
+// }
+}
+
+@media screen and (min-width: 1400px) {
+.login .login-left {
+  margin-bottom: 0px;
+}
+.login .login-right img {
+  height: 420px;  
+}
+// .container {
+//   width: 1370px;
+// }
+.ml-25 {
+  margin-left: -25px !important;
+  margin-top: 0px !important;
+}
+
+}
+@media screen and (min-width: 1600px) {
+.login .login-left {
+  margin-bottom: 0px;
+}
+.login .login-right img {
+  height:520px;
+}
+// .container {
+//   width: 1570px;
+// }
+.ml-25 {
+margin-left: -25px !important;
+margin-top: 0px !important;
+}
+
+}
+@media screen and (min-width: 1900px) {
+.login .login-left {
+  margin-bottom: 0px;
+}
+// .container {
+//   width: 1870px;
+// }
+.login .login-right img {
+  height:620px;
+}
+.ml-25 {
+  margin-left: -25px !important;
+  margin-top: 0px !important;
+}  
+}
+
+
+.steptext {
+height: 21px;
+color: #B7C1CB;
+font-size: 14px;
+line-height: 21px;
+}
+
+.required-mark{
+color: red;
+font-size: 14px;
+}
+
+::ng-deep .ng-select .ng-select-container {
+border-radius: 4px;
+min-height: 40px !important;
+align-items: center;
+}

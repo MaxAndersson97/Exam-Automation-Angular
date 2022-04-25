@@ -1,0 +1,133 @@
+<div id="page-content-wrapper" class="class_performance_D assign_roll">
+  <div class="container-fluid p-0">
+      <div class="row">
+          <div class="col-md-12 col-lg-12">
+              <div class="filter-row py-3">
+                  <div class="col-md-12 col-lg-12 p-0">
+                    <!-- <div class="filterBy float-left py-2 px-3  text-left w-100"><h4>Filters</h4></div> -->
+                    <div class="filterBy float-left py-2 px-3  text-left w-100">
+                      <h4>Filters</h4>
+                      <div class="clear_filter" (click)="clearFilter();">Clear Filter</div>
+                    </div>
+                    <div class="w-100 px-3 pb-2">
+                      <div class="float-left select-standard-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.academicYearsID" name="AcademicSessionID" [items]="academicList" placeholder="Select Academic Year"  bindValue="AcademicYearID" [searchable]='false'
+                          (change)="getInstituteDDLClass(); assigndisbalebtn();" >
+                            <ng-template ng-option-tmp let-item="item">
+                                {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                                    {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}</span>
+                                <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select
+                                    Academic Session</span>
+                            </ng-template>
+                          </ng-select>
+                      </div>
+                      </div>
+                      <div class="float-left select-standard-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.ClassID" [items]="classes" bindLabel="ClassName" placeholder="Select Class"
+                            bindValue="ClassID" [searchable]=false (change)="getSectionByClassID(studentFilterObj.ClassID); assignbtn(); changesectionstatus();">
+                            <ng-template ng-option-tmp let-item="item">
+                              <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                              <span *ngIf="item.ClassName" style="text-transform: capitalize"> {{item.ClassName.toLowerCase()}}</span>
+                              <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                            </ng-template>
+                
+                          </ng-select>
+                        </div>
+                      </div>
+                      
+                      <div class="float-left select-standard-filter">
+                        <div class="single tog">
+                          <ng-select [(ngModel)]="studentFilterObj.EA_SectionID" name="EA_SectionID" [items]="sectionList" bindValue="AESectionID" [searchable]='false' placeholder="Select Section" (change)="assignbtn(); changesectionstatusf();">
+                            <ng-template ng-option-tmp let-item="item" >
+                                {{ item.SectionName}}
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                                <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                            </ng-template>
+                        </ng-select>
+                        </div>
+                      </div>
+
+                      <div class="float-left select-all-filter">
+                        <div class="single tog">
+                          <div (change)="changesectionstatus()">
+                            <label class="w-100"><span>Select All Sections</span>
+                              <label class="switch">
+                                <input type="checkbox" [checked]="selectsectionstatus === true" (change)="changesectionstatus()" [disabled]="selectsectionstatus === true">
+                                <span class="slider round" (change)="changesectionstatus()"></span>
+                            </label>
+                            </label>
+                          </div>
+                        </div>
+                      </div>
+
+                      <button type="button" id="generaterollnoBtn" class="btn show-result-btn mr-2"  [disabled] = "!generaterollno"  (click)="addrollno()">Generate Roll No.</button>
+                      <button type="button" id="showResultBtn" class="btn show-result-btn mr-2"   [disabled]= "!showbtn" (click)="addrolllist()">Show Result</button>
+                    </div>
+                  </div>
+              </div>
+          </div>
+
+          <div class="col-md-12 col-lg-12" *ngIf="!noDataFound">
+            <div class="m-3 row">
+                <h2 class="class_performance_details_head">Assign Roll No.</h2>
+                  <!---------------low-course-completion----------->
+                  <div class="overall_data p-3 mt-2 w-100">
+                    <div class="overall_data_table">
+                      <table class="w-100">
+                        <thead>
+                          <tr>
+                            <th width="10%">Serial No.</th>
+                            <th width="10%">SECTION</th>
+                            <th width="40%">STUDENT NAME</th>
+                            <th width="40%">ROLL NO.</th>
+
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let data of assignstudentlist ; let i = index;">
+                            <td>{{i+1}}</td>
+                            <td>{{data.SectionName}}</td>
+                            <td>{{data.Name | lowercase}}</td>
+                            <td>{{data.CurrentRollNumber}}
+                              <button type="button" id="generaterollnoBtn" *ngIf="!data.CurrentRollNumber" class="btn generate_r_btn mr-2"   (click)="addrollnoforone(data)">Generate Roll No.</button>
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+            </div>
+          </div>
+
+          <div class="col-md-12 col-lg-12" *ngIf="noDataFound">
+            <div class="m-3">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">    
+                   <div class="row report-setup">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="reportsetup-img mx-auto mt-2">
+                                <img src="/assets/images/reports.svg" alt="" class="w-100 mt-2">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="reportsetup-content mx-auto ">
+                                <h2 class="text-center top-header my-3">No report to show</h2>
+                                <p class="text-center reportsetup-description mb-0">Please let us know the academic year, class and  section</p>
+                                <p class="text-center reportsetup-description">from the above dropdown to get the results</p>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+      </div>
+  </div>
+</div>

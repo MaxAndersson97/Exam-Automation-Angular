@@ -1,0 +1,352 @@
+
+.toggled .big{
+    display:none;
+}
+.toggled.d-flex .small{
+    display: block;
+}
+.toggled.d-flex .small svg{
+    width:22px;
+}
+.d-flex .small{
+    display:none;
+}
+td.action_col{
+    border-top:0px;
+}
+
+.worksheet-tab{
+    width: 170px !important;
+    }
+    
+.select-standard-filter, .select-section-filter, .exam-group-filter{
+    width: 17%;
+    // margin-right:11px;
+    }
+.select-student-filter{
+    width: 17%;
+    // margin-right: 12px;
+}
+::ng-deep .chapter_analysis .ng-select{
+    padding-right:12px;
+}
+.select-standard-filter .dropdown-btn, .select-section-filter .dropdown-btn, .exam-group-filter .dropdown-btn, .select-student-filter .dropdown-btn{
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #FFFFFF;
+    color: #8595A6;	
+    font-family: Inter;	
+    font-size: 14px;	
+    line-height: 21px;
+    width: 94%;
+    height: 45px;
+    margin-right: 14px;
+}
+.select-standard-filter .dropdown-btn:after, .select-section-filter .dropdown-btn:after, .exam-group-filter .dropdown-btn:after, .select-student-filter .dropdown-btn:after{
+    float: right;
+    margin-top: 8px;
+}
+.select-standard-filter .single.show .dropdown-btn:after, .select-section-filter .single.show .dropdown-btn:after, .exam-group-filter .single.show .dropdown-btn:after, .select-student-filter .single.show .dropdown-btn:after{
+    border-right: .3em solid transparent;
+    border-bottom: .3em solid;
+    border-left: .3em solid transparent;
+    border-top: 0;
+}
+.show-result-btn{
+    width: 15%;
+    height: 36px;
+    border-radius: 4px;	
+    background-color: #4952B9;
+    color: #FFFFFF;	
+    font-family: Inter;	
+    font-size: 12px;	
+    font-weight: 600;	
+    line-height: 18px;
+}
+.report-setup .reportsetup-img {
+    width: 170px;
+}		
+.report-setup .reportsetup-description{
+    color: #8595A6;	
+    font-size: 17px;	
+    line-height: 24px;
+}
+.filter-row .single .dropdown-container li{
+    padding: 10px;
+}
+.filter-row .single .dropdown-container li span{
+    padding-left: 28px;
+}
+.report-pname{
+    color: #172B4D;	
+    font-family: Inter;	
+    font-size: 24px;	
+    font-weight: 500;	
+    line-height: 34px;
+}
+.ct-analysis-list{
+    background-color: #ffffff;
+    box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+    position: relative;
+    width: 100%;
+    border-radius: 4px;
+    overflow: auto;
+}
+.ct-analysis-list .top-main-thead th{
+    color: #3A5077;	
+    font-size: 13px;	
+    font-weight: 500;	
+    line-height: 18px;	
+    border-bottom: 1px solid #D1DAE6;
+}
+.ct-analysis-list .top-thead th{
+    color: #3A5077;	
+    font-size: 11px;	
+    font-weight: 500;	
+    line-height: 18px;
+}
+.ct-analysis-list .top-main-tbody td{
+    color: #172B4D;	
+    font-size: 14px;	
+    font-weight: 600;	
+    line-height: 18px;
+    border-top: 1px solid #D1DAE6;
+    border-bottom: 1px solid #D1DAE6;
+}
+.ct-analysis-list .main-tbody td{
+    color: #172B4D;	
+    font-size: 16px;	
+    line-height: 18px;
+}
+.ct-analysis-list .main-tbody a{
+    color: #5C67E6;	
+    font-size: 14px;	
+    line-height: 21px;
+}
+.ct-analysis-list .main-tbody td a::after{
+    width: 0;
+    height: 0;
+    border-bottom: 5px solid transparent;
+    border-top: 5px solid transparent;
+    border-left: 5px solid #5C67E6;
+    font-size: 0;
+    line-height: 0;
+        margin-left: 10px;
+margin-top: 5px;
+}
+.ct-analysis-list td{
+    height: 60px;
+    padding: 17px 6px;
+    text-align: center;
+    border-left: 1px solid #D1DAE6;
+}
+.ct-analysis-list th{
+    height: 45px;
+    padding: 17px 6px;
+    border-left: 1px solid #D1DAE6;
+}
+.ct-analysis-list th:first-of-type, .ct-analysis-list td:first-of-type{
+    border-left:0px;
+}
+.ct-analysis-list thead{
+    border-bottom: 1px solid #D1DAE6;
+}
+th:first-of-type, td:first-of-type {
+min-width: 220px;
+max-width: 220px;
+text-align: left !important;
+}
+th.tdcol, td.tdcol{
+    min-width: 120px;
+    max-width: 120px;
+    text-align: center;
+}
+th,td{
+    padding: 10px !important;
+}
+.exam_gp_name a{
+    color: #5C67E6;
+    font-family: Inter;
+    font-size: 12px;
+    line-height: 21px;
+    font-weight: 500;
+}
+
+
+#Question_Detail .question-head{
+    color: #172B4D;	font-family: Inter;	font-size: 14px;	font-weight: 600;	line-height: 22px;
+}
+#Question_Detail .question, #Question_Detail .marks{
+    color: #3A5077;	font-family: Inter;	font-size: 13px;	line-height: 21px;
+}
+#Question_Detail .question-desc{
+    color: #172B4D;	font-family: Inter;	font-size: 12px;	font-weight: 600;	line-height: 18px;
+}
+#Question_Detail .modal-dialog{
+    width: 605px;
+}
+#Question_Detail .modal-dialog{
+    width: 605px;
+}
+#Question_Detail.modal.right{
+    right: 492px;
+}
+#Question_Detail .question-detail{
+    padding: 10px 0px;
+    border-bottom: 1px solid #D1DAE6;
+}
+#Question_Detail .modal-header {
+    border-bottom: 1px solid #D1DAE6 !important;
+    // padding-bottom: 30px;
+}
+
+.filter-row {
+    height: 100%;
+    background-color: #FFFFFF;
+    -webkit-box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+            box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  }
+            .worksheettab-row {
+    border-bottom: 1px solid #D1DAE6;
+  }
+  
+  .worksheettab-row .worksheettab {
+    width: 100%;
+    height: 48px;
+    background-color: #ffffff;
+  }
+  
+  .worksheettab-row .worksheettab .worksheet-tab {
+    width: 179px;
+    float: left;
+  }
+  
+  .worksheettab-row .worksheettab .worksheet-tab h4 {
+    color: #8595A6;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 12px;
+  }
+  
+  .worksheettab-row .worksheettab .bloomdifficulty-tab {
+    width: 253px;
+    float: left;
+  }
+  
+  .worksheettab-row .worksheettab .bloomdifficulty-tab h4 {
+    color: #8595A6;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 20px;
+    text-align: center;
+    margin-top: 12px;
+  }
+  
+  .worksheettab-row .worksheettab button.preview-btn {
+    width: 264px;
+    background-color: #3A5077;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+    border-radius: 0px;
+  }
+  
+  .worksheettab-row .worksheettab .worksheet-tab.active, .worksheettab-row .worksheettab .bloomdifficulty-tab.active {
+    border-bottom: 2px solid #5C67E6;
+  }
+  
+  .worksheettab-row .worksheettab .worksheet-tab.active h4, .worksheettab-row .worksheettab .bloomdifficulty-tab.active h4 {
+    color: #5C67E6;
+    font-weight: 500;
+  }
+  
+  td.exam_gp_name{
+    
+    overflow: hidden; 
+    white-space: nowrap; 
+    text-overflow: ellipsis; 
+    text-transform: capitalize;
+  }
+
+  .report-setup .top-header{
+    font-size: 22px;
+  }
+  .report-setup .reportsetup-description{
+    font-size: 15px;
+  }
+  .filter-row .filterBy h4 {
+    color: #172B4D;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+}
+::ng-deep .ng-select{
+    font-size: 13px;
+}
+
+::ng-deep .ng-select .ng-select-container .ng-value-container .ng-placeholder{
+    color: #8595A6;
+  }
+
+.top-thead.header th{
+    border-bottom: 1px solid #D1DAE6;
+}
+
+#Question_Detail{
+    .modal-title{
+        height: auto !important;
+    } 
+    .chapter_name{
+        color: #172B4D;
+        font-family: Inter;
+        font-size: 13px;
+        font-weight: 600;
+        line-height: 35px;
+    }
+    .question img{
+        width: 100% !important;
+    }
+    .question{
+        position: relative;
+        padding-left: 35px;
+        span{
+            position: absolute;
+            left:0;
+        }
+        p{
+            margin-bottom: 0px !important;
+        }
+        img{
+            width: 100% !important;
+        }
+    }
+
+}
+
+::ng-deep #Question_Detail img{
+    width: 100% !important;
+}
+
+.filter-row .filterBy{
+    position: relative;
+    .clear_filter{
+        position: absolute;
+        right: 16px;
+        top: 9px;
+        font-family: Inter;
+        font-size: 12px;
+        line-height: 21px;
+        text-align: center;
+        padding-top: 10px;
+        border-radius: 0px !important;
+        border: 1px solid #ced4da !important;
+        padding: 5px 15px;
+        cursor: pointer;
+    }
+    .clear_filter:hover{
+        color: #5C67E6;
+    }
+}

@@ -1,0 +1,774 @@
+<div class="container-fluid p-0">
+  <div class="row">
+      <div class="col-md-12 col-lg-12">
+          <div class="m-3 row">
+              <div class="col-12 px-0">
+                <div class="row">
+
+                  <!---------------assessment-score----------->
+                  <div class="col-md-4">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="assessment_score p-3">
+                          <h3>Assessment Score</h3>
+                          <div class="w-100 status">
+                            <div class="poor statype mr-4"><div class="circlestatus mr-1"></div> Poor</div>
+                            <div class="average statype mr-4"><div class="circlestatus mr-1"></div> Average</div>
+                            <div class="good statype"><div class="circlestatus mr-1"></div> Good</div>
+                          </div>
+                          <!-----assesment gauge meter-->
+                          <div  class="w-100" style="display:flex;align-items: center;justify-content: center;">
+                            <rg-gauge-chart
+                              [canvasWidth]="canvasWidth"
+                              [needleValue]="needleValue"
+                              [centralLabel]="centralLabel"
+                              [options]="options"
+                              [name]="name"
+                              [bottomLabel]="bottomLabel">
+                            </rg-gauge-chart>
+                          </div>
+                          <div class="assesment_gauge w-100" style="margin-top: -65px;">
+                            <!-- <fusioncharts
+                              type="angulargauge"
+                              width="100%"
+                              height="250"
+                              dataFormat="json"
+                              [dataSource]="dataSource">
+                            </fusioncharts> -->
+                          <p class="assessment_text mb-0"><strong>{{needleValue}} % </strong></p>
+                          <br/>
+                          <p class="assessment_text mb-0">Assessment Year {{assessmentscoreoverall?.academic_year}}</p>
+                            <div class="last_yr_compare text-center" *ngIf="(assessmentscoreoverall?.current_score != assessmentscoreoverall?.previous_score)" [ngClass]="{'green':(assessmentscoreoverall?.current_score > assessmentscoreoverall?.previous_score) , 'red':(assessmentscoreoverall?.current_score < assessmentscoreoverall?.previous_score)}">
+                              <span class="arrow">
+                                <span class="up" *ngIf="(assessmentscoreoverall?.current_score > assessmentscoreoverall?.previous_score)">&uarr;</span>
+                                <span class="down" *ngIf="(assessmentscoreoverall?.current_score < assessmentscoreoverall?.previous_score)">&darr;</span>
+                              </span>
+                              <span class="percent"> {{assessmentscoreoverall?.current_score-assessmentscoreoverall?.previous_score }}%</span>
+                              <span> from {{assessmentscoreoverall?.previous_academic_year}}</span>
+                            </div>
+                          </div>
+                          <!-----assesmenet gauge meter-->
+                          <div class="row mx-0 w-100 mb-3 mt-5">
+                            <div class="col-6 pl-0 pr-2">
+                              <div class="student_status_percenatge">
+                                <div class="w-100 student_status">
+                                  <h4 class="mb-0">{{assessmentcoremale?.current_score}}%</h4>
+                                  <p>Boys Passed</p>
+                                  <div class="student_icon">
+                                    <img src="assets/images/ic_boy.svg" class="w-100">
+                                  </div>
+                                </div>
+                                <div class="last_yr_compare" *ngIf="(assessmentcoremale?.current_score != assessmentcoremale?.previous_score)" [ngClass]="{'green':(assessmentcoremale?.current_score > assessmentcoremale?.previous_score) , 'red':(assessmentcoremale?.current_score < assessmentcoremale?.previous_score)}">
+                                  <span class="arrow">
+                                    <span class="up" *ngIf="(assessmentcoremale?.current_score > assessmentcoremale?.previous_score)">&uarr;</span>
+                                    <span class="down" *ngIf="(assessmentcoremale?.current_score < assessmentcoremale?.previous_score)">&darr;</span>
+                                  </span>
+                                  <span class="percent"> {{assessmentcoremale?.current_score-assessmentcoremale?.previous_score }}%</span>
+                                  <span> from {{assessmentcoremale?.previous_academic_year}}</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-6 pr-0 pl-2">
+                              <div class="student_status_percenatge">
+                                <div class="w-100 student_status">
+                                  <h4 class="mb-0">{{assessmentscorefemale?.current_score}}%</h4>
+                                  <p>Girls Passed</p>
+                                  <div class="student_icon">
+                                    <img src="assets/images/ic_woman.svg" class="w-100">
+                                  </div>
+                                </div>
+                                <div class="last_yr_compare " *ngIf="(assessmentscorefemale?.current_score != assessmentscorefemale?.previous_score)" [ngClass]="{'green':(assessmentscorefemale?.current_score > assessmentscorefemale?.previous_score) , 'red':(assessmentscorefemale?.current_score < assessmentscorefemale?.previous_score)}">
+                                  <span class="arrow">
+                                    <span class="up" *ngIf="(assessmentscorefemale?.current_score > assessmentscorefemale?.previous_score)">&uarr;</span>
+                                    <span class="down" *ngIf="(assessmentscorefemale?.current_score < assessmentscorefemale?.previous_score)">&darr;</span>
+                                  </span>
+                                  <span class="percent"> {{assessmentscorefemale?.current_score-assessmentscorefemale?.previous_score }}%</span>
+                                  <span> from {{assessmentscorefemale?.previous_academic_year}}</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!---------------course-couverage----------->
+                  <div class="col-md-8">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="course_coverage p-3">
+                          <div class="row">
+                            <div class="col-6">
+                              <h3 class="mb-0">Course Coverage</h3>
+                              <p class="score_percent"><span>{{coursecoverageData?.average_score}}%</span> Average Score</p>
+                            </div>
+                            <div class="col-6">
+                              <div class="w-100 status">
+                                <div class="expected statype ml-4"><div class="circlestatus mr-1"></div> Expected</div>
+                                <div class="completed statype"><div class="circlestatus mr-1"></div> Completed</div>
+                              </div>
+                            </div>
+                          </div>
+                          <!----------course coverage graph------>
+                          <div class="course_coverage_graph" id="course_coverage_graph"></div>
+                          <!------course coverage graph------------>
+                        </div>
+                        <div class="assessment_quality px-3 py-4">
+                          <div class="quality_status">{{AssessmentQualityData?.status}}</div>
+                          <div class="quality_content w-100 h-100">
+                            <h3 class="mb-3">Assessment Quality</h3>
+                            <div class="w-100">
+                              <div class="colom-asses float-left pr-2">
+                                <h6 class="mb-0">Difficulty Level</h6>
+                                <p class="percetage_sign">%</p>
+                                <mv-slider class="d_level" id="d_level" [value]="difficultyLevel" [enabled]="false" [max]="100" [step]="1"
+                                [min]="0"></mv-slider>
+                              </div>
+                              <div class="colom-asses float-left pr-2">
+                                <div class="cognitive_level_guage">
+                                  <ngx-gauge [type]="gaugeType" 
+                                          [value]="cognitivegaugeValue" 
+                                          [thick]="12"  
+                                          [append]=""
+                                          [foregroundColor]="gaugeForegroundColor"
+                                          [backgroundColor]="cognitivebackgdcolor">
+                                  </ngx-gauge>
+                                </div>
+                                <h6 class="mb-0 cognitive_level_content">Cognitive Level</h6>
+                                <h6 class="mb-0 cognitive_level_content">HOTS {{cognitivegaugeValue}}% - LOTS {{AssessmentQualityData?.cognitive_level?.lots}}%</h6>
+                              </div>
+                              <div class="colom-asses float-left">
+                                <div class="course_rep_guage">
+                                  <ngx-gauge [type]="gaugeType" 
+                                          [value]="coursegaugeValue" 
+                                          [thick]="12"  
+                                          [append]=""
+                                          [foregroundColor]="gaugeForegroundColor"
+                                          [backgroundColor]="coursebackgdcolor">
+                                  </ngx-gauge>
+                                </div>
+                                <h6 class="mb-0 course_rep_content">Course Representation</h6>
+                                <h6 class="mb-0 course_rep_content" >{{AssessmentQualityData?.course_representation['status'] | uppercase}}</h6>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row my-4">
+
+                <!---------------avg. exam attendance----------->
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="avg_exam_attendance p-3">
+                        <div class="row">
+                          <div class="col-7">
+                            <h3 class="mb-0">Average Exam Attendance</h3>
+                            <p class="score_percent"><span>{{Average_Attendance?.avg_attendance}}%</span> Average Attendance</p>
+                          </div>
+                          <div class="col-5">
+                            <div class="w-100 status">
+                              <div class="lastyr statype ml-4"><div class="circlestatus mr-1"></div> Last Year</div>
+                              <div class="thisyr statype"><div class="circlestatus mr-1"></div> This Year</div>
+                            </div>
+                          </div>
+                        </div>
+                         <!----------course coverage graph------>
+                         <div class="avg_attendance" id="avg_attendance"></div>
+                         <!------course coverage graph------------>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!---------------overall-result----------->
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="overall_result p-3">
+                        <div class="row">
+                          <div class="col-12">
+                            <h3 class="mb-0 overall_text" routerLink="/exam/dashboard/result-overview">Overall Results</h3>
+                            <p class="more_details">
+                              <a routerLink="/exam/dashboard/result-overview" target="_blank">More Details &#187;</a>
+                            </p>
+
+                            <div class="row overall_slider mx-0 my-2 p-3">
+                              <p class="col-6 mb-0 p-0">Total Students Passed</p>
+                              <p class="col-6 text-right mb-0 p-0">Total Students Failed</p>
+                              <div w-100><span class="total_student_failed">{{total_failed}}</span></div>
+                              <div class="slider w-100  ">
+                                <mv-slider class="over_slider" id="over_slider" [(value)]="total_passed" [enabled]="false" [max]="500" [step]="1"
+                                  [min]="0">
+                                </mv-slider>
+                              </div>
+                            </div>
+                            <div class="row mb-3 mt-4">
+                              <div class="col-6">
+                                <div class="division p-2">
+                                  <div class="first">
+                                    <ngx-gauge [type]="gaugeType" 
+                                          [value]="onedivgaugeValue" 
+                                          [thick]="divisiongaugethick"  
+                                          [append]="appendpercentage"
+                                          [foregroundColor]="onedivgaugeForegroundColor"
+                                          [backgroundColor]="onedivbackgdcolor">
+                                    </ngx-gauge>
+                                  </div>
+                                  <h5 class="my-4">First Division</h5>
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="division p-2">
+                                  <div class="second">
+                                    <ngx-gauge [type]="gaugeType" 
+                                          [value]="twodivgaugeValue" 
+                                          [append]="appendpercentage"  
+                                          [thick]="divisiongaugethick"
+                                          [foregroundColor]="twodivgaugeForegroundColor"
+                                          [backgroundColor]="twodivbackgdcolor">
+                                    </ngx-gauge>    
+                                  </div>
+                                  <h5 class="my-4">Second Division</h5>
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="division p-2">
+                                  <div class="third">
+                                    <ngx-gauge [type]="gaugeType" 
+                                          [value]="thirddivgaugeValue" 
+                                          [append]="appendpercentage"  
+                                          [thick]="divisiongaugethick"
+                                          [foregroundColor]="thirddivgaugeForegroundColor"
+                                          [backgroundColor]="thirddivbackgdcolor">
+                                    </ngx-gauge>
+                                  </div>
+                                  <h5 class="my-4">Third Division</h5>
+                                </div>
+                              </div>
+                              <div class="col-6">
+                                <div class="division p-2">
+                                  <div class="four ">
+                                    <ngx-gauge [type]="gaugeType" 
+                                          [value]="fourdivgaugeValue" 
+                                          [append]="appendpercentage"  
+                                          [thick]="divisiongaugethick"
+                                          [foregroundColor]="fourdivgaugeForegroundColor"
+                                          [backgroundColor]="fourdivbackgdcolor">
+                                    </ngx-gauge>
+                                  </div>
+                                  <h5 class="my-4">Failed</h5>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+              <div class="row my-4">
+
+                <!---------------exam-taken-report----------->
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="exam_report_taken p-3">
+                        <div class="row">
+                          <div class="col-12">
+                            <h3 class="mb-0">{{exam_taken?.exam_taken}} Exam Report Taken</h3>
+                            <p class="">{{exam_taken?.result_shared}}% Results shared, {{exam_taken?.pending}}% Pending</p>
+                            <div class="last_yr_compare" *ngIf="(exam_taken?.exam_taken != exam_taken?.previous_exam_taken)" [ngClass]="{'green':(exam_taken?.exam_taken > exam_taken?.previous_exam_taken) , 'red':(exam_taken?.exam_taken < exam_taken?.previous_exam_taken)}">
+                              <span class="arrow">
+                                <span class="up" *ngIf="(exam_taken?.exam_taken > exam_taken?.previous_exam_taken)">&uarr;</span>
+                                <span class="down" *ngIf="(exam_taken?.exam_taken < exam_taken?.previous_exam_taken)">&darr;</span>
+                              </span>
+                              <span class="percent"> {{examTakenPercent}}%</span>
+                              <span> from {{exam_taken?.previous_academic_year}}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_image">
+                          <img src="assets/images/ic_graph_purple.svg" class="w-100">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!---------------hours-time-saved----------->
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="exam_report_taken p-3">
+                        <div class="row">
+                          <div class="col-12">
+                            <h3 class="mb-0">{{total_time_saved?.total_time_saved_in_hours}} Hours Time Saved</h3>
+                            <p class="">{{total_time_saved?.exam_creation_per}}% on Exam Creation, {{total_time_saved?.marks_sharing_per}}% in Marks Sharing</p>
+                      
+                            <div class="last_yr_compare" *ngIf="total_time_saved?.previous_total_time_saved_in_hours && (total_time_saved?.total_time_saved_in_hours != total_time_saved?.previous_total_time_saved_in_hours)" [ngClass]="{'green':(total_time_saved?.total_time_saved_in_hours > total_time_saved?.previous_total_time_saved_in_hours) , 'red':(total_time_saved?.total_time_saved_in_hours < total_time_saved?.previous_total_time_saved_in_hours)}">
+                              <span class="arrow">
+                                <span class="up" *ngIf="(total_time_saved?.total_time_saved_in_hours > total_time_saved?.previous_total_time_saved_in_hours)">&uarr;</span>
+                                <span class="down" *ngIf="(total_time_saved?.total_time_saved_in_hours < total_time_saved?.previous_total_time_saved_in_hours)">&darr;</span>
+                              </span>
+                              <span class="percent"> {{totalTimeSavedPercent}}%</span>
+                              <span> from {{total_time_saved?.previous_academic_year}}</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="right_image">
+                          <img src="assets/images/ic_graph_blue.svg" class="w-100">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row my-4">
+                <h2 class="key_areas px-3">Key Areas to Focus</h2>
+
+                <!---------------low-course-completion----------->
+                <div class="col-12 mt-2">
+                  <div class="low_course_completion p-3">
+                    <h3 class="mb-0">Low Course Completion, Assessment & Poor Results</h3>
+                    <p class="more_details"><a routerLink="/exam/dashboard/key-areas-to-focus" target="_blank">More Details &#187;</a></p>
+                    <div class="low_course_table w-100 mt-2">
+                      <table class="w-100">
+                        <thead>
+                          <tr>
+                            <th>CLASS & SECTION</th>
+                            <th>SUBJECT</th>
+                            <th>SUBJECT TEACHER</th>
+                            <th class="text-center">YTD COURSE COM.</th>
+                            <th class="text-center">YTD ASSESMENT</th>
+                            <th class="text-center">RESULTS</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let dt of low_course_completion | sortBy:'desc':'result' | slice:0:5">
+                            <td class="b_clr">
+                              <a routerLink="/exam/dashboard/class-performance-details">
+                                {{dt?.ClassName | lowercase}}-{{dt?.SectionName}}
+                              </a>
+                            </td>
+                            <td class="b_clr">
+                              <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                {{dt?.SubjectName | lowercase}}
+                              </a>
+                            </td>
+                            <td class="" >
+                              <a routerLink="/exam/dashboard/teacher-performance-overview">
+                                <div class="name_img" *ngIf="dt?.Teacher_ProfileLink!=''">
+                                  <img class="" [src]='dt?.Teacher_ProfileLink'>
+                                </div>
+                                <div class="name" *ngIf="dt?.Teacher_ProfileLink==''">
+                                  <p>{{dt?.TeacherName.toUpperCase().charAt(0)}}</p>
+                                </div>
+                                <div class="py-2 b_clr"> {{dt?.TeacherName | lowercase}} </div>
+                              </a>
+                            </td>
+                            <td class="text-center">{{dt?.ytd_course_com}}%</td>
+                            <td class="text-center">{{dt?.ytd_assessment}}</td>
+                            <td class="text-center">{{dt?.result}}%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row my-4">
+
+                <!---------------exam-result-long-pending----------->
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="ex_res_lo_pending p-3">
+                        <h3 class="mb-0">Exam Results Long Pending</h3>
+                        <p class="more_details"><a routerLink="/exam/dashboard/key-areas-to-focus" target="_blank">More Details &#187;</a></p>
+                        <div class="ex_res_lo_pending_table w-100 mt-2">
+                          <table class="w-100">
+                            <thead>
+                              <tr>
+                                <th>CLASS & SECTION</th>
+                                <th>SUBJECT & TEACHER</th>
+                                <th>EXAM DATE & PENDING FOR</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let dt of exam_result_pending | sortBy:'desc':'pending_for' | slice:0:5">
+                                <td class="">
+                                  <a routerLink="/exam/dashboard/class-performance-details">
+                                    <div class="b_clr">{{dt?.ClassName | lowercase}}-{{dt?.SectionName}}</div>
+                                  </a>
+                                </td>
+                                <td class="b_clr">
+                                  <div>
+                                    <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                      {{dt?.SubjectName | lowercase}}
+                                    </a>
+                                  </div>
+                                  <a routerLink="/exam/dashboard/teacher-performance-overview">
+                                    <div class="name_img" *ngIf="dt?.Teacher_ProfileLink!=''"><img class="" *ngIf="dt.Teacher_ProfileLink" [src]='dt?.Teacher_ProfileLink'></div>
+                                    <div class="name" *ngIf="dt?.Teacher_ProfileLink==''"><p>{{dt?.TeacherName.toUpperCase().charAt(0)}}</p></div>
+                                    <div class="name_text b_clr"> {{dt?.TeacherName | lowercase}} </div>
+                                  </a>
+                                </td>
+                                <td>{{dt?.Exam_Date}}, {{dt?.pending_for}} days</td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!---------------no-assessment-for-long----------->
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="ex_res_lo_pending p-3">
+                        <h3 class="mb-0">No Assessment for Long</h3>
+                        <p class="more_details"><a routerLink="/exam/dashboard/key-areas-to-focus" target="_blank">More Details &#187;</a></p>
+                        <div class="ex_res_lo_pending_table w-100 mt-2">
+                          <table class="w-100">
+                            <thead>
+                              <tr>
+                                <th>CLASS & SECTION</th>
+                                <th>SUBJECT & TEACHER</th>
+                                <th>NO ASSESMENT FROM</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let dt of no_assessment_for_long | sortBy:'desc':'pending_for' | slice:0:5">
+                                <td class="b_clr">
+                                  <a routerLink="/exam/dashboard/class-performance-details">
+                                    {{dt?.ClassName | lowercase}}-{{dt?.SectionName}}
+                                  </a>
+                                </td>
+                                <td class="b_clr">
+                                  <div>
+                                    <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                      {{dt?.SubjectName | lowercase}}
+                                    </a>
+                                  </div>
+                                  <a routerLink="/exam/dashboard/teacher-performance-overview">
+                                    <div class="name_img" *ngIf="dt?.SubjectTeacherProfileImageLink!=''"><img class="" *ngIf="dt.SubjectTeacherProfileImageLink" [src]='dt?.SubjectTeacherProfileImageLink'></div>
+                                    <div class="name" *ngIf="dt?.SubjectTeacherProfileImageLink==''"><p>{{dt?.SubjectTeacher.toUpperCase().charAt(0)}}</p></div>
+                                    <div class="name_text b_clr"> {{dt?.SubjectTeacher | lowercase}} </div>
+                                  </a>
+                                </td>
+                                <td>{{dt?.pending_for}} days</td>
+                              </tr>             
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row my-4">
+
+                <!---------------top-performing----------->
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="top_performing p-3">
+                        <h3 class="mb-0">Top Performing Students</h3>
+                        <!-- &#187; -->
+                        <p class="more_details"><a routerLink="/exam/dashboard/top-performing-students" target="_blank">More Details &#187;</a></p>
+                        <div class="top_performing_table w-100 mt-2">
+                          <table class="w-100">
+                            <thead>
+                              <tr>
+                                <th width="36%">STUDENT NAME</th>
+                                <th width="24%">CLASS & SECTION</th>
+                                <th width="20%" class="text-center">TOTAL SCORE</th>
+                                <th width="20%" >BEST SUBJECT</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let dt of top_performing_student | sortBy:'desc':'total_per' | slice:0:5">
+                                <td class="b_clr">
+                                  <div class="name_img" *ngIf="dt?.Student_ProfileLink!=''"><img class="" [src]='dt?.Student_ProfileLink'></div>
+                                  <div class="name" *ngIf="dt?.Student_ProfileLink==''"><p>{{dt?.StudentName.toUpperCase().charAt(0)}}</p></div> 
+                                  <div class=""> {{dt?.StudentName | lowercase}} </div>
+                                </td>
+                                <td class="b_clr">
+                                  <a routerLink="/exam/dashboard/class-performance-details">
+                                    {{dt?.ClassName | lowercase}}-{{dt?.SectionName}}
+                                  </a>
+                                </td>
+                                <td class="text-center">{{dt?.total_per}}%</td>
+                                <td  class="b_clr">
+                                  <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                    {{dt?.SubjectName | lowercase}}
+                                  </a>
+                                </td>
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!---------------top-performing-feculties----------->
+                <div class="col-6">
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="top_performing p-3">
+                        <h3 class="mb-0">Top Performing Faculties</h3>
+                        <p class="more_details"><a routerLink="/exam/dashboard/top-performing-feculties" target="_blank">More Details &#187;</a></p>
+                        <div class="top_performing_table w-100 mt-2">
+                          <table class="w-100">
+                            <thead>
+                              <tr>
+                                <th width="36%">FACULTY NAME</th>
+                                <th width="24%">CLASS</th>
+                                <th width="20%">SUBJECT</th>
+                                <th width="20%" class="text-center">RESULTS</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let dt of top_performing_feculties | sortBy:'desc':'Total_per' | slice:0:5">
+                                <td class="b_clr">
+                                  <a class="b_clr" routerLink="/exam/dashboard/teacher-performance-overview">
+                                    <div class="name_img" *ngIf="dt?.Teacher_ProfileLink!=''">
+                                      <img class="" [src]='dt?.Teacher_ProfileLink'>
+                                    </div>
+                                    <div class="name" *ngIf="dt?.Teacher_ProfileLink==''">
+                                      <p>{{dt?.TeacherName.toUpperCase().charAt(0)}}</p></div> 
+                                    <div class=""> {{dt?.TeacherName | lowercase}} </div>
+                                  </a>
+                                </td>
+                                <td class="b_clr">
+                                  <a routerLink="/exam/dashboard/class-performance-details">
+                                    {{dt?.class_sec_sub[0].ClassName | lowercase}}-{{dt?.class_sec_sub[0].SectionName}}
+                                  </a>
+                                </td>
+                                <td  class="b_clr">
+                                  <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                    {{dt?.class_sec_sub[0].SubjectName | lowercase}}
+                                  </a>
+                                </td>
+                                <td class="text-center">{{dt?.Total_per}}%</td>
+                              </tr>
+                               
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              <div class="row my-4">
+
+                <!---------------class-wise-performance----------->
+                <div class="col-12 ">
+                  <div class="class_wise_performance p-3">
+                    <h3 class="mb-0">Class Wise Performance</h3>
+                    <p class="more_details"><a routerLink="/exam/dashboard/class-wise-performance" target="_blank">More Details &#187;</a></p>
+                    <div class="class_wise_table w-100 mt-2">
+                      <table class="w-100">
+                        <thead>
+                          <tr>
+                            <th>CLASS</th>
+                            <th class="text-center">COURSE COMPLETED</th>
+                            <th class="text-center">OVERALL RESULT</th>
+                            <th>BEST SUBJECT</th>
+                            <th>POOR SUBJECT</th>
+                            <!-- <th>CLASS TEACHER</th> -->
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let dt of class_wise_performance | slice:0:5">
+                            <td class="b_clr">
+                              <a routerLink="/exam/dashboard/class-performance-details">
+                                {{dt?.ClassName | lowercase}}-{{dt?.SectionName}}
+                              </a>
+                            </td>
+                            <td class="text-center" [ngClass]="{'red_avg':(dt?.course_completed < 45) , 'orange_good':(dt?.course_completed > 45 && dt?.course_completed < 65), 'green_success':(dt?.course_completed >= 65)}">
+                              {{dt?.course_completed}}%
+                            </td>
+                            <td class="text-center" [ngClass]="{'red_avg':(dt?.overall_result < 45) , 'orange_good':((dt?.overall_result > 45) && (dt?.overall_result < 65)), 'green_success':(dt?.overall_result >= 65)}">
+                              {{dt?.overall_result}}%
+                            </td>
+                            <td class="b_clr">
+                              <div>
+                                <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                  {{dt?.best_subject | lowercase}}
+                                </a>
+                              </div>
+                              <a routerLink="/exam/dashboard/teacher-performance-overview">
+                                <div class="name_img" *ngIf="dt?.best_subject_teacher_profile!=''"><img class="" [src]='dt?.best_subject_teacher_profile'></div>
+                                <div class="name" *ngIf="dt?.best_subject_teacher_profile == '' "><p>{{dt?.best_subject_teacher.toUpperCase().charAt(0)}}</p></div> 
+                                <div class="name_text b_clr"> {{dt?.best_subject_teacher | lowercase}}</div>
+                              </a>
+                            </td>
+                            <td class="b_clr">
+                              <div>
+                                <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                                  {{dt?.poor_subject | lowercase}}
+                                </a>
+                              </div>
+                              <a routerLink="/exam/dashboard/teacher-performance-overview">
+                                <div class="name_img" *ngIf="dt?.poor_subject_teacher_profile!=''"><img class="" [src]='dt?.poor_subject_teacher_profile'></div>
+                                <div class="name" *ngIf="dt?.poor_subject_teacher_profile==''"><p>{{dt?.poor_subject_teacher.toUpperCase().charAt(0)}}</p></div> 
+                                <div class="name_text b_clr"> {{dt?.poor_subject_teacher | lowercase}}</div>
+                              </a>
+                            </td>
+                            <!-- <td class="b_clr">
+                              <a class="b_clr" routerLink="/exam/dashboard/teacher-performance-overview">
+                                <div class="name_small_img" *ngIf="dt?.ClassTeacherProfileImageLink!=''"><img class="" [src]='dt?.ClassTeacherProfileImageLink'></div>
+                                <div class="name_small" *ngIf="dt?.ClassTeacherProfileImageLink==''"><p>{{dt?.ClassTeacher.toUpperCase().charAt(0)}}</p></div>
+                                <div class="mt-1">{{dt?.ClassTeacher}}</div>
+                              </a>
+                            </td> -->
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row my-4">
+                <!---------------board-merit-prediction----------->
+                <div class="col-12 ">
+                  <div class="board_meri_prediction p-3">
+                    <h3 class="mb-0">Board Merit Prediction</h3>
+                    <p class="more_details"><a routerLink="/exam/dashboard/board-merit-prediction" target="_blank">More Details &#187;</a></p>
+                    <div class="board_merit_prediction_table w-100 mt-2">
+                      <table class="w-100">
+                        <thead>
+                          <tr>
+                            <th>STUDENT NAME</th>
+                            <th>CLASS & SECTION</th>
+                            <th class="text-center">TOTAL SCORE</th>
+                            <th>GAP TO BRIDGE</th>
+                            <th>COMMENT</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr *ngFor="let dt of board_merit_prediction | slice:0:5">
+                            <td class="b_clr">
+                              <div class="name_small_img" *ngIf="dt?.Student_ProfileLink!=''"><img class="" [src]='dt?.Student_ProfileLink'></div>
+                              <div class="name_small" *ngIf="dt?.Student_ProfileLink==''"><p>{{dt?.StudentName.toUpperCase().charAt(0)}}</p></div>
+                              <div class="mt-1">{{dt?.StudentName | lowercase}}</div>
+                            </td>
+                            <td class="b_clr">
+                              <a routerLink="/exam/dashboard/class-performance-details">
+                                {{dt?.ClassName | lowercase}} - {{dt?.SectionName}}
+                              </a>
+                            </td>
+                            <td class="text-center">{{dt?.total_per}}%</td>
+                            <td class="">{{dt?.gap_to_bridge}}</td>
+                            <td class="comment">"{{dt?.comments}}"</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row my-4">
+                <!---------------subject-wise-performance----------->
+                <div class="col-12 ">
+                  <div class="subject_wise_performance ">
+                    <h3 class="mb-0">Subject-wise Performance</h3>
+                    <div class="row mt-2">
+                      <div class="col">
+                        <div class="subject_wise_performance_section p-3">
+                          <div class="practical_gauge text-center p-2" >
+                            <ngx-gauge [type]="gaugeType" 
+                                          [value]="prgaugeValue" 
+                                          [label]="prgaugeLabel"  
+                                          [append]="appendpercentage"
+                                          [foregroundColor]="prgaugeForegroundColor"
+                                          [backgroundColor]="prbackgdcolor">
+                            </ngx-gauge>
+                          </div>
+                          <h3 class="text-center">Practical</h3>
+                          <div class="last_yr_compare text-center" *ngIf="(subject_wise_performance_Practical?.score != subject_wise_performance_Practical?.previous_year_avg_score)" [ngClass]="{'green':(subject_wise_performance_Practical?.score > subject_wise_performance_Practical?.previous_year_avg_score) , 'red':(subject_wise_performance_Practical?.score < subject_wise_performance_Practical?.previous_year_avg_score)}">
+                            <span class="arrow">
+                              <span class="up" *ngIf="(subject_wise_performance_Practical?.score > subject_wise_performance_Practical?.previous_year_avg_score)">&uarr;</span>
+                              <span class="down" *ngIf="(subject_wise_performance_Practical?.score < subject_wise_performance_Practical?.previous_year_avg_score)">&darr;</span>
+                            </span>
+                            <span class="percent"> {{subject_wise_performance_Practical?.score - subject_wise_performance_Practical?.previous_year_avg_score }}%</span>
+                            <span> from {{subject_wise_performance_Practical?.previous_year}}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="subject_wise_performance_section p-3">
+                          <div class="theoritical_gauge text-center p-2" >
+                            <ngx-gauge [type]="gaugeType" 
+                                          [value]="thgaugeValue" 
+                                          [label]="thgaugeLabel"  
+                                          [append]="appendpercentage"
+                                          [foregroundColor]="thgaugeForegroundColor"
+                                          [backgroundColor]="thbackgdcolor">
+                            </ngx-gauge>
+                          </div>
+                          <h3 class="text-center">Theoritical</h3>
+                          <div class="last_yr_compare text-center" *ngIf="(subject_wise_performance_Theoritical?.score != subject_wise_performance_Theoritical?.previous_year_avg_score)" [ngClass]="{'green':(subject_wise_performance_Theoritical?.score > subject_wise_performance_Theoritical?.previous_year_avg_score) , 'red':(subject_wise_performance_Theoritical?.score < subject_wise_performance_Theoritical?.previous_year_avg_score)}">
+                            <span class="arrow">
+                              <span class="up" *ngIf="(subject_wise_performance_Theoritical?.score > subject_wise_performance_Theoritical?.previous_year_avg_score)">&uarr;</span>
+                              <span class="down" *ngIf="(subject_wise_performance_Theoritical?.score < subject_wise_performance_Theoritical?.previous_year_avg_score)">&darr;</span>
+                            </span>
+                            <span class="percent"> {{subject_wise_performance_Theoritical?.score - subject_wise_performance_Theoritical?.previous_year_avg_score }}%</span>
+                            <span> from {{subject_wise_performance_Theoritical?.previous_year}}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col">
+                        <div class="subject_wise_performance_section p-3">
+                          <div class="language_gauge text-center p-2">
+                            <ngx-gauge [type]="gaugeType" 
+                                          [value]="lagaugeValue" 
+                                          [label]="lagaugeLabel"  
+                                          [append]="appendpercentage"
+                                          [foregroundColor]="lagaugeForegroundColor"
+                                          [backgroundColor]="labackgdcolor">
+                            </ngx-gauge>
+                          </div>
+                          <h3 class="text-center">Language</h3>
+                          <div class="last_yr_compare text-center" *ngIf="(subject_wise_performance_Language?.score != subject_wise_performance_Language?.previous_year_avg_score)" [ngClass]="{'green':(subject_wise_performance_Language?.score > subject_wise_performance_Language?.previous_year_avg_score) , 'red':(subject_wise_performance_Language?.score < subject_wise_performance_Language?.previous_year_avg_score)}">
+                            <span class="arrow">
+                              <span class="up" *ngIf="(subject_wise_performance_Language?.score > subject_wise_performance_Language?.previous_year_avg_score)">&uarr;</span>
+                              <span class="down" *ngIf="(subject_wise_performance_Language?.score < subject_wise_performance_Language?.previous_year_avg_score)">&darr;</span>
+                            </span>
+                            <span class="percent"> {{subject_wise_performance_Language?.score - subject_wise_performance_Language?.previous_year_avg_score }}%</span>
+                            <span> from {{subject_wise_performance_Language?.previous_year}}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+    </div>
+</div>

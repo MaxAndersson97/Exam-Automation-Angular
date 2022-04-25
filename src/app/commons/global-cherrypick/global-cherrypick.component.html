@@ -1,0 +1,1289 @@
+<ng-template #viewPreviousSelection let-size='size'>
+    <div class="dropdown" (clickOutside)="closeDropDown($event)">
+        <button type="button" id="Preview_btn" data-toggle="dropdown" id="dropdownMenuButton"
+            class=" btn dropdown-btn btn-sm dropdown-toggle h-100 view-previous-selection-btn"
+            [ngClass]='{"text-center": size === "small", "text-left": !size, "rounded": size === "small"}'
+            (click)="ShowPriviousSelection();" aria-haspopup="true" aria-expanded="false">
+            <svg width="17px" class="mx-2" height="17px" viewBox="0 0 20 20" version="1.1"
+                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>CEFEF4E9-5AFE-4275-928B-416E1DF1E8BF</title>
+                <desc>Created with sketchtool.</desc>
+                <g id="Exam-Automation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="19.-ES---T&amp;E---Cherry-Pick" transform="translate(-1202.000000, -75.000000)"
+                        fill="#FFFFFF">
+                        <g id="IconSet/Information/Default" transform="translate(1202.000000, 75.000000)">
+                            <path
+                                d="M19,0 L1,0 C0.447,0 0,0.447 0,1 L0,19 C0,19.553 0.447,20 1,20 L19,20 C19.553,20 20,19.553 20,19 L20,1 C20,0.447 19.553,0 19,0 L19,0 Z M2,18 L18,18 L18,2 L2,2 L2,18 Z M9,7 L15,7 C15.553,7 16,6.553 16,6 C16,5.447 15.553,5 15,5 L9,5 C8.447,5 8,5.447 8,6 C8,6.553 8.447,7 9,7 M5,7 C5.553,7 6,6.553 6,6 C6,5.447 5.553,5 5,5 C4.447,5 4,5.447 4,6 C4,6.553 4.447,7 5,7 M9,11 L15,11 C15.553,11 16,10.553 16,10 C16,9.447 15.553,9 15,9 L9,9 C8.447,9 8,9.447 8,10 C8,10.553 8.447,11 9,11 M5,11 C5.553,11 6,10.553 6,10 C6,9.447 5.553,9 5,9 C4.447,9 4,9.447 4,10 C4,10.553 4.447,11 5,11 M9,15 L15,15 C15.553,15 16,14.553 16,14 C16,13.447 15.553,13 15,13 L9,13 C8.447,13 8,13.447 8,14 C8,14.553 8.447,15 9,15 M5,15 C5.553,15 6,14.553 6,14 C6,13.447 5.553,13 5,13 C4.447,13 4,13.447 4,14 C4,14.553 4.447,15 5,15"
+                                id="Icon"></path>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+            {{size === "small" ? "View Previous" : "View Previous Selection"}}
+        </button>
+        <div class="dropdown-menu p-0" aria-labelledby="dropdownMenuButton">
+            <a class='dropdown-item'>
+                <ng-container *ngIf="createTemplateData.PaperType == 1 ||createTemplateData.PaperType == 2">
+                    <p class="preview-head mb-1">EXAM TYPE</p>
+                    <p class="preview-detail m-0" style="text-transform: capitalize;">
+                        {{createTemplateData && createTemplateData.PaperType == 2 ? 'Test':
+                        'Exam' | lowercase}}</p>
+                </ng-container>
+                <ng-container *ngIf="createTemplateData.PaperType == 4">
+                    <p class="preview-head mb-1">NAME</p>
+                    <p class="preview-detail m-0" style="text-transform: capitalize;">
+                        {{createTemplateData && createTemplateData.Name | lowercase}}</p>
+                </ng-container>
+            </a>
+
+            <a class='dropdown-item'>
+                <p class="preview-head mb-1">DETAILS</p>
+                <p class="preview-detail m-0" style="text-transform: capitalize;">
+                    {{createTemplateData.ClassName | lowercase}},
+                    {{createTemplateData.SubjectName | lowercase}}, <span
+                        *ngIf="createTemplateData.PaperGenerationMethod == 3">Cherry Pick</span>
+                    <span *ngIf="createTemplateData.PaperGenerationMethod == 2">User Defined
+                        System Generated</span>
+                </p>
+            </a>
+
+            <a class='dropdown-item'>
+                <p class="preview-head mb-1 ">CHAPTER SELECTION</p>
+                <p class="preview-detail m-0">{{createTemplateData.TotalSelectedChepter}}
+                    Chapter(s) from {{createTemplateData.TotalSelectedBooks}} Book(s)</p>
+            </a>
+
+        </div>
+    </div>
+</ng-template>
+
+<ng-template #filterOptions>
+
+
+    <div class="filters">
+        <div class="selectinput mb-3 select-student-filter">
+            <div class="single tog">
+                <angular2-multiselect [data]="allFiltersList.allchapterlist" [(ngModel)]="filtersObj.ChapterID"
+                    [settings]="chapterDropdownSetting" name="ChapterName"
+                    (onOpen)="onOpenDropdown(1,filtersObj.ChapterID)" (onClose)="onSelectItem(false)"
+                    (onSelect)="onOpenDropdown(1,filtersObj.ChapterID)" (onGroupDeSelect)="onGroupSelect($event,true)"
+                    (onGroupSelect)="onGroupDeSelect($event,true)"
+                    (onSelectAll)="onOpenDropdown(1,filtersObj.ChapterID)" (onDeSelectAll)="onDeSelectAll(1,false)">
+                </angular2-multiselect>
+            </div>
+        </div>
+    </div>
+
+    <div class="filters ml-2">
+        <div class="selectinput mb-3 select-student-filter">
+            <div class="single tog">
+                <!-- <ng-select [(ngModel)]="filtersObj.Marks" [items]="allFiltersList.QuestionMarks"
+                    bindLabel="selectedQuestionMarks" placeholder="Select Question Marks"
+                    bindValue="selectedQuestionMarks" [searchable]=false name="marks"
+                    (change)="marksvalid()" [clearable]="true">
+                </ng-select> -->
+
+                <angular2-multiselect id="marksDropdown" [data]="allFiltersList.markList" [(ngModel)]="filtersObj.Marks"
+                    [settings]="marksDropdownSetting" name="question_marks"
+                    (onOpen)="onOpenDropdown(2,filtersObj.Marks)" (onClose)="onSelectItem(false)"
+                    (onSelect)="onOpenDropdown(2,filtersObj.Marks)" (onSelectAll)="onOpenDropdown(2,filtersObj.Marks)"
+                    (onDeSelectAll)="onDeSelectAll(2,true)">
+                </angular2-multiselect>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="filters ml-2">
+        <div class="selectinput mb-3 select-student-filter" style="text-transform: capitalize;">
+            <div class="single tog">
+                <angular2-multiselect id="natureDropdown" [data]="allFiltersList.NatureList"
+                    [(ngModel)]="filtersObj.nature" [settings]="natureDropdownSetting" name="question_nature"
+                    (onOpen)="onOpenDropdown(3,filtersObj.nature)" (onClose)="onSelectItem(false)"
+                    (onSelect)="onOpenDropdown(3,filtersObj.nature)" (onSelectAll)="onOpenDropdown(3,filtersObj.nature)"
+                    (onDeSelectAll)="onDeSelectAll(3,true)">
+                </angular2-multiselect>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="filters ml-2">
+        <div class="selectinput mb-3 select-student-filter">
+            <div class="single tog">
+                <angular2-multiselect id="lengthDropdown" [data]="allFiltersList.QuestionLengthList"
+                    [(ngModel)]="filtersObj.questionlength" [settings]="lengthDropdownSetting" name="question_length"
+                    (onOpen)="onOpenDropdown(4,filtersObj.questionlength)" (onClose)="onSelectItem(false)"
+                    (onSelect)="onOpenDropdown(4,filtersObj.questionlength)"
+                    (onSelectAll)="onOpenDropdown(4,filtersObj.questionlength)" (onDeSelectAll)="onDeSelectAll(4,true)">
+                </angular2-multiselect>
+            </div>
+        </div>
+    </div>
+
+    <div class="filters ml-2" *ngIf="isbloomenable">
+        <div class=" selectinput mb-3 select-student-filter">
+            <div class="single tog">
+                <angular2-multiselect id="bloomDropdown" [data]="allFiltersList.BloomTexonomylList"
+                    [(ngModel)]="filtersObj.bloom" [settings]="bloomDropdownSetting" name="bloom_level"
+                    (onOpen)="onOpenDropdown(5,filtersObj.bloom)" (onClose)="onSelectItem(false)"
+                    (onSelect)="onOpenDropdown(5,filtersObj.bloom)" (onSelectAll)="onOpenDropdown(5,filtersObj.bloom)"
+                    (onDeSelectAll)="onDeSelectAll(5,true)">
+                </angular2-multiselect>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="filters ml-2">
+        <div class=" selectinput mb-3 select-student-filter">
+            <div class="single tog">
+                <angular2-multiselect id="difficultyDropdown" [data]="allFiltersList.DifficultyLevelList"
+                    [(ngModel)]="filtersObj.difficulty" [settings]="difficultyDropdownSetting" name="difficulty_level"
+                    (onOpen)="onOpenDropdown(6,filtersObj.difficulty)" (onClose)="onSelectItem(false)"
+                    (onSelect)="onOpenDropdown(6,filtersObj.difficulty)"
+                    (onSelectAll)="onOpenDropdown(6,filtersObj.difficulty)" (onDeSelectAll)="onDeSelectAll(6,true)">
+                </angular2-multiselect>
+            </div>
+        </div>
+    </div>
+
+    <div class="filters ml-2"
+        *ngIf="(createTemplateData.ClassName == '10TH' || createTemplateData.ClassName.startsWith('12TH')) && IsOmr == 'false'">
+        <div class=" selectinput mb-3 select-student-filter">
+            <div class="single tog">
+                <angular2-multiselect [data]="allFiltersList.paperSets" [(ngModel)]="filtersObj.paperSets"
+                    [settings]="paperSets" name="paperSetName" (onOpen)="onOpenDropdown(7,filtersObj.paperSets)"
+                    (onSelect)="onOpenDropdown(7,filtersObj.paperSets)"
+                    (onSelectAll)="onOpenDropdown(7,filtersObj.paperSets)" (onDeSelectAll)="onDeSelectAll(7,false)">
+                </angular2-multiselect>
+            </div>
+        </div>
+    </div>
+    <button type="button" class="btn bloompreview-btn btnsearch ml-2" (click)="callFilter()"
+        [disabled]="!isFiltersValid" data-toggle="collapse" data-target="#filterOptionsTemplate" aria-expanded="false"
+        style="width: 5%; height: 39px !important;" aria-controls="filterOptionsTemplate">Search
+    </button>
+
+</ng-template>
+
+<div class="cherrypickmain">
+    <div class="container-fluid py-2">
+        <!-- Show on small screen-->
+        <!-- <div class="d-block d-md-none row my-2 m-0 justify-content-between">
+
+            <div class='col-xs-12 w-100 pb-3'>
+                <h4 class='cherry-title'>Cherry Pick Question</h4>
+            </div> -->
+
+        <!-- <div class = 'col-xs-12 w-100'>
+                <ng-template *ngTemplateOutlet = 'viewPreviousSelection; context: { size: "small" }'></ng-template>
+            </div>    -->
+        <!-- </div> -->
+        <!-- Show on large screen-->
+        <!-- <div class="d-none d-md-flex row my-2 m-0 justify-content-between" style='border-bottom: 1px solid #f2f2f2;'>
+
+            <div>
+                <h4 class='cherry-title'>Cherry Pick Question</h4>
+            </div>
+        </div> -->
+
+        <div class="row filter-row py-md-3 no-gutters px-3 py-0 m-0 hide-sections-wrap justify-content-center">
+            <div class="col-md-12 col-lg-12 mb-2 row" *ngIf='!(smallScreen$ | async)'>
+                <div class="mb-3 col-sm-2 float-left">
+                    <strong class="m-0" style="color: #3A5077;">Filter By</strong>
+                </div>
+                <div class="col-sm-10 row justify-content-end d-flex ml-2">
+                    <div class="row worksheets" style="margin-top: 3px;">
+                        <a type="reset" (click)="onClearFilter()" style="height: 25px;
+                        font-family: Inter;
+                        font-size: 12px;
+                        line-height: 21px;
+                        text-align: center;
+                        color : red;
+                        padding-top: 4px;" class="pr-2" title="Reset Filter">
+                            Clear Filter
+                        </a>
+                        <div class="total_marksedit" [ngClass]="{'red-border': totalTime < 1}">
+                            <p class="mb-0 p-1">
+                                <span class="pr-1 float-left">TIME:</span>
+                                <input id="time" type="text" name="time" [(ngModel)]="totalTime"
+                                    onkeypress="return (event.charCode == 8 || event.charCode == 1) ? null : event.charCode >= 48 && event.charCode <= 57"
+                                    maxlength="3" [disabled]="!isTimeEditable" required #duration>
+                                <span class="time-minutes" style="text-transform:uppercase;">MINS</span>
+                                <a style="cursor: pointer"
+                                    (click)="isTimeEditable = !isTimeEditable; editDuration('TIME');"
+                                    *ngIf="!isTimeEditable">EDIT</a>
+
+                                <a (click)="isTimeEditable = !isTimeEditable;isfirsttimesavenature = false;"
+                                    *ngIf="isTimeEditable">DONE</a>
+                            </p>
+                        </div>
+                        <div class="total_marksedit ml-2" style="width: 215px !important;"
+                            *ngIf="createTemplateData?.IsOMRPaper">
+                            <p class="mb-0 p-1">
+                                <span class="pr-1 float-left">NEGATIVE MARKS:</span>
+                                <input id="time" type="text" name="negMark" [(ngModel)]="negativeMark"
+                                    onkeypress="return (event.charCode == 8 || event.charCode == 1) ? null : event.charCode >= 48 && event.charCode <= 57"
+                                    maxlength="5" [disabled]="!isMarkEditable" required #negMark>
+                                <span class="time-minutes" style="text-transform:uppercase;">MARKS</span>
+                                <a style="cursor: pointer" (click)="isMarkEditable = !isMarkEditable; editMark();"
+                                    *ngIf="!isMarkEditable">EDIT</a>
+
+                                <a (click)="isMarkEditable = !isMarkEditable" *ngIf="isMarkEditable">DONE</a>
+                            </p>
+                        </div>
+                        <div class="total_marks ml-2">
+                            <p class="mb-0 p-1">
+                                <span class="pr-1 float-left">TOTAL MARKS:</span>
+                                <input id="time" type="text" name="time" [(ngModel)]="totalMarks"
+                                    onkeypress="return (event.charCode == 8 || event.charCode == 1) ? null : event.charCode >= 48 && event.charCode <= 57"
+                                    maxlength="3" [disabled]="!isTimeEditable" required #marks readonly>
+                            </p>
+
+                        </div>
+                    </div>
+                    <div class="ml-4">
+                        <ng-template *ngTemplateOutlet='viewPreviousSelection; context: { size: "large" }'>
+                        </ng-template>
+                    </div>
+                    <!-- <div class="ml-2">
+                        <button type="button" class="btn applyfilter-btn" (click)="callFilter()"
+                            [disabled]="!isFiltersValid">Search</button>
+                    </div> -->
+                </div>
+            </div>
+            <div class="col-lg-12 ml-2 row" *ngIf='!(smallScreen$ | async)'>
+                <ng-template *ngTemplateOutlet='filterOptions'></ng-template>
+            </div>
+
+
+
+            <ng-container *ngIf='(smallScreen$ | async)'>
+                <div class="text-center col-auto mr-3 mr-md-0 col-sm-12 row mb-0 mt-2">
+                    <button type="button" class="btn btn-sm" (click)='mobileFilterClosed = !mobileFilterClosed'
+                        style='background-color: #3A5077; color: white;' data-toggle="collapse"
+                        data-target="#filterOptionsTemplate" aria-expanded="false"
+                        aria-controls="filterOptionsTemplate">
+                        <span>Filter</span>
+                        <i style='margin-left: 10px' class="fa"
+                            [ngClass]='mobileFilterClosed ? "fa-arrow-down" : "fa-arrow-up"'></i>
+                    </button>
+
+                    <div class="col-6 col-sm-6">
+                        <ng-template *ngTemplateOutlet='viewPreviousSelection; context: { size: "small" }'>
+                        </ng-template>
+                    </div>
+                </div>
+
+                <div class="collapse" id="filterOptionsTemplate">
+                    <div class="col-4 col-md-4 mb-3 ml-1">
+                        <strong class="m-0 ml-2" style="color: #3A5077;">Filter By</strong>
+                    </div>
+                    <div class="row m-0">
+                        <!-- <ng-template *ngTemplateOutlet='filterOptions'></ng-template> -->
+
+                        <div class="col-lg-11 row">
+                            <div class="col-sm-2">
+                                <div class="selectinput mb-3 select-student-filter">
+                                    <div class="single tog">
+                                        <angular2-multiselect [data]="allFiltersList.allchapterlist"
+                                            [(ngModel)]="filtersObj.ChapterID" [settings]="chapterDropdownSetting"
+                                            name="ChapterName" (onSelect)="onSelectItem(true)"
+                                            (onSelectAll)="onSelectItem(true)" (onDeSelectAll)="onDeSelectAll(1,true)"
+                                            (onDeSelect)="onSelectItem(true)"
+                                            (onGroupSelect)="onGroupSelect($event,true)"
+                                            (onGroupDeSelect)="onGroupDeSelect($event,true)">
+                                        </angular2-multiselect>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class="selectinput mb-3 select-student-filter">
+                                    <div class="single tog">
+                                        <!-- <ng-select [(ngModel)]="filtersObj.Marks" [items]="allFiltersList.QuestionMarks"
+                                            bindLabel="selectedQuestionMarks" placeholder="Select Question Marks"
+                                            bindValue="selectedQuestionMarks" [searchable]=false name="marks"
+                                            (change)="marksvalid()" [clearable]="true">
+                                        </ng-select> -->
+
+                                        <angular2-multiselect [data]="allFiltersList.markList"
+                                            [(ngModel)]="filtersObj.Marks" [settings]="marksDropdownSetting"
+                                            name="question_marks" (onOpen)="onSelectItem(false)"
+                                            (onClose)="onSelectItem(false)" (onSelectAll)="onSelectItem(false)"
+                                            (onDeSelect)="onSelectItem(false)" (onDeSelectAll)="onDeSelectAll(2,false)">
+                                        </angular2-multiselect>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class="selectinput mb-3 select-student-filter" style="text-transform: capitalize;">
+                                    <div class="single tog">
+                                        <angular2-multiselect [data]="allFiltersList.NatureList"
+                                            [(ngModel)]="filtersObj.nature" [settings]="natureDropdownSetting"
+                                            name="question_nature" (onOpen)="onSelectItem(false)"
+                                            (onClose)="onSelectItem(false)" (onSelectAll)="onSelectItem(false)"
+                                            (onDeSelectAll)="onDeSelectAll(3,false)" (onDeSelect)="onSelectItem(false)">
+                                        </angular2-multiselect>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class="selectinput mb-3 select-student-filter">
+                                    <div class="single tog">
+                                        <angular2-multiselect [data]="allFiltersList.QuestionLengthList"
+                                            [(ngModel)]="filtersObj.questionlength" [settings]="lengthDropdownSetting"
+                                            name="question_length" (onSelect)="onSelectItem(false)"
+                                            (onSelectAll)="onSelectItem(false)" (onDeSelect)="onSelectItem(false)"
+                                            (onDeSelectAll)="onDeSelectAll(4,false)">
+                                        </angular2-multiselect>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2" *ngIf="isbloomenable">
+                                <div class=" selectinput mb-3 select-student-filter">
+                                    <div class="single tog">
+                                        <angular2-multiselect [data]="allFiltersList.BloomTexonomylList"
+                                            [(ngModel)]="filtersObj.bloom" [settings]="bloomDropdownSetting"
+                                            name="bloom_level" (onSelect)="onSelectItem(false)"
+                                            (onSelectAll)="onSelectItem(false)" (onDeSelect)="onSelectItem(false)"
+                                            (onDeSelectAll)="onDeSelectAll(5,false)">
+                                        </angular2-multiselect>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <div class=" selectinput mb-3 select-student-filter">
+                                    <div class="single tog">
+                                        <angular2-multiselect [data]="allFiltersList.DifficultyLevelList"
+                                            [(ngModel)]="filtersObj.difficulty" [settings]="difficultyDropdownSetting"
+                                            name="difficulty_level" (onSelect)="onSelectItem(false)"
+                                            (onSelectAll)="onSelectItem(false)" (onDeSelect)="onSelectItem(false)"
+                                            (onDeSelectAll)="onDeSelectAll(6,false)">
+                                        </angular2-multiselect>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-sm-2"
+                                *ngIf="(createTemplateData.ClassName == '10TH' || createTemplateData.ClassName.startsWith('12TH')) && IsOmr == 'false'">
+                                <div class="selectinput mb-3 select-student-filter">
+                                    <div class="single tog">
+                                        <angular2-multiselect [data]="allFiltersList.paperSets"
+                                            [(ngModel)]="filtersObj.paperSets" [settings]="paperSets"
+                                            name="paperSetName" (onSelect)="onSelectItem(false)"
+                                            (onSelectAll)="onSelectItem(false)" (onDeSelect)="onSelectItem(false)"
+                                            (onDeSelectAll)="onDeSelectAll(7,false)">
+                                        </angular2-multiselect>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class='col-lg-1' style='text-align: right;'>
+                            <button type="button" class="btn applyfilter-btn" (click)="callFilter()"
+                                [disabled]="!isFiltersValid" data-toggle="collapse" data-target="#filterOptionsTemplate"
+                                aria-expanded="false" aria-controls="filterOptionsTemplate">Search</button>
+                        </div>
+                    </div>
+                    <!-- <div class='col-sm-1 col-md-1' style='text-align: right; margin-top: -6px;'>
+                        <button type="button" class="btn applyfilter-btn" (click)="callFilter()"
+                            [disabled]="!isFiltersValid" data-toggle="collapse" data-target="#filterOptionsTemplate"
+                            aria-expanded="false" aria-controls="filterOptionsTemplate">Search</button>
+                    </div> -->
+                </div>
+
+                <div
+                    class="col-12 col-sm-12 justify-content-md-end justify-content-around mr-md-0 row worksheets mt-2 mb-2">
+                    <div class="total_marksedit float-right text-center" [ngClass]="{'red-border': totalTime < 1}">
+                        <p class="mb-0 p-1">
+                            <span class="pr-1 float-left">TIME:</span>
+                            <input id="time" type="text" name="time" [(ngModel)]="totalTime"
+                                onkeypress="return (event.charCode == 8 || event.charCode == 1) ? null : event.charCode >= 48 && event.charCode <= 57"
+                                maxlength="3" [disabled]="!isTimeEditable" required #duration>
+                            <span class="time-minutes" style="text-transform:uppercase;">MINS</span>
+                            <a style="cursor: pointer" (click)="isTimeEditable = !isTimeEditable; editDuration('TIME');"
+                                *ngIf="!isTimeEditable">EDIT</a>
+
+                            <a (click)="isTimeEditable = !isTimeEditable;isfirsttimesavenature = false;"
+                                *ngIf="isTimeEditable">DONE</a>
+                        </p>
+                    </div>
+                    <div class="total_marksedit float-right text-center" style="width: 215px !important;"
+                        *ngIf="createTemplateData?.IsOMRPaper">
+                        <p class="mb-0 p-1">
+                            <span class="pr-1 float-left">NEGATIVE MARKS:</span>
+                            <input id="time" type="text" name="negMark" [(ngModel)]="negativeMark"
+                                onkeypress="return (event.charCode == 8 || event.charCode == 1) ? null : event.charCode >= 48 && event.charCode <= 57"
+                                maxlength="5" [disabled]="!isMarkEditable" required #negMark>
+                            <span class="time-minutes" style="text-transform:uppercase;">MARKS</span>
+                            <a style="cursor: pointer" (click)="isMarkEditable = !isMarkEditable; editMark();"
+                                *ngIf="!isMarkEditable">EDIT</a>
+
+                            <a (click)="isMarkEditable = !isMarkEditable" *ngIf="isMarkEditable">DONE</a>
+                        </p>
+                    </div>
+                    <div class="total_marks float-right text-center">
+                        <p class="mb-0 p-1">
+                            <span class="pr-1 float-left">TOTAL MARKS:</span>
+                            <input id="time" type="text" name="time" [(ngModel)]="totalMarks"
+                                onkeypress="return (event.charCode == 8 || event.charCode == 1) ? null : event.charCode >= 48 && event.charCode <= 57"
+                                maxlength="3" [disabled]="!isTimeEditable" required #marks readonly>
+                        </p>
+
+                    </div>
+                </div>
+
+            </ng-container>
+
+        </div>
+        <ng-template #suggestedQuestionTemplate let-question='question' let-indx='indx'>
+            <div class="col-6 col-md-6 col-lg-6 pt-3 pb-0">
+                <p class="questionNum py-1 m-0">Question {{indx+1}}</p>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6  pt-3 pb-0">
+
+                <div class="float-right">
+                    <a (click)="dropSelectedQuestion(question, indx)" class=" ml-2">
+                        <svg width="28px" height="28px" viewBox="0 0 42 42" version="1.1"
+                            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                            <title>Click to Add Question</title>
+                            <desc>Created with Sketch.</desc>
+                            <defs>
+                                <path
+                                    d="M17,9 L11,9 L11,3 C11,2.448 10.552,2 10,2 C9.448,2 9,2.448 9,3 L9,9 L3,9 C2.448,9 2,9.448 2,10 C2,10.552 2.448,11 3,11 L9,11 L9,17 C9,17.553 9.448,18 10,18 C10.552,18 11,17.553 11,17 L11,11 L17,11 C17.553,11 18,10.552 18,10 C18,9.448 17.553,9 17,9"
+                                    id="addq"></path>
+                            </defs>
+                            <g id="Exam-Automation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                <g id="22.-ES---T&amp;E---Cherry-Pick---Add-Section"
+                                    transform="translate(-684.000000, -323.000000)">
+                                    <g id="ic_add" transform="translate(684.000000, 323.000000)">
+                                        <path
+                                            d="M4,0.5 C2.06700338,0.5 0.5,2.06700338 0.5,4 L0.5,38 C0.5,39.9329966 2.06700338,41.5 4,41.5 L38,41.5 C39.9329966,41.5 41.5,39.9329966 41.5,38 L41.5,4 C41.5,2.06700338 39.9329966,0.5 38,0.5 L4,0.5 Z"
+                                            id="Rectangle" stroke="#3A5077" fill="#FFFFFF"></path>
+                                        <g id="IconSet/Add-Icon/Default" transform="translate(11.000000, 11.000000)">
+                                            <mask id="mask-2" fill="white">
+                                                <use xlink:href="#addq"></use>
+                                            </mask>
+                                            <use id="Mask" fill="#3A5077" fill-rule="evenodd" xlink:href="#addq"></use>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </svg>
+                    </a>
+                </div>
+                <div class="ques-tag text-right float-left mr-2 float-right" style="margin-top: 3px;"
+                    *ngIf="question.QuestionLengthName != ''">
+                    {{question.QuestionLengthName | titlecase}} -
+                    ({{question.QuestionLengthShortName | uppercase}})</div>
+            </div>
+            <div class='suggested-question' class="col-12 col-md-12 col-lg-12 py-2">
+                <mathjax class="question mb-2" [content]="question.QuestionDescription"></mathjax>
+                <div class="row w-100 pl-2 main question" *ngIf="IsOmr == 'true'">
+                    <div class="item w-100"
+                        *ngFor="let omrOption of question.lstOptionMasters | sortBy:'asc':'OptionIndex';">
+                        <div *ngIf="omrOption.OptionValue != ''">
+                            <span class="float-left px-2" style="font-weight: bold;">{{omrOption.OptionSlag}}</span>
+                            <mathjax class="main-answer-img" [content]="omrOption.OptionValue">
+                            </mathjax>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="question-desc align-items-center row m-0 mt-3 " style="text-transform: capitalize;"
+                    *ngIf="isShowPaperInfo">
+                    <div class="ques-tag text-center float-left mr-2" style="text-transform:capitalize"
+                        *ngIf="question.QuestionNatureName != ''">
+                        {{question.QuestionNatureName | lowercase}}</div>
+                    <div class="Dot mr-2" *ngIf="question.QuestionNatureName != ''"></div>
+                    <div class="ques-tag text-center float-left mr-2"
+                        *ngIf="isbloomenable && question.BloomTaxonomyName != ''">
+                        {{question.BloomTaxonomyName | lowercase}}
+                    </div>
+                    <div class="Dot mr-2" *ngIf="isbloomenable && question.BloomTaxonomyName != ''"></div>
+                    <div class="ques-tag text-center float-left mr-2" *ngIf="question.DifficultyLevelName != ''">
+                        {{question.DifficultyLevelName | lowercase}}</div>
+                    <div class="Dot mr-2" *ngIf="question.DifficultyLevelName != ''"></div>
+                    <div class="ques-tag mr-2" *ngIf="question.ChapterName != ''">
+                        <span>{{question.ChapterName |
+                            lowercase}}</span>
+                    </div>
+                    <div class="Dot mr-2" *ngIf="question.ChapterName != ''"></div>
+                    <div class="ques-tag mr-2" *ngIf="question.YearCode != ''">
+                        <span>Asked in {{question.YearCode |
+                            lowercase}}</span>
+                    </div>
+                    <div class="Dot mr-2" *ngIf="question.YearCode != ''"></div>
+                    <div class="ques-tag text-center float-left mr-2">
+                        Suggested For {{question.Marks}} Marks </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <ng-template #addedQuestionTemplate let-question='question' let-indx='indx'>
+            <div class="col-6 col-md-6 col-lg-6 pt-3 pb-0">
+                <p class="questionNum py-1 m-0">Question {{question.myIndex}}</p>
+            </div>
+            <div class="col-6 col-md-6 col-lg-6  pt-3 pb-0">
+
+                <a style="cursor: pointer;" (click)="deleteQuestion(indx)" class="float-right ml-2">
+                    <div class="cross-btn"><i class="fa fa-times"></i></div>
+                </a>
+                <a *ngIf="!question.openHaveOr && !anyOneAlternateOpen && !question.IsOr && !this.createTemplateData?.IsOMRPaper"
+                    class="float-right ml-2"
+                    (click)="openAlternateQuestionView(indx, question.myIndex, question.Questionid)">
+                    <!--?xml version="1.0" encoding="UTF-8"?-->
+                    <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 58 (84663) - https://sketch.com -->
+                        <title>Click to Add Alternate Question</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs>
+                            <path
+                                d="M11.7,8.359 L8.0665,8.359 L11.7,4.72485 L11.7,8.359 Z M8.359,11.7 L1.3,11.7 L1.3,4.64035 L3.341,4.64035 L3.341,9.009 C3.341,9.3665 3.6335,9.659 3.991,9.659 L8.359,9.659 L8.359,11.7 Z M4.641,1.3 L8.2745,1.3 L4.641,4.93285 L4.641,1.3 Z M11.7,2.886 L6.227,8.359 L4.641,8.359 L4.641,6.773 L10.114,1.3 L11.7,1.3 L11.7,2.886 Z M12.35,0 L3.991,0 C3.6335,0 3.341,0.2925 3.341,0.65 L3.341,3.34035 L0.65,3.34035 C0.2925,3.34035 0,3.63285 0,3.99035 L0,12.35 C0,12.70685 0.2925,13 0.65,13 L9.009,13 C9.3665,13 9.659,12.70685 9.659,12.35 L9.659,9.659 L12.35,9.659 C12.7075,9.659 13,9.3665 13,9.009 L13,0.65 C13,0.2925 12.7075,0 12.35,0 L12.35,0 Z"
+                                id="duplicate"></path>
+                        </defs>
+                        <g id="Exam-Automation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g id="22.-ES---T&amp;E---Cherry-Pick---Add-Section"
+                                transform="translate(-1316.000000, -371.000000)">
+                                <g id="Group-2" transform="translate(750.000000, 351.000000)">
+                                    <g id="Group-7" transform="translate(466.000000, 20.000000)">
+                                        <g id="ic_duplicate" transform="translate(100.000000, 0.000000)">
+                                            <path
+                                                d="M2,0.5 C1.17157288,0.5 0.5,1.17157288 0.5,2 L0.5,26 C0.5,26.8284271 1.17157288,27.5 2,27.5 L26,27.5 C26.8284271,27.5 27.5,26.8284271 27.5,26 L27.5,2 C27.5,1.17157288 26.8284271,0.5 26,0.5 L2,0.5 Z"
+                                                id="Rectangle" stroke="#3A5077" fill="#FFFFFF"></path>
+                                            <g id="IconSet/Alternate/Default" transform="translate(7.333333, 7.333333)">
+                                                <mask id="mask-2" fill="white">
+                                                    <use xlink:href="#duplicate">
+                                                    </use>
+                                                </mask>
+                                                <use id="icon" fill="#3A5077" fill-rule="evenodd"
+                                                    xlink:href="#duplicate">
+                                                </use>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </svg>
+                </a>
+
+                <div class="marks-col float-right text-center selected-ques-marks" *ngIf="question.numbering != 'B'">
+                    <input id="time" type="text" name="marks" [(ngModel)]="question.Marks"
+                        onkeypress="return (event.charCode == 8 || event.charCode == 1) ? null : event.charCode >= 48 && event.charCode <= 57"
+                        maxlength="3" (blur)="validateTotalMarks()">
+                    <span class="time-minutes">Marks</span>
+                </div>
+            </div>
+            <div class="col-12 col-md-12 col-lg-12 py-2">
+                <!-- <p class="question mb-2" [innerHTML]="question.QuestionDescription "></p>  -->
+                <mathjax class="question mb-2" [content]="question.QuestionDescription"></mathjax>
+                <div class="row w-100 pl-2 main question" *ngIf="IsOmr == 'true'">
+                    <div class="item w-100"
+                        *ngFor="let omrOption of question.lstOptionMasters | sortBy:'asc':'OptionIndex';">
+                        <div *ngIf="omrOption.OptionValue != ''">
+                            <span class="float-left px-2" style="font-weight: bold;">{{omrOption.OptionSlag}}</span>
+                            <mathjax class="main-answer-img" [content]="omrOption.OptionValue">
+                            </mathjax>
+                        </div>
+                    </div>
+                </div>
+                <div class="question-desc align-items-center row m-0 mt-3" style="text-transform: capitalize;"
+                    *ngIf="isShowPaperInfo">
+                    <div class="ques-tag text-center float-left mr-2" style="text-transform:capitalize"
+                        *ngIf="question.QuestionNatureName != ''">
+                        {{question.QuestionNatureName | lowercase}}</div>
+                    <div class="Dot mr-2" *ngIf="question.QuestionNatureName != ''"></div>
+                    <div class="ques-tag text-center float-left mr-2"
+                        *ngIf="isbloomenable && question.BloomTaxonomyName != ''">{{question.BloomTaxonomyName |
+                        lowercase}}</div>
+                    <div class="Dot mr-2" *ngIf="isbloomenable && question.BloomTaxonomyName != ''"></div>
+                    <div class="ques-tag text-center float-left mr-2" *ngIf="question.DifficultyLevelName != ''">
+                        {{question.DifficultyLevelName | lowercase}}</div>
+                    <div class="Dot mr-2" *ngIf="question.DifficultyLevelName != ''"></div>
+                    <div class="ques-tag" *ngIf="question.ChapterName != ''"><span>{{question.ChapterName |
+                            lowercase}}</span></div>
+                </div>
+            </div>
+            <div class="row p-0 m-0 question-block example-box alternate-question" *ngIf="question.openHaveOr">
+                <div class="col-6 col-md-6 col-lg-6 pt-3 pb-0">
+                    <p class="questionNum py-1 m-0">Question </p>
+                </div>
+                <div class="col-6 col-md-6 col-lg-6 pt-3 pb-0">
+                    <a style="cursor: pointer;" (click)="deleteAlternateQuestion(indx)" class="float-right ml-2">
+                        <div class="cross-btn"><i class="fa fa-times"></i></div>
+                    </a>
+                </div>
+                <div class="col-12 col-md-12 col-lg-12 py-2">
+                    <p class="question mb-2">You can add the alternate question by
+                        <strong>Drag & Drop</strong> or Simply click the <strong>Add
+                            Button</strong>
+                    </p>
+                </div>
+            </div>
+        </ng-template>
+
+        <ng-template #showMoreSuggestedQuestions>
+            <div class="row">
+                <div class="col-md-12 text-center my-4">
+                    <button class="btn btn-info showMoreQuestionBtn " (click)="showMoreQuestions()"
+                        *ngIf="totalNoOfPages > pageNumber">Show More Questions</button>
+                </div>
+            </div>
+        </ng-template>
+
+        <ng-template #actions>
+            <div class='select-question-buttons'>
+                <div class="row ">
+                    <div class="col-md-12 col-sm-12">
+                        <p class="errortext mb-2" *ngIf="this.addedQuestionList.length > 0 && totalTime < 1">
+                            *Please enter time to "proceed paper".
+                        </p>
+                        <p class="errortext mb-2" *ngIf="this.addedQuestionList.length > 0 && !validMarks">
+                            *Please enter valid marks.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="bottom-btn justify-content-md-end row no-gutters justify-content-center">
+
+
+                    <div class="col-auto mx-2">
+                        <button type="button" id="Preview_btn" *ngIf="isfirsttimesavenature"
+                            class="btn bloompreview-btn h-100 my-2"
+                            [disabled]="this.addedQuestionList.length < 1 || !validMarks" (click)="Openconfirmation(2)">
+                            Save Draft</button>
+                    </div>
+                    <div class="col-auto mx-2">
+                        <button type="button" id="Preview_btn" *ngIf="isfirsttimesavenature"
+                            class="btn bloompreview-btn h-100 my-2"
+                            [disabled]="this.addedQuestionList.length < 1 || !validMarks || totalTime < 1"
+                            (click)="Openconfirmation(1)"> Proceed <span
+                                *ngIf="createTemplateData.PaperType == 4">Worksheet</span><span
+                                *ngIf="createTemplateData.PaperType != 4"> Paper</span></button>
+                    </div>
+
+                    <div class="col-auto mx-2">
+                        <button type="button" id="Preview_btn" *ngIf="!isfirsttimesavenature"
+                            class=" btn bloompreview-btn h-100 my-2"
+                            [disabled]="this.addedQuestionList.length < 1 || !validMarks" (click)="saveDraftPaper()">
+                            Save Draft </button>
+                    </div>
+                    <div class="col-auto mx-2">
+                        <button type="button" id="Preview_btn" *ngIf="!isfirsttimesavenature"
+                            class=" btn bloompreview-btn h-100 my-2"
+                            [disabled]="this.addedQuestionList.length < 1 || !validMarks || totalTime < 1"
+                            (click)="openInstructionModal()"> Proceed <span
+                                *ngIf="createTemplateData.PaperType == 4">Worksheet</span><span
+                                *ngIf="createTemplateData.PaperType != 4"> Paper</span></button>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </ng-template>
+
+        <ng-template #suggestedQuestionList let-isMobile='isMobile'>
+            <div class="row">
+                <div class="col-lg-12 col-md-12 border-left p-0">
+                    <div *ngIf='isMobile' class="row Suggested-ques right m-0">
+                        <div class="col-12 col-md-12">
+                            <h2 class="top-head float-left m-0">Suggested Questions</h2>
+                        </div>
+                    </div>
+                    <div class="overflow row example-container m-0">
+                        <div class="example-list">
+
+                            <div class="row p-0 m-0 question-block example-box"
+                                *ngFor="let question of suggestedQuestionsList; let indx= index">
+
+                                <ng-template
+                                    *ngTemplateOutlet='suggestedQuestionTemplate; context: { question: question, indx: indx }'>
+                                </ng-template>
+
+                            </div>
+
+                            <ng-template *ngTemplateOutlet='showMoreSuggestedQuestions'></ng-template>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+
+        <div class='d-md-none py-3'>
+            <mat-tab-group class="d-lg-none py-3" style='padding-bottom: 90px !important' mat-stretch-tabs>
+
+                <mat-tab label="Suggested Questions">
+
+                    <ng-template *ngTemplateOutlet='suggestedQuestionList; context: { isMobile: false }'></ng-template>
+
+                </mat-tab>
+
+                <mat-tab label="Added Questions">
+                    <div class="row m-0">
+                        <div class="col-lg-12 col-md-12 border-left p-0">
+                            <div class="row Suggested-ques right m-0 mt-3">
+                                <!-- <div class="pl-3 col-md-6">
+                                    <h2 class="top-head float-left m-0">Added Questions</h2>
+                                </div> -->
+                                <div class="col-auto pr-0">
+                                    <label class="sort-by-mark mr-2" (click)="addQuestionAction()">
+                                        Add Your Question
+                                    </label>
+                                </div>
+                                <div class="col" (click)="onSortByMarksClick()">
+                                    <label class="sort-by-mark">
+                                        Sort By Marks&nbsp;
+                                        <i class="fa fa-sort-amount-desc" aria-hidden="true" *ngIf="!isasc"></i>
+                                        <i class="fa fa-sort-amount-asc" aria-hidden="true" *ngIf="isasc"></i>
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="overflow add-more row example-container m-0">
+                                <div class="example-list">
+                                    <div class="drop-here">
+                                        <div class="cursor-pointer circle mx-auto mt-3"></div>
+                                        <p class="m-0 text-center">Drop Question here</p>
+                                    </div>
+
+                                    <div class="row p-0 m-0 question-block example-box"
+                                        *ngFor="let question of addedQuestionList; let indx= index">
+
+                                        <ng-template
+                                            *ngTemplateOutlet='addedQuestionTemplate; context: { question: question, indx: indx }'>
+                                        </ng-template>
+
+
+                                    </div>
+
+                                    <div class="blank_div" style="height: 60px;">
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </mat-tab>
+
+            </mat-tab-group>
+
+            <ng-template *ngTemplateOutlet='actions'></ng-template>
+        </div>
+
+        <div class="row">
+            <div class="d-none d-md-block col-lg-12">
+                <div class="my-3">
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="worksheets cherrypickQuestion">
+                            <div class="row w-100 m-0">
+                                <div class="col-lg-6 col-md-6 border-left p-0">
+                                    <div class="row Suggested-ques right m-0" *ngIf="!IsOwnQuestions">
+                                        <div class="col">
+                                            <h2 class="top-head float-left m-0">Suggested Questions
+                                                <span style="color: red;"> ({{allresult}}) </span>
+                                            </h2>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label class="sort-by-mark mr-2" (click)="bindownque(true)">Your own
+                                                question</label>
+                                        </div>
+                                    </div>
+                                    <div class="row Suggested-ques right m-0" *ngIf="IsOwnQuestions">
+                                        <div class="col">
+                                            <h2 class="top-head float-left m-0"> Your own question
+                                                <span style="color: red;"> ({{allresult}}) </span>
+                                            </h2>
+                                        </div>
+                                        <div class="col-auto">
+                                            <label class="sort-by-mark mr-2" (click)="bindownque(false)">Suggested
+                                                Questions</label>
+                                        </div>
+                                    </div>
+                                    <div class="overflow row example-container m-0">
+                                        <div cdkDropList #todoList="cdkDropList"
+                                            [cdkDropListData]="suggestedQuestionsList"
+                                            [cdkDropListConnectedTo]="[doneList]" class="example-list">
+
+                                            <div class="row p-0 m-0 question-block example-box"
+                                                *ngFor="let question of suggestedQuestionsList; let indx= index"
+                                                cdkDrag>
+
+                                                <ng-template
+                                                    *ngTemplateOutlet='suggestedQuestionTemplate; context: { question: question, indx: indx }'>
+                                                </ng-template>
+
+                                            </div>
+
+                                            <ng-template *ngTemplateOutlet='showMoreSuggestedQuestions'></ng-template>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 border-left p-0">
+                                    <div class="row Suggested-ques right m-0" style="padding: 20px 0px;">
+                                        <!-- <div class="pl-3 col-md-4">
+                                            <h2 class="top-head float-left m-0">Added Questions</h2>
+                                        </div> -->
+                                        <div class="col">
+                                            <h2 class="top-head m-0">Added Questions<span style="color:red">
+                                                    ({{updatedQue }})</span></h2>
+                                        </div>
+
+                                        <div class="col-auto">
+
+                                            <label class="sort-by-mark mr-2" (click)="addQuestionAction()">
+                                                Add Your Question
+                                            </label>
+
+                                            <label class="sort-by-mark" (click)="onSortByMarksClick()">
+                                                Sort By Marks&nbsp;
+                                                <i class="fa fa-sort-amount-desc" aria-hidden="true" *ngIf="!isasc"></i>
+                                                <i class="fa fa-sort-amount-asc" aria-hidden="true" *ngIf="isasc"></i>
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="overflow add-more row example-container m-0">
+                                        <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="addedQuestionList"
+                                            [cdkDropListConnectedTo]="[todoList]" class="example-list"
+                                            (cdkDropListDropped)="drop($event)">
+                                            <div class="drop-here">
+                                                <div class="cursor-pointer circle mx-auto mt-3"></div>
+                                                <p class="m-0 text-center">Drop Question here</p>
+                                            </div>
+
+                                            <div class="row p-0 m-0 question-block example-box"
+                                                *ngFor="let question of addedQuestionList; let indx= index" cdkDrag>
+
+                                                <ng-template
+                                                    *ngTemplateOutlet='addedQuestionTemplate; context: { question: question, indx: indx }'>
+                                                </ng-template>
+
+
+                                            </div>
+
+                                            <div class="blank_div" style="height: 60px;">
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <ng-template *ngTemplateOutlet='actions'></ng-template>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal -->
+<div class="modal right fade" id="questionPaperInstruction" bsModal #questionPaperInstructionModal="bs-modal"
+    [config]="{backdrop: 'false',  keyboard: false}">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header py-2 rounded-0">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                    (click)="closeInstructionModal()">
+                    <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <!-- Generator: Sketch 54 (76480) - https://sketchapp.com -->
+                        <title>IconSet/Arrow/Left/Default</title>
+                        <desc>Created with Sketch.</desc>
+                        <defs>
+                            <path
+                                d="M17,9 L5.414,9 L8.707,5.707 C9.098,5.316 9.098,4.684 8.707,4.293 C8.316,3.902 7.684,3.902 7.293,4.293 L2.293,9.293 C1.902,9.684 1.902,10.316 2.293,10.707 L7.293,15.707 C7.488,15.902 7.744,16 8,16 C8.256,16 8.512,15.902 8.707,15.707 C9.098,15.316 9.098,14.684 8.707,14.293 L5.414,11 L17,11 C17.553,11 18,10.552 18,10 C18,9.448 17.553,9 17,9"
+                                id="leftarrow"></path>
+                        </defs>
+                        <g id="IconSet/Arrow/Left/Default" stroke="none" stroke-width="1" fill="none"
+                            fill-rule="evenodd">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#leftarrow"></use>
+                            </mask>
+                            <use id="Icon" fill="#8595A6" xlink:href="#leftarrow"></use>
+                        </g>
+                    </svg>
+                </button>
+                <div class="h6 modal-title text-body text-center w-100" id="AddSectionTeacher_header">Question Paper
+                    Instruction</div>
+            </div>
+            <div class="modal-body p-0" style='overflow-y: auto; margin-bottom: 20px;'>
+                <form>
+                    <div class="addsection-form pt-2 px-2 mt-3 mx-3">
+                        <div class="row">
+                            <div class="form-group col-md-12 col-sm-12 ">
+                                <label><strong>Add Instruction</strong></label>
+                                <label class="skip-instruction pull-right" (click)="skipInstructionandSave()">
+                                    Skip & Proceed
+                                </label>
+                                <input type="text" name="Instruction" [(ngModel)]="instructionValue"
+                                    class="form-control" value="" placeholder="Enter Instruction here"
+                                    id="txtinstructionadd" required="">
+
+                                <!-- <button type="button" id="addinstructionbtn" style="margin-right: 103px; width: 113px;" class="btn addInstructionBtn" (click)="saveInstruction(instructionValue)" [disabled] = "instructionValue == ''">
+                                    <span>Add and Save</span>
+                                 </button> -->
+
+                                <button type="button" id="addinstructionbtn" class="btn addInstructionBtn"
+                                    (click)="saveInstruction(instructionValue)" [disabled]="instructionValue == ''">
+                                    <span *ngIf="selectedIndex == undefined">Add</span>
+                                    <span *ngIf="selectedIndex != undefined">Update</span>
+                                </button>
+                                <div class="select_all_chbox float-right w-100">
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" class="form-check-input h-auto m-0"
+                                            [(ngModel)]="isPreserveInstruction" name="mycheck"
+                                            [disabled]="selectedIndex != undefined">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                    <p class="m-0 checkbox_text">Save instruction for future</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </form>
+                <div class="w-100 borderbottom my-3"></div>
+                <div class="instruction mb-3 mx-4" *ngFor="let instruction of headerInstructionList; let indx = index">
+                    <div class="row">
+                        <div class="col-6 col-md-6">
+                            <h4 class="instuctionhead">Instruction {{indx+1}}</h4>
+                        </div>
+                        <div class="col-6 col-md-6 text-right">
+                            <a class="mr-2 edit_icon_text" (click)="editHeader(instruction.Instruction, indx)"
+                                title="Edit Instruction">
+                                <svg width="13px" height="13px" viewBox="0 0 16 16" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>Edit Instruction</title>
+                                    <desc>Created with sketchtool.</desc>
+                                    <defs>
+                                        <path
+                                            d="M17.1024173,2.86922981 C15.9464396,1.71025673 13.9288785,1.71025673 12.7713008,2.86922981 L3.83467302,11.8228178 C3.74907467,11.9085786 3.69147578,12.0095679 3.65307652,12.1169693 C3.65067657,12.1241828 3.64347671,12.1289919 3.64107675,12.1362054 L2.04110759,16.9452223 C1.94510944,17.2329618 2.02030799,17.5511584 2.23470386,17.7651597 C2.38670093,17.9182467 2.59149698,18 2.80029296,18 C2.88509132,18 2.96988969,17.987176 3.05308808,17.9591234 L7.85299557,16.3561177 C7.86019543,16.3537132 7.86499534,16.3464997 7.8721952,16.3440952 C7.97939314,16.305623 8.08019119,16.2479148 8.16578954,16.162154 L17.1024173,7.20856606 C17.6808062,6.62907952 18,5.85803381 18,5.03889793 C18,4.21896055 17.6808062,3.44871634 17.1024173,2.86922981 L17.1024173,2.86922981 Z M15.9712391,6.07524108 L15.6000463,6.44713838 L13.5312861,4.3744521 L13.902479,4.00255479 C14.4552683,3.44871634 15.4184498,3.44871634 15.9712391,4.00255479 C16.2480338,4.27987477 16.4000308,4.64776456 16.4000308,5.03889793 C16.4000308,5.43003131 16.2480338,5.7979211 15.9712391,6.07524108 L15.9712391,6.07524108 Z M4.74985538,13.873062 L6.11942898,15.2452348 L4.06506858,15.9313212 L4.74985538,13.873062 Z M7.60020044,14.4621666 L5.53144032,12.3894803 L12.4001079,5.50777708 L14.4688681,7.58046337 L7.60020044,14.4621666 Z"
+                                            id="pen"></path>
+                                    </defs>
+                                    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none"
+                                        fill-rule="evenodd">
+                                        <g id="28.-SM---Add-Student-Manually---Update-Photo"
+                                            transform="translate(-821.000000, -222.000000)">
+                                            <g id="Group" transform="translate(819.000000, 219.000000)">
+                                                <g id="IconSet/Delete/Default-Copy"
+                                                    transform="translate(0.000000, 1.000000)">
+                                                    <mask id="mask-2" fill="white">
+                                                        <use xlink:href="#pen"></use>
+                                                    </mask>
+                                                    <use id="Mask" fill="#3A5077" xlink:href="#pen"></use>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                            <a (click)="deleteHeader(instruction, indx)" title="Delete Instruction"
+                                class="delete_icon_text">
+                                <svg width="13px" height="13px" viewBox="0 0 16 20" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>Delete Instruction</title>
+                                    <desc>Created with sketchtool.</desc>
+                                    <defs>
+                                        <path
+                                            d="M17,4 L14,4 L14,2 C14,0.897 13.103,0 12,0 L8,0 C6.897,0 6,0.897 6,2 L6,4 L3,4 C2.447,4 2,4.448 2,5 C2,5.552 2.447,6 3,6 L3,19 C3,19.552 3.447,20 4,20 L16,20 C16.553,20 17,19.552 17,19 L17,6 C17.553,6 18,5.552 18,5 C18,4.448 17.553,4 17,4 L17,4 Z M5,18 L15,18 L15,6 L5,6 L5,18 Z M8,4 L12,4 L12,2 L8,2 L8,4 Z M8,16 C8.553,16 9,15.552 9,15 L9,9 C9,8.448 8.553,8 8,8 C7.447,8 7,8.448 7,9 L7,15 C7,15.552 7.447,16 8,16 M12,16 C12.553,16 13,15.552 13,15 L13,9 C13,8.448 12.553,8 12,8 C11.447,8 11,8.448 11,9 L11,15 C11,15.552 11.447,16 12,16"
+                                            id="removeimg"></path>
+                                    </defs>
+                                    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none"
+                                        fill-rule="evenodd">
+                                        <g id="10.-SM---School-Photo" transform="translate(-992.000000, -201.000000)">
+                                            <g id="IconSet/Delete/Default"
+                                                transform="translate(990.000000, 201.000000)">
+                                                <mask id="mask-2" fill="white">
+                                                    <use xlink:href="#removeimg"></use>
+                                                </mask>
+                                                <use id="Icon" fill="#3A5077" xlink:href="#removeimg"></use>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="w-100">
+                        <p class="m-0">{{instruction.Instruction}}</p>
+                    </div>
+                </div>
+
+                <div class="w-100 borderbottom my-3"></div>
+                <h4 class="instuctionhead mx-4" *ngIf="savedInstruction && savedInstruction.length > 1">Saved
+                    Instruction</h4>
+                <div class="instruction mb-3 mx-4" *ngFor="let instruction of savedInstruction; let indx = index">
+                    <div class="row">
+                        <div class="col-6 col-md-6">
+                            <h4 class="instuctionhead">Instruction {{indx+1}}</h4>
+                        </div>
+                        <div class="col-6 col-md-6 text-right">
+                            <a class="mr-2" class="add_icon_text" (click)="addBackToInstruction(instruction, indx)"
+                                title="Edit Instruction">
+                                <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <!-- Generator: sketchtool 54 (76480) - https://sketchapp.com -->
+                                    <title>Add</title>
+                                    <desc>Created with sketchtool.</desc>
+                                    <defs>
+                                        <path
+                                            d="M11.9,6.3 L7.7,6.3 L7.7,2.1 C7.7,1.7136 7.3864,1.4 7,1.4 C6.6136,1.4 6.3,1.7136 6.3,2.1 L6.3,6.3 L2.1,6.3 C1.7136,6.3 1.4,6.6136 1.4,7 C1.4,7.3864 1.7136,7.7 2.1,7.7 L6.3,7.7 L6.3,11.9 C6.3,12.2871 6.6136,12.6 7,12.6 C7.3864,12.6 7.7,12.2871 7.7,11.9 L7.7,7.7 L11.9,7.7 C12.2871,7.7 12.6,7.3864 12.6,7 C12.6,6.6136 12.2871,6.3 11.9,6.3"
+                                            id="path-plus"></path>
+                                    </defs>
+                                    <g id="Reports---2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                        <g id="03.-Report---Student-Report---Chapter-&amp;-Topic"
+                                            transform="translate(-550.000000, -834.000000)">
+                                            <g id="Group" transform="translate(544.000000, 828.000000)">
+                                                <g id="IconSet/Add-Icon/Default"
+                                                    transform="translate(5.000000, 5.000000)">
+                                                    <mask id="mask-2" fill="white">
+                                                        <use xlink:href="#path-plus"></use>
+                                                    </mask>
+                                                    <use id="Mask" fill="#3A5077" xlink:href="#path-plus"></use>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                            <a style="display:none;" (click)="deleteQue(instruction, indx)" title="Delete Instruction"
+                                class="delete_icon_text">
+                                <svg width="13px" height="13px" viewBox="0 0 16 20" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <title>Delete Instruction</title>
+                                    <desc>Created with sketchtool.</desc>
+                                    <defs>
+                                        <path
+                                            d="M17,4 L14,4 L14,2 C14,0.897 13.103,0 12,0 L8,0 C6.897,0 6,0.897 6,2 L6,4 L3,4 C2.447,4 2,4.448 2,5 C2,5.552 2.447,6 3,6 L3,19 C3,19.552 3.447,20 4,20 L16,20 C16.553,20 17,19.552 17,19 L17,6 C17.553,6 18,5.552 18,5 C18,4.448 17.553,4 17,4 L17,4 Z M5,18 L15,18 L15,6 L5,6 L5,18 Z M8,4 L12,4 L12,2 L8,2 L8,4 Z M8,16 C8.553,16 9,15.552 9,15 L9,9 C9,8.448 8.553,8 8,8 C7.447,8 7,8.448 7,9 L7,15 C7,15.552 7.447,16 8,16 M12,16 C12.553,16 13,15.552 13,15 L13,9 C13,8.448 12.553,8 12,8 C11.447,8 11,8.448 11,9 L11,15 C11,15.552 11.447,16 12,16"
+                                            id="removeimg"></path>
+                                    </defs>
+                                    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none"
+                                        fill-rule="evenodd">
+                                        <g id="10.-SM---School-Photo" transform="translate(-992.000000, -201.000000)">
+                                            <g id="IconSet/Delete/Default"
+                                                transform="translate(990.000000, 201.000000)">
+                                                <mask id="mask-2" fill="white">
+                                                    <use xlink:href="#removeimg"></use>
+                                                </mask>
+                                                <use id="Icon" fill="#3A5077" xlink:href="#removeimg"></use>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                            </a>
+                        </div>
+
+
+                    </div>
+                    <div class="w-100">
+                        <p class="m-0">{{instruction.Description || instruction.Instruction}}</p>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="row bottombtn mx-4">
+                <div class="form-group col-md-12 col-sm-12 p-0 text-right">
+                    <button type="button" id="addquestionbtn" class="btn addQuestionBtn mt-1"
+                        (click)="saveHeaderInstruction()" [disabled]="headerInstructionList.length <1">Save <span
+                            *ngIf="createTemplateData.PaperType == 4">Worksheet</span><span
+                            *ngIf="createTemplateData.PaperType != 4"> Paper</span></button>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                        <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+                </div> -->
+        </div><!-- modal-content -->
+
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+
+
+
+
+<div class="modal fade modal-md" id="timeconfirmation" bsModal #timeconfirmation="bs-modal"
+    [config]="{backdrop: 'static',  keyboard: false}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title ">Please Confirm </h4>
+                <!-- <button type="button"  class="close float-left pt-1" style="margin-top: -2px;" data-dismiss="modal" aria-label="Close" (click)="closeModal()"><span aria-hidden="true">&times;</span></button> -->
+            </div>
+            <div class="modal-body text-center">
+                <p class="text-left">Time is set to {{totalTime}} minutes. Do you wish to change?</p>
+                <div class="col-md-12 col-lg-12 p-0">
+                    <button type="button" class="btn btn-yes float-right ml-2" (click)="changetotaltime()">Yes</button>
+                    <button type="button" class="btn btn-no float-right ml-2" (click)="closeModalsaveData()">No</button>
+                </div>
+            </div>
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+</div>
+
+<style>
+    .red-border {
+        border: 1px solid red !important;
+    }
+</style>
+
+
+<div class="modal right fade" id="addQuestionModal" bsModal #addQuestionModal="bs-modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header py-2 rounded-0">
+                <button type="button" class="close float-left pt-1" data-dismiss="modal" aria-label="Close"
+                    (click)="closeModel()"><span aria-hidden="true">&times;</span></button>
+                <div class="h6 modal-title text-body text-center w-100" id="AddWing_header">Add Your Question</div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6">
+                        <label><strong>Select Chapter :</strong></label>
+                        <ng-select class="ngselect" placeholder="Select Chapter" [searchable]=false
+                            [items]="addQueChapters" bindLabel="ChapterName" bindValue="ChapterID" [clearable]=true
+                            (change)="onChapterChange($event)" [(ngModel)]="ChapterID">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6">
+                        <label><strong>Select Topic :</strong></label>
+                        <ng-select class="ngselect" placeholder="Select Topic" [searchable]=false [clearable]=true
+                            [items]="addQueTopics" bindLabel="TopicName" bindValue="TopicID" [(ngModel)]="TopicID">
+                        </ng-select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6">
+                        <label><strong>Select Question Type :</strong></label>
+                        <ng-select class="ngselect" placeholder="Select Question Type" [searchable]=false
+                            [clearable]=true [items]="addQueType" bindLabel="QuestionTypeName"
+                            bindValue="QuestionTypeID" [(ngModel)]="QuestionType">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6">
+                        <label><strong>Question Marks :</strong></label>
+                        <input type="text" class="form-control" value="Question Marks" placeholder="QuestionMark"
+                            minlength="3" [(ngModel)]="QuestionMark" (keydown)="numericOnly($event)" />
+                    </div>
+                </div>
+
+                <div class="row">
+                    <!-- <div class="form-group col-md-6 col-lg-6">
+                        <label><strong>Select Bloom Taxonomy (Optional) :</strong></label>
+                        <ng-select class="ngselect" placeholder="Select Bloom Taxonomy" [searchable]=false
+                            [clearable]=true [items]="addQueBloom" bindLabel="BloomTaxonomyName"
+                            bindValue="BloomTaxonomyID" [(ngModel)]="BloomTaxonomyID">
+                        </ng-select>
+                    </div> -->
+                    <div class="form-group col-md-12 col-lg-12">
+                        <label><strong>Select Difficulty Level :</strong></label>
+                        <ng-select class="ngselect" placeholder="Select Difficulty Level" [searchable]=false
+                            [clearable]=true [items]="addQueDifficulty" bindLabel="DifficultyLevelName"
+                            bindValue="DifficultyLevelID" [(ngModel)]="DifficultyLevelID">
+                        </ng-select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-6 col-lg-6">
+                        <label><strong>Select Question Length :</strong></label>
+                        <ng-select class="ngselect" placeholder="Select Question Length" [searchable]=false
+                            [clearable]=true [items]="addQueLength" bindLabel="QuestionLengthName"
+                            bindValue="QuestionLengthID" [(ngModel)]="QuestionLengthID">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6">
+                        <label><strong>Select Question Nature :</strong></label>
+                        <ng-select class="ngselect" placeholder="Select Question Nature" [searchable]=false
+                            [clearable]=true [items]="addQueNature" bindLabel="QuestionNatureName"
+                            bindValue="QuestionNatureID" name="selectedNature" [(ngModel)]="QuestionNatureID"
+                            [disabled]="this.IsOmr == 'true'">
+                        </ng-select>
+                    </div>
+                </div>
+
+                <!-- <div class="row" [disabled]="this.IsOmr == 'true'"> -->
+                  <div class="row">
+                    <div class="form-group col-md-12 col-lg-12">
+                        <input type="checkbox" class="form-check-input h-auto m-0" [(ngModel)]="haveAnswer" />
+                        <label style="margin-left: 35px;"><strong>Have Answer ?</strong></label>
+                    </div>
+                </div>
+
+                <div class="row" *ngIf="IsOmr == 'true'">
+                    <div class="form-group col-md-6 col-lg-6">
+                        <label><strong>Number Of Option :</strong></label>
+                        <ng-select class="ngselect" placeholder="Number Of Option" [searchable]=false [clearable]=true
+                            [items]="addnumberOfOption" bindLabel="name" bindValue="id" [(ngModel)]="numberOfOption"
+                            (change)="isrightanslist()">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6 d-none">
+                        <label><strong>Answer Type :</strong></label>
+                        <ng-select class="ngselect" placeholder="Select Question Nature" [searchable]=false
+                            [clearable]=true [items]="addAnswerType" bindLabel="name" bindValue="id" name="AnswerType"
+                            [(ngModel)]="AnswerType" (change)="isrightanslist()">
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-6 col-lg-6">
+                        <label><strong>Select Right Answer :</strong></label>
+                        <ng-select class="ngselect" [searchable]=false [clearable]=true [items]="addRightAnswer"
+                            bindLabel="name" bindValue="id" [multiple]="true" [(ngModel)]="RightAnswer">
+                        </ng-select>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12 col-lg-12">
+                        <label><strong>Question Description :</strong></label>
+                        <textarea [attr.id]="'editor_question'" [ckdata]="QuestionDescription" appCkeditor
+                            [id]="'editor_question'" [(ngModel)]="QuestionDescription"></textarea>
+                    </div>
+                </div>
+                <div class="row" *ngIf="IsOmr == 'true'">
+                    <div class="form-group col-md-12 col-lg-12" *ngFor="let item of addRightAnswer">
+                        <label><strong>{{item.name}} :</strong></label>
+                        <textarea [attr.id]="'editor_'+item.name" appCkeditor [id]="'editor_'+item.name"></textarea>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-md-12 col-lg-12">
+                        <label><strong>Question Answer:</strong></label>
+                        <textarea [attr.id]="'editor_answer'" [ckdata]="QuestionAnswer" appCkeditor
+                            [id]="'editor_answer'" [(ngModel)]="QuestionAnswer"></textarea>
+                    </div>
+                </div>
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" id="addQuestionBtn" class="btn addQuestionBtn w-100 btn-primary"
+                    data-dismiss="modal" (click)="saveAndreplaceQuestionData()">Add Your Question</button>
+            </div>
+        </div>
+
+        <!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+
+<input type="file" id="imgupload" (change)="setFile($event)" style="display:none" />

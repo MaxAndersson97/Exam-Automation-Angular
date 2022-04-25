@@ -1,0 +1,61 @@
+<!-- <div class="modal-body step-1 p-3">
+  <form>
+      <h3 class="sectionhead my-2">User Created Template </h3>
+      <div class="row">
+          <div class="form-group  col-md-12 col-sm-12">
+              <div class="row m-0">
+                  <label class=" col-4 col-md-4 pl-0 pr-2"
+                      *ngFor="let template of templateList; let i = index">
+                      <div class="radio box">
+                          <span class="radio-head">{{template.Name}}<br>
+                              <span class="radio-text">{{template.TotalQuestionCount}} Questions |
+                                  {{template.TotalMarks}} Marks | {{template.Duration}} Mins</span><br>
+                              <span><a class="view-template" (click)="viewTempalteDetails(template)">View Template</a></span>
+                          </span>
+                          <input type="radio" name="radio"
+                              (click)="selectedTemplate(template); isStep2FormValid= true;">
+                          <span class="checkmark"></span>
+                      </div>
+                  </label>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>
+
+<div class="modal-footer px-4 border-0">
+  <button type="button" class="btn step step-1 createworksheet-btn" [disabled]="!isStep2FormValid"
+      (click)="submitStepTwo()" >Save and
+      Proceed</button>
+</div> -->
+
+<div class="modal-body step-2 p-3 d-block">
+    <form>
+        <div class="row">
+            <div class="col-6 col-md-6">
+                <h3 class="sectionhead mt-3">User Created Template </h3>
+            </div>
+        </div>
+
+        <div class="row m-0">
+            <label class=" col-4 col-md-4 pl-0 pr-2"
+            *ngFor="let template of templateList; let i = index">
+                <div class="radio box">
+                    <span class="radio-head">{{template.Name}}<br>
+                        <span class="radio-text">{{template.TotalQuestionCount}} Questions |
+                            {{template.TotalMarks}} Marks | {{template.Duration}} Mins</span><br>
+                        <span><a class="view-template" (click)="viewTempalteDetails(template)">View Template</a></span>
+                    </span>
+                    <input type="radio" name="radio"
+                        (click)="selectedTemplate(template); isStep2FormValid= true;">
+                    <span class="checkmark"></span>
+                </div>
+            </label>
+        </div>
+    </form>
+</div>
+<div class="modal-footer px-4 border-0">
+    <button type="button" class="btn step step-1 createworksheet-btn" [disabled]="!isStep2FormValid"
+    (click)="submitStepTwo()" >Save and
+    Proceed</button>
+</div>

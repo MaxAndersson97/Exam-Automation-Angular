@@ -1,0 +1,126 @@
+<div id="page-content-wrapper " class="">
+  <div class="container-fluid p-0">
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <nav aria-label="breadcrumb" class="mt-3  mx-3 mb-0">
+          <ol class="breadcrumb p-0 m-0">
+            <li class="breadcrumb-item"><a routerLinkActive="active" style="text-transform: capitalize;"
+                routerLink="/exam/assignment-report/class-level-views">Assignment Report / Class {{className |
+                lowercase}}</a></li>
+            <li class="breadcrumb-item" aria-current="page" style="text-transform: capitalize;">{{subjectName |
+              lowercase}}</li>
+            <!-- <li class="breadcrumb-item" aria-current="page" >Student level view</li> -->
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="row assign_report m-3">
+          <div class="col-md-12 col-lg-12">
+            <h2 class="top-header my-3 text-center"> Subject Level View </h2>
+          </div>
+          <div class="col-md-10 col-lg-10 mb-4">
+            <div class="Date_tabs m-auto">
+              <div class="float-left text-center tab" (click)="todayselected();" [ngClass]="{'active':todayd == true}">
+                <p>Today</p>
+              </div>
+              <div class="float-left text-center tab" (click)="sevendaysselected();"
+                [ngClass]="{'active':sevend == true}">
+                <p>7 Days</p>
+              </div>
+              <div class="float-left text-center tab" (click)="thirtydaysselected();"
+                [ngClass]="{'active':thirtyd == true}">
+                <p>30 Days</p>
+              </div>
+              <div class="float-left text-center Custom-No" [ngClass]="{'active':customd == true}">
+                <input placeholder="Custom" type="text" [(ngModel)]="BelowcustomShowLimit" class="w-100 enter-custom-no"
+                  onKeyDown="if(this.value.length==3 && event.keyCode>47 && event.keyCode < 58)return false;"
+                  (keypress)="numericOnly($event)" type="number" min="1" max="999">
+                <button type="button" style="cursor: pointer;" (click)="onselectcustomdate(BelowcustomShowLimit);"
+                  [ngStyle]="{'color': BelowcustomShowLimit > 0 ? '#28a745' : '#8595A6'}"
+                  [disabled]="BelowcustomShowLimit == 0 || BelowcustomShowLimit == '' || BelowcustomShowLimit == null">
+                  <!-- <i class="fa fa-check-circle"></i> -->
+                  Click Here
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-lg-2 mb-4">
+            <div class="Date_tabs m-auto">
+              <div class="float-left text-center tab" style="cursor: pointer;" (click)="exportexcel();">
+                <p>Export <i class="fa fa-file-excel-o" aria-hidden="true"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12 p-0 t_top_border">
+            <div class="assignment_report ">
+              <div>
+                <table class="w-100 table assignment_list-list" id="excel-table">
+                  <thead>
+                    <tr style="text-transform: capitalize" class="table-row">
+                      <!-- <th class="left_td_one">Class</th>
+                      <th class="left_td_two">Subject</th> -->
+                      <th class="left_td_three">Student Name</th>
+                      <th class="left_td_four text-center">Pending Percentage</th>
+                      <th class="left_td_five text-center">Received Percentage</th>
+                      <th class="left_td_six text-center">Approved Percentage</th>
+                      <th class="left_td_seven text-center">Rejected Percentage</th>
+                      <ng-container *ngFor="let key of dates">
+                        <th class="text-center dates">{{key}}</th>
+                      </ng-container>
+                    </tr>
+                  </thead>
+                  <tbody id="myTable">
+                    <ng-container *ngFor="let item of subjectlevellist">
+                      <tr *ngIf="item.adhocrow==true && item.adhocrow">
+                        <td class="left_td_three adhoc_attend"><strong>Adhoc Assignment</strong></td>
+                        <td class="left_td_four adhoc_attend"></td>
+                        <td class="left_td_five adhoc_attend"></td>
+                        <td class="left_td_six adhoc_attend"></td>
+                        <td class="left_td_seven adhoc_attend"></td>
+                        <ng-container *ngFor="let key of dates">
+                          <td class="adhoc_attend"></td>
+                        </ng-container>
+                      </tr>
+                      <tr *ngIf="item.lsthomeworkInfoReport_Subject!=[] && item.lsthomeworkInfoReport_AdhocSubject!=[]">
+                        <!-- <td [attr.rowspan]="item.rowSpan" *ngIf="item.rowSpan" class="t_right_border left_td_one">{{item.ClassName | lowercase}} {{item.SectionName}}</td>
+                        <td [attr.rowspan]="item.rowSpan" *ngIf="item.rowSpan" class="left_td_two t_right_border">{{item.SubjectName | lowercase}}
+                        </td>  -->
+                        <td (click)="getstudentlevel(item)" class="left_td_three subject_name"
+                          [ngClass]="{'subject_name_deactive':item.ProfileStatus == 2}">{{item.StudentName | lowercase}}
+                        </td>
+                        <td class="left_td_four">{{item.Pendingpercentage | number:'1.2-2'}}%</td>
+                        <td class="left_td_five">{{item.Receivedpercentage | number:'1.2-2'}}%</td>
+                        <td class="left_td_six">{{item.Approvedpercentage | number:'1.2-2'}}%</td>
+                        <td class="left_td_seven">{{item.Rejectedpercentage | number:'1.2-2'}}%</td>
+                        <ng-container *ngFor="let subitem of item.lstHomeworkInfoReport_Day">
+                          <td class="dates"
+                            [ngClass]="{'pending':subitem.DayData == 'Pending' , 'rejected':subitem.DayData == 'Rejected' ,'approved':subitem.DayData == 'Approved' , 'Received':subitem.DayData == 'Received' }">
+                            {{subitem.DayData}}
+                          </td>
+                        </ng-container>
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+                <p *ngIf="nodataavailble" class="no_data_available">No Data Available</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <td [ngClass]="{'present':subitem.StudentPresent == true && subitem.IsDateHaveAttendance , 'absent':subitem.StudentPresent == false && subitem.IsDateHaveAttendance}" >
+                            <span *ngIf="subitem.IsDateHaveAttendance">
+                              <span *ngIf="subitem.StudentPresent== true">Present</span>
+                              <span *ngIf="subitem.StudentPresent== false">Absent</span>
+                            </span>
+                            <span *ngIf="!subitem.IsDateHaveAttendance">N/A</span>
+                        </td> -->

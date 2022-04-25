@@ -1,0 +1,295 @@
+<div id="page-content-wrapper" class="chapter_analysis">
+  <div class="container-fluid p-0">
+      <div class="row">
+          <div class="col-md-12 col-lg-12">
+              <div class="worksheettab-row">
+                  <div class="col-md-12 col-lg-12 p-0 worksheettab">
+                    <div class="worksheet-tab active h-100" style="cursor: pointer;"><h4>Chapter Analysis</h4></div>
+                    <div class="worksheet-tab h-100" style="cursor: pointer;"
+                     (click)="goToSubLevelReport()"><h4>Subject Level Report</h4></div>
+                    <div class="worksheet-tab h-100" style="cursor: pointer;" (click)="gotoLearning()"><h4>Learning Curve</h4></div>
+                    <div class="worksheet-tab h-100" style="cursor: pointer;" (click)="getocomplexity()"><h4>Complexity Analysis</h4></div>
+
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-12 col-lg-12">
+              <div class="filter-row py-3">
+                  <div class="col-md-12 col-lg-12 p-0">
+                      <div class="filterBy float-left py-2 px-3  text-left w-100">
+                        <h4>Filters</h4>
+                        <div class="clear_filter" (click)="clearFilter();">Clear Filter</div>
+                      </div>
+                      
+                      <div class="w-100 px-3 pb-2">
+                        <div class="float-left select-standard-filter">
+                          <div class="single tog">
+                            <ng-select [(ngModel)]="studentFilterObj.academicYearsID" name="AcademicSessionID" [items]="academicList" placeholder="Select Academic Year"  bindValue="AcademicYearID" [searchable]='false' (change)="academicChnage()">
+                              <ng-template ng-option-tmp let-item="item">
+                                  {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}
+                              </ng-template>
+                              <ng-template ng-label-tmp let-item="item">
+                                  <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                                      {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}</span>
+                                  <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select
+                                      Academic Session</span>
+                              </ng-template>
+                            </ng-select>
+                        </div>
+                        </div>
+                        
+                        <div class="float-left select-standard-filter">
+                          <div class="single tog">
+                            <ng-select [(ngModel)]="studentFilterObj.ClassID" [items]="classes" bindLabel="ClassName" placeholder="Select Class"
+                              bindValue="ClassID" [searchable]=false (change)="getSectionByClassID(studentFilterObj.ClassID); getSubject(studentFilterObj.ClassID)">
+                              <ng-template ng-option-tmp let-item="item">
+                                <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                              </ng-template>
+                              <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.ClassName" style="text-transform: capitalize"> {{item.ClassName.toLowerCase()}}</span>
+                                <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                              </ng-template>
+                            </ng-select>
+                          </div>
+                        </div>
+                        <div class="float-left select-section-filter">
+                          <div class="single tog">
+                            <ng-select [(ngModel)]="studentFilterObj.EA_SectionID" name="EA_SectionID" [items]="sectionList" bindValue="AESectionID" [searchable]='false' placeholder="Select Section" (change)="getStudentBySection()">
+                              <ng-template ng-option-tmp let-item="item" >
+                                  {{ item.SectionName}}
+                              </ng-template>
+                              <ng-template ng-label-tmp let-item="item">
+                                  <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                                  <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                              </ng-template>
+                          </ng-select>
+                          </div>
+                        </div>
+                        <div class="float-left exam-group-filter">
+                          <ng-select [(ngModel)]="studentFilterObj.StudentID" [items]="students" bindLabel="StudentName"
+                          placeholder="Select Student" bindValue="StudentID" [searchable]=false #currentStudent>
+                          <ng-template ng-option-tmp let-item="item">
+                              <span
+                                  style="text-transform: capitalize">{{item.StudentName.toLowerCase()}}</span>
+                          </ng-template>
+                          <ng-template ng-label-tmp let-item="item">
+                              <span *ngIf="item.StudentName" style="text-transform: capitalize">
+                                  {{item.StudentName.toLowerCase()}}</span>
+                              <span *ngIf="!(!!item.StudentName)" style="color: #999999;"> Select Student</span>
+                          </ng-template>
+                      
+                      </ng-select>
+                        </div>
+                        <div class="float-left select-student-filter">
+                          <div class="single tog">
+                            <ng-select [(ngModel)]="studentFilterObj.SubjectID" [items]="subjects" bindLabel="SubjectName"
+                            placeholder="Select Subject" bindValue="SubjectID" [searchable]=false required >
+                            <ng-template ng-option-tmp let-item="item">
+                                <span
+                                    style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                                    {{item.SubjectName.toLowerCase()}}</span>
+                                <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select Standard</span>
+                            </ng-template>
+                        
+                        </ng-select>
+                          </div>
+                        </div>
+                        <button type="button" id="showResultBtn" 
+                        class="btn show-result-btn" (click)="showResult(studentFilterObj)"
+                        [disabled] = "!( !!studentFilterObj['StudentID'] && !!studentFilterObj['academicYearsID'] && !!studentFilterObj['SubjectID'] &&  !!studentFilterObj['EA_SectionID'] && !!studentFilterObj['ClassID'])"
+                        >Show Result</button>
+                      </div>
+                      
+                      
+                  </div>
+              </div>
+          </div>
+      </div>
+      <div class="row d-none" *ngIf="!noDataFound">
+          <div class="col-md-12 col-lg-12">
+              <div class="m-3 ">
+                  <div class="col-md-12 col-lg-12 pl-0 pr-0">  
+                    <!-- <h4 class="mb-0 report-pname" >{{currentStudent['selectedValues'][0]['StudentName']}}</h4> -->
+                    <div class="ct-analysis-list">
+                      <table class="w-100 table-fixed ">
+                        <thead>
+                          <!-- <tr class="top-main-thead">
+                            <th class="exam_gp_name">EXAM GROUP</th>
+                            <th [attr.colspan]="ClassTestList && ClassTestList.length+1"  *ngIf="ClassTestList && ClassTestList.length >0">CLASS TEST 
+                              <div class="float-right mt-1"  data-toggle="collapse" aria-expanded="false">
+                              <img src="assets/images/plus.svg" class="plus-icon float-right" width="14">
+                              <img src="assets/images/minus.svg" class="d-none minus-icon float-right mt-2" width="14">
+                              </div>
+                            </th>
+                            <th [attr.colspan]="ExamsList && ExamsList.length+1"  *ngIf="ExamsList && ExamsList.length >0">EXAM
+                              <div class="float-right mt-1" data-toggle="collapse" aria-expanded="false">
+                                <img src="assets/images/plus.svg" class="plus-icon float-right" width="14">
+                                <img src="assets/images/minus.svg" class="d-none minus-icon float-right mt-2" width="14">
+                              </div>
+                            </th>
+                            <th>OVERALL</th>
+                          </tr> -->
+                          <tr class="top-thead">
+                            <th class="exam_gp_name">CHAPTERS NAME</th>
+                            <ng-container *ngIf="tests && tests.length >0">
+                              <th class="class-test tdcol" *ngFor="let test of tests">{{test}}(Test)</th>
+                              <!-- <th>CONSOLIDATED</th> -->
+                            </ng-container>   
+                            <ng-container *ngIf="exams && exams.length >0">        
+                              <th class="unit-test tdcol" *ngFor="let exam of exams">{{exam}} (Exam)</th>
+                              <th class="unit-test tdcol">OVERALL</th>
+                          </ng-container>   
+                          </tr>
+                        </thead>
+                        <tbody>
+
+
+                          <tr class="top-main-tbody" *ngFor="let tablerow of ChapterandTopicAnalysisData; let tabIndx = index;">
+                            <td class="exam_gp_name" title="{{tablerow.chapter_name | titlecase}}">{{tablerow.chapter_name | titlecase}} 
+                              <div class="float-right mt-1 w-100">
+                                <a class="">View Question Details</a>
+                              </div>
+                            </td>
+                            <ng-container *ngIf="tablerow.test_details && tablerow.test_details.length >0">
+                              <td class="tdcol" *ngFor="let total of totalTestExam; let i= index;" >
+                                <span *ngIf="tablerow['testMarks'+(i)] !== 'N/A'">{{tablerow['testMarks'+(i)]  | number: '1.1-2'}} %</span>
+                                <span *ngIf="tablerow['testMarks'+(i)] == 'N/A'">{{tablerow['testMarks'+(i)]}}</span>
+
+                              </td>
+                            </ng-container>
+                            <td class="tdcol">{{tablerow.overallPercentage | number: '1.1-2'}}%</td>
+                          </tr>
+                        
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+
+      <div class="row chapter_a_data " *ngIf="!noDataFound">
+        <div class="col-md-12 col-lg-12">
+            <div class="m-3 ">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">  
+                  <div class="ct-analysis-list">
+                    <table class="w-100 table-fixed ">
+                      <thead>
+                        
+                        <tr class="top-thead header">
+                          <th class="exam_gp_name">EXAM GROUPS</th>
+                          <ng-container *ngFor="let examtype of ExamGroupsAPI">
+                            <th class="exam_gp_name" *ngIf="examtype.type.length>0" [attr.colspan]="examtype.type.length">{{examtype.name}}</th>
+                          </ng-container>
+                        </tr>
+                        <tr class="top-thead">
+                          <th class="exam_gp_name">CHAPTERS NAME</th>
+                          <ng-container *ngFor="let examtype of examsAPI">
+                            <th class="exam_gp_name">{{examtype}}</th>
+                          </ng-container>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr class="top-main-tbody" *ngFor="let tablerow of ChapterandTopicAnalysisDataAPI; let tabIndx = index;">
+                          <td class="exam_gp_name" title="{{tablerow.chapter_name | titlecase}}">{{tablerow.chapter_name | titlecase}} 
+                            <div class="float-right mt-1 w-100">
+                              <a class="" (click)="questionDetails(tablerow)">View Question Details</a>
+                            </div>
+                          </td>
+                          <ng-container *ngIf="tablerow.exam_group && tablerow.exam_group.length >0">
+                            <td class="tdcol" *ngFor="let total of examsAPI; let i= index;" >
+                              <span *ngIf="tablerow['testMarks'+(i)] !== 'N/A'">{{tablerow['testMarks'+(i)]  | number: '1.1-2'}} %</span>
+                              <span *ngIf="tablerow['testMarks'+(i)] == 'N/A'">{{tablerow['testMarks'+(i)]}}</span>
+
+                            </td>
+                          </ng-container>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+            </div>
+        </div>
+      </div>
+
+
+      <div class="row" *ngIf="noDataFound">
+        <div class="col-md-12 col-lg-12">
+            <div class="m-3 ">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">    
+                   <div class=" row report-setup">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="reportsetup-img mx-auto mt-2">
+                                <img src="/assets/images/reports.svg" alt="" class="w-100 mt-2">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="reportsetup-content mx-auto ">
+                                <h2 class="text-center top-header my-3">No report to show</h2>
+                                <p class="text-center reportsetup-description mb-0">Please let us know the standard, section and exam type </p>
+                                <p class="text-center reportsetup-description">from the above dropdown to get the results</p>
+                            </div>
+                        </div>
+                   </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </div>
+</div>
+      <!-- /#page-content-wrapper -->
+
+      <!-- Modal -->
+    <div class="modal right fade" id="Question_Detail" bsModal #specific_student1="bs-modal">
+      <div class="modal-dialog">
+          <div class="modal-content">
+              <div class="modal-header border-0">
+                  <div class="col-12 col-md-12 p-0">
+                      <div class="w-100 row ml-0">
+                          <div class="col-md-2 col-2 mt-1" >
+                              <button type="button" class="close float-left pt-1 pl-0" (click)="closeModel()" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                          </div>
+                          <div class="col-md-8 col-8" >
+                              <h4 class="modal-title chapter_name text-center py-1 m-auto" id="AddWing_header" style="text-transform: capitalize;">{{ChapterName | lowercase}}</h4>             
+                          </div>  
+                          <div class="col-md-2 col-2 mt-1" >
+                              
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <div class="modal-body p-0 ">
+                <ng-container *ngFor="let data of questionDetailAPI">
+                  <ng-container *ngFor="let subdata of data">
+                    <div class="row px-3 question-detail m-0">
+                      <div class="col-md-9 col-9 p-0">
+                        <h4 class="question-head mt-2">{{subdata.test_name}}; {{subdata.date_formated | date: 'dd/MM/yyyy'}}</h4>
+                      </div>
+                      <div class="col-md-3 col-3 pr-0">
+                        <h4 class="question-head text-right">{{subdata.total_marks}}</h4>
+                      </div>
+                    </div>
+                    <div class="row px-3 question-detail m-0"  *ngFor="let subchilddata of subdata.paper_details">
+                      <div class="col-md-9 col-9 p-0">
+                        <h4 class="question"><span>{{subchilddata.QueNumber}}</span>
+                          <mathjax class="question_html" [content]="subchilddata.QuestionDescription" ></mathjax>
+                        </h4>
+                        <div class="question-desc row m-0 ">
+                            <div class="ques-tag text-center float-left mr-2" style="text-transform: capitalize;">{{subchilddata.DifficultyLevelName | lowercase}}</div><div class="Dot mr-2"></div>
+                            <div class="ques-tag text-center float-left mr-2" style="text-transform: capitalize;">{{subchilddata.BloomTaxonomyName | lowercase}}</div><div class="Dot mr-2"></div>
+                            <!-- <div class="chapter"><span>Mrs Packletide’s Tiger</span></div> -->
+                        </div>
+                      </div>
+                      <div class="col-md-3 col-3 pr-0"><h4 class="marks text-right">{{subchilddata.Marks}}/ {{subchilddata.Total_marks}} Marks</h4></div>
+                    </div>
+                  </ng-container>
+                </ng-container>
+              </div>
+          </div><!-- modal-content -->
+      </div><!-- modal-dialog -->
+  </div><!-- modal -->
+  <!-- modal------------------------------------------------------------------------------- -->

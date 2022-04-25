@@ -1,0 +1,161 @@
+<div class="container-fluid p-0" *ngIf="isNoWingDataAvailable">
+  <div class="row">
+    <div class="col-md col-lg col-sm">
+      <div class="wing_setup m-3">
+        <div class="col-md-12 col-lg-12 pl-0 pr-0">
+          <div class=" row">
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="wing-img mx-auto mt-5">
+                <img src="assets/images/Wings.svg" alt="" class="w-100 mt-5">
+              </div>
+            </div>
+            <div class="col-md-12 col-lg-12 col-sm-12">
+              <div class="createaWing-content mx-auto ">
+                <h2 class="text-center top-header my-3">Seems like you have not added any wings</h2>
+                <p class="text-center createaWing-description mb-0">Wings help you to group multiple classes and
+                  manage supervisor's access & view. </p>
+                <p class="text-center createaWing-description">You can create wings like Primary Section, Secondary
+                  Section and High Secondary Section.</p>
+                <div class="start_btn text-center">
+                  <button type="button" id="create_a_wing" (click)="showAddWingModal();" class="btn createaWing-btn ">Create a
+                    Wing</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid p-0" *ngIf="!isNoWingDataAvailable">
+  <div class="row">
+    <div class="col-md-12 col-lg-12">
+      <div class="wing_row  m-3">
+        <div class="col-lg-12 col-md-12 pl-0">
+          <h2 class="top-header mb-3">Wing Setup</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-lg-4">
+            <div class="wing">
+              <div class="col-md-12">
+                <div class="py-2 px-3 row">
+                  <div class="col-12 p-0">
+                    <div class="cursor-pointer circle mx-auto mt-3" (click)="showAddWingModal($event);"></div>
+                    <h5 class="class_range text-center">Add New Wing</h5>
+                    <p class="w_sectiontext text-center">Create new wing in add wing section</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <ng-template ngFor let-wing [ngForOf]="wings">
+            <div class="col-md-4 col-lg-4">
+              <div class="wing mb-4">
+                <div class="col-md-12 wing-top">
+                  <div class="p-3 row">
+                    <div class="col-md-7 pl-0">
+                      <h3 class="section-header mb-0 overflow-ellipses-145px" title="{{wing.WingName}}">{{wing.WingName}}</h3>
+                    </div>
+                    <div class="col-md-5 text-right">
+                      <img src="assets/images/icons/pen.svg" (click)="editWing(wing)" alt="edit" style="cursor: pointer" class="row-md-4 pr-4">
+                      <img src="assets/images/icons/remove.svg" (click)="confirmDeleteWing(confirmDialogTemplate)" alt="delete" style="cursor: pointer" class="row-md-4">
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <div class="py-2 px-3 row">
+                    <div class="col-md-12 p-0">
+                      <span class="class-rangehead">Class Range</span>
+                      <h5 class="class_range"><span id="">{{titlecaseClassName(wing.ClassFrom)}}</span> - <span
+                          id="">{{titlecaseClassName(wing.ClassTo)}}</span></h5>
+                    </div>
+                  </div>
+                  <div class="m-0 row w-backg p-2">
+                    <div class="col-md-2 p-0">
+                      <!-- <img src="assets/images/hoodie_4_front.jpg" alt="" class="round
+                        
+                        ed-circle w-100 pt-1"> -->
+                      <div class="text-img-container"><p class="img-child">{{wing.WingHeadName.toUpperCase().charAt(0)}}</p></div>
+                    </div>
+                    <div class="col-md-10 px-2">
+                      <span class="class-WingHeadText">Wing Head</span>
+                      <h5 class="class-WingHeadName m-0" style="text-transform: capitalize">{{wing.WingHeadName}}</h5>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <ng-template #confirmDialogTemplate>
+              <div class="modal-body text-center">
+                  <h4>Delete Wing?</h4>
+                <p>Do you want to confirm?</p>
+                <div class="col-md-12 col-lg-12 p-0">
+                  <button type="button" class="btn btn-default btn-yes" (click)="deleteWing(wing)" >Yes</button>
+                  <button type="button" class="btn btn-primary btn-no" (click)="modalRef.hide()" >No</button>             
+                </div>
+                
+              </div>
+            </ng-template>
+          </ng-template>
+
+          <!--
+          <div class="col-md-4 col-lg-4">
+            <div class="wing">
+              <div class="col-md-12 wing-top">
+                <div class="p-3 row">
+                  <div class="col-md-9 pl-0">
+                    <h3 class="section-header mb-0">Secondary Section</h3>
+                  </div>
+                  <div class="col-md-3 text-right">
+                    <a href=""><img src="assets/images/icons/feature.svg" alt="feature"></a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="py-2 px-3 row">
+                  <div class="col-md-12 p-0">
+                    <span class="class-rangehead">Class Range</span>
+                    <h5 class="class_range"><span id="">5th Standard</span> - <span id="">8th Standard</span></h5>
+                  </div>
+                </div>
+                <div class="m-0 row w-backg p-2">
+                  <div class="col-md-2 p-0">
+                    <img src="assets/images/hoodie_4_front.jpg" alt="" class="rounded-circle w-100 pt-1">
+                  </div>
+                  <div class="col-md-10 px-2">
+                    <span class="class-WingHeadText">Wing Head</span>
+                    <h5 class="class-WingHeadName m-0">Miriam de Jesus</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Modal -->
+<!-- <div class="modal fade" id="deleteWingModal">
+  <div class="modal-dialog">
+      <div class="modal-content m-auto">
+          <div class="modal-header">
+              <h4 class="modal-title mt-2" id="Delete_Wing">Delete Wing?</h4>
+          </div>
+          <div class="modal-body pt-0">
+              <p>Are you sure you want to delete “Secondary Section”
+                      Wing from the school setup?</p>
+              <div class="col-md-12 col-lg-12 p-0">
+                  <button type="button" id="Yes" onclick="" class="btn yes-btn mt-2 ml-2 float-right">Yes</button>
+                  <button type="button" id="No" data-dismiss="modal" aria-label="Close" class="btn no-btn mt-2 mr-2 float-right">No</button>
+              </div>
+          </div>
+      </div>
+  </div>
+</div> -->
+<!-- modal------------------------------------------------------------------------------- -->
+<div *ngIf="isAddWingModalOpen" [config]="{show: true}" class="modal right fade" (onHidden)="onHiddenAddWingModal()" bsModal #addWing="bs-modal" style="display: block; padding-right: 17px;">
+  <app-add-wing [editWingSubject]="editWingSubject" (closeEvent)="closeAddWingDialog($event)"></app-add-wing>
+</div>

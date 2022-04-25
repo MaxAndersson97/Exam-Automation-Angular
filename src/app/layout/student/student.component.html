@@ -1,0 +1,116 @@
+<div class="container-fluid p-0" *ngIf="studentListData" [ngStyle]="{'display' : studentListData.length === 0 ? 'block' : 'none'}">
+    <div class="row">
+        <div class="col-md col-lg col-sm">
+            <div class="wing_setup mx-5 my-4">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                    <div class=" row">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="wing-img mx-auto mt-5">
+                                <img src="assets/images/EmptyState-Students.svg" alt="" class="w-100 mt-5">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="createaWing-content mx-auto ">
+                                <h2 class="text-center top-header my-3">Seems like you have not added any students</h2>
+                                <p class="text-center createaWing-description mb-0">Now add the students quickly through
+                                    the CSV else you can add the students</p>
+                                <p class="text-center createaWing-description">manually by adding information</p>
+                                <div class="start_btn text-center">
+                                    <button type="button" id="create_a_wing" class="btn createaWing-btn m-2"
+                                        style="width: 240px;" (click)="onAddClick()">Add Students Manually </button>
+                                    <button type="button" id="create_a_wing" class="btn createaWing-btn m-2"
+                                        style="width: 240px; background-color: #01CA85;"
+                                        (click)="onUploadCSVClick()">Upload CSV </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid p-0" *ngIf="studentListData" [ngStyle]="{'display' : studentListData.length > 0 ? 'block' : 'none'}">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="m-3">
+                <app-data-listing [dataArray]="studentListData" [tableHeaders]="tableHeader" [title]="title"
+                    (actionEmitter)="onActionEmitter($event)" (addClickEmitter)="onAddClick($event)"
+                    (uploadCSVClickEmitter)="onUploadCSVClick($event)" [filterListData]="filterListData"
+                    moduleName="Student">
+                </app-data-listing>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="upload_Student_csv" bsModal #upload_Student_csv="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content border-0 ">
+            <div class="modal-header border-0 px-4">
+                <h4 class="modal-title" id="">Upload CSV</h4>
+                <button type="button" class="close " data-dismiss="modal" aria-label="Close"><span aria-hidden="true"
+                        (click)="closeStep1Model()">&times;</span></button>
+            </div>
+            <div class="modal-body pt-0 px-4 mt-2">
+                <form [formGroup]="csvUploadInfoForm" #csvUploadInfo="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="form-group col-md-12 col-sm-12 single p-0">
+                        <label class="">Standard <span class="required-mark">*</span></label>
+                        <ng-select formControlName="ClassID" [items]="classes" bindLabel="ClassName"
+                            placeholder="Select Class" bindValue="ClassID" [searchable]=false
+                            (change)="getSectionByClassID($event)" required>
+                            <ng-template ng-option-tmp let-item="item">
+                                <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}
+                                    </span>
+                            </ng-template> 
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                    {{item.ClassName.toLowerCase()}}</span>
+                                <span *ngIf="!item.ClassName" style="color: #999999;"> Select Standard</span>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 single p-0">
+                        <label class="">Section<span class="required-mark">*</span></label>
+                        <ng-select formControlName="EA_SectionID" name="EA_SectionID" [items]="sectionList" required bindValue="AESectionID" [searchable]='false' (change)="onSectionChange($event)" placeholder="Select Section">
+                            <ng-template ng-option-tmp let-item="item">
+                                {{ item.SectionName}}
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                                <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+                    <div class="form-group col-md-12 col-sm-12 single p-0">
+                        <label class="">Academic Year<span class="required-mark">*</span></label>
+                        <ng-select formControlName="AcademicSessionID" name="AcademicSessionID" [items]="academicYears" placeholder="Select Academic Session"
+                            bindValue="AcademicYearID" [searchable]='false' required (change)="onChangeAcademicYear($event)">
+                            <ng-template ng-option-tmp let-item="item">
+                                {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}
+                            </ng-template>
+                            <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                                    {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}</span>
+                                <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select
+                                    Academic Session</span>
+                            </ng-template>
+                        </ng-select>
+                    </div>
+
+                    <div class="form-group col-md-6 col-lg-6 p-0 float-right">
+                        <button type="submit" id="submit_uploadcsv" class="submit-uploadcsv btn createwing-btn mt-2"
+                            [disabled]="csvUploadInfoForm.invalid">Submit</button>
+                        <a type="" class="close mt-3" data-dismiss="modal" aria-label="Close"
+                            (click)="closeStep1Model()">Cancel</a>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+            </div> -->
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->

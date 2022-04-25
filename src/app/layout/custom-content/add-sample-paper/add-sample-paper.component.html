@@ -1,0 +1,244 @@
+<div class="container-fluid p-0">
+  <div class="row">
+      <div class="col-md col-lg col-sm">
+          <div class="Institute_profile m-3">
+              <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                  <button type="submit" id="save"  class="btn btn-success m-2 float-right go-back-btn mt-3 mx-4" 
+                  style="background-color: #5C67E6; border-color: #5C67E6" (click)="onBackClick()">
+                  <span *ngIf="paperType == 1">Go Back To Sample Paper Setting</span>
+                  <span *ngIf="paperType == 2">Go Back To WorkSheet Setting</span>
+                </button>
+                  <h2 class=" border-bottom p-4 m-0 main-title" *ngIf="paperType == 1">
+                      <span *ngIf="!isEdit">Add Sample Paper</span>
+                      <span *ngIf="isEdit">Edit Sample Paper</span>
+                 </h2>
+                  <h2 class=" border-bottom p-4 m-0 main-title" *ngIf="paperType == 2">
+                    <span *ngIf="!isEdit">Add WorkSheet</span>
+                    <span *ngIf="isEdit">Edit WorkSheet</span>
+                 </h2>
+              </div>
+              <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                  <div class="row">
+                      <div class="col-md-4 col-lg-4 pr-0">
+                          <ul class="nav nav-tabs" role="">
+                              <li class="nav-item w-100  ">
+                                  <a class="nav-link py-3 active" routerLinkActive="active"
+                                      routerLink="/exam/custom-content/add-paper">
+                                      <svg version="1.1" class="mr-2" xmlns="http://www.w3.org/2000/svg"
+                                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px"
+                                          height="20px" viewBox="0 0 20 20" enable-background="new 0 0 30 30"
+                                          xml:space="preserve">
+                                          <path class="icon" fill="currentColor"
+                                              d="M10,0 C4.486,0 0,4.486 0,10 C0,15.513 4.486,20 10,20 C15.514,20 20,15.513 20,10 C20,4.486 15.514,0 10,0 M15.603,15.7 C14.199,14.841 12.257,14 10,14 C7.744,14 5.801,14.842 4.396,15.7 C2.919,14.248 2,12.23 2,10 C2,5.589 5.589,2 10,2 C14.411,2 18,5.589 18,10 C18,12.23 17.081,14.248 15.603,15.7 M6.149,17.009 C7.218,16.457 8.537,16 10,16 C11.464,16 12.782,16.457 13.851,17.008 C12.707,17.638 11.395,18 10,18 C8.604,18 7.292,17.638 6.149,17.009 M10,9.9998 C8.897,9.9998 8,9.1028 8,7.9998 C8,6.8968 8.897,5.9998 10,5.9998 C11.103,5.9998 12,6.8968 12,7.9998 C12,9.1028 11.103,9.9998 10,9.9998 M10,3.9998 C7.794,3.9998 6,5.7938 6,7.9998 C6,10.2058 7.794,11.9998 10,11.9998 C12.206,11.9998 14,10.2058 14,7.9998 C14,5.7938 12.206,3.9998 10,3.9998">
+                                          </path>
+                                      </svg>
+                                      <span>General Information</span>
+                                  </a>
+                              </li>
+                              <li class="nav-item w-100 " (click)="goToFiles();">
+                                  <a class="nav-link py-3">
+                                      <img src="assets/images/icons/addstudent/studentphoto.svg" alt="studentinfo"
+                                          class="mr-2">Manage Files
+                                  </a>
+                              </li>
+                          </ul>
+                      </div>
+                      <div class="col-md-8 col-lg-8 content-right pl-0">
+                          <div class="tab-content ">
+                              <div class="tab-pane active" id="paperGeneralDetail" role="tabpanel">
+                                  <form [formGroup]="addPaperForm" #paperForm="ngForm" (ngSubmit)="onSubmit()">
+                                      <div class="schoolacademicdetail-form p-4">
+                                        <p class="m-0 py-2"
+                                        style="color: #3A5077; font-size: 14px; font-weight:600;">GENERAL DETAIL</p>
+                                        <div class="row">
+                                            <div class="form-group col-md-6 col-6">
+                                                <label class="">Class <span
+                                                    class="required-mark">*</span></label>
+                                                <ng-select 
+                                                formControlName="ClassID" 
+                                                (change)="getClassId()" 
+                                                [items]="classesList" 
+                                                bindLabel="MasterText" 
+                                                placeholder="Select Class" 
+                                                bindValue="MasterID"
+                                                    [searchable]=false required>
+                                                    <ng-template ng-option-tmp let-item="item">
+                                                        <span
+                                                            style="text-transform: capitalize">{{item.MasterText.toLowerCase()}}</span>
+                                                    </ng-template>
+                                                    <ng-template ng-label-tmp let-item="item">
+                                                        <span *ngIf="item.MasterText" style="text-transform: capitalize">
+                                                            {{item.MasterText.toLowerCase()}}</span>
+                                                        <span *ngIf="!(item.MasterText)" style="color: #999999;"> Select Class</span>
+                                                    </ng-template>
+                                                
+                                                </ng-select>
+                                            </div>
+    
+                                            <div class="form-group col-md-6 col-6">
+                                                <label class="">Subject <span
+                                                    class="required-mark">*</span></label>
+                                                <ng-select formControlName="SubjectID" 
+                                                    [items]="subjects" 
+                                                    bindLabel="SubjectName"
+                                                    placeholder="Select Subject" bindValue="SubjectID" [searchable]=false required 
+                                                    (change)="getSubjectId();">
+                                                    <ng-template ng-option-tmp let-item="item" >
+                                                        <span
+                                                            style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                                                    </ng-template>
+                                                    <ng-template ng-label-tmp let-item="item">
+                                                        <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                                                            {{item.SubjectName.toLowerCase()}}</span>
+                                                        <span *ngIf="!(item.SubjectName)" style="color: #999999;"> Select Subject</span>
+                                                    </ng-template>
+                                                </ng-select>
+                                            </div> 
+
+                                            <div class="form-group col-md-6 col-6">
+                                                <label class="">Year <span
+                                                    class="required-mark">*</span></label>
+                                                    <ng-select  
+                                                        formControlName="YearID" 
+                                                        name="YearID" 
+                                                        [items]="years"
+                                                        bindLabel="YearCode"
+                                                        bindValue="YearID"
+                                                        [searchable]=false placeholder="2002" required>
+                                                        <ng-template ng-option-tmp let-item="item" style="text-transform: capitalize;">
+                                                            {{item.YearCode.toLowerCase()}} 
+                                                        </ng-template>
+
+                                                        <ng-template ng-label-tmp let-item="item">
+                                                            <span *ngIf="item.YearCode" style="text-transform: capitalize">
+                                                                {{item.YearCode.toLowerCase()}}</span>
+                                                            <span *ngIf="!(item.YearCode)" style="color: #999999;"> Select Year</span>
+                                                        </ng-template>
+                                                    </ng-select>
+                                            </div>     
+                                        </div>
+                                        <hr/>
+                                        <p class="m-0 py-2"
+                                            style="color: #3A5077; font-size: 14px; font-weight:600;">PAPER DETAIL</p>
+                                          <div class="row">
+                                              <div class="form-group col-md-6 col-lg-6">
+                                                  <label class="">Paper Code <span
+                                                          class="required-mark">*</span></label>
+                                                  <input type="text" class="form-control" value=""
+                                                      placeholder="e.g. 01" minlength="1" maxlength="2"
+                                                      formControlName="PaperSetCode" 
+                                                      name="PaperSetCode" required />
+                                                  <div *ngIf="submitted && f.PaperSetCode.errors || f.PaperSetCode.errors && f.PaperSetCode.dirty"
+                                                      class="danger-text">
+                                                      <div *ngIf="f.PaperSetCode.errors.required">Paper Code is required.
+                                                      </div>
+                                                      <div *ngIf=" f.PaperSetCode.errors.pattern">
+                                                          Please enter the valid
+                                                          entry.</div>
+                                                  </div>
+                                              </div>
+                                              <div class="form-group col-md-6 col-6">
+                                                  <label class="">Paper Name <span
+                                                    class="required-mark">*</span></label>
+                                                  <input type="text" class="form-control" value=""
+                                                      placeholder="e.g. CBSE SAMPLE PAPER SET 1" id="PaperSetName"
+                                                      formControlName="PaperSetName" 
+                                                      name="PaperSetName" 
+                                                      required/>
+                                                  <div *ngIf="submitted && f.PaperSetName.errors || f.PaperSetName.errors && f.PaperSetName.dirty"
+                                                      class="danger-text">
+                                                      <div *ngIf="f.PaperSetName.errors.required">Paper Name is required.</div>
+                                                  </div>
+                                              </div>
+                                          </div>
+                                          <div class="row">
+                                              <div class="form-group col-md-6 col-6">
+                                                  <label class="">Paper Duration <span
+                                                          class="required-mark">*</span></label>
+
+                                                  <input type="text" class="form-control" value=""
+                                                      placeholder="e.g. 30 Mins / 2 hrs" id="PaperDuration"
+                                                      formControlName="PaperDuration" name="PaperDuration" required/>
+                                                  <div *ngIf="submitted && f.PaperDuration.errors || f.PaperDuration.errors && f.PaperDuration.dirty"
+                                                      class="danger-text">
+                                                      <div *ngIf="f.PaperDuration.errors.required">Paper Duration is required.</div>
+                                                  </div>
+                                              </div>
+                                              <div class="form-group col-md-6 col-6">
+                                                <label class="">Total Marks <span
+                                                        class="required-mark">*</span></label>
+                                                <input type="text" class="form-control" value=""
+                                                    placeholder="e.g. 100" id="PaperTotalMarks"
+                                                    formControlName="PaperTotalMarks" name="PaperTotalMarks"
+                                                    onkeypress="if(this.value.length==3) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250"
+                                                    (keydown)="avoidSpace($event)" (keypress)="numberOnly($event)" 
+                                                     required />
+                                                <div *ngIf="submitted && f.PaperTotalMarks.errors || f.PaperTotalMarks.errors && f.PaperTotalMarks.dirty"
+                                                    class="danger-text">
+                                                    <div *ngIf="f.PaperTotalMarks.errors.required">Total Marks is required.</div>
+                                                </div>
+                                            </div>
+                                          </div>
+                                          <div class="row">
+                                            <div class="form-group col-md-6 col-6">
+                                                <label class="">Passing Marks <span
+                                                        class="required-mark">*</span></label>
+                                                <input type="text" class="form-control" value=""
+                                                    placeholder="e.g. 35" id="PaperPassMark"
+                                                    formControlName="PaperPassMark" name="PaperPassMark"
+                                                    onkeypress="if(this.value.length==3) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250"
+                                                    (keydown)="avoidSpace($event)" (keypress)="numberOnly($event)" 
+                                                    required />
+                                                <div *ngIf="submitted && f.PaperPassMark.errors || f.PaperPassMark.errors && f.PaperPassMark.dirty"
+                                                    class="danger-text">
+                                                    <div *ngIf="f.PaperPassMark.errors.required">Passing Marks is required.</div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group col-md-6 col-6">
+                                              <label class="">Total Questions <span
+                                                      class="required-mark">*</span></label>
+                                              <input type="text" class="form-control" value=""
+                                                  placeholder="e.g. 25" id="eaQuestionCount"
+                                                  formControlName="eaQuestionCount" name="eaQuestionCount"
+                                                  onkeypress="if(this.value.length==3) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250"
+                                                    (keydown)="avoidSpace($event)" (keypress)="numberOnly($event)" 
+                                                     required />
+                                              <div *ngIf="submitted && f.eaQuestionCount.errors || f.eaQuestionCount.errors && f.eaQuestionCount.dirty"
+                                                  class="danger-text">
+                                                  <div *ngIf="f.eaQuestionCount.errors.required">Total Question is required.</div>
+                                              </div>
+                                          </div>
+                                          <!-- <div class="form-group col-md-12 col-12">
+                                            <label class="">Paper Instructions <span
+                                                    class="required-mark">*</span></label>
+                                            <textarea type="text" class="form-control" value=""
+                                                        placeholder="Enter Instructions" 
+                                                        id="txtaddress"
+                                                        formControlName="PaperInstruction" 
+                                                        name="PaperInstruction"></textarea>
+                                            <div *ngIf="submitted && f.PaperInstruction.errors || f.PaperInstruction.errors && f.QuestionCount.dirty"
+                                                class="danger-text">
+                                                <div *ngIf="f.PaperInstruction.errors.required">Paper Instructions is required.</div>
+                                            </div>
+                                        </div> -->
+                                        </div>
+                                          <hr>
+                                          <div class="row">
+                                              <div class="form-group col-md-12 col-lg-12">
+                                                  <button type="submit" *ngIf="!isEdit"
+                                                      class="btn saveAndProceed-btn float-right" [disabled]="this.addPaperForm.invalid">Save & Proceed</button>
+                                                  <button type="submit" *ngIf="isEdit"
+                                                      class="btn saveAndProceed-btn float-right">Update</button>
+                                              </div>
+                                          </div>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>

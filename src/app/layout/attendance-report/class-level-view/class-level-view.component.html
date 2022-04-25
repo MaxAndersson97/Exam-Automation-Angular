@@ -1,0 +1,234 @@
+<div id="page-content-wrapper " class="class-level-view">
+  <div class="container-fluid p-0">
+    <!-- <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <div class="filter-row py-3">
+            <div class="col-md-12 col-lg-12 p-0">
+              <div class="row mx-0">
+                <div class="filterBy float-left py-2 px-3  text-left col-6"><h4>Filters</h4></div>
+                <div class="reset float-left text-right px-3 col-6"><a class="reset_link" title="Reset Filter" type="reset" (click)="clearfilter();"> Clear Filter </a></div>
+              </div>
+              
+              <div class="w-100 px-3 pb-2">
+                
+                  <div class="float-left select-standard-filter" >
+                    <div class="single tog ">
+                      <ng-select [(ngModel)]="studentFilterObj.academicYearsID"   name="AcademicSessionID" [items]="academicList" placeholder="Select Academic Year"  bindValue="AcademicYearID" [searchable]='false' (change)="fitersubmit();">
+                        <ng-template ng-option-tmp let-item="item">
+                            {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                                {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}</span>
+                            <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select
+                                Academic Session</span>
+                        </ng-template>
+                      </ng-select>
+                  </div>
+                  </div>
+
+                  <div class="float-left select-standard-filter" >
+                    <div class="single tog ">
+                      <ng-select [(ngModel)]="studentFilterObj.ClassID"  [items]="classes" bindLabel="ClassName" placeholder="Select Class"
+                        bindValue="ClassID" [searchable]=false (change)="getSectionByClassID(studentFilterObj.ClassID, i); validclass();">
+                        <ng-template ng-option-tmp let-item="item">
+                          <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                          <span *ngIf="item.ClassName" style="text-transform: capitalize"> {{item.ClassName.toLowerCase()}}</span>
+                          <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                        </ng-template>
+            
+                      </ng-select>
+                    </div>
+                  </div>
+                  <div class="float-left select-section-filter">
+                    <div class="single tog ">
+                      <ng-select [(ngModel)]="studentFilterObj.EA_SectionID"  name="EA_SectionID" [items]="sectionList" bindValue="AESectionID" [searchable]='false' placeholder="Select Section">
+                        <ng-template ng-option-tmp let-item="item" >
+                            {{ item.SectionName}}
+                        </ng-template>
+                        <ng-template ng-label-tmp let-item="item">
+                            <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                            <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                        </ng-template>
+                    </ng-select>
+                    </div>
+                  </div>
+                  <form [formGroup]="attendancefilterForm" #studentForm="ngForm" (ngSubmit)="onSubmit()">
+                    <div class="float-left select-section-filter" >
+                      <div class="single tog datepicker form-group">
+                          <input type="text" value="" formControlName="FromDate" placeholder="From Date"  name="FromDate"
+                            class="form-control bg-white" #dp="bsDatepicker" bsDatepicker [maxDate]="maxDate" readonly="true"
+                            [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }"  (click)="validDate();"/>
+                      </div>
+                    </div>
+                    <div class="float-left select-section-filter" >
+                      <div class="single tog datepicker form-group">
+                        <input type="text" value="" formControlName="ToDate" placeholder="To Date"  name="ToDate"
+                          class="form-control bg-white" #dp="bsDatepicker" bsDatepicker [maxDate]="maxDate" readonly="true"
+                          [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" />
+                      </div>
+                    </div>
+                    <button type="button" id="showResultBtn" (click)="onSubmit();" class="btn show-result-btn float-right" [disabled]="!submittedfilter" >Show Result</button>
+                  </form>
+              </div>
+                
+                
+            </div>
+        </div>
+    </div>
+    </div> -->
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <nav aria-label="breadcrumb" class="mx-3 mt-3 mb-0 ">
+          <ol class="breadcrumb p-0 m-0">
+            <!-- <li class="breadcrumb-item"><a routerLinkActive="active" >Attendance Report / 6th A</a></li> -->
+            <li class="breadcrumb-item"><a routerLinkActive="active">Attendance Report <span *ngIf="className!=''"
+                  style="text-transform: capitalize;">/ {{className | lowercase}}</span></a></li>
+            <!-- <li class="breadcrumb-item" ><a>Upload CSV</a></li> 
+                       <li class="breadcrumb-item active" aria-current="page" > Add Staff Manually</li> -->
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row mt-3 mb-0 mx-0">
+      <div class="col-md-12 col-lg-12">
+        <h2 class="top-header mb-0"> Principal / School View </h2>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="row assign_report m-3">
+          <div class="col-md-12 col-lg-12">
+            <h2 class="top-header my-3 text-center"> Class Level View </h2>
+          </div>
+          <div class="col-md-10 col-lg-10 mb-4">
+            <div class="Date_tabs m-auto">
+              <div class="float-left text-center tab" (click)="todayselected();" [ngClass]="{'active':todayd == true}">
+                <p>Today</p>
+              </div>
+              <div class="float-left text-center tab " (click)="sevendaysselected();"
+                [ngClass]="{'active':sevend == true}">
+                <p>7 Days</p>
+              </div>
+              <div class="float-left text-center tab" (click)="thirtydaysselected();"
+                [ngClass]="{'active':thirtyd == true}">
+                <p>30 Days</p>
+              </div>
+              <div class="float-left text-center Custom-No" [ngClass]="{'active':customd == true}">
+                <input placeholder="Custom" type="text" [(ngModel)]="BelowcustomShowLimit" class="w-100 enter-custom-no"
+                  onKeyDown="if(this.value.length==3 && event.keyCode>47 && event.keyCode < 58)return false;"
+                  (keypress)="numericOnly($event)" type="number" min="1" max="999">
+                <button type="button" style="cursor: pointer;" (click)="onselectcustomdate(BelowcustomShowLimit);"
+                  [ngStyle]="{'color': BelowcustomShowLimit > 0 ? '#28a745' : '#8595A6'}"
+                  [disabled]="BelowcustomShowLimit == 0 || BelowcustomShowLimit == '' || BelowcustomShowLimit == null">
+                  <!-- <i class="fa fa-check-circle"></i> -->
+                  Click Here
+                </button>
+              </div>
+
+            </div>
+          </div>
+          <div class="col-md-2 col-lg-2 mb-4">
+            <div class="Date_tabs m-auto">
+              <div class="float-left text-center tab" style="cursor: pointer;" (click)="exportexcel();">
+                <p>Export <i class="fa fa-file-excel-o" aria-hidden="true"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12 p-0 t_top_border">
+            <div class="assignment_report ">
+              <div>
+                <table class="w-100 table assignment_list-list" id="excel-table">
+                  <thead>
+                    <tr style="text-transform: capitalize" class="table-row">
+                      <th class="left_td_one">Class</th>
+                      <th class="left_td_two">Subject</th>
+                      <th class="left_td_three">Total Students</th>
+                      <th class="left_td_four">Attendance Percentage</th>
+
+                      <ng-container *ngFor="let key of dates">
+                        <th class="text-center datesth">{{key}}</th>
+                      </ng-container>
+                    </tr>
+                  </thead>
+                  <tbody id="myTable">
+                    <ng-container *ngFor="let item of finalreport_list">
+                      <tr *ngIf="item.adhocrow==true && item.adhocrow">
+                        <td class="left_td_two adhoc_attend"><strong>Adhoc Attendance</strong></td>
+                        <td class="left_td_three adhoc_attend"></td>
+                        <td class="left_td_four adhoc_attend"></td>
+                        <ng-container *ngFor="let key of dates">
+                          <td class="adhoc_attend"></td>
+                        </ng-container>
+                      </tr>
+                      <tr *ngIf="item.lstAttandanceSubjectData!=[] && item.lstAttandanceSubjectData_adhoc!=[]">
+                        <td [attr.rowspan]="item.rowSpanad" *ngIf="item.rowSpanad" class="t_right_border left_td_one">
+                          {{item.ClassName | lowercase}} {{item.SectionName}}</td>
+                        <td class="subject_name left_td_two">
+                          <span *ngIf="item.SubjectName!=''" (click)="getsubjectlevel(item)">{{item.SubjectName |
+                            lowercase}}</span>
+                          <span *ngIf="item.SubjectName==''" (click)="getsubjectlevel(item)">{{item.SessionName |
+                            lowercase}}</span>
+                          <!-- <p class="w-100 subject_teacher_name mb-0">{{item.SubjectTeacherName | lowercase}}</p> -->
+                        </td>
+                        <td class="left_td_three">{{item.TotalStudent}}</td>
+                        <td class="left_td_four">
+                          <span
+                            *ngIf="item.TodaysAttandanceCount || item.TodaysAttandanceCount==0">{{item.PresentOfPeriod_Class
+                            | number:'1.2-2'}}%</span>
+                          <span *ngIf="!item.TodaysAttandanceCount && item.TodaysAttandanceCount!=0">-</span>
+                        </td>
+                        <ng-container *ngFor="let subitem of item.lstClassReportInfoMember">
+                          <td>
+                            <span *ngIf="subitem.IsDateHaveAttendance"
+                              style="overflow: scroll;">{{subitem.PresentStudentCount}}&nbsp;&nbsp;
+                              <p class="w-100 subject_teacher_name mb-0" *ngIf="subitem.CreatedbyName">
+                                {{subitem.CreatedbyName | lowercase}}</p>
+                            </span>
+                            <span *ngIf="!subitem.IsDateHaveAttendance">N/A</span>
+                          </td>
+                        </ng-container>
+                        <ng-container *ngFor="let key of dates">
+                          <td *ngIf="item.lstAttandanceSubjectData == 0">-</td>
+                        </ng-container>
+                      </tr>
+                      <!-- <ng-container *ngIf="Adhoc_list!=[]"> 
+                        <tr>
+                          <td class="left_td_two adhoc_attend"><strong>Adhoc Attendance</strong></td>
+                        </tr>
+                        <tr *ngFor="let adhoc of Adhoc_list">
+                          <td  class="subject_name left_td_two"><span (click)="getsubjectlevel(adhoc)">{{adhoc.SubjectName | lowercase}}</span>
+                            <p class="w-100 subject_teacher_name mb-0">{{adhoc.SubjectTeacherName | lowercase}}</p>
+                          </td> 
+                          <td class="left_td_three">{{adhoc.TotalStudent}}</td> 
+                          <td class="left_td_four">
+                            <span *ngIf="adhoc.TodaysAttandanceCount || adhoc.TodaysAttandanceCount==0">{{adhoc.PresentOfPeriod_Class | number}}%</span>
+                            <span *ngIf="!adhoc.TodaysAttandanceCount && adhoc.TodaysAttandanceCount!=0">-</span>
+                          </td> 
+                          <ng-container *ngFor="let subitem of adhoc.lstClassReportInfoMember">
+                            <td>
+                              <span *ngIf="subitem.IsDateHaveAttendance">{{subitem.PresentStudentCount}}</span>
+                              <span *ngIf="!subitem.IsDateHaveAttendance">N/A</span>
+                            </td> 
+                          </ng-container>
+                          <ng-container *ngFor="let key of dates">
+                            <td *ngIf="adhoc.lstAttandanceSubjectData == 0">-</td> 
+                          </ng-container>
+                        </tr>
+                      </ng-container> -->
+                    </ng-container>
+                  </tbody>
+                </table>
+                <p *ngIf="nodataavailble" class="no_data_available">No Data Available</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

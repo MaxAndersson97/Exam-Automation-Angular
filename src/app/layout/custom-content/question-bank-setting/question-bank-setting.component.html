@@ -1,0 +1,120 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-12 mt-3">
+      <div class="admin-panel-top row">
+        <div class="col-3 col-md-3 col-lg-3">
+          <!-- <div class="sidebar-heading">Smart Studies</div> -->
+        </div>
+        <div class="col-6 col-md-6 col-lg-6">
+          <p class="custom-content m-0">Question Bank Module - Advance Settings</p>
+        </div>
+        <div class="col-3 col-md-3 col-lg-3">
+          <button class="btn float-right savebtn" id="saveBtn" type="button" (click)="saveQuestionPaperSeting()" [disabled]="!isSaveBtnEnabled">
+          Save 
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-12 col-lg-12">
+      <div class="row my-3">
+        <div class="col-5 col-md-5 col-lg-5 py-2">
+          <div class="settingHead" *ngIf="questionList && questionList.length > 0">Use checkbox to show/hide answer in Question Bank</div>
+        </div>
+        <div class="col-7 col-md-7 col-lg-7">
+          <form [formGroup]="searchtextbookForm" (ngSubmit)="onSubmit()" >
+          <button class="btn float-right showtextboxbtn" id="showtextboxBtn" type="submit" [disabled]="!searchtextbookForm.valid">
+          Show
+          </button>
+          <div class="single tog float-right selectClass">
+            <ng-select  formControlName="SubjectID" name="StateID" [items]="subjects" [searchable]=false placeholder="e.g. Mathematics" required>
+              <ng-template ng-option-tmp let-item="item" style="text-transform: capitalize;">
+                {{item.SubjectName.toLowerCase()}} 
+              </ng-template>
+              <ng-template ng-label-tmp let-item="item">
+                  <span *ngIf="item.SubjectName" style="text-transform: capitalize;">  {{item.SubjectName.toLowerCase()}} </span>                  
+              </ng-template>
+          </ng-select>
+          </div>             
+          <div class="single tog float-right selectSubject">
+            <ng-select  formControlName="ClassID" name="StateID" [items]="classesList" [searchable]=false  placeholder="e.g. 1st Standard" (change)="getClassId()" required>
+              <ng-template ng-option-tmp let-item="item" style="text-transform: capitalize;">
+                {{item.MasterText.toLowerCase()}} 
+              </ng-template>
+              <ng-template ng-label-tmp let-item="item">
+                  <span *ngIf="item.MasterText" style="text-transform: capitalize;">  {{item.MasterText.toLowerCase()}} </span>                  
+              </ng-template>
+          </ng-select>
+          </div>        
+        </form>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-lg-12 col-md-12 my-3  footprints" *ngIf = "questionList && questionList.length > 0" >
+      <div class="head row py-3 m-0">
+        <div class="col-6 col-md-6">
+          <h3 class="texthead float-left">Question Bank</h3>
+        </div>
+        <div class="col-6 col-md-6">
+          <div class="float-right single tog">
+            <label class="switch">
+              <input type="checkbox" [checked]="selectedAll" (change)="selectAll();"  [disabled] = "questionList && questionList.length == 0" >
+              <span class="slider round"></span>
+              </label>
+            </div>
+          <!-- <div class="float-right">
+            <div class="Select-all text-center float-right mr-3"><a>Select All</a> </div>    
+          </div> -->
+          <div class="float-right">
+            <div class="Select-all text-center float-right mr-3"><a *ngIf ="selectedAll">Deselect All</a><span class="slider round" *ngIf ="!selectedAll">Select All</span></div>    
+          </div>
+        </div>
+      </div>
+
+      <div class="row collapse show m-0 blockcolm" id="englishcomm">
+          <div class="col-xs-4 col-md-4 col-4 chapter-col h-auto"
+          *ngFor="let chepter of  questionList; let j = index">
+          <p class="m-0 pr-5" style="text-transform: capitalize;">{{chepter.ChapterName.toLowerCase()}} </p>
+ 
+              <label class="checkbox-container">
+
+                  <input type="checkbox" class="form-check-input h-auto m-0"
+                      value="{{chepter.ChapterID}}" name="chepter_{{j}}"
+                      [(ngModel)]="chepter.ShowInAppStatus"  (click) = "checkIfAllSelected()"
+                      >
+                  <span class="checkmark"></span>
+              </label>
+              
+          </div>
+      </div>      
+    </div>
+      <!-- <div class="col-lg-12 col-md-12 my-3  footprints text-center" *ngIf ="questionList && questionList.length == 0">
+
+      No data available.
+       </div>  -->
+
+       <div class="ng-star-inserted  col-md-12 col-12 col-lg-12" *ngIf ="!isDataShow || questionList && questionList.length == 0">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+          <div class="dcsetup-img mx-auto mt-3">
+            <img src="assets/images/No-Content-Module.svg" alt="" class="w-100">
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12 col-sm-12">
+          <div class="examsetup-content mx-auto ">
+            <h2 class="text-center top-header my-3">No Question Bank to show</h2>
+            <p class="text-center detailcontrol-description mb-0" *ngIf="!isDataShow">Please let us know the Class and Subject from the above</p>
+            <p class="text-center detailcontrol-description" *ngIf="!isDataShow">dropdown to get the results</p>
+          </div>
+        </div>
+       </div>
+  </div>
+</div>
+
+<style>
+  ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked{
+    text-transform: capitalize;
+  }
+  ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option{
+    text-transform: capitalize;
+  }
+  </style>

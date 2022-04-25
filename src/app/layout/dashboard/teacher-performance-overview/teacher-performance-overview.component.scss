@@ -1,0 +1,210 @@
+.Teacher_Performance_Overview{
+    background-color: #FFFFFF;
+  box-shadow: 0 1px 0 0 #D1DAE6;
+  height: 100%;
+  .Teacher_Performance_Overview_text{
+    color: #172B4D;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+  }
+  .select-standard-filter{
+    width: 312px;
+    }
+  .selected-list{
+    height: 36px;
+  }
+  .select-standard-filter .dropdown-btn{
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #FFFFFF;
+    color: #8595A6;	
+    font-family: Inter;	
+    font-size: 13px;	
+    line-height: 21px;
+    width: 94%;
+    height: 45px;
+    margin-right: 14px;
+  }
+  .select-standard-filter .dropdown-btn:after{
+      float: right;
+      margin-top: 8px;
+  }
+  .select-standard-filter .single.show .dropdown-btn:after{
+      border-right: .3em solid transparent;
+      border-bottom: .3em solid;
+      border-left: .3em solid transparent;
+      border-top: 0;
+  }
+  .filter-row .single .dropdown-container li{
+    padding: 10px;
+  }
+  .filter-row .single .dropdown-container li span{
+    padding-left: 28px;
+  }
+}
+body{
+    background-color: #F6F7FB;
+}
+
+::ng-deep .teacher_p_overview .select-standard-filter .ng-select-container .ng-value-container{
+    font-size:13px;
+}
+::ng-deep .teacher_p_overview .select-standard-filter .ng-select-bottom .ng-option{
+    font-size:13px;
+}
+
+.p_overview_block{
+  border-radius: 7px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  h4{
+    color: #172B4D;
+    font-family: Inter;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 26px;
+  }
+  p{
+    color: #8595A6;
+    font-family: Inter;
+    font-size: 11px;
+    line-height: 18px;
+  }
+  .right_image{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 150px;
+  }
+  .t_image{
+    position: absolute;
+    .name_img img{
+      width: 30px;
+      height:30px;
+      border-radius: 50%;
+    }
+    .name{
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background-color: #5C67E6;
+      padding-top: 7px;
+      padding-left: 11px;
+      float: left;
+      p{color: #fff; font-size: 12px;}
+    }
+  }
+  .l_pad{
+    padding-left: 42px;
+  }
+}
+
+.class_level_text{
+  color: #172B4D;
+  font-family: Inter;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+.class_level_block{
+  border-radius: 7px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  h4{
+    color: #172B4D;
+    font-family: Inter;
+    font-size: 19px;
+    font-weight: 600;
+    line-height: 26px;
+  }
+  p{
+    color: #8595A6;
+    font-family: Inter;
+    font-size: 11px;
+    line-height: 18px;
+  }
+  
+}
+.c_purple{
+  border-bottom: 1.5px solid #7357CD;
+}
+.c_green{
+  border-bottom: 1.5px solid #01CA85;
+}
+.c_blue{
+  border-bottom: 1.5px solid #5C67E6;
+}
+.c_sblue{
+  border-bottom: 1.5px solid #00B4FF;
+}
+.c_red{
+  border-bottom: 1.5px solid #E52254;
+}
+
+.class_level_subject{
+  height: auto;
+  border-radius: 7px;
+  background-color: #FFFFFF;
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  .class_level_subject_table{ 
+    td{
+        padding: 7px 10px;
+    }
+    .b_clr{
+        color: #5C67E6;
+    }
+  }
+  th{
+    color: #3A5077;
+    font-family: Inter;
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 18px;
+    height: 45px;
+    background-color: #FFFFFF;
+    border: 1px solid #D1DAE6;
+    padding: 10px;
+  }
+  td{
+    color: #172B4D;
+    font-family: Inter;
+    font-size: 13.5px;
+    line-height: 18px;
+    border: 1px solid #D1DAE6;
+    font-weight: 500;
+    word-break: keep-all;
+  }
+}
+
+.dcsetup-img {
+  width: 270px;
+}
+.dcsetup-img img{
+width: 260px;
+}
+
+.filter-row .filterBy{
+  position: relative;
+  .clear_filter{
+      position: absolute;
+      right: 16px;
+      top: 9px;
+      font-family: Inter;
+      font-size: 12px;
+      line-height: 21px;
+      text-align: center;
+      padding-top: 10px;
+      border-radius: 0px !important;
+      border: 1px solid #ced4da !important;
+      padding: 5px 15px;
+      cursor: pointer;
+  }
+  .clear_filter:hover{
+      color: #5C67E6;
+  }
+}

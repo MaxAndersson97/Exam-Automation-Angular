@@ -1,0 +1,34 @@
+.saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+/*--------------end modal with full width-----------------*/
+/*-----add template moodal--------*/
+#CreateTemplate.modal {
+  right: 595px;
+}
+
+#CreateTemplate.modal .modal-content {
+  position: fixed;
+  margin: auto;
+  width: 605px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+#CreateTemplate.modal h3.sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+/*------add template----------------*/
+/*# sourceMappingURL=add-template.component.css.map */

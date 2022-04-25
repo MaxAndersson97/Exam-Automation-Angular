@@ -1,0 +1,218 @@
+<div id="page-content-wrapper" class="sub_perfor_report">
+  <div class="container-fluid p-0">
+      <div class="row">
+          <div class="col-md-12 col-lg-12">
+              <div class="worksheettab-row">
+                  <div class="col-md-12 col-lg-12 p-0 worksheettab">
+                      <div class="worksheet-tab  h-100" style="cursor: pointer;" (click)="overallperformance()"><h4>Overall Performance Analysis</h4></div>
+                      <div class="worksheet-tab  h-100" (click)="chapterTUAnalysis()" style="cursor: pointer;"><h4>Chapter Understanding Analysis</h4></div>
+                      <div class="worksheet-tab active h-100"><h4>Subject Performance Report</h4></div>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-12 col-lg-12">
+              <div class="filter-row row m-0">
+                  <div class="col-md-9 col-lg-9 p-0 filter-border-right py-3">
+                      <div class="filterBy float-left py-2 px-3  text-left w-100">
+                        <h4>Filters</h4>
+                        <div class="clear_filter" (click)="clearFilter();">Clear Filter</div>
+                      </div>
+                      
+                      <div class="w-100 px-3 pb-2">
+                        <div class="float-left select-student-filter">
+                          <div class="single tog">
+                            <ng-select [(ngModel)]="studentFilterObj.academicYearsID" name="AcademicSessionID" [items]="academicList" placeholder="Select Academic Year"  bindValue="AcademicYearID" [searchable]='false' (change)="isSearchFormValid();academicChnage();">
+                              <ng-template ng-option-tmp let-item="item">
+                                  {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}
+                              </ng-template>
+                              <ng-template ng-label-tmp let-item="item">
+                                  <span *ngIf="item.PeriodFrom && item.PeriodTo">
+                                      {{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}}</span>
+                                  <span *ngIf="!(item.PeriodFrom && item.PeriodTo)" style="color: #999999;"> Select
+                                      Academic Session</span>
+                              </ng-template>
+                            </ng-select>
+                        </div>
+                        </div>
+                        <div class="float-left select-student-filter">
+                          <div class="single tog">
+                            <ng-select [(ngModel)]="studentFilterObj.ClassID" [items]="classes" bindLabel="ClassName" placeholder="Select Class"
+                              bindValue="ClassID" [searchable]=false (change)="isSearchFormValid();getSectionByClassID(studentFilterObj.ClassID);">
+                              <ng-template ng-option-tmp let-item="item">
+                                <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                              </ng-template>
+                              <ng-template ng-label-tmp let-item="item">
+                                <span *ngIf="item.ClassName" style="text-transform: capitalize"> {{item.ClassName.toLowerCase()}}</span>
+                                <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                              </ng-template>
+                  
+                            </ng-select>
+                          </div>
+                        </div>
+                        <div class="float-left select-student-filter" style="padding-right:12px">
+                          <div class="single tog">
+                          <angular2-multiselect [data]="sectionList" 
+                            [(ngModel)]="studentFilterObj.EA_SectionIDs" 
+                            [settings]="setionsettings" 
+                            (onSelect)="onItemSelect1($event)"
+                            (onDeSelect)="OnItemDeSelect1($event)" 
+                            (onSelectAll)="onSelectAll1($event)" 
+                            (onDeSelectAll)="onDeSelectAll1($event)"
+                            (onClose)="isSearchFormValid()">
+                            </angular2-multiselect>
+                          </div>
+                        </div>                        
+                        <button type="button" id="showResultBtn" class="btn show-result-btn" (click)="showResult()" [disabled] = "!isSearchValid">Show Result</button>
+                      </div>
+                  </div>
+                  <div class="col-md-3 col-lg-3 py-3">
+                    <div class="filterBy float-left py-2  text-left w-100"><h4>Percentage Range</h4></div>
+                    <div class="choose-range"  (clickOutside)="closeDropDown($event)">
+                      <button class="dropdown-btn dropdown-toggle text-left " data-toggle="dropdown" (click)="showFilterBox();">Choose Range</button>
+                        <div class="dropdown-container dropdown-menu p-0 m-0 pt-2" type="none" [ngClass]="showFilter ? 'show' : ''" *ngIf="showFilter"
+                        (blur)="showFilter  = !showFilter">
+                        <div class="form-group col-md-12 col-lg-12 pb-3 mb-2">
+                          <div class="row">
+                            <div class="col-md-6 col-6"><h5>Poor</h5></div>
+                          </div>
+                            <div class="range-poor">
+                              <mv-slider class="span2" id="slider1"  [value]="poorValue" [min]="0" [max]="100" [range]="true" [enabled]="false"></mv-slider>
+
+                          </div>
+                        </div> 
+                        <div class="form-group col-md-12 col-lg-12 pb-3 mb-2">
+                          <div class="row">
+
+                            <div class="col-md-6 col-6"><h5>Average</h5></div>
+                            <div class="col-md-12 mb-3">
+                              <span class="errortext" *ngIf="fromAvg > toAvg">From number 'From' number should be less then 'To' number.</span>
+                              <div class="row m-0">
+                                <div class="col-6 col-md-6 pl-0 pr-2">
+                                  <input type="number" id="" class="w-100 Avg_input" [(ngModel)]="fromAvg" name="fromAvg" (change)="setAllRange(fromAvg, toAvg)" min="0" max="100">
+                                </div>
+                                <div class="col-6 col-md-6 pr-0 pl-2">
+                                  <input type="number" id="" class="w-100 Avg_input"  [(ngModel)]="toAvg" name="toAvg" (change)="setAllRange(fromAvg, toAvg)" min="0" max="100">
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="range-avg">
+                            <mv-slider class="span2" id="slider1"  [value]="avgValue" [min]="0" [max]="100" [range]="true" [enabled]="false"></mv-slider>
+                          </div>
+                        </div> 
+                        <div class="form-group col-md-12 col-lg-12 pb-3 mb-2">
+                          <div class="row">
+                            <div class="col-md-6 col-6"><h5>Strong</h5></div>
+                          </div>
+                          <div class="range-strong">
+                            <mv-slider class="span2" id="slider1"  [value]="strongValue" [min]="0" [max]="100" [range]="true" [enabled]="false"></mv-slider>
+                          </div>
+                        </div>
+
+                        <div class="col-md-12 col-lg-12 px-3 pt-2">
+                          <button class="btn save-class-range w-100" id="saveClassRange" name="saveClassRange" [disabled]="fromAvg > toAvg" (click)="saveRange()">Save And Show Result</button>
+                        </div>
+                          <p class="text-center pt-2 mb-2"><a class="reset-link" (click)="resetRange()">Reset to Default</a></p>
+                    </div>      
+                  </div>
+                </div>
+              </div>
+          </div>
+      </div>
+     
+      
+      <div class="row" *ngIf="!noDataFound">
+        <div class="col-md-12 col-lg-12">
+            <div class="m-3 ">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0 w_fix">    
+                   <h4 class="mb-0 report-pname">Overall Performance Distribution</h4>
+                  <div class="row mt-4 mx-0">
+                  <div class="col-md-6 col-6 pl-0">
+                    <div class="row block-1 mx-0 py-3">
+                      <div class="col-md-12 col-12">
+                        <h5 class="overall-rank-head">Performance Report</h5>
+                      </div>
+                      <div class="col-md-12 col-12 mt-3">
+                        <div class="performance-report-table">
+                          <table class="w-100">
+                            <thead>
+                              <tr>
+                                <th width="31%">SUBJECT</th>
+                                <th width="23%" class="text-center">STRONG</th>
+                                <th width="23%" class="text-center">AVERAGE</th>
+                                <th width="23%" class="text-center">POOR</th>
+
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr *ngFor="let item of preparedChapAnaDataList; let i=index;">
+                                <td style="text-transform: capitalize;">{{item.SubjectName | lowercase}}</td>
+                                <td class="text-center">
+                                  <span *ngIf="item.Strong !== 'NaN'">{{item.Strong}}</span>
+                                  <span *ngIf="item.Strong == 'NaN'">N/A</span>
+                                </td>
+                                <td class="text-center">
+                                  <span *ngIf="item.Average !== 'NaN'">{{item.Average}}</span>
+                                  <span *ngIf="item.Average == 'NaN'">N/A</span>
+                                </td>
+                                <td class="text-center">
+                                  <span *ngIf="item.Poor !== 'NaN'">{{item.Poor}}</span>
+                                  <span *ngIf="item.Poor == 'NaN'">N/A</span>
+                                </td>
+
+                              </tr>
+                            </tbody>
+                          </table>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-md-6 col-6 pr-0">
+                    <div class="row block-2 mr-0 py-3">
+                      <div class="col-md-6 col-6">
+                        <!-- <h5 class="report-pname">Chart</h5> -->
+                        <h5 class="overall-rank-head">Chart</h5>
+                      </div>
+                      <div class="col-md-6 col-6">
+                        <div class="poor-score ml-1 mt-2 float-right"><div class="float-left mr-1"></div> Poor</div>
+                        <div class="average-score mr-1 mt-2 float-right"><div class="float-left mr-1"></div> Average</div>
+                        <div class="only-score mr-2 mt-2 float-right"><div class="float-left mr-1"></div> Strong</div>
+                      </div>
+                      <div class="col-md-12 col-12 mt-3">
+                        <!--chart-place---->
+                        <div id="subject-performance-chart"></div>
+                        
+                        <!---chart place-end---------->
+                      </div>
+                    </div>
+                  </div>
+                  </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row" *ngIf="noDataFound">
+      <div class="col-md-12 col-lg-12">
+          <div class="m-3 ">
+              <div class="col-md-12 col-lg-12 pl-0 pr-0">    
+                 <div class=" row report-setup">
+                      <div class="col-md-12 col-lg-12 col-sm-12">
+                          <div class="reportsetup-img mx-auto mt-2">
+                              <img src="/assets/images/reports.svg" alt="" class="w-100 mt-2">
+                          </div>
+                      </div>
+                      <div class="col-md-12 col-lg-12 col-sm-12">
+                          <div class="reportsetup-content mx-auto ">
+                              <h2 class="text-center top-header my-3">No report to show</h2>
+                              <p class="text-center reportsetup-description mb-0">Please let us know the standard, section and exam type </p>
+                              <p class="text-center reportsetup-description">from the above dropdown to get the results</p>
+                          </div>
+                      </div>
+                 </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </div>
+</div>

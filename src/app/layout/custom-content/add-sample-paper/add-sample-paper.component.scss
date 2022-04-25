@@ -1,0 +1,50 @@
+.danger-text{
+    width: 100%;
+    margin-top: .25rem;
+    font-size: 80%;
+    color: #dc3545;
+}
+
+.schoolacademicdetail-form #ddlState option{
+    text-transform: capitalize;
+}
+.schoolacademicdetail-form #ddlCountry option{
+    text-transform: capitalize;
+}
+
+.required-mark{
+    color: red;
+    font-size: 14px;
+}
+
+.Secondary_rightIcon{
+    position: absolute;
+    top: 38px;
+    right: 24px;
+}
+.Secondary_Email{
+    padding-right:38px;
+}
+
+
+input#txtcity::-webkit-input-placeholder {
+    text-transform: none;
+}
+input#txtcountry::-webkit-input-placeholder {
+    text-transform: none;
+}
+input#txtstate::-webkit-input-placeholder {
+    text-transform: none;
+}
+
+.go-back-btn{
+    height: 47px;
+    width: auto;
+    border-radius: 4px;
+    background-color: #5C67E6;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 22px;
+    text-align: center;
+}

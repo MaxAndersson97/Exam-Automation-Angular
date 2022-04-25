@@ -1,0 +1,7676 @@
+.saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+body {
+  font-family: Inter;
+}
+
+.margin-4{
+  margin: 4px;
+}
+
+/*-----------------end-welcome-page----------------*/
+/*-------------------------------end Staff Page-------------------------------*/
+/*--------------------------------Exam setup page------------------------------*/
+.exam_setup {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 660px;
+  width: auto;
+  border-radius: 4px;
+  /*--------worksheet-------------*/
+}
+
+.exam_setup .examsetup-img {
+  width: 292px;
+}
+
+.exam_setup .examsetup-description {
+  color: #8595A6;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.exam_setup button.createworksheet-btn {
+  height: 54px;
+  width: 240px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createWorksheet.modal.right {
+  right: 594px;
+}
+
+#createWorksheet.modal.right .modal-content {
+  width: 605px;
+  background-color: #ffffff;
+}
+
+#createWorksheet.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createWorksheet.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createWorksheet.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createWorksheet.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#createWorksheet.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#createWorksheet.modal.right .radio.box.active {
+  border: 1px solid #5C67E6;
+}
+
+#createWorksheet.modal.right .radio.box.active .radio-head {
+  color: #5C67E6;
+}
+
+#createWorksheet.modal.right a.step {
+  cursor: pointer;
+}
+
+.worksheettab-row {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.worksheettab-row .worksheettab {
+  width: 100%;
+  height: 48px;
+  background-color: #ffffff;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab {
+  width: 179px;
+  float: left;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab h4 {
+  color: #8595A6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.worksheettab-row .worksheettab .bloomdifficulty-tab {
+  width: 253px;
+  float: left;
+}
+
+.worksheettab-row .worksheettab .bloomdifficulty-tab h4 {
+  color: #8595A6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.worksheettab-row .worksheettab button.preview-btn {
+  width: 264px;
+  background-color: #3A5077;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  border-radius: 0px;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab.active, .worksheettab-row .worksheettab .bloomdifficulty-tab.active {
+  border-bottom: 2px solid #5C67E6;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab.active h4, .worksheettab-row .worksheettab .bloomdifficulty-tab.active h4 {
+  color: #5C67E6;
+  font-weight: 500;
+}
+
+button.preview-btn:after {
+  display: none;
+}
+
+.worksheets.bloom-summary th.wsques-nature p {
+  width: 172px;
+}
+
+.worksheets.bloom-summary th.wsmcq p {
+  width: 94px;
+}
+
+.worksheets.bloom-summary th.wssubjective p {
+  width: 140px;
+}
+
+.worksheets.bloom-summary th.wsshort-answer p {
+  width: 164px;
+}
+
+.worksheets.bloom-summary th.wslong-answer p {
+  width: 156px;
+}
+
+.worksheets.bloom-summary th.wstotal-marks p {
+  width: 80px;
+}
+
+.worksheets {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: auto;
+  width: auto;
+  border-radius: 4px;
+}
+
+.worksheets .top-head {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.worksheets .headsection-worksheet {
+  height: 45px;
+  border-top: 1px solid #D1DAE6;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.worksheets .headsection-worksheet .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+}
+
+.worksheets .headsection-worksheet .sub-head .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+}
+
+.worksheets .headsection-worksheetblank {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.worksheets .headsection-worksheetblank .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+  width: auto;
+  float: left;
+}
+
+.worksheets .headsection-worksheetblank .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+  width: 70%;
+  float: left;
+  height: 21px;
+  margin: 0 2px;
+}
+
+.worksheets .total_marksedit {
+  width: 160px;
+}
+
+.worksheets .total_marks, .worksheets .total_ques, .worksheets .total_marksedit {
+  height: 27px;
+  width: 145px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.worksheets .total_marks p, .worksheets .total_ques p, .worksheets .total_marksedit p {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheets .total_marks input, .worksheets .total_ques input, .worksheets .total_marksedit input {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  border: 0px;
+  width: 100px;
+  height: 17px;
+}
+
+.worksheets .total_marks input:focus, .worksheets .total_ques input:focus, .worksheets .total_marksedit input:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.worksheets .total_marks a, .worksheets .total_ques a, .worksheets .total_marksedit a {
+  color: #5C67E6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheets th {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheets th {
+  padding: 10px 15px;
+}
+
+.worksheets td {
+  padding: 2px 15px;
+  height: 60px;
+}
+
+.worksheets tr {
+  border: 1px solid #D1DAE6;
+}
+
+.worksheets .form-check-input.fa-check {
+  padding: 2px;
+}
+
+.worksheets td.question-nature {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.worksheets td.checkbox {
+  width: 54px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.worksheets td.question-nature {
+  width: 229px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.worksheets td.bloom-level {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.worksheets button.bloompreview-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+.worksheets .worksheet-summary .total-No {
+  background-color: #F6F7FB;
+}
+
+.worksheets .worksheet-summary td {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  height: 60px;
+}
+
+.worksheets .worksheet-summary th.quest-nature {
+  width: 254px;
+}
+
+.worksheets .worksheet-summary th.mcq {
+  width: 124px;
+}
+
+.worksheets .worksheet-summary th.subjective {
+  width: 174px;
+}
+
+.worksheets .worksheet-summary th.short-answer {
+  width: 208px;
+}
+
+.worksheets .worksheet-summary th.long-answer {
+  width: 202px;
+}
+
+.worksheets .worksheet-summary th.total-marks {
+  width: 220px;
+}
+
+.worksheets .steptext.active {
+  height: 38px;
+  width: 501px;
+  border-radius: 4px 0 0 4px;
+  background-color: rgba(92, 103, 230, 0.2);
+  border-right: 2px solid #5C67E6;
+}
+
+.worksheets .activetooltip::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-top: 5px;
+  position: absolute;
+  vertical-align: .255em;
+  content: "";
+  border-right: .4em solid;
+  border-left: 0;
+  border-top: .4em solid transparent;
+  border-bottom: .4em solid transparent;
+  color: #3A5077;
+  margin-left: -22px;
+  margin-top: 5px;
+}
+
+.worksheets .activetooltip {
+  height: 38px;
+  width: 58px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheets .genework .activetooltip {
+  height: 38px;
+  width: 95px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheets .genework .activetooltip .icon {
+  width: 30px;
+  float: left;
+  padding: 9px 0px;
+}
+
+.worksheets .genework .activetooltip .bline {
+  height: 36px;
+  width: 1px;
+  opacity: 0.1;
+  background-color: #FFFFFF;
+  float: left;
+}
+
+.worksheets .genework .activetooltip::before {
+  margin-left: -53px;
+  margin-top: 14px;
+}
+
+.worksheets h2.smart-studies {
+  color: #3A5077;
+  font-family: Sansation;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.worksheets .worksheetSetting td.question-nature {
+  padding: 10px 15px !important;
+}
+
+.worksheets .worksheetSetting td.tablespace {
+  height: 10px;
+}
+
+.worksheets .worksheetSetting td .single.alternate button.multiselect {
+  width: 80px;
+  height: 36px;
+}
+
+.worksheets .worksheetSetting td input.counternum {
+  width: 70px;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  padding: 6px 8px;
+}
+
+.worksheets .worksheetSetting td button.multiselect {
+  width: 102px;
+  height: 36px;
+}
+
+.worksheets .worksheetSetting td.chapter button.multiselect {
+  width: 130px;
+}
+
+.worksheets .worksheetSetting th, .worksheets .worksheetSetting td {
+  padding: 10px 6px;
+}
+
+.worksheets .worksheetSetting td.addques {
+  border-left: 1px solid #ced4da;
+}
+
+.worksheets .worksheetSetting td.addques .addquestion {
+  height: 36px;
+  width: 120px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  padding: 4px 10px;
+}
+
+.worksheets .worksheetSetting td.addques .addquestion a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.worksheets .worksheetSetting td.checkbox {
+  padding: 0px 2px 0px 0px;
+}
+
+.worksheets .worksheetSetting td.checkbox .checkrow {
+  width: 20px;
+  margin: auto;
+  margin-top: -10px;
+}
+
+.worksheets .worksheetSetting td .remove {
+  height: 36px;
+  width: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  padding: 4px 9px;
+}
+
+.worksheet-instruction .stepnum {
+  height: 36px;
+  width: 36px;
+  border: 1px solid #D1DAE6;
+  background-color: #fff;
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  border-radius: 50%;
+  padding: 6px 4px 6px 3px;
+}
+
+.worksheet-instruction .btwborder {
+  border-bottom: 20px solid #D1DAE6;
+  height: 20px;
+  width: 1px;
+  margin: auto;
+}
+
+.worksheet-instruction .steptext {
+  height: 21px;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.question-preview {
+  height: auto;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+  box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+}
+
+.question-preview .question-head {
+  color: #172B4D;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.question-preview .question {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.question-preview .question span {
+  font-weight: 600;
+}
+
+.question-preview .question-desc .ques-tag {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.question-preview .question-desc .chapter {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.question-preview .question-desc .Dot {
+  height: 5px;
+  width: 5px;
+  background-color: #172B4D;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.question-preview .replaceques-btn {
+  height: 36px;
+  width: 120px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.question-preview .or {
+  height: 34px;
+  width: 34px;
+  border: 1px solid #D1DAE6;
+  background-color: #F6F7FB;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.question-preview .or span {
+  color: #3A5077;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.question-preview .marks-col {
+  height: 36px;
+  width: 90px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.question-preview .marks-col p {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 7px;
+}
+
+.question-preview .marks-col input.marksinput {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 7px;
+  border: 0px !important;
+  height: 34px;
+}
+
+.question-preview.radio.active {
+  border-top: 1px solid #5C67E6;
+  border-bottom: 1px solid #5C67E6;
+  margin-bottom: 1px !important;
+}
+
+.question-preview.radio.active .question-head {
+  color: #5C67E6;
+}
+
+.worksheets button.viewAnswers-btn {
+  height: 54px;
+  width: 182px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.worksheets button.approve-btn, .worksheets button.reject-btn, .worksheets button.close-btn {
+  height: 54px;
+  width: 124px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.worksheets button.saveProceedWorksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#replaceQuestionModal.modal {
+  right: 594px;
+}
+
+#replaceQuestionModal.modal .modal-content {
+  width: 605px;
+  background-color: #ffffff;
+}
+
+#replaceQuestionModal.modal button.replaceQuestion-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#replaceQuestionModal.modal .filterbtntable .addsection-form .multiselect-container li a i.form-check-input {
+  display: none;
+}
+
+.worksheet-list {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.worksheet-list th {
+  padding: 10px 15px;
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheet-list td {
+  padding: 17px 15px;
+  color: #172B4D;
+  font-size: 16px;
+}
+
+.worksheet-list tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.worksheet-list td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheet-list td input, .worksheet-list td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.worksheet-list td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.worksheet-list .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.worksheet-list .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.worksheet-list .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.worksheet-list td.action_col {
+  padding: 8px 15px;
+}
+
+.worksheet-list td.action_col button.preview-btn {
+  height: 36px;
+  width: 101px !important;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheet-list th.worksheet-name p, .worksheet-list th.mode p, .worksheet-list th.total-ques p, .worksheet-list th p.tablespace {
+  width: 114px;
+}
+
+.worksheet-list th.status p {
+  width: 136px;
+}
+
+.worksheet-list th.standard p, .worksheet-list th.subject p {
+  width: 68px;
+}
+
+.worksheet-list th.total-marks p, .worksheet-list th.duration p, .worksheet-list th-status p {
+  width: 98px;
+}
+
+.worksheet-list th.creationDate p {
+  width: 120px;
+}
+
+.worksheet-list th.creationTime p {
+  width: 84px;
+}
+
+.worksheet-list .single.tog ul li {
+  height: 45px;
+  padding: 8px !important;
+}
+
+.worksheet-list .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheet-list .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.worksheet-list .single button.multiselect {
+  height: 36px;
+}
+
+.worksheet-list .single .multiselect-container li {
+  height: 36px;
+}
+
+.worksheet-list .form-check-input {
+  margin-top: -9px !important;
+  padding: 2px;
+}
+
+.worksheet-list td.approve {
+  color: #69BB10;
+}
+
+.worksheet-list td.inprogress {
+  color: #55CCEE;
+}
+
+.worksheet-list td.reject {
+  color: #E52254;
+}
+
+.works-list .filterbtntable .multiselect-container li a i.form-check-input {
+  display: none;
+}
+
+/*------------- end worksheet-------------*/
+/*-----------------create class test--------*/
+button.createclasstestexam-btn {
+  height: 54px;
+  width: 240px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest.modal.right {
+  right: 594px;
+}
+
+#createClassExamTest.modal.right .modal-content {
+  width: 605px;
+  background-color: #ffffff;
+}
+
+#createClassExamTest.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest.modal.right .radio.box.active {
+  border: 1px solid #5C67E6;
+}
+
+#createClassExamTest.modal.right .radio.box.active .radio-head {
+  color: #5C67E6;
+}
+
+#createClassExamTest.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+#createClassExamTest.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#createClassExamTest.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest.modal.right a.step {
+  cursor: pointer;
+}
+
+#createClassExamTest.modal.right .questionNature, #createClassExamTest.modal.right .bloomComposition {
+  border: 1px solid #D1DAE6;
+  border-radius: 0 0 4px 4px;
+  background-color: #FFFFFF;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group, #createClassExamTest.modal.right .bloomComposition .form-group {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 15px;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group i.form-check-input, #createClassExamTest.modal.right .bloomComposition .form-group i.form-check-input {
+  padding: 2px;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group p.main-text, #createClassExamTest.modal.right .bloomComposition .form-group p.main-text {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group p.text, #createClassExamTest.modal.right .bloomComposition .form-group p.text {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.fa-worksheets {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: auto;
+  width: auto;
+  border-radius: 4px;
+}
+
+.fa-worksheets .top-head {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.fa-worksheets .headsection-worksheet {
+  height: 45px;
+  border-top: 1px solid #D1DAE6;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.fa-worksheets .headsection-worksheet .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+}
+
+.fa-worksheets .headsection-worksheetblank {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.fa-worksheets .headsection-worksheetblank .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+  width: auto;
+  float: left;
+}
+
+.fa-worksheets .headsection-worksheetblank .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+  width: 70%;
+  float: left;
+  height: 21px;
+  margin: 0 2px;
+}
+
+.fa-worksheets .headsection-worksheetblank {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.fa-worksheets .headsection-worksheetblank .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+  width: auto;
+  float: left;
+}
+
+.fa-worksheets .headsection-worksheetblank .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+  width: 70%;
+  float: left;
+  height: 21px;
+  margin: 0 2px;
+}
+
+.fa-worksheets .total_marks, .fa-worksheets .total_ques {
+  height: 27px;
+  width: 145px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.fa-worksheets .total_marks p, .fa-worksheets .total_ques p {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.fa-worksheets th {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.fa-worksheets th, .fa-worksheets td {
+  padding: 10px 15px;
+}
+
+.fa-worksheets tr {
+  border: 1px solid #D1DAE6;
+}
+
+.fa-worksheets .form-check-input.fa-check {
+  padding: 2px;
+}
+
+.fa-worksheets td.question-nature {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets td.checkbox {
+  width: 54px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.fa-worksheets td.question-nature {
+  width: 220px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.fa-worksheets td.bloom-level {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.fa-worksheets button.bloompreview-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+.fa-worksheets .worksheet-summary .total-No {
+  background-color: #F6F7FB;
+}
+
+.fa-worksheets .worksheet-summary td {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  height: 60px;
+}
+
+.fa-worksheets .steptext.active {
+  height: 38px;
+  width: 501px;
+  border-radius: 4px 0 0 4px;
+  background-color: rgba(92, 103, 230, 0.2);
+  border-right: 2px solid #5C67E6;
+}
+
+.fa-worksheets .activetooltip::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-top: 5px;
+  position: absolute;
+  vertical-align: .255em;
+  content: "";
+  border-right: .4em solid;
+  border-left: 0;
+  border-top: .4em solid transparent;
+  border-bottom: .4em solid transparent;
+  color: #3A5077;
+  margin-left: -22px;
+  margin-top: 5px;
+}
+
+.fa-worksheets .activetooltip {
+  height: 38px;
+  width: 58px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.fa-worksheets .genework .activetooltip {
+  height: 38px;
+  width: 95px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.fa-worksheets .genework .activetooltip .icon {
+  width: 30px;
+  float: left;
+  padding: 9px 0px;
+}
+
+.fa-worksheets .genework .activetooltip .bline {
+  height: 36px;
+  width: 1px;
+  opacity: 0.1;
+  background-color: #FFFFFF;
+  float: left;
+}
+
+.fa-worksheets .genework .activetooltip::before {
+  margin-left: -53px;
+  margin-top: 14px;
+}
+
+.fa-worksheets h2.smart-studies {
+  color: #3A5077;
+  font-family: Sansation;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.fa-worksheets button.viewAnswers-btn {
+  height: 54px;
+  width: 182px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.fa-worksheets button.approve-btn, .fa-worksheets button.reject-btn, .fa-worksheets button.close-btn {
+  height: 54px;
+  width: 124px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.fa-worksheets button.saveProceedWorksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.modalAnswerSheet-btn {
+  height: 54px;
+  width: 223px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.exporttoword-btn {
+  height: 54px;
+  width: 175px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.openpdf-btn {
+  height: 54px;
+  width: 175px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.gotoexamlist-btn {
+  height: 54px;
+  width: 185px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.viewsummary-btn {
+  height: 54px;
+  width: 183px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.class-test-exam-setup {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.class-test-exam-setup th {
+  padding: 10px 15px;
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.class-test-exam-setup td {
+  padding: 17px 15px;
+}
+
+.class-test-exam-setup tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.class-test-exam-setup td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class-test-exam-setup td input, .class-test-exam-setup td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.class-test-exam-setup td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.class-test-exam-setup .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.class-test-exam-setup .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.class-test-exam-setup .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.class-test-exam-setup td.action_col {
+  padding: 8px 15px;
+}
+
+.class-test-exam-setup td.action_col button.preview-btn {
+  height: 36px;
+  width: 101px !important;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class-test-exam-setup th p {
+  width: 108px;
+}
+
+.class-test-exam-setup th.paper-type p {
+  width: 162px;
+}
+
+.class-test-exam-setup .single.tog ul li {
+  height: 45px;
+  padding: 10px !important;
+}
+
+.class-test-exam-setup .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class-test-exam-setup .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.class-test-exam-setup .single button.multiselect {
+  height: 36px;
+}
+
+.class-test-exam-setup .single .multiselect-container li {
+  height: 36px;
+}
+
+.class-test-exam-setup .form-check-input {
+  margin-top: -9px !important;
+  padding: 2px;
+}
+
+.class-test-exam-setup td.approve {
+  color: #69BB10;
+}
+
+.class-test-exam-setup td.inprogress {
+  color: #55CCEE;
+}
+
+.class-test-exam-setup td.reject {
+  color: #E52254;
+}
+
+.filter-row {
+  height: 93px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.filter-row .viewbtntable {
+  height: 45px;
+  width: 326px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.filter-row .viewbtntable .single.tog button {
+  height: 45px;
+  width: 326px;
+  border: 0px;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.filter-row .filterBy h4 {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.searchbartable.class-test input {
+  width: 230px;
+}
+
+.createtestbtn button.createtest-btn {
+  height: 42px;
+  width: 165px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+/*---------------create-class-test-end-----------*/
+/*--------------------assign-exam--------------*/
+.searchbartable.assign input {
+  width: 408px;
+}
+
+.assign-exam-list {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+
+.assign-exam-list td {
+  padding: 17px 15px;
+}
+
+.assign-exam-list tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.assign-exam-list td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.assign-exam-list td input, .assign-exam-list td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.assign-exam-list td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.assign-exam-list .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+.assign-exam-list td {
+  padding: 17px 15px;
+  color: #172B4D;
+  font-size: 14px;
+  text-transform: Capitalize;
+}
+.assign-exam-list .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.assign-exam-list .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.assign-exam-list td.action_col {
+  padding: 8px 15px;
+}
+
+.assign-exam-list td.action_col button.preview-btn {
+  height: 36px;
+  width: 101px !important;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.assign-exam-list th p {
+  width: 105px;
+}
+
+.assign-exam-list th.worksheet-name p {
+  width: 164px;
+}
+
+.assign-exam-list th.subject p {
+  width: 120px;
+}
+
+.assign-exam-list .single.tog ul li {
+  height: 45px;
+  padding: 10px !important;
+  width: 221px;
+}
+
+.assign-exam-list .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.assign-exam-list .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.assign-exam-list .single button.multiselect {
+  height: 36px;
+}
+
+.assign-exam-list .single .multiselect-container li {
+  height: 36px;
+}
+
+.assign-exam-list .form-check-input {
+  margin-top: -9px !important;
+  padding: 2px;
+}
+
+.assign-exam-list td.approve {
+  color: #69BB10;
+}
+
+.assign-exam-list td.inprogress {
+  color: #55CCEE;
+}
+
+.assign-exam-list td.reject {
+  color: #E52254;
+}
+
+#AssignExam.modal .checkmark {
+  left: 0;
+  top: 0;
+}
+
+/*------------------end assign exam-------------*/
+/*------------------ template--------------------*/
+#CreateTemplate.modal {
+  right: 595px;
+}
+
+#CreateTemplate.modal .modal-content {
+  position: fixed;
+  margin: auto;
+  width: 605px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+#CreateTemplate.modal button.saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#CreateTemplate.modal h3.sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.worksheets.template .worksheetSetting td.question-nature {
+  width: 360px;
+}
+
+.worksheets.template .worksheetSetting td input.counternum {
+  width: 70px;
+}
+
+.view-previous-selection .single.tog ul.dropdown-menu {
+  height: auto;
+  width: 367px;
+  border-radius: 4px 0 0 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  padding: 15px;
+}
+
+.view-previous-selection .single.tog ul li {
+  border-bottom: 1px solid #D1DAE6;
+  padding: 15px;
+}
+
+.view-previous-selection .single.tog ul li p a {
+  color: #5C67E6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.view-previous-selection .single.tog ul li p.preview-head {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.view-previous-selection .single.tog ul li p.preview-detail {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.template.worksheets .worksheetSetting th, .template.worksheets .worksheetSetting td {
+  padding: 10px 15px;
+}
+
+.worksheets.template-bloomdiff td input {
+  height: 36px;
+  width: 80px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.worksheets.template-bloomdiff .total_marks, .worksheets.template-bloomdiff .total_ques {
+  height: 27px;
+  width: 113px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.template-list {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.template-list tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.template-list th.template-name p {
+  width: 132px;
+}
+
+.template-list th.standard p {
+  width: 65px;
+}
+
+.template-list th.subject p {
+  width: 102px;
+}
+
+.template-list th.total-marks p {
+  width: 85px;
+}
+
+.template-list th.duration p {
+  width: 72px;
+}
+
+.template-list th.created-by p, .template-list th.updated-by p {
+  width: 132px;
+}
+
+.template-list th p.tablespace {
+  width: 102px;
+}
+
+.template-list th.status p {
+  width: 138px;
+}
+
+.template-list th p {
+  margin: 0px;
+}
+
+.template-list td {
+  height: 60px;
+  padding: 17px 15px;
+}
+
+.template-list td.action_col {
+  padding: 11px 15px;
+}
+
+/*------------------end template----------------*/
+/***********radio-btn*********/
+.radio {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 24px;
+  right: 15px;
+  height: 28px;
+  width: 28px;
+  border: 1px solid #5C67E6;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+input[type=radio]:checked ~ label {
+  color: #0DFF92;
+}
+
+/* On mouse-over, add a grey background color */
+.radio:hover input ~ .checkmark {
+  background-color: #eee;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio .checkmark:after {
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  height: 19.6px;
+  width: 19.6px;
+  background-color: #5C67E6;
+}
+
+/************end-radio btn*******/
+/*--------------------------------end exam setup page---------------------------------*/
+/*---------------------breadscrumb---------------------*/
+.breadcrumb {
+  background: 0;
+}
+
+.breadcrumb li {
+  color: #8595A6;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.breadcrumb li a {
+  color: #5C67E6;
+}
+
+/*--------------------- end breadscrumb---------------------*/
+/*-----------------------Scroll bar-----------*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #D1DAE6;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*----------------------- end Scroll bar-----------*/
+.table thead th {
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+/*----------------modal with full width--------------*/
+#createClassExamTest2.modal.right {
+  right: auto;
+  left: 0;
+}
+
+#createClassExamTest2.modal.right .modal-dialog {
+  max-width: 100%;
+  width: 100%;
+}
+
+#createClassExamTest2.modal.right .modal-content {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#createClassExamTest2.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .sectionheadright {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#createClassExamTest2.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#createClassExamTest2.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right a.step {
+  cursor: pointer;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head {
+  height: 60px;
+  border: 1px solid #D1DAE6;
+  border-radius: 4px 4px 0 0;
+  background-color: #F6F7FB;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head h3.texthead {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number {
+  height: 25px;
+  width: 25px;
+  background-color: #5C67E6;
+  border-radius: 50%;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .hide-btn a {
+  width: 40px;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col {
+  height: 45px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D1DAE6;
+  border-left: 1px solid #d1dae6;
+  padding: 13px !important;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col i.form-check-input {
+  padding: 2px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col p {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .col-3 {
+  border-right: 1px solid #d1dae6;
+}
+
+#createClassExamTest2.modal.right button.createworksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .modal-footer {
+  background-color: #F6F7FB;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected {
+  height: 199px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected h4.insufficient-chapter {
+  height: 27px;
+  width: 298px;
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected p {
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected .createpapermanually-btn {
+  height: 42px;
+  width: 221px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected a {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper {
+  height: 199px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper h4.discard-paper {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper p {
+  width: 346px;
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper button.yes-btn {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper button.no-btn {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right {
+  right: auto;
+  left: 0;
+}
+
+#createClassExamTest2.modal.right .modal-dialog {
+  max-width: 100%;
+  width: 100%;
+}
+
+#createClassExamTest2.modal.right .modal-content {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#createClassExamTest2.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+#createClassExamTest2.modal.right a.view-template {
+  color: #5C67E6;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+#createClassExamTest2.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 5px 15px;
+  font-size: 22px;
+}
+
+#createClassExamTest2.modal.right .radio.box.active {
+  border: 1px solid #5C67E6;
+}
+
+#createClassExamTest2.modal.right .radio.box.active .radio-head {
+  color: #5C67E6;
+}
+
+#createClassExamTest2.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right a.step {
+  cursor: pointer;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head {
+  height: 60px;
+  border: 1px solid #D1DAE6;
+  border-radius: 4px 4px 0 0;
+  background-color: #F6F7FB;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head h3.texthead {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number {
+  height: 25px;
+  width: 25px;
+  background-color: #5C67E6;
+  border-radius: 50%;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .hide-btn {
+  width: 40px;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col {
+  height: 45px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D1DAE6;
+  border-left: 1px solid #d1dae6;
+  padding: 13px !important;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col i.form-check-input {
+  padding: 2px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col p {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .col-3 {
+  border-right: 1px solid #d1dae6;
+}
+
+#createClassExamTest2.modal.right button.createworksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .modal-footer {
+  background-color: #F6F7FB;
+}
+
+.modal-backdrop.show {
+  opacity: .5;
+  background-color: #172B4D;
+}
+
+.btn:disabled {
+  background-color: #555 !important;
+}
+
+[data-toggle="collapse"]:after {
+  display: inline-block;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f054";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: all linear 0.25s;
+  transition: all linear 0.25s;
+  float: right;
+}
+
+[data-toggle="collapse"].collapsed:after {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+#createClassExamTest2.modal.right[_ngcontent-c6] .select-chaptermodal[_ngcontent-c6] .head[_ngcontent-c6] .hide-btn[_ngcontent-c6] a[_ngcontent-c6] {
+  color: #5C67E6 !important;
+  font-size: 20px;
+}
+
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 13px;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  background-color: #fff;
+  border: .5px solid #5c67e6;
+  border-radius: 4px;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 8px;
+  top: 4px;
+  width: 4px;
+  height: 10px;
+  border: solid #5c67e6;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.btn:disabled {
+  background-color: #555 !important;
+}
+
+#createClassExamTest2.modal.right[_ngcontent-c6] .select-chaptermodal[_ngcontent-c6] .head[_ngcontent-c6] .hide-btn[_ngcontent-c6] a[_ngcontent-c6] {
+  color: #5C67E6 !important;
+  font-size: 20px;
+}
+
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 4px !important;
+  left: 0;
+  height: 18px;
+  width: 18px;
+  background-color: #fff;
+  border: 1px solid #5c67e6;
+  border-radius: 4px;
+}
+
+.checkbox-container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+  background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+  left: 6px;
+  top: 2px;
+  width: 4px;
+  height: 10px;
+  border: solid #5c67e6;
+  border-width: 0 2px 2px 0;
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*--------------end modal with full width-----------------*/
+.saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+body {
+  font-family: Inter;
+}
+
+.top-header {
+  font-size: 26px;
+  font-weight: 500;
+  line-height: 34px;
+  color: #172B4D;
+}
+
+td {
+  word-break: break-all;
+}
+
+select option::before {
+  height: 45px;
+}
+
+.options {
+  height: 45px;
+}
+
+.form-check-input {
+  float: left;
+  display: block;
+  margin: 0 10px 0 0;
+  cursor: pointer;
+  border: 1px solid #5C67E6;
+  border-radius: 3px;
+  color: #5C67E6;
+  width: 20px;
+  height: 20px !important;
+  padding: 1px;
+  font-size: 14px;
+}
+
+.form-check-input.check {
+  background-color: #222;
+}
+
+.form-check-label {
+  margin-left: 20px;
+}
+
+.Institute_profile .form-check-input, .class_setup .form-check-input {
+  margin-top: -9px !important;
+  padding: 2px;
+}
+
+.change-photo a {
+  display: block;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.img-remove a {
+  display: block;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.form-control[readonly] {
+  background: #ffffff;
+}
+
+button.multiselect {
+  width: 100%;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.multiselect-native-select .btn-group {
+  width: 100%;
+}
+
+.multiselect-native-select .btn-group .dropdown-toggle::after {
+  float: right;
+  margin-top: 8px;
+}
+
+.multiselect-selected-text {
+  float: left;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.multiselect-container {
+  width: 100%;
+}
+
+.multiselect-container a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.multiselect-container i.form-check-input {
+  margin-top: 0px !important;
+  left: 10px;
+}
+
+.multiselect-container label {
+  width: 100%;
+  height: 45px !important;
+  padding-top: 12px !important;
+}
+
+.single .multiselect-container input {
+  display: none;
+}
+
+.single .multiselect-container label {
+  padding: 3px 8px;
+}
+
+.single .multiselect-container li.active {
+  background-color: #F6F7FB !important;
+}
+
+.single .multiselect-container li:hover {
+  background-color: #F6F7FB !important;
+}
+
+.single button.multiselect {
+  height: 45px;
+}
+
+button.multiselect.disabled {
+  background-color: #e9ecef;
+}
+
+.class_setup .single button.multiselect {
+  height: 36px;
+}
+
+.class_setup .single .multiselect-container li {
+  height: 36px;
+}
+
+.multiselect-native-select .btn-group .dropdown-toggle::after {
+  color: #3A5077;
+}
+
+.login-top-heading {
+  font-family: Sansation !important;
+}
+
+.sidebar-heading {
+  font-family: Sansation !important;
+}
+
+.subBookSetupHead button.multiselect .multiselect-selected-text {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*------------------------------Login page--------------------------*/
+/*------------------------------------------------------------------------------------*/
+.login .login-top-heading {
+  color: #5C67E6;
+  font-size: 20px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.login .login-form .form-group img, .login .forgetpass-form .form-group img, .login .setup-password .form-group img {
+  position: absolute;
+  right: 25px;
+  padding: 10px 10px;
+  margin-top: -38px;
+}
+
+.login .login-form label, .login .forgetpass-form label, .login .setup-password label {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.login .login-form input, .login .forgetpass-form input, .login .setup-password input {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  height: 45px;
+  border-radius: 2px;
+}
+
+.login .login-form .login-btn, .login .login-form .otp-btn, .login .login-form .verify-proceed-btn, .login .forgetpass-form .login-btn, .login .forgetpass-form .otp-btn, .login .forgetpass-form .verify-proceed-btn, .login .setup-password .login-btn, .login .setup-password .otp-btn, .login .setup-password .verify-proceed-btn {
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+  height: 54px;
+}
+
+.login .login-form .forgot-password, .login .login-form .cancel-link, .login .forgetpass-form .forgot-password, .login .forgetpass-form .cancel-link, .login .setup-password .forgot-password, .login .setup-password .cancel-link {
+  color: #5C67E6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.login .login-form .Dont_panic, .login .forgetpass-form .Dont_panic, .login .setup-password .Dont_panic {
+  color: #8595A6;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.login .login-right {
+  background-color: #F6F7FB;
+}
+
+.login .login-right img {
+  height: 360px;
+}
+
+.login .login-left {
+  background-color: #ffffff;
+}
+
+.login .quick-tip-box {
+  top: -50px;
+  height: 210px;
+  width: 310px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+}
+
+.login .quick-tip-box .quick-tip-header h3 {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.login .quick-tip-box .quick-tip-content p {
+  color: #8595A6;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.forgetpass-form {
+  display: none;
+}
+
+.navbar {
+  background: #ffffff;
+}
+
+#sidebar-wrapper {
+  background: #ffffff;
+}
+
+#sidebar-wrappersmall {
+  background: #ffffff;
+}
+
+.quick-tip-left-right .left-quick-tip:hover {
+  text-decoration: none;
+}
+
+.quick-tip-left-right .left-quick-tip:hover path {
+  fill: #5C67E6;
+}
+
+.quick-tip-left-right .right-quick-tip:hover path {
+  fill: #5C67E6;
+}
+
+/*-------------------------------------------------------------------------------------*/
+/*------------------------------Login page end--------------------------*/
+/*------------------------------------------------------------------------------------*/
+/*-------------------------------------------------------------------------------------*/
+/*------------------------------institute-profile--------------------------*/
+/*------------------------------------------------------------------------------------*/
+.Institute_profile .main-title {
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+  color: #172B4D;
+  background: #fff;
+}
+
+.Institute_profile {
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: auto;
+  width: auto;
+  border-radius: 4px;
+}
+
+.Institute_profile .tab-content {
+  background: #fff;
+  height: 100%;
+}
+
+.Institute_profile .nav-tabs .nav-link {
+  color: #8595A6;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  border: 0;
+}
+
+.Institute_profile .nav-item {
+  border-bottom: 1px solid  #D1DAE6;
+  border-top: 1px solid  #D1DAE6;
+}
+
+.Institute_profile .nav-item .nav-link:hover {
+  color: #5C67E6;
+}
+
+.Institute_profile .nav-item .nav-link path:hover {
+  fill: #5C67E6;
+}
+
+.Institute_profile .nav-item .nav-link.active path {
+  fill: #5C67E6;
+}
+
+.Institute_profile .nav-item .nav-link.active {
+  color: #5C67E6;
+  border-left: 3px solid #5C67E6;
+  border-radius: 0;
+}
+
+.Institute_profile .content-right {
+  border-left: 1px solid #D1DAE6;
+}
+
+.Institute_profile label {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.Institute_profile input, .Institute_profile select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  border-radius: 0;
+  height: 45px;
+}
+
+.Institute_profile .saveAndProceed-btn, .Institute_profile .saveAndSubmit-btn {
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+  height: 54px;
+  width: 200px;
+  background-color: #5C67E6;
+}
+
+.Institute_profile .you-cannot-edit {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  margin-top: 320px;
+}
+
+.Institute_profile .you-cannot-edit a {
+  color: #5C67E6;
+}
+
+#contactAdministration .modal-dialog {
+  height: 188px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(9, 30, 66, 0.31), 0 4px 8px -2px rgba(9, 30, 66, 0.25);
+  box-shadow: 0 0 1px 0 rgba(9, 30, 66, 0.31), 0 4px 8px -2px rgba(9, 30, 66, 0.25);
+}
+
+#contactAdministration .modal-title {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#contactAdministration p {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 36px;
+}
+
+.dragandDroptextinimg, .dragandDroptextinlogo {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.img-remove, .logo-remove {
+  display: none;
+}
+
+/*-----------------end-welcome-page----------------*/
+/*------------------------class-setup-----------------*/
+.class_setup {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 506px !important;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.class_setup td, .class_setup th {
+  padding: 10px 15px;
+}
+
+.class_setup tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.class_setup th {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.class_setup td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class_setup td input, .class_setup td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.class_setup td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.addsectionteacher-form {
+  border: 1px solid #D1DAE6;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+}
+
+.addsectionteacher-form input, .addsectionteacher-form select {
+  height: 36px !important;
+}
+
+#AddSectionTeacher {
+  overflow: hidden !important;
+}
+
+#AddSectionTeacher button.save-btn {
+  height: 42px;
+  width: 165px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+#AddSectionTeacher tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+#AddSectionTeacher td .single button.multiselect {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+#AddSectionTeacher td, #AddSectionTeacher th {
+  padding: 10px 15px;
+}
+
+#AddSectionTeacher td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+#AddSectionTeacher td input, #AddSectionTeacher td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+button#addSection {
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  height: 42px;
+  width: 145px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+}
+
+#AddSection .modal-dialog {
+  width: 400px;
+}
+
+.addSectionBtn {
+  line-height: 18px;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  height: 42px;
+  width: 145px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+}
+
+.class_setup .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.class_setup .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.class_setup .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.class_setup .single.tog ul li {
+  height: 45px;
+  padding: 10px !important;
+}
+
+.class_setup .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class_setup {
+  /* Rounded sliders */
+}
+
+.class_setup .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.class_setup .single.tog .switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.class_setup .single.tog .slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #fff;
+  -webkit-transition: .4s;
+  transition: .4s;
+  border: 1px solid #5C67E6;
+}
+
+.class_setup .single.tog .slider:before {
+  position: absolute;
+  content: "";
+  height: 14px;
+  width: 14px;
+  left: -3px;
+  bottom: -2px;
+  -webkit-transition: .4s;
+  transition: .4s;
+  background: #5C67E6;
+}
+
+.class_setup .single.tog input:checked + .slider {
+  background-color: #fff;
+  border: 1px solid #5C67E6;
+}
+
+.class_setup .single.tog input:focus + .slider {
+  -webkit-box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #2196F3;
+}
+
+.class_setup .single.tog input:checked + .slider:before {
+  -webkit-transform: translateX(15px);
+  transform: translateX(15px);
+}
+
+.class_setup .single.tog .slider.round {
+  border-radius: 34px;
+}
+
+.class_setup .single.tog .slider.round:before {
+  border-radius: 50%;
+}
+
+.worksheets.cherrypickQuestion .total_marks {
+  width: 108px;
+}
+
+.worksheets.cherrypickQuestion .question-block {
+  height: auto;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+  box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+}
+
+.worksheets.cherrypickQuestion .question-block .questionNum {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.worksheets.cherrypickQuestion .question-block .question {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheets.cherrypickQuestion .question-block .ques-tag {
+  height: 28px;
+  width: 111px;
+  border: 1px solid #3A5077;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.worksheets.cherrypickQuestion .question-block .ques-tag a {
+  color: #3A5077;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.worksheets.cherrypickQuestion .question-block .chapter {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+/*-------------------------end class setup---------------*/
+/*-----------------wing-setup--------------*/
+.wing_setup {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 660px;
+  width: auto;
+  border-radius: 4px;
+}
+
+.wing_setup .createaWing-btn {
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  height: 54px;
+  width: 200px;
+  background-color: #5C67E6;
+}
+
+.wing_setup .createaWing-content .createaWing-header {
+  color: #172B4D;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 34px;
+}
+
+.wing_setup .createaWing-content .createaWing-description {
+  color: #8595A6;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.wing_setup .wing-img {
+  width: 394px;
+}
+
+.circle {
+  border-radius: 50%;
+  height: 84px;
+  width: 84px;
+  background-color: rgba(1, 202, 133, 0.1);
+  position: relative;
+}
+
+.circle::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #01CA85;
+  height: 5px;
+  top: 48%;
+  left: 25px;
+  right: 25px;
+  z-index: 9;
+}
+
+.circle::before {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #01CA85;
+  width: 5px;
+  left: 48%;
+  top: 25px;
+  bottom: 25px;
+  z-index: 9;
+}
+
+#AddWing .createwing-btn {
+  height: 42px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+.wing_row {
+  width: auto;
+}
+
+.wing_row .wing {
+  height: 200px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.wing_row .wing .section-header {
+  color: #172B4D;
+  font-size: 19px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.wing_row .wing .wing-top {
+  border-bottom: 1px solid #F6F7FB;
+}
+
+.wing_row .wing .class-rangehead, .wing_row .wing .class-WingHeadText {
+  color: #8595A6;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.wing_row .wing .w_sectiontext {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.wing_row .wing .class_range, .wing_row .wing .class-WingHeadName {
+  color: #172B4D;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.wing_row .wing .w-backg {
+  height: 60px;
+  border-radius: 4px;
+  background-color: #F6F7FB;
+}
+
+.wing_row .wing .single ul li:hover {
+  background: #F6F7FB;
+}
+
+.wing_row .wing .single ul li {
+  height: 45px;
+  padding: 10px;
+}
+
+.wing_row .wing .single ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.wing_row .wing .single .dropdown-toggle {
+  cursor: pointer;
+}
+
+.wing_row .wing .single a.dropdown-toggle::after {
+  display: none !important;
+}
+
+.wing_row .wing .single.drop ul.dropdown-menu {
+  left: -72px !important;
+}
+
+.modal#deleteWingModal .modal-content {
+  height: 199px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.modal#deleteWingModal .modal-header {
+  border: 0px;
+}
+
+.modal#deleteWingModal .modal-header h4 {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.modal#deleteWingModal .modal-body {
+  border: 0px;
+}
+
+.modal#deleteWingModal .modal-body p {
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.modal#deleteWingModal .modal-body button.yes-btn {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+.modal#deleteWingModal .modal-body button.no-btn {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+.validation-error {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 65px;
+  width: 361px;
+  border: 1px solid #E52254;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: absolute;
+  right: 50px;
+  padding: 12px 0px;
+}
+
+.validation-error p {
+  color: #E52254;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.validation-error .close a {
+  color: #E52254;
+  width: 13%;
+  float: left;
+  font-weight: 500;
+  opacity: 1;
+}
+
+.validation-error .close {
+  opacity: 1;
+}
+
+.validation-error .img {
+  width: 13%;
+  float: left;
+}
+
+.validation-error .img path {
+  fill: #E52254;
+}
+
+.validation-error .desc {
+  width: 74%;
+  float: left;
+}
+
+.validation-success {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  height: 65px;
+  width: 361px;
+  border: 1px solid #69BB10;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: absolute;
+  right: 440px;
+  padding: 12px 0px;
+}
+
+.validation-success p {
+  color: #69BB10;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.validation-success .close a {
+  color: #69BB10;
+  width: 13%;
+  float: left;
+  font-weight: 500;
+  opacity: 1;
+}
+
+.validation-success .close {
+  opacity: 1;
+}
+
+.validation-success .img {
+  width: 13%;
+  float: left;
+}
+
+.validation-success .img path {
+  fill: #69BB10;
+}
+
+.validation-success .desc {
+  width: 74%;
+  float: left;
+}
+
+/*************modal*********************/
+.modal.right .modal-dialog {
+  position: fixed;
+  margin: auto;
+  width: 400px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+.modal.right .modal-dialog .modal-content {
+  border-radius: 0px;
+}
+
+.modal.right .modal-dialog .modal-header .close {
+  margin: 0px;
+  padding-top: 0px;
+  position: absolute;
+  left: 22px;
+}
+
+.modal.right .modal-dialog .modal-title {
+  height: 22px;
+  color: #172B4D;
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 35px;
+  text-align: center;
+}
+
+.modal th {
+  color: #3A5077;
+  font-size: 12px;
+  line-height: 21px;
+  font-weight: 500;
+}
+
+.modal label {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.modal select, .modal input {
+  height: 45px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+}
+
+.modal.right .modal-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal.right .modal-body {
+  padding: 0px 15px;
+}
+
+.modal.right {
+  right: 383px;
+  left: auto;
+  top: -1px;
+}
+
+/*Right*/
+.modal.right.fade .modal-dialog {
+  -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+  transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+#AddSectionTeacher .modal-content {
+  width: 640px;
+}
+
+#AddSectionTeacher {
+  right: 628px;
+}
+
+/***************end-modal**************/
+/*-----------------end-wing-setup-----------*/
+/*--------------------Academic year--------------*/
+.studentUsingPortal img {
+  height: 20px;
+  width: 56px;
+}
+
+.total_studentin_school {
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #172B4D;
+}
+
+.students_using_portal {
+  font-size: 9px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #172B4D;
+}
+
+.aca_session {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #BFCDDA;
+  background-color: #FFFFFF;
+}
+
+.aca_session .inneraca_session {
+  height: 12px;
+  width: 12px;
+  background-color: #BFCDDA;
+  border-radius: 50%;
+  margin: 3px auto;
+}
+
+.active.aca_session {
+  background-color: #69BB10;
+}
+
+.active.aca_session .inneraca_session {
+  background-color: #fff;
+}
+
+/*-----------------------end Academic year------------*/
+/*----------------Welcome-page------------------*/
+.welcome {
+  height: 690px;
+  width: 940px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.welcome .welcome-img {
+  width: 394px;
+}
+
+.welcome .welcome-content .welcome-header {
+  color: #172B4D;
+  font-size: 28px;
+  font-weight: 500;
+  line-height: 34px;
+}
+
+.welcome .welcome-content .welcome-description {
+  color: #8595A6;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.welcome .letsGetStart-btn {
+  border-radius: 4px;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  height: 54px;
+  width: 200px;
+  background-color: #5C67E6;
+}
+
+.top-feature {
+  width: 940px;
+}
+
+.top-feature .topfeature1, .top-feature .topfeature2, .top-feature .topfeature3 {
+  height: 176px;
+  width: 300px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.top-feature .t-feature-heading {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.top-feature .feature-content {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.top-feature .viewFeature-btn {
+  height: 42px;
+  width: 100%;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+body {
+  background-color: #F6F7FB;
+}
+
+/*---------------------end-welcome-page------------*/
+/*!
+   * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+   * Copyright 2013-2019 Start Bootstrap
+   * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+    */
+body {
+  overflow-x: hidden;
+}
+
+.frontlink.active {
+  height: 40px;
+  background-color: #e9eafc;
+  border-left: 4px solid #5C67E6;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+#sidebar-wrappersmall {
+  min-height: 100vh;
+  -webkit-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+
+.sidebar-heading {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 22px;
+  color: #5C67E6;
+}
+
+h6 {
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.list-group a {
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  cursor: pointer;
+  height: 40px;
+}
+
+.list-group a img, .list-group a svg {
+  width: 20px;
+  padding-right: 5px;
+  margin-top: -5px;
+}
+
+.list-group a:hover {
+  color: #5C67E6;
+  fill: #5C67E6;
+  text-decoration: none;
+}
+
+.list-group a.active {
+  color: #5C67E6;
+  height: 40px;
+  width: 240px;
+}
+
+.small .list-group a path.active {
+  fill: #5C67E6;
+}
+
+.small .list-group a path:hover {
+  fill: #5C67E6;
+}
+
+.list-group ul li:hover {
+  color: #5C67E6;
+}
+
+.list-group ul li:active {
+  color: #5C67E6;
+}
+
+button#menu-toggle {
+  background: #fff;
+  border: none;
+  outline: none;
+}
+
+button#menu-toggle:hover {
+  cursor: pointer;
+}
+
+button#menu-toggle:hover path {
+  fill: #172B4D;
+}
+
+.list-group .dropdown-toggle::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.list-group ul li a {
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.user-name {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+
+.navbartoggle-btn {
+  width: 70px;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+/*----------image-upload-----------------*/
+.image-upload, .logo-upload {
+  height: 217px;
+  width: 286px;
+  border: 2px dashed #D1DAE6;
+  background-color: #F6F7FB;
+  padding: 15px;
+}
+
+.image-upload .image-edit input, .logo-upload .logo-edit input {
+  display: none;
+}
+
+.image-upload img, .logo-upload img {
+  height: 180px;
+}
+
+/*----------slider-tooltip-----------------*/
+.Institute_profile .slider {
+  width: 100% !important;
+}
+
+.Institute_profile .slider .slider-tick {
+  height: 6px;
+  width: 6px;
+  border: 1px solid #BFCDDA;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+  background-image: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+  top: 3px;
+}
+
+.Institute_profile .slider.slider-horizontal .slider-tick, .Institute_profile .slider.slider-horizontal .slider-handle {
+  margin-left: -5px;
+}
+
+.Institute_profile .slider .slider-handle {
+  height: 16px;
+  width: 16px;
+  border: 1px solid #BFCDDA;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#ffffff));
+  background-image: linear-gradient(to bottom, #ffffff 0%, #ffffff 100%);
+  top: -2px;
+}
+
+.Institute_profile .slider.slider-horizontal .slider-track {
+  height: 1px;
+}
+
+.Institute_profile .slider-selection.tick-slider-selection {
+  border-radius: 1.5px;
+  background-color: #BFCDDA;
+  height: 3px !important;
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#BFCDDA), to(#BFCDDA));
+  background-image: linear-gradient(to bottom, #BFCDDA 0%, #BFCDDA 100%);
+}
+
+.Institute_profile .slider-tick-label-container {
+  display: none;
+}
+
+.Institute_profile .standard-label {
+  color: #8595A6;
+  font-size: 12px;
+}
+
+/***************/
+/*---------------------------student page----------------*/
+#upload_Student_csv .modal-dialog {
+  height: 333px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(9, 30, 66, 0.31), 0 4px 8px -2px rgba(9, 30, 66, 0.25);
+  box-shadow: 0 0 1px 0 rgba(9, 30, 66, 0.31), 0 4px 8px -2px rgba(9, 30, 66, 0.25);
+}
+
+#upload_Student_csv .modal-title {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#upload_Student_csv a.close {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#upload_Student_csv button.submit-uploadcsv {
+  height: 42px;
+  width: 110px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.downloadstudentcsv_btn {
+  height: 42px;
+  width: 196px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.import {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+  margin-top: 12px;
+}
+
+.import .error {
+  color: #E52254;
+}
+
+.import .success {
+  color: #3A5077;
+}
+
+button.saveandclose-btn {
+  background-color: #01CA85;
+  color: #ffffff;
+  height: 42px;
+  width: 145px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+button.addnewrow-btn {
+  background-color: #5C67E6;
+  color: #ffffff;
+  height: 42px;
+  width: 145px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.addstudent .addnewrow-btn {
+  background-color: #5C67E6;
+  color: #ffffff;
+  height: 42px;
+  width: 145px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.addstudent .dropdown-toggle::after {
+  display: none;
+}
+
+.addstudent ul.dropdown-menu {
+  left: -57px !important;
+}
+
+.addstudent ul.dropdown-menu li:hover {
+  background: #F6F7FB;
+}
+
+.addstudent ul.dropdown-menu li {
+  height: 45px;
+  width: 220px;
+  padding: 12px;
+}
+
+.addstudent ul.dropdown-menu li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.imported-data td input, .imported-data td select, .imported-data td .multiselect {
+  width: 160px;
+}
+
+.imported-data th.delete_col {
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right: 0;
+  background: #ffffff;
+}
+
+.imported-data th.delete_col .remove {
+  width: 40px;
+  height: 36px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.imported-data td.delete_col {
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right: 0;
+  background: #ffffff;
+}
+
+.imported-data td.delete_col .remove {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.imported-data .overflow {
+  overflow-x: auto;
+}
+
+.imported-data tr.errorInStudentInfo {
+  background-color: rgba(229, 34, 84, 0.1);
+  border-left: 3px solid #E52254;
+}
+
+.imported-data tr.errorInStudentInfo td.error button.multiselect {
+  border: 1px solid #E52254 !important;
+}
+
+.imported-data tr.errorInStudentInfo td.error input, .imported-data tr.errorInStudentInfo td.error td select {
+  border: 1px solid #E52254 !important;
+}
+
+button.save-btn {
+  height: 54px;
+  width: 109px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+button.submitstudent-btn {
+  height: 54px;
+  width: 279px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+.addstudentimage .change-photo a {
+  display: block;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.addstudentimage .img-remove a {
+  display: block;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+th.action_col {
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right: 0;
+  border-bottom: 1px solid #D1DAE6;
+  background: #ffffff;
+}
+
+th.action_col .action {
+  height: 18px;
+  width: 101px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+td.action_col {
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #D1DAE6;
+}
+
+td.action_col .single.tog button {
+  height: 36px;
+  width: 101px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+th .tablespace {
+  width: 85px;
+}
+
+.studlist .filterbtntable .addsection-form .multiselect-container li a i.form-check-input {
+  display: none;
+}
+
+.student-list td {
+  padding: 17px 15px;
+}
+
+.student-list td.action_col {
+  padding: 8px 15px;
+}
+
+.student-list th p {
+  width: 128px;
+  margin: 0px !important;
+}
+
+.student-list th.colwidth p {
+  width: 90px;
+}
+
+.student-list td {
+  height: 60px;
+}
+
+.student-list td.active {
+  color: #69BB10;
+}
+
+.student-list td.inactive {
+  color: #E52254;
+}
+
+.viewbtntable {
+  height: 42px;
+  width: 97px;
+}
+
+.viewbtntable .single.tog ul li {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  height: 45px;
+  width: 189px;
+  padding: 12px;
+  background: #ffffff;
+}
+
+.viewbtntable .single.tog ul li span {
+  margin: 30px;
+}
+
+.viewbtntable .single.tog ul li i {
+  padding: 2px;
+}
+
+.viewbtntable .single.tog button {
+  height: 42px;
+  width: 97px;
+  border-radius: 2px;
+  border: 1px solid #D1DAE6;
+  background-color: #ffffff;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.filterbtntable {
+  height: 42px;
+  width: 97px;
+  border-radius: 2px;
+}
+
+.filterbtntable .single.tog ul {
+  height: auto;
+  width: 367px;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.filterbtntable .single.tog ul li {
+  height: 45px;
+  background: #ffffff;
+}
+
+.filterbtntable .single.tog ul h3 {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.filterbtntable .single.tog ul a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.filterbtntable .single.tog button.dropdown-btn {
+  height: 42px;
+  width: 97px;
+  border-radius: 2px;
+  border: 1px solid #D1DAE6;
+  background-color: #ffffff;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.filterbtntable .filterBtn {
+  height: 42px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.searchbartable button {
+  position: absolute;
+  background: #ffffff;
+  height: 40px;
+  border: none;
+  padding: 8px 0px;
+  margin-left: 8px;
+  margin-top: 1px;
+}
+
+.searchbartable button i {
+  color: #8595A6;
+}
+
+.searchbartable input {
+  width: 194px;
+  height: 42px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px 0 0 2px;
+  padding-left: 30px;
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#ResetPassword .resetPassword-btn {
+  height: 42px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.modal#ResetPassword {
+  right: 383px;
+  left: auto;
+  top: -1px;
+}
+
+.modal#ResetPassword .modal-dialog {
+  position: fixed;
+  margin: auto;
+  width: 400px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+/*--------------------------------csv-upload--------------------*/
+.fileupload .csv-edit input {
+  display: none;
+}
+
+.fileupload {
+  height: 210px;
+  width: 210px;
+  border-radius: 4px;
+  background-color: #F6F7FB;
+  margin-top: 85px !important;
+}
+
+.fileupload .csv {
+  height: 57.6px;
+  width: 57.6px;
+}
+
+.fileupload .csv-upload-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.texthead {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.csv-left, .csv-right {
+  height: 598px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.csv-left .tborder, .csv-right .tborder {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.csv-left button.uploadproceedcsv-btn, .csv-right button.uploadproceedcsv-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+  margin-top: 120px;
+}
+
+.csv-left .stepnum {
+  height: 36px;
+  width: 36px;
+  border: 1px solid #D1DAE6;
+  background-color: #F6F7FB;
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  border-radius: 50%;
+}
+
+.csv-left .btwborder {
+  border-bottom: 20px solid #D1DAE6;
+  height: 20px;
+  width: 1px;
+  margin: auto;
+}
+
+.csv-left .steptext {
+  height: 21px;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.csv-left .red-note {
+  height: 20px;
+  color: #E52254;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+/*--------------------------------end-csv-upload----------------------*/
+/*-------------------------------------student-page-end--------------------*/
+/*----------------------------Staff Page-----------------------------------*/
+button.addStaffManually-btn {
+  width: 240px;
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+button.uploadStaffCSV-btn {
+  height: 54px;
+  width: 240px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+button.downloadstaffcsv-btn {
+  height: 42px;
+  width: 196px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.staff-list th p {
+  width: 128px;
+  margin: 0px !important;
+}
+
+.staff-list th.email p {
+  width: 200px;
+}
+
+.staff-list td {
+  height: 60px;
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.staff-list .staff-name {
+  font-weight: 600;
+}
+
+.staff-list .not-assigned {
+  color: #5C67E6 !important;
+  font-size: 16px;
+  line-height: 18px;
+  text-decoration: underline;
+}
+
+/*-------------------------------end Staff Page-------------------------------*/
+/*--------------------------------Exam setup page------------------------------*/
+.exam_setup {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 660px;
+  width: auto;
+  border-radius: 4px;
+  /*--------worksheet-------------*/
+}
+
+.exam_setup .examsetup-img {
+  width: 292px;
+}
+
+.exam_setup .examsetup-description {
+  color: #8595A6;
+  font-size: 17px;
+  line-height: 24px;
+}
+
+.exam_setup button.createworksheet-btn {
+  height: 54px;
+  width: 240px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createWorksheet.modal.right {
+  right: 594px;
+}
+
+#createWorksheet.modal.right .modal-content {
+  width: 605px;
+  background-color: #ffffff;
+}
+
+#createWorksheet.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createWorksheet.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createWorksheet.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createWorksheet.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#createWorksheet.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#createWorksheet.modal.right .radio.box.active {
+  border: 1px solid #5C67E6;
+}
+
+#createWorksheet.modal.right .radio.box.active .radio-head {
+  color: #5C67E6;
+}
+
+#createWorksheet.modal.right a.step {
+  cursor: pointer;
+}
+
+.worksheettab-row {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.worksheettab-row .worksheettab {
+  width: 100%;
+  height: 48px;
+  background-color: #ffffff;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab {
+  width: 179px;
+  float: left;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab h4 {
+  color: #8595A6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.worksheettab-row .worksheettab .bloomdifficulty-tab {
+  width: 253px;
+  float: left;
+}
+
+.worksheettab-row .worksheettab .bloomdifficulty-tab h4 {
+  color: #8595A6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.worksheettab-row .worksheettab button.preview-btn {
+  width: 264px;
+  background-color: #3A5077;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  border-radius: 0px;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab.active, .worksheettab-row .worksheettab .bloomdifficulty-tab.active {
+  border-bottom: 2px solid #5C67E6;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab.active h4, .worksheettab-row .worksheettab .bloomdifficulty-tab.active h4 {
+  color: #5C67E6;
+  font-weight: 500;
+}
+
+button.preview-btn:after {
+  display: none;
+}
+
+.worksheets.bloom-summary th.wsques-nature p {
+  width: 172px;
+}
+
+.worksheets.bloom-summary th.wsmcq p {
+  width: 94px;
+}
+
+.worksheets.bloom-summary th.wssubjective p {
+  width: 140px;
+}
+
+.worksheets.bloom-summary th.wsshort-answer p {
+  width: 164px;
+}
+
+.worksheets.bloom-summary th.wslong-answer p {
+  width: 156px;
+}
+
+.worksheets.bloom-summary th.wstotal-marks p {
+  width: 80px;
+}
+
+.worksheets {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: auto;
+  width: auto;
+  border-radius: 4px;
+}
+
+.worksheets .top-head {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.worksheets .headsection-worksheet {
+  height: 45px;
+  border-top: 1px solid #D1DAE6;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.worksheets .headsection-worksheet .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+}
+
+.worksheets .headsection-worksheet .sub-head .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+}
+
+.worksheets .headsection-worksheetblank {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.worksheets .headsection-worksheetblank .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+  width: auto;
+  float: left;
+}
+
+.worksheets .headsection-worksheetblank .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+  width: 70%;
+  float: left;
+  height: 21px;
+  margin: 0 2px;
+}
+
+.worksheets .total_marksedit {
+  width: 160px;
+}
+
+.worksheets .total_marks, .worksheets .total_ques, .worksheets .total_marksedit {
+  height: 27px;
+  width: 145px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.worksheets .total_marks p, .worksheets .total_ques p, .worksheets .total_marksedit p {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheets .total_marks input, .worksheets .total_ques input, .worksheets .total_marksedit input {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  border: 0px;
+  width: 100px;
+  height: 17px;
+}
+
+.worksheets .total_marks input:focus, .worksheets .total_ques input:focus, .worksheets .total_marksedit input:focus {
+  outline: none !important;
+  outline-width: 0 !important;
+  box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+.worksheets .total_marks a, .worksheets .total_ques a, .worksheets .total_marksedit a {
+  color: #5C67E6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheets th {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheets th {
+  padding: 10px 15px;
+}
+
+.worksheets td {
+  padding: 2px 15px;
+  height: 60px;
+}
+
+.worksheets tr {
+  border: 1px solid #D1DAE6;
+}
+
+.worksheets .form-check-input.fa-check {
+  padding: 2px;
+}
+
+.worksheets td.question-nature {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.worksheets td.checkbox {
+  width: 54px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.worksheets td.question-nature {
+  width: 229px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.worksheets td.bloom-level {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.worksheets button.bloompreview-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+.worksheets .worksheet-summary .total-No {
+  background-color: #F6F7FB;
+}
+
+.worksheets .worksheet-summary td {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  height: 60px;
+}
+
+.worksheets .worksheet-summary th.quest-nature {
+  width: 254px;
+}
+
+.worksheets .worksheet-summary th.mcq {
+  width: 124px;
+}
+
+.worksheets .worksheet-summary th.subjective {
+  width: 174px;
+}
+
+.worksheets .worksheet-summary th.short-answer {
+  width: 208px;
+}
+
+.worksheets .worksheet-summary th.long-answer {
+  width: 202px;
+}
+
+.worksheets .worksheet-summary th.total-marks {
+  width: 220px;
+}
+
+.worksheets .steptext.active {
+  height: 38px;
+  width: 501px;
+  border-radius: 4px 0 0 4px;
+  background-color: rgba(92, 103, 230, 0.2);
+  border-right: 2px solid #5C67E6;
+}
+
+.worksheets .activetooltip::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-top: 5px;
+  position: absolute;
+  vertical-align: .255em;
+  content: "";
+  border-right: .4em solid;
+  border-left: 0;
+  border-top: .4em solid transparent;
+  border-bottom: .4em solid transparent;
+  color: #3A5077;
+  margin-left: -22px;
+  margin-top: 5px;
+}
+
+.worksheets .activetooltip {
+  height: 38px;
+  width: 58px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheets .genework .activetooltip {
+  height: 38px;
+  width: 95px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheets .genework .activetooltip .icon {
+  width: 30px;
+  float: left;
+  padding: 9px 0px;
+}
+
+.worksheets .genework .activetooltip .bline {
+  height: 36px;
+  width: 1px;
+  opacity: 0.1;
+  background-color: #FFFFFF;
+  float: left;
+}
+
+.worksheets .genework .activetooltip::before {
+  margin-left: -53px;
+  margin-top: 14px;
+}
+
+.worksheets h2.smart-studies {
+  color: #3A5077;
+  font-family: Sansation;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.worksheets .worksheetSetting td.question-nature {
+  padding: 10px 15px !important;
+}
+
+.worksheets .worksheetSetting td.tablespace {
+  height: 10px;
+}
+
+.worksheets .worksheetSetting td .single.alternate button.multiselect {
+  width: 80px;
+  height: 36px;
+}
+
+.worksheets .worksheetSetting td input.counternum {
+  width: 70px;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  padding: 6px 8px;
+}
+
+.worksheets .worksheetSetting td button.multiselect {
+  width: 102px;
+  height: 36px;
+}
+
+.worksheets .worksheetSetting td.chapter button.multiselect {
+  width: 130px;
+}
+
+.worksheets .worksheetSetting th, .worksheets .worksheetSetting td {
+  padding: 10px 6px;
+}
+
+.worksheets .worksheetSetting td.addques {
+  border-left: 1px solid #ced4da;
+}
+
+.worksheets .worksheetSetting td.addques .addquestion {
+  height: 36px;
+  width: 120px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  padding: 4px 10px;
+}
+
+.worksheets .worksheetSetting td.addques .addquestion a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.worksheets .worksheetSetting td.checkbox {
+  padding: 0px 2px 0px 0px;
+}
+
+.worksheets .worksheetSetting td.checkbox .checkrow {
+  width: 20px;
+  margin: auto;
+  margin-top: -10px;
+}
+
+.worksheets .worksheetSetting td .remove {
+  height: 36px;
+  width: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  padding: 4px 9px;
+}
+
+.worksheet-instruction .stepnum {
+  height: 36px;
+  width: 36px;
+  border: 1px solid #D1DAE6;
+  background-color: #fff;
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  border-radius: 50%;
+  padding: 6px 4px 6px 3px;
+}
+
+.worksheet-instruction .btwborder {
+  border-bottom: 20px solid #D1DAE6;
+  height: 20px;
+  width: 1px;
+  margin: auto;
+}
+
+.worksheet-instruction .steptext {
+  height: 21px;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.question-preview {
+  height: auto;
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+  box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+}
+
+.question-preview .question-head {
+  color: #172B4D;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+}
+
+.question-preview .question {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.question-preview .question span {
+  font-weight: 600;
+}
+
+.question-preview .question-desc .ques-tag {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.question-preview .question-desc .chapter {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.question-preview .question-desc .Dot {
+  height: 5px;
+  width: 5px;
+  background-color: #172B4D;
+  border-radius: 50%;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.question-preview .replaceques-btn {
+  height: 36px;
+  width: 120px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.question-preview .or {
+  height: 34px;
+  width: 34px;
+  border: 1px solid #D1DAE6;
+  background-color: #F6F7FB;
+  border-radius: 50%;
+  padding: 3px;
+}
+
+.question-preview .or span {
+  color: #3A5077;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.question-preview .marks-col {
+  height: 36px;
+  width: 90px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.question-preview .marks-col p {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 7px;
+}
+
+.question-preview .marks-col input.marksinput {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  padding: 7px;
+  border: 0px !important;
+  height: 34px;
+}
+
+.question-preview.radio.active {
+  border-top: 1px solid #5C67E6;
+  border-bottom: 1px solid #5C67E6;
+  margin-bottom: 1px !important;
+}
+
+.question-preview.radio.active .question-head {
+  color: #5C67E6;
+}
+
+.worksheets button.viewAnswers-btn {
+  height: 54px;
+  width: 182px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.worksheets button.approve-btn, .worksheets button.reject-btn, .worksheets button.close-btn {
+  height: 54px;
+  width: 124px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.worksheets button.saveProceedWorksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#replaceQuestionModal.modal {
+  right: 594px;
+}
+
+#replaceQuestionModal.modal .modal-content {
+  width: 605px;
+  background-color: #ffffff;
+}
+
+#replaceQuestionModal.modal button.replaceQuestion-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#replaceQuestionModal.modal .filterbtntable .addsection-form .multiselect-container li a i.form-check-input {
+  display: none;
+}
+
+.worksheet-list {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.worksheet-list th {
+  padding: 10px 15px;
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.worksheet-list td {
+  padding: 17px 15px;
+  color: #172B4D;
+  font-size: 16px;
+}
+
+.worksheet-list tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.worksheet-list td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheet-list td input, .worksheet-list td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.worksheet-list td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.worksheet-list .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.worksheet-list .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.worksheet-list .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.worksheet-list td.action_col {
+  padding: 8px 15px;
+}
+
+.worksheet-list td.action_col button.preview-btn {
+  height: 36px;
+  width: 101px !important;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheet-list th.worksheet-name p, .worksheet-list th.mode p, .worksheet-list th.total-ques p, .worksheet-list th p.tablespace {
+  width: 114px;
+}
+
+.worksheet-list th.status p {
+  width: 136px;
+}
+
+.worksheet-list th.standard p, .worksheet-list th.subject p {
+  width: 68px;
+}
+
+.worksheet-list th.total-marks p, .worksheet-list th.duration p, .worksheet-list th-status p {
+  width: 98px;
+}
+
+.worksheet-list th.creationDate p {
+  width: 120px;
+}
+
+.worksheet-list th.creationTime p {
+  width: 84px;
+}
+
+.worksheet-list .single.tog ul li {
+  height: 45px;
+  padding: 8px !important;
+}
+
+.worksheet-list .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.worksheet-list .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.worksheet-list .single button.multiselect {
+  height: 36px;
+}
+
+.worksheet-list .single .multiselect-container li {
+  height: 36px;
+}
+
+.worksheet-list .form-check-input {
+  margin-top: -9px !important;
+  padding: 2px;
+}
+
+.worksheet-list td.approve {
+  color: #69BB10;
+}
+
+.worksheet-list td.inprogress {
+  color: #55CCEE;
+}
+
+.worksheet-list td.reject {
+  color: #E52254;
+}
+
+.works-list .filterbtntable .multiselect-container li a i.form-check-input {
+  display: none;
+}
+
+/*------------- end worksheet-------------*/
+/*-----------------create class test--------*/
+button.createclasstestexam-btn {
+  height: 54px;
+  width: 240px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest.modal.right {
+  right: 594px;
+}
+
+#createClassExamTest.modal.right .modal-content {
+  width: 605px;
+  background-color: #ffffff;
+}
+
+#createClassExamTest.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest.modal.right .radio.box.active {
+  border: 1px solid #5C67E6;
+}
+
+#createClassExamTest.modal.right .radio.box.active .radio-head {
+  color: #5C67E6;
+}
+
+#createClassExamTest.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+#createClassExamTest.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#createClassExamTest.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest.modal.right a.step {
+  cursor: pointer;
+}
+
+#createClassExamTest.modal.right .questionNature, #createClassExamTest.modal.right .bloomComposition {
+  border: 1px solid #D1DAE6;
+  border-radius: 0 0 4px 4px;
+  background-color: #FFFFFF;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group, #createClassExamTest.modal.right .bloomComposition .form-group {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 15px;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group i.form-check-input, #createClassExamTest.modal.right .bloomComposition .form-group i.form-check-input {
+  padding: 2px;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group p.main-text, #createClassExamTest.modal.right .bloomComposition .form-group p.main-text {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createClassExamTest.modal.right .questionNature .form-group p.text, #createClassExamTest.modal.right .bloomComposition .form-group p.text {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+.fa-worksheets {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: auto;
+  width: auto;
+  border-radius: 4px;
+}
+
+.fa-worksheets .top-head {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.fa-worksheets .headsection-worksheet {
+  height: 45px;
+  border-top: 1px solid #D1DAE6;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.fa-worksheets .headsection-worksheet .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+}
+
+.fa-worksheets .headsection-worksheetblank {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.fa-worksheets .headsection-worksheetblank .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+  width: auto;
+  float: left;
+}
+
+.fa-worksheets .headsection-worksheetblank .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+  width: 70%;
+  float: left;
+  height: 21px;
+  margin: 0 2px;
+}
+
+.fa-worksheets .headsection-worksheetblank {
+  height: 45px;
+  border-bottom: 1px solid #D1DAE6;
+  padding: 12px 0px;
+}
+
+.fa-worksheets .headsection-worksheetblank .sub-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21px;
+  height: 21px;
+  width: auto;
+  float: left;
+}
+
+.fa-worksheets .headsection-worksheetblank .blankspace {
+  border-bottom: 1px dashed #D1DAE6;
+  width: 70%;
+  float: left;
+  height: 21px;
+  margin: 0 2px;
+}
+
+.fa-worksheets .total_marks, .fa-worksheets .total_ques {
+  height: 27px;
+  width: 145px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+}
+
+.fa-worksheets .total_marks p, .fa-worksheets .total_ques p {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.fa-worksheets th {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.fa-worksheets th, .fa-worksheets td {
+  padding: 10px 15px;
+}
+
+.fa-worksheets tr {
+  border: 1px solid #D1DAE6;
+}
+
+.fa-worksheets .form-check-input.fa-check {
+  padding: 2px;
+}
+
+.fa-worksheets td.question-nature {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets td.checkbox {
+  width: 54px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.fa-worksheets td.question-nature {
+  width: 220px;
+  border-right: 1px solid #D1DAE6;
+}
+
+.fa-worksheets td.bloom-level {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.fa-worksheets button.bloompreview-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+.fa-worksheets .worksheet-summary .total-No {
+  background-color: #F6F7FB;
+}
+
+.fa-worksheets .worksheet-summary td {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 18px;
+  height: 60px;
+}
+
+.fa-worksheets .steptext.active {
+  height: 38px;
+  width: 501px;
+  border-radius: 4px 0 0 4px;
+  background-color: rgba(92, 103, 230, 0.2);
+  border-right: 2px solid #5C67E6;
+}
+
+.fa-worksheets .activetooltip::before {
+  display: inline-block;
+  width: 0;
+  height: 0;
+  margin-top: 5px;
+  position: absolute;
+  vertical-align: .255em;
+  content: "";
+  border-right: .4em solid;
+  border-left: 0;
+  border-top: .4em solid transparent;
+  border-bottom: .4em solid transparent;
+  color: #3A5077;
+  margin-left: -22px;
+  margin-top: 5px;
+}
+
+.fa-worksheets .activetooltip {
+  height: 38px;
+  width: 58px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.fa-worksheets .genework .activetooltip {
+  height: 38px;
+  width: 95px;
+  border-radius: 4px;
+  background-color: #3A5077;
+  color: #FFFFFF;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.fa-worksheets .genework .activetooltip .icon {
+  width: 30px;
+  float: left;
+  padding: 9px 0px;
+}
+
+.fa-worksheets .genework .activetooltip .bline {
+  height: 36px;
+  width: 1px;
+  opacity: 0.1;
+  background-color: #FFFFFF;
+  float: left;
+}
+
+.fa-worksheets .genework .activetooltip::before {
+  margin-left: -53px;
+  margin-top: 14px;
+}
+
+.fa-worksheets h2.smart-studies {
+  color: #3A5077;
+  font-family: Sansation;
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 22px;
+}
+
+.fa-worksheets button.viewAnswers-btn {
+  height: 54px;
+  width: 182px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.fa-worksheets button.approve-btn, .fa-worksheets button.reject-btn, .fa-worksheets button.close-btn {
+  height: 54px;
+  width: 124px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.fa-worksheets button.saveProceedWorksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.modalAnswerSheet-btn {
+  height: 54px;
+  width: 223px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.exporttoword-btn {
+  height: 54px;
+  width: 175px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.openpdf-btn {
+  height: 54px;
+  width: 175px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.gotoexamlist-btn {
+  height: 54px;
+  width: 185px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.fa-worksheets button.viewsummary-btn {
+  height: 54px;
+  width: 183px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  color: #ffffff;
+}
+
+.class-test-exam-setup {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.class-test-exam-setup th {
+  padding: 10px 15px;
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.class-test-exam-setup td {
+  padding: 17px 15px;
+}
+
+.class-test-exam-setup tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.class-test-exam-setup td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class-test-exam-setup td input, .class-test-exam-setup td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.class-test-exam-setup td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.class-test-exam-setup .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.class-test-exam-setup .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.class-test-exam-setup .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.class-test-exam-setup td.action_col {
+  padding: 8px 15px;
+}
+
+.class-test-exam-setup td.action_col button.preview-btn {
+  height: 36px;
+  width: 101px !important;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class-test-exam-setup th p {
+  width: 108px;
+}
+
+.class-test-exam-setup th.paper-type p {
+  width: 162px;
+}
+
+.class-test-exam-setup .single.tog ul li {
+  height: 45px;
+  padding: 10px !important;
+}
+
+.class-test-exam-setup .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.class-test-exam-setup .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.class-test-exam-setup .single button.multiselect {
+  height: 36px;
+}
+
+.class-test-exam-setup .single .multiselect-container li {
+  height: 36px;
+}
+
+.class-test-exam-setup .form-check-input {
+  margin-top: -9px !important;
+  padding: 2px;
+}
+
+.class-test-exam-setup td.approve {
+  color: #69BB10;
+}
+
+.class-test-exam-setup td.inprogress {
+  color: #55CCEE;
+}
+
+.class-test-exam-setup td.reject {
+  color: #E52254;
+}
+
+.filter-row {
+  height: 93px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.filter-row .viewbtntable {
+  height: 45px;
+  width: 326px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.filter-row .viewbtntable .single.tog button {
+  height: 45px;
+  width: 326px;
+  border: 0px;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.filter-row .filterBy h4 {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.searchbartable.class-test input {
+  width: 230px;
+}
+
+.createtestbtn button.createtest-btn {
+  height: 42px;
+  width: 165px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+/*---------------create-class-test-end-----------*/
+/*--------------------assign-exam--------------*/
+.searchbartable.assign input {
+  width: 408px;
+}
+
+.assign-exam-list {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: calc(100vh - 210px) !important;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.assign-exam-list th {
+  padding: 10px 15px;
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 600;
+  border: 0px;
+  line-height: 18px;
+}
+
+.assign-exam-list td {
+  padding: 17px 15px;
+}
+
+.assign-exam-list tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.assign-exam-list td select {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.assign-exam-list td input, .assign-exam-list td select {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.assign-exam-list td input {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.assign-exam-list .single.tog button {
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.assign-exam-list .single.tog button::after {
+  margin-top: 8px;
+  float: right;
+}
+
+.assign-exam-list .single.tog ul li:hover {
+  background: #F6F7FB;
+}
+
+.assign-exam-list td.action_col {
+  padding: 8px 15px;
+}
+
+.assign-exam-list td.action_col button.preview-btn {
+  height: 36px;
+  width: 101px !important;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.assign-exam-list th p {
+  width: 105px;
+}
+
+.assign-exam-list th.worksheet-name p {
+  width: 164px;
+}
+
+.assign-exam-list th.subject p {
+  width: 120px;
+}
+
+.assign-exam-list .single.tog ul li {
+  height: 45px;
+  padding: 10px !important;
+  width: 221px;
+}
+
+.assign-exam-list .single.tog ul li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.assign-exam-list .single.tog .switch {
+  position: relative;
+  display: inline-block;
+  width: 25px;
+  height: 12px;
+  top: 8px;
+  float: right;
+}
+
+.assign-exam-list .single button.multiselect {
+  height: 36px;
+}
+
+.assign-exam-list .single .multiselect-container li {
+  height: 36px;
+}
+
+.assign-exam-list .form-check-input {
+  margin-top: -9px !important;
+  padding: 2px;
+}
+
+.assign-exam-list td.approve {
+  color: #69BB10;
+}
+
+.assign-exam-list td.inprogress {
+  color: #55CCEE;
+}
+
+.assign-exam-list td.reject {
+  color: #E52254;
+}
+
+#AssignExam.modal .checkmark {
+  left: 0;
+  top: 0;
+}
+
+/*------------------end assign exam-------------*/
+/*------------------ template--------------------*/
+#CreateTemplate.modal {
+  right: 595px;
+}
+
+#CreateTemplate.modal .modal-content {
+  position: fixed;
+  margin: auto;
+  width: 605px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+  transform: translate3d(0%, 0, 0);
+}
+
+#CreateTemplate.modal button.saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#CreateTemplate.modal h3.sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+.worksheets.template .worksheetSetting td.question-nature {
+  width: 360px;
+}
+
+.worksheets.template .worksheetSetting td input.counternum {
+  width: 70px;
+}
+
+.view-previous-selection .single.tog ul.dropdown-menu {
+  height: auto;
+  width: 367px;
+  border-radius: 4px 0 0 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  padding: 15px;
+}
+
+.view-previous-selection .single.tog ul li {
+  border-bottom: 1px solid #D1DAE6;
+  padding: 15px;
+}
+
+.view-previous-selection .single.tog ul li p a {
+  color: #5C67E6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.view-previous-selection .single.tog ul li p.preview-head {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.view-previous-selection .single.tog ul li p.preview-detail {
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.template.worksheets .worksheetSetting th, .template.worksheets .worksheetSetting td {
+  padding: 10px 15px;
+}
+
+.worksheets.template-bloomdiff td input {
+  height: 36px;
+  width: 80px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.worksheets.template-bloomdiff .total_marks, .worksheets.template-bloomdiff .total_ques {
+  height: 27px;
+  width: 113px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+.template-list {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+
+.template-list tr {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.template-list th.template-name p {
+  width: 132px;
+}
+
+.template-list th.standard p {
+  width: 65px;
+}
+
+.template-list th.subject p {
+  width: 102px;
+}
+
+.template-list th.total-marks p {
+  width: 85px;
+}
+
+.template-list th.duration p {
+  width: 72px;
+}
+
+.template-list th.created-by p, .template-list th.updated-by p {
+  width: 132px;
+}
+
+.template-list th p.tablespace {
+  width: 102px;
+}
+
+.template-list th.status p {
+  width: 138px;
+}
+
+.template-list th p {
+  margin: 0px;
+}
+
+.template-list td {
+  height: 60px;
+  padding: 17px 15px;
+}
+
+.template-list td.action_col {
+  padding: 11px 15px;
+}
+
+/*------------------end template----------------*/
+/***********radio-btn*********/
+.radio {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0px !important;
+  right: 15px;
+  height: 28px;
+  width: 28px;
+  border: 1px solid #5C67E6;
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+
+input[type=radio]:checked ~ label {
+  color: #0DFF92;
+}
+
+/* On mouse-over, add a grey background color */
+.radio:hover input ~ .checkmark {
+  background-color: #eee;
+}
+
+/* When the radio button is checked, add a blue background */
+.radio input:checked ~ .checkmark {
+  background-color: #fff;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radio input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.radio .checkmark:after {
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  height: 19.6px;
+  width: 19.6px;
+  background-color: #5C67E6;
+}
+
+/************end-radio btn*******/
+/*--------------------------------end exam setup page---------------------------------*/
+/*---------------------breadscrumb---------------------*/
+.breadcrumb {
+  background: 0;
+}
+
+.breadcrumb li {
+  color: #8595A6;
+  font-size: 12px;
+  line-height: 20px;
+}
+
+.breadcrumb li a {
+  color: #5C67E6;
+}
+
+/*--------------------- end breadscrumb---------------------*/
+/*-----------------------Scroll bar-----------*/
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 5px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #D1DAE6;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/*----------------------- end Scroll bar-----------*/
+.table thead th {
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+/*----------------modal with full width--------------*/
+#createClassExamTest2.modal.right {
+  right: auto;
+  left: 0;
+}
+
+#createClassExamTest2.modal.right .modal-dialog {
+  max-width: 100%;
+  width: 100%;
+}
+
+#createClassExamTest2.modal.right .modal-content {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#createClassExamTest2.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .sectionheadright {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#createClassExamTest2.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#createClassExamTest2.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right a.step {
+  cursor: pointer;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head {
+  height: 60px;
+  border: 1px solid #D1DAE6;
+  border-radius: 4px 4px 0 0;
+  background-color: #F6F7FB;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head h3.texthead {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number {
+  height: 25px;
+  width: 25px;
+  background-color: #5C67E6;
+  border-radius: 50%;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .hide-btn a {
+  width: 40px;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col {
+  height: 45px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D1DAE6;
+  border-left: 1px solid #d1dae6;
+  padding: 13px !important;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col i.form-check-input {
+  padding: 2px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col p {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .col-3 {
+  border-right: 1px solid #d1dae6;
+}
+
+#createClassExamTest2.modal.right button.createworksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .modal-footer {
+  background-color: #F6F7FB;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected {
+  height: 199px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected h4.insufficient-chapter {
+  height: 27px;
+  width: 298px;
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected p {
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected .createpapermanually-btn {
+  height: 42px;
+  width: 221px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected a {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper {
+  height: 199px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper h4.discard-paper {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper p {
+  width: 346px;
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper button.yes-btn {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper button.no-btn {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right {
+  right: auto;
+  left: 0;
+}
+
+#createClassExamTest2.modal.right .modal-dialog {
+  max-width: 100%;
+  width: 100%;
+}
+
+#createClassExamTest2.modal.right .modal-content {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#createClassExamTest2.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+#createClassExamTest2.modal.right a.view-template {
+  color: #5C67E6;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+#createClassExamTest2.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 5px 15px;
+  font-size: 22px;
+}
+
+#createClassExamTest2.modal.right .radio.box.active {
+  border: 1px solid #5C67E6;
+}
+
+#createClassExamTest2.modal.right .radio.box.active .radio-head {
+  color: #5C67E6;
+}
+
+#createClassExamTest2.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right a.step {
+  cursor: pointer;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head {
+  height: 60px;
+  border: 1px solid #D1DAE6;
+  border-radius: 4px 4px 0 0;
+  background-color: #F6F7FB;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head h3.texthead {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number {
+  height: 25px;
+  width: 25px;
+  background-color: #5C67E6;
+  border-radius: 50%;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .hide-btn {
+  width: 40px;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col {
+  height: 45px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D1DAE6;
+  border-left: 1px solid #d1dae6;
+  padding: 13px !important;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col i.form-check-input {
+  padding: 2px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col p {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .col-3 {
+  border-right: 1px solid #d1dae6;
+}
+
+#createClassExamTest2.modal.right button.createworksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .modal-footer {
+  background-color: #F6F7FB;
+}
+
+.modal-backdrop.show {
+  opacity: .5;
+  background-color: #172B4D;
+}
+
+.btn:disabled {
+  background-color: #555 !important;
+}
+
+[data-toggle="collapse"]:after {
+  display: inline-block;
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  content: "\f054";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  -webkit-transition: all linear 0.25s;
+  transition: all linear 0.25s;
+  float: right;
+}
+
+[data-toggle="collapse"].collapsed:after {
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+}
+
+#createClassExamTest2.modal.right[_ngcontent-c6] .select-chaptermodal[_ngcontent-c6] .head[_ngcontent-c6] .hide-btn[_ngcontent-c6] a[_ngcontent-c6] {
+  color: #5C67E6 !important;
+  font-size: 20px;
+}
+
+/*--------------end modal with full width-----------------*/
+.createtest-btn {
+  height: 42px;
+  width: 165px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col {
+  padding: 0px !important;
+}
+
+.checkbox-container .checkmark {
+  margin-left: 2px !important;
+}
+
+.collapse.show {
+  border-right: 1px solid #D1DAE6;
+  border-bottom: 1px solid #D1DAE6;
+}
+
+#createClassExamTest2.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .sectionheadright {
+  color: #172B4D;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+#createClassExamTest2.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 15px;
+  font-size: 22px;
+}
+
+#createClassExamTest2.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right a.step {
+  cursor: pointer;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head {
+  height: 60px;
+  border: 1px solid #D1DAE6;
+  border-radius: 4px 4px 0 0;
+  background-color: #F6F7FB;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head h3.texthead {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number {
+  height: 25px;
+  width: 25px;
+  background-color: #5C67E6;
+  border-radius: 50%;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .hide-btn a {
+  width: 40px;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col {
+  height: 45px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D1DAE6;
+  border-left: 1px solid #d1dae6;
+  padding: 13px !important;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col i.form-check-input {
+  padding: 2px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col p {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .col-3 {
+  border-right: 1px solid #d1dae6;
+}
+
+#createClassExamTest2.modal.right button.createworksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .modal-footer {
+  background-color: #F6F7FB;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected {
+  height: 199px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected h4.insufficient-chapter {
+  height: 27px;
+  width: 298px;
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected p {
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected .createpapermanually-btn {
+  height: 42px;
+  width: 221px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .insufficientChapterSelected a {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 500;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper {
+  height: 199px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper h4.discard-paper {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper p {
+  width: 346px;
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper button.yes-btn {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .discardCurrentPaper button.no-btn {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right {
+  right: auto;
+  left: 0;
+}
+
+#createClassExamTest2.modal.right .modal-dialog {
+  max-width: 100%;
+  width: 100%;
+}
+
+#createClassExamTest2.modal.right .modal-content {
+  width: 100%;
+  background-color: #ffffff;
+}
+
+#createClassExamTest2.modal.right .modal-step {
+  color: #3A5077;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .sectionhead {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+}
+
+#createClassExamTest2.modal.right .radio-head {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .radio-text {
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: 400;
+}
+
+#createClassExamTest2.modal.right a.view-template {
+  color: #5C67E6;
+  font-size: 16px;
+  line-height: 18px;
+  font-weight: 400;
+}
+
+#createClassExamTest2.modal.right .radio.box {
+  height: 79px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+  padding: 5px 15px;
+  font-size: 22px;
+}
+
+#createClassExamTest2.modal.right .radio.box.active {
+  border: 1px solid #5C67E6;
+}
+
+#createClassExamTest2.modal.right .radio.box.active .radio-head {
+  color: #5C67E6;
+}
+
+#createClassExamTest2.modal.right .saveAndProceed-btn {
+  height: 54px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right a.step {
+  cursor: pointer;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head {
+  height: 60px;
+  border: 1px solid #D1DAE6;
+  border-radius: 4px 4px 0 0;
+  background-color: #F6F7FB;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head h3.texthead {
+  color: #3A5077;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number {
+  height: 25px;
+  width: 25px;
+  background-color: #5C67E6;
+  border-radius: 50%;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .chapter-number span {
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .head .hide-btn {
+  width: 40px;
+  color: #8595A6;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col {
+  height: 45px;
+  background-color: #FFFFFF;
+  border-bottom: 1px solid #D1DAE6;
+  border-left: 1px solid #d1dae6;
+  padding: 13px !important;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col i.form-check-input {
+  padding: 2px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .chapter-col p {
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 18px;
+}
+
+#createClassExamTest2.modal.right .select-chaptermodal .col-3 {
+  border-right: 1px solid #d1dae6;
+}
+
+#createClassExamTest2.modal.right button.createworksheet-btn {
+  height: 54px !important;
+  width: 200px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+  text-align: center;
+}
+
+#createClassExamTest2.modal.right .modal-footer {
+  background-color: #F6F7FB;
+}
+/*# sourceMappingURL=class-test-exam-dashboard.component.css.map */
+
+.filterbtntable .single.tog ul{
+  height: auto;
+  width: 367px;
+  top: auto !important;
+  left: auto !important;
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+
+/*-----table colom widths-----------------*/
+th.assignType, td.assignType {
+  max-width: 120px;
+  // min-width: 120px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+th.assignMode, td.assignMode{
+  max-width: 115px;
+  // min-width: 115px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+th.assignStandard, td.assignStandard{
+  max-width: 135px;
+  // min-width: 135px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+th.assignSubject, td.assignSubject{
+max-width: 140px;
+min-width: 140px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+th.serialNo, td.serialNo{
+max-width: 80px;
+min-width: 80px;
+}
+
+th.assignworksheet-name , td.assignworksheet-name{
+max-width: 185px;
+min-width: 185px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+th.assignTotalQues, td.assignTotalQues{
+max-width: 132px;
+min-width: 132px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+th.assignTotalMarks, td.assignTotalMarks{
+max-width: 115px;
+// min-width: 115px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+th.assignDuration, td.assignDuration{
+max-width: 105px;
+// min-width: 105px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+
+
+
+
+/*----------------------Pagination-------------------*/
+.pages {
+margin-top: 10px;
+position: absolute;
+right: 0;
+// float: right;
+}
+
+.selectWrapper {
+margin-top: 10px;
+position: absolute;
+left: 0;
+}
+
+.selectShow {
+margin-top: 11px;
+}
+
+
+/*----------------------Pagination-------------------*/
+::ng-deep .pages {
+margin-top: 10px;
+position: absolute;
+right: 8px;
+}
+
+.selectWrapper {
+margin-top: 10px;
+position: absolute;
+left: 0;
+padding: 0px;
+}
+::ng-deep .selectWrapper .ng-select-container {
+border: 0px !important;
+}
+::ng-deep .selectWrapper .ng-select .ng-select-container {
+color: #8595A6 !important;
+}
+
+/*-------------pagination----------------*/
+::ng-deep .selectWrapper .select_Show{
+height: 38px;
+width: auto;
+border: 1px solid #D1DAE6;
+border-radius: 2px;
+background-color: #FFFFFF;
+color: #8595A6;
+font-family: Inter;
+font-size: 13px;
+line-height: 21px;
+margin-top: 9px;
+}
+::ng-deep .selectWrapper{
+padding: 0px 15px;
+}
+::ng-deep .ngx-pagination li{
+  background-color: #FFFFFF;
+  border-right: 1px solid #D1DAE6;
+  margin-right: 0px !important;
+}
+::ng-deep .ngx-pagination a{
+color: #8595A6 !important;	
+font-family: Inter;	
+font-size: 14px;	
+line-height: 21px;
+padding: 8px 16px !important;
+background-color: #fff;
+}
+::ng-deep .ngx-pagination{
+border: 1.2px solid #D1DAE6;
+padding: 0px;
+}
+::ng-deep .pages .current{
+color: #8595A6 !important;
+font-family: Inter;
+font-size: 14px;
+line-height: 21px;
+padding: 8px 16px !important;
+background-color: #e6e6e6 !important;
+}
+
+::ng-deep .ngx-pagination .pagination-previous a::before, ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+content: '<' !important;
+font-weight: 600;
+}
+::ng-deep .ngx-pagination .pagination-next a::after, ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+content: '>' !important;
+font-weight: 600;
+}
+::ng-deep .show-for-sr{
+display: none;
+
+}
+::ng-deep .ngx-pagination .pagination-next a::after, ::ng-deep .ngx-pagination .pagination-previous a::before{
+color: #172B4D;
+}
+::ng-deep .ngx-pagination .pagination-previous.disabled::before,  ::ng-deep .ngx-pagination .pagination-next.disabled::after{
+color:  #8595A6;
+}
+::ng-deep .ng-select .ng-select-container .ng-value-container .ng-input>input {
+display: none !important;
+}
+/*---------------pagination---------------*/
+
+/*-----------------------Assign-css-------------*/
+.modal#changeStatusModal{
+right: 383px;
+}
+.modal#changeStatusModal .modal-dialog{
+width: 400px;
+}
+.modal#changeStatusModal .update-btn{
+height: 54px;
+border-radius: 4px;	
+background-color: #5C67E6;
+color: #fff;
+font-size: 16px;	
+font-weight: 600;	
+line-height: 22px;	
+text-align: center;
+}
+/*-----------------------end assign css----------------*/
+
+::ng-deep .cdk-overlay-container{
+z-index: 9999 ;
+}
+
+.specific_students{
+border-top: 0px !important;
+border: 1px solid #D1DAE6;
+padding: 10px !important;
+color: #172B4D;
+font-size: 14px;
+line-height: 18px;
+}
+.selectStudentBtn{
+height: 47px; 
+color: #FFFFFF;	
+font-size: 15px;	
+font-weight: 600;	
+line-height: 22px;	
+text-align: center;
+background-color: #5C67E6;
+}
+.specific_students:nth-child(1) {
+border-top: 1px solid #D1DAE6 !important;
+}
+
+#specific_student1{
+.checkbox-container{
+  position: absolute !important;
+  top: -17px;
+  left: 10px;
+}
+.checkbox-container .checkmark{
+position: absolute;
+top: 26px !important;
+left: -7px;
+height: 18px;
+width: 18px;
+background-color: #fff;
+border: 1px solid #5c67e6;
+border-radius: 4px;
+}
+.checkbox-container input {
+position: absolute;
+opacity: 0;
+cursor: pointer;
+height: 0;
+width: 0;
+}
+.checkbox-container {
+display: block;
+position: relative;
+padding-left: 35px;
+margin-bottom: 12px;
+cursor: pointer;
+font-size: 22px;
+-webkit-user-select: none;
+-moz-user-select: none;
+-ms-user-select: none;
+user-select: none;
+}
+
+.checkbox-container:hover input ~ .checkmark {
+background-color: #fff;
+}
+
+/* When the checkbox is checked, add a blue background */
+.checkbox-container input:checked ~ .checkmark {
+background-color: #fff;
+}
+/* Show the checkmark when checked */
+.checkbox-container input:checked ~ .checkmark:after {
+display: block;
+}
+
+/* Style the checkmark/indicator */
+.checkbox-container .checkmark:after {
+width: 4px;
+   height: 9px;
+   border: solid #5c67e6;
+   border-width: 0 2px 2px 0;
+   transform: rotate(45deg);
+   margin-left: 5px;
+   margin-top: 2px;
+   left: 1px !important;
+  top: 1px !important;
+}
+}
+
+#specific_student2 .specific_students .checkbox-container{
+position: absolute !important;
+top: 5px;
+left: 10px;
+}
+
+
+.no-result-found {
+position: absolute;
+top: 50%;
+left: 38%;
+right: 50%;
+width: 247px;
+font-size: 28px;
+font-weight: 500;
+line-height: 34px;
+color: #172B4D;
+}
+#selectStudentBtn:disabled{
+background-color: #BFCDDA !important;
+}
+
+
+.assign-exam-list .single.tog .dropdown.show button::after {
+border-right: .3em solid transparent;
+border-bottom: .3em solid;
+border-left: .3em solid transparent;
+border-top: 0;
+}
+
+
+#AddMarksModal .modal-title {
+color: #172B4D;
+font-size: 20px;
+font-weight: 600;
+}
+#AddMarksModal .modal-dialog{
+max-width: 400px;
+border-radius: 4px;	
+background-color: #FFFFFF;	
+box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+}
+#AddMarksModal .modal-body h5{
+color: #172B4D;	font-family: Inter;	font-size: 15px;	font-weight: 600;
+}
+#AddMarksModal .modal-body p{
+color: #3A5077;	font-family: Inter;	font-size: 13px;	font-weight: 500;	line-height: 21px; text-align: left;
+}
+#AddMarksModal .modal-body .btn-yes{
+height: 36px;
+width: 130px;
+border-radius: 4px;
+background-color: #01CA85;
+color: #FFFFFF;
+font-size: 13px;
+font-weight: 600;
+line-height: 18px;
+float: right;
+margin: 8px 0px 0px 0px;
+}
+#AddMarksModal .modal-body .btn-no {
+height: 36px;
+width: 130px;
+border-radius: 4px;
+background-color: #5C67E6;
+color: #FFFFFF;
+font-size: 13px;
+font-weight: 600;
+line-height: 18px;
+text-align: center;
+float: right;
+margin: 8px 8px 0px 0px;
+}
+
+#student_answer_modal th, #student_answer_modal td, #student_question_modal th, #student_question_modal td{
+    border: 1px solid #D1DAE6;
+}
+
+  #student_answer_modal th, #student_question_modal th{
+    color: #3A5077;	
+    font-size: 12px;	
+    font-weight: 500;	
+    line-height: 18px;
+    height: 35px;
+    padding: 0 12px;
+    text-align: center;
+  }
+
+  #student_answer_modal td, #student_question_modal td{
+    color: #3A5077;	
+    font-size: 13px;	
+    font-weight: 500;	
+    line-height: 18px;
+    height: 45px;
+    padding: 0 12px;
+    text-align: center;
+  }
+  
+  #student_answer_modal .addMarksBtn, #student_question_modal .addMarksBtn{
+    height: 47px;
+    color: #FFFFFF;	
+    font-size: 15px;	
+    font-weight: 600;	
+    line-height: 22px;	
+    text-align: center;
+    border-radius: 4px;	background-color: #5C67E6;
+  }
+
+  .dash-sapce{
+    text-align: center;
+    width: 101px;
+    margin-top: 10px;
+  }
+
+  .ptb-1{
+    padding: 1.5rem 0px 1.5rem 0px;
+  }
+
+  .height-12{
+    height: 12px !important;
+    margin-left: 7px;
+  }
+
+  .publish-btn{
+    height: 40px;
+    border-radius: 4px;
+    background-color: #5C67E6;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+  }
+
+  .top-headerS{
+    border-bottom: 1px solid #D1DAE6;
+    padding: 24px 0px;
+  }
+  .top-headerS {
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 34px;
+    color: #172B4D;
+  }
+  .top-headerS .center-head .tabs{
+    border: 1px solid #D1DAE6;
+    padding: 10px 28px;
+    width: 90px;
+    font-family: Inter;
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: center;
+    background: #F6F7FB;
+}
+.top-headerS .center-head .active{
+  color: #5C67E6;
+  border-bottom: 2px solid #5C67E6;
+  background: #fff;
+}
+
+.detail_omr{
+  background-color: #ffffff;
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  width: auto;
+  border-radius: 4px;
+}
+
+
+

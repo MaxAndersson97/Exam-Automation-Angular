@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53 (72520) - https://sketchapp.com -->
+    <title>830FB42D-A268-4EEF-BF67-E4903FDB68C8</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M19,0 L1,0 C0.447,0 0,0.447 0,1 L0,19 C0,19.553 0.447,20 1,20 L9,20 C9.553,20 10,19.553 10,19 C10,18.447 9.553,18 9,18 L2,18 L2,2 L18,2 L18,11 C18,11.553 18.447,12 19,12 C19.553,12 20,11.553 20,11 L20,1 C20,0.447 19.553,0 19,0 M18.293,14.293 L15,17.586 L13.707,16.293 C13.316,15.902 12.684,15.902 12.293,16.293 C11.902,16.684 11.902,17.316 12.293,17.707 L14.293,19.707 C14.488,19.902 14.744,20 15,20 C15.256,20 15.512,19.902 15.707,19.707 L19.707,15.707 C20.098,15.316 20.098,14.684 19.707,14.293 C19.316,13.902 18.684,13.902 18.293,14.293 M6,11 L14,11 C14.553,11 15,10.553 15,10 C15,9.447 14.553,9 14,9 L6,9 C5.447,9 5,9.447 5,10 C5,10.553 5.447,11 6,11 M6,15 L9,15 C9.553,15 10,14.553 10,14 C10,13.447 9.553,13 9,13 L6,13 C5.447,13 5,13.447 5,14 C5,14.553 5.447,15 6,15 M6,7 L14,7 C14.553,7 15,6.553 15,6 C15,5.447 14.553,5 14,5 L6,5 C5.447,5 5,5.447 5,6 C5,6.553 5.447,7 6,7" id="path-1"></path>
+    </defs>
+    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="07.-SM---School-Academic-Details" transform="translate(-24.000000, -120.000000)">
+            <g id="sidebar-normal" transform="translate(0.000000, 60.000000)">
+                <g id="IconSet/Sidenav/Exam-Setup/Default" transform="translate(24.000000, 60.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Icon" fill="#3A5077" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

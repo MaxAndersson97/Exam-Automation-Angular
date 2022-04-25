@@ -1,0 +1,234 @@
+td input, td select{	
+  color: #3A5077 !important;	
+  font-size: 14px !important;	
+  line-height: 21px !important;
+}
+.toggled .big{
+    display:none;
+}
+.toggled.d-flex .small{
+  display: block;
+}
+.toggled.d-flex .small svg{
+    width:22px;
+}
+.d-flex .small{
+    display:none;
+}
+.class_setup td input{
+  padding: 6px 8px;
+}
+.class_setup {
+  background-color: #ffffff;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  position: relative;
+  height: 506px !important;
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+}
+button.saveandclose-btn {
+background-color: #01CA85;
+color: #ffffff;
+height: 42px;
+width: 145px;
+font-size: 14px;
+font-weight: 600;
+line-height: 18px;
+}
+button.addnewrow-btn {
+background-color: #5C67E6;
+color: #ffffff;
+height: 42px;
+width: 145px;
+font-size: 14px;
+font-weight: 600;
+line-height: 18px;
+}
+/*----------------table-fixed-----------------*/
+tbody th:first-child, th:first-child {
+    position:sticky;
+    position: -webkit-sticky;
+    left:0;
+
+    background-color:white;
+  }
+  thead th:first-child{
+      z-index: 1;
+  } 
+  tbody th:nth-child(2) ,thead th.marks{ 
+    position:sticky;
+    position: -webkit-sticky;
+    left:100px;
+    background-color:white;
+    }
+  thead th.marks{
+      z-index:1;
+  }
+    thead th.question-index{
+      z-index:1;
+  }
+  .table-row-1 th{
+      position: sticky;
+     top: 0;
+    position: -webkit-sticky;
+     background: #fff;
+     height: 68px;
+
+  }
+  .table-row-2 th{
+      position: sticky;
+      position: -webkit-sticky;
+     background: #fff;
+     top: 68px;
+    
+     
+  }
+  .table-row-3 th{
+      position: sticky;
+      position: -webkit-sticky;
+     background: #fff;
+     top: 112px;
+
+  }
+  .table-row-4 th{
+    position: sticky;
+    position: -webkit-sticky;
+    top: 167px;
+  }
+
+  ::ng-deep .table-row-3 th ng-select{
+    height: 35px;
+    width: 75px;
+  }
+.class_setup tr{
+  border-bottom: 0px !important;
+}
+
+.table-row-1 th::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  border-bottom: 1px solid #ced4da;
+  display: block;
+  bottom: 1px;
+  z-index: 999;
+}
+.table-row-2 th::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  border-bottom: 1px solid #ced4da;
+  display: block;
+  bottom: 1px;
+  z-index: 999;
+}
+.table-row-3 th::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  border-bottom: 1px solid #ced4da;
+  display: block;
+  bottom: 1px;
+  z-index: 999;
+}
+.table-row-4 th::after{
+  content: '';
+  position: absolute;
+  left: 0;
+  height: 2px;
+  width: 100%;
+  border-bottom: 1px solid #ced4da;
+  display: block;
+  bottom: 1px;
+  z-index: 999;
+}
+.class_setup tbody tr{
+  border-bottom: 1px solid #D1DAE6 !important;
+}
+.th-header{
+  border-right: 0px !important;
+}
+thead .border_r::after{
+  height: 100%;
+  border-right: 1px solid #ced4da;
+}
+tbody .border_r::after{
+  height: 100%;
+  border-right: 1px solid #ced4da;
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: block;
+  // z-index: 999;
+}
+.th-width{
+  max-width: 100px !important;
+  min-width: 100px !important;
+}
+/*-----------------table-fixed---------------*/
+table {
+border-collapse: collapse;
+}
+
+.th-header{
+  color: #172B4D !important;
+  font-family: Inter;
+  font-size: 14px !important;
+  font-weight: 600 !important;
+  line-height: 24px !important;
+}
+.table-row-1 th:nth-child(1), .table-row-2 th:nth-child(1), .table-row-3 th:nth-child(1){
+font-size: 12px !important;
+background: #F6F7FB !important;
+font-weight: 500;
+  color: #3A5077;
+}
+.table-row-4 .question-index, .table-row-4 .marks{
+font-size: 12px !important;  
+font-weight: 500;
+  color: #3A5077;
+}
+.table-row-4  th{
+background: #F6F7FB !important;
+}
+::ng-deep .th-header .ng-dropdown-panel.ng-select-bottom{
+bottom: 100% !important;
+top: auto;
+}
+
+tbody th {
+background: #FFF;
+border-right: 1px solid #CCC;
+}
+
+
+th.th-header.th_student_col {
+  max-width: 178px;
+  min-width: 178px;
+}
+th.th-header.th_student_col .th_student_name{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+th.th-header.th_student_col .th_student_marks{
+  font-size: 12px;
+}
+
+.marks-border{
+  border-color: red;
+}
+
+.err-msg{
+  padding-right: 30px;
+  padding-top: 7px;
+}

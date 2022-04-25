@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53 (72520) - https://sketchapp.com -->
+    <title>25ED99E0-947A-4F06-A743-3C36FC78DAFC</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M19,0 L5,0 C4.448,0 4,0.447 4,1 L4,4 L1,4 C0.448,4 0,4.447 0,5 L0,19 C0,19.553 0.448,20 1,20 L15,20 C15.552,20 16,19.553 16,19 L16,16 L19,16 C19.552,16 20,15.553 20,15 L20,1 C20,0.447 19.552,0 19,0 L19,0 Z M6,14 L6,11.535 L8,10.202 L10.445,11.832 C10.843,12.098 11.371,12.044 11.707,11.707 L16,7.414 L18,9.414 L18,14 L6,14 Z M14,18 L2,18 L2,6 L4,6 L4,15 C4,15.553 4.448,16 5,16 L14,16 L14,18 Z M6,2 L18,2 L18,6.586 L16.707,5.293 C16.316,4.902 15.684,4.902 15.293,5.293 L10.873,9.713 L8.555,8.168 C8.219,7.943 7.781,7.943 7.445,8.168 L6,9.132 L6,2 Z M10.5,7 C11.329,7 12,6.328 12,5.5 C12,4.672 11.329,4 10.5,4 C9.671,4 9,4.672 9,5.5 C9,6.328 9.671,7 10.5,7" id="path-1"></path>
+    </defs>
+    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="07.-SM---School-Academic-Details" transform="translate(-304.000000, -341.000000)">
+            <g id="IconSet/Academic-Details/Default" transform="translate(304.000000, 341.000000)">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Icon" fill="#8595A6" xlink:href="#path-1"></use>
+            </g>
+        </g>
+    </g>
+</svg>

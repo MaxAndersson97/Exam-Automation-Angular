@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,mBAAmB,CAAC,GAAG,CAAC;EACpB,MAAM,EAAE,IAAI;EACZ,KAAK,EAAE,IAAI;CACd;;AAED,AAAA,OAAO,AAAA,YAAY,CAAC;EAChB,gBAAgB,EAAE,OAAO;CAC5B;;AACD,AAAA,SAAS,CAAC,KAAK,CAAA;EACX,MAAM,EAAC,IAAI;CACd",
+    "sources": [
+        "academic-year.component.scss"
+    ],
+    "names": [],
+    "file": "academic-year.component.css"
+}

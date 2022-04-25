@@ -1,0 +1,113 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12 col-lg-12 col-12 mt-3">
+      <div class="admin-panel-top row m-auto">
+
+        <div class="col-8 col-md-8 col-lg-8 p-0">
+          <p class="custom-content m-0 text-left pl-0">Textbook In Pdf - Advance Settings</p>
+        </div>
+        <div class="col-4 col-md-4 col-lg-4 pr-0">
+          <button class="btn float-right saveDetailbtn" id="saveDetailBtn" type="button" (click)="saveBooksPDFSetting()" [disabled]="!isSaveBtnEnabled">
+          Save 
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-12 col-lg-12">
+      <div class="show-textbox-row mt-4 mb-0 mx-auto">
+        <div class="row m-0 w-100">
+          <div class="col-md-12 col-12 col-lg-12 p-0">
+            <form [formGroup]="searchtextbookForm" (ngSubmit)="onSubmit()" >
+              <button class="btn float-right showtextboxbtn" id="showtextboxBtn" type="submit" [disabled]="!searchtextbookForm.valid">
+              Show 
+              </button>
+              <!-- <div class="single tog float-right selectClass">
+                <ng-select formControlName="SubjectID" [items]="subjects" bindLabel="SubjectName" placeholder="e.g. Mathematics" bindValue="SubjectID" [searchable]=false required></ng-select>
+              </div>             
+              <div class="single tog float-right selectSubject">
+                <ng-select formControlName="ClassID" (click)="getClassId(MasterID)" [items]="classesList" bindLabel="MasterText" placeholder="e.g. 1st Standard" bindValue="MasterID" [searchable]=false required>              
+                </ng-select>
+              </div> -->
+              <div class="single tog float-right selectClass">
+                <!-- <ng-select formControlName="SubjectID" [items]="subjects" bindLabel="SubjectName" placeholder="e.g. Mathemtics" bindValue="SubjectID" [searchable]=false required></ng-select> -->
+                <ng-select  formControlName="SubjectID" name="StateID" [items]="subjects" [searchable]=false placeholder="e.g. Mathematics" required>
+                  <ng-template ng-option-tmp let-item="item" style="text-transform: capitalize;">
+                    {{item.SubjectName.toLowerCase()}} 
+                  </ng-template>
+                  <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.SubjectName" style="text-transform: capitalize;">  {{item.SubjectName.toLowerCase()}} </span>                  
+                  </ng-template>
+              </ng-select>
+              </div>             
+              <div class="single tog float-right selectSubject">
+                <!-- <ng-select formControlName="ClassID" (click)="getClassId(MasterID)" [items]="classesList" bindLabel="MasterText" placeholder="e.g. 1st Standard" bindValue="MasterID" [searchable]=false required>               -->
+                <!-- </ng-select> -->
+                <ng-select  formControlName="ClassID" name="StateID" [items]="classesList" [searchable]=false  placeholder="e.g. 1st Standard" (change)="getClassId()" required>
+                  <ng-template ng-option-tmp let-item="item" style="text-transform: capitalize;">
+                    {{item.MasterText.toLowerCase()}} 
+                  </ng-template>
+                  <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.MasterText" style="text-transform: capitalize;">  {{item.MasterText.toLowerCase()}} </span>                  
+                  </ng-template>
+              </ng-select>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12 col-12 col-lg-12" *ngIf ="textBooksList && textBooksList.length">
+      <div class="custom-content-body my-4 mx-auto">
+        <div class="toggleBtnrow row m-0">
+          <div class="col-6 col-md-6">
+            <p class="m-0 textbook-name">TEXTBOOK NAME</p>
+          </div>
+          <div class="col-6 col-md-6 ">
+            <p class="m-0 pdfvisible text-right">PDF VISIBLE IN APP</p>
+          </div>
+        </div>
+        <div class="toggleBtnrow row m-0" *ngFor="let book of textBooksList; let i = index;">
+          <div class="col-6 col-md-6">
+            <p class="m-0" style="text-transform: capitalize;">{{book.TextBookName.toLowerCase()}}</p>
+          </div>
+          <div class="col-6 col-md-6 single tog">
+            <div class="switch-box">
+              <label class="switch">
+                <input type="checkbox" [checked]="book.IsPDFVisible" (change)="changeStatus(i);">
+                <span class="slider round"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-md-12 col-12 col-lg-12" *ngIf ="textBooksList && textBooksList.length == 0">
+      <div class="custom-content-body my-4 mx-auto no-text-avalble">No textbooks available.</div>
+      
+    </div> -->
+    <div class="ng-star-inserted  col-md-12 col-12 col-lg-12" *ngIf ="!isDataShow || textBooksList && textBooksList.length == 0">
+        <div class="col-md-12 col-lg-12 col-sm-12">
+          <div class="dcsetup-img mx-auto mt-3">
+            <img src="assets/images/No-Content-Module.svg" alt="" class="w-100">
+          </div>
+        </div>
+        <div class="col-md-12 col-lg-12 col-sm-12">
+          <div class="examsetup-content mx-auto ">
+            <h2 class="text-center top-header my-3">No books to show</h2>
+            <p class="text-center detailcontrol-description mb-0" *ngIf="!isDataShow">Please let us know the Class and Subject from the above</p>
+            <p class="text-center detailcontrol-description" *ngIf="!isDataShow">dropdown to get the results</p>
+          </div>
+        </div>
+       </div>
+  </div>
+</div>
+
+
+<style>
+  ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option.ng-option-marked{
+    text-transform: capitalize;
+  }
+  ::ng-deep .ng-dropdown-panel .ng-dropdown-panel-items .ng-option{
+    text-transform: capitalize;
+  }
+  </style>

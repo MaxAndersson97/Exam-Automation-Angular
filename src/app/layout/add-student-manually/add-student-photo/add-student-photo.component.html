@@ -1,0 +1,49 @@
+
+
+<div class="tab-pane active" id="schoolPhoto" role="tabpanel">
+  <form [formGroup]="addStudentPhoto" (ngSubmit)="onSubmit()">
+    <div class="schoolDetail-form p-4">
+      <div class="row">
+        <div class="form-group col-md-6 col-lg-6">
+          <!-- <input type="text" formControlName="StudentID"/> -->
+          <label class="">Student's Photo</label>
+          <label class="float-right img-remove d-block" *ngIf="imgURL" (click)="confirmDelete(confirmDeleteImage)"><a><img src="assets/images/icons/remove.svg" class=""> </a></label>
+          <label class="float-right change-photo mr-2" *ngIf="imgURL"><a><img src="assets/images/icons/pen.svg" class=""> </a> 
+            <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" (change)="selectFile($event.target.files); preview($event.target.files)" style="opacity: 0.0; position: absolute;" required/>
+          </label>
+          <div class="image-upload text-center w-100">
+            <div class="image-edit">
+              <input type='file' id="imageUpload" accept=".png, .jpg, .jpeg" (change)="selectFile($event.target.files); preview($event.target.files)" required/>
+              <label for="imageUpload">
+                <div id="imagePreview">
+                  <img id="imagedrag" class="w-100 " src="assets/images/defaultimg.svg" *ngIf="!imgURL"/>
+                  <img id="imagedrag" class="w-100 " [src]="imgURL" *ngIf="imgURL"/>
+                  <!-- <span>Drag and drop or click here to add image</span> -->
+                </div>
+              </label>
+              <!-- <p class="dragandDroptextinimg text-center"><span>Drag and drop or click here to add image</span></p> -->
+            </div>
+          </div>
+        </div>
+       
+      </div>
+      <div class="row mt-5">
+          <div class="form-group col-md-12 col-lg-12 text-right">
+            <hr>
+            
+
+              <button type="submit" id="save"  class="btn save-btn mb-3  mr-2" [disabled] = "!f.Image.valid">Save</button>
+              <button type="button" id="addnewrow" class="btn submitstudent-btn mb-3"  [disabled] = "!f.Image.valid" (click)="saveAndAddMore()">Save And Add More Student</button> 
+          </div>      
+      </div>
+    </div>
+  </form>
+</div>
+<ng-template #confirmDeleteImage>
+  <div class="modal-body text-center">
+    <h4 class="text-left">Delete Image?</h4>
+    <p class="text-left">Are you sure you want to delete this image?</p>
+    <button type="button" class="btn btn-yes float-right ml-2" (click)=" deleteImage()" >Yes</button>
+    <button type="button" class="btn btn-no float-right ml-2" (click)="modalRef.hide()" >No</button>
+  </div>
+</ng-template>

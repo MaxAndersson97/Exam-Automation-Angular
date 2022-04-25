@@ -1,0 +1,369 @@
+.dcsetup-img {
+  width: 270px;
+}
+.dcsetup-img img{
+  width: 260px;
+}
+button.addsectionbtn{
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    height: 40px !important;
+    width: 145px !important;
+    border-radius: 4px !important;
+    background-color: #5C67E6 !important;
+}
+.class_setup .class-drop-down-menu {
+  min-width: 10.5rem!important;
+}
+.class_setup .single.tog button {
+    height: 36px;
+    border: 1px solid #D1DAE6;
+    border-radius: 2px;
+    background-color: #ffffff;
+    color: #3A5077;
+    font-size: 14px;
+    line-height: 21px;
+    text-align: left;
+}
+
+.class_setup .single.tog ul li {
+    height: 45px;
+    padding: 10px !important;
+}
+.class_setup .single.tog ul li a {
+    color: #3A5077;
+    font-size: 14px;
+    line-height: 21px;
+}
+/*---------------------class-setup-------------*/
+/*------------------------class-setup-----------------*/
+.class_setup{
+    background-color:#fff;	
+    box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+    position: relative;
+    width: auto;
+    border-radius: 4px;
+    td, th{
+      padding: 10px 15px;
+    }
+    tr{
+      border-bottom: 1px solid #D1DAE6;
+    }
+    th{
+      color: #3A5077;	
+      font-size: 12px;	
+      font-weight: 500;	
+      line-height: 18px;
+    }
+    td select{
+      color: #3A5077;		
+      font-size: 14px;	
+      line-height: 21px;
+    }
+    td input , td select{
+      height: 36px;	
+      border: 1px solid #D1DAE6;	
+      border-radius: 2px;	
+      background-color: #FFFFFF;
+
+    }
+    // td a{
+    //   height: 36px;	
+    //   border: 1px solid #D1DAE6;	
+    //   border-radius: 2px;	
+    //   background-color: #FFFFFF;
+    // }
+    td input{
+      color: #172B4D;	
+      font-size: 15px;	
+      line-height: 18px;
+    }
+  }
+  .addsectionteacher-form{
+    // height: 409px;	
+    //width: 592px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 4px;	
+    background-color: #FFFFFF;
+    
+      input, select{
+        height: 36px !important;	
+        // width: 254px;	
+      }
+   
+  
+  }
+  #AddSectionTeacher{
+    overflow: scroll !important;
+    button.save-btn{
+      height: 42px;	width: 165px;	border-radius: 4px;	background-color: #5C67E6;
+      color: #FFFFFF;	font-size: 14px;	font-weight: 600;	line-height: 18px;
+    }
+    tr{
+      border-bottom: 1px solid #D1DAE6;
+    }
+    td .single button.multiselect{
+      height: 36px;		border: 1px solid #D1DAE6;	border-radius: 2px;	background-color: #FFFFFF;
+    }
+    td,  th {
+      padding: 10px 15px;
+    }
+    td input {
+      color: #172B4D;
+      font-size: 16px;
+      line-height: 18px;
+    }
+    td input, td select {
+      height: 36px;
+      border: 1px solid #D1DAE6;
+      border-radius: 2px;
+      background-color: #FFFFFF;
+  }
+  
+  }
+  button#addSection{
+    color: #fff;	
+    font-size: 14px;	
+    font-weight: 600;	
+    height: 42px;	
+    width: 145px;	
+    border-radius: 4px;	
+    background-color: #fff;
+  }
+  
+  #AddSection .modal-dialog{
+    width: 400px;
+  }
+  
+  .addSectionBtn{
+    line-height: 18px;
+    color: #fff;	
+    font-size: 14px;	
+    font-weight: 600;	
+    height: 40px;	
+    width: 145px;	
+    border-radius: 4px;	
+    background-color: #5C67E6;
+  }
+  .class_setup td{
+    font-size: 14px;
+  }
+  .class_setup .single.tog button{
+    height: 36px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #fff;
+    color: #3A5077;
+    font-size: 14px;	
+    line-height: 21px;	
+    text-align: left;
+    
+  }
+  .class_setup .single.tog button::after{
+    margin-top:8px;
+    float: right;
+  }
+  .class_setup .single.tog ul li:hover{
+    background: #F6F7FB;
+  }
+  
+  .class_setup .single.tog ul li{
+    height: 45px; padding: 10px !important; 
+    a{
+      color: #3A5077;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+  .class_setup{
+    .single.tog .switch {
+      position: relative;
+      display: inline-block;
+      width: 25px;
+      height: 12px;
+      top: 8px;
+      float: right;
+    }
+    
+    .single.tog .switch input { 
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    
+    .single.tog .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #fff;
+      -webkit-transition: .4s;
+      transition: .4s;
+      // border:1px solid #5C67E6;
+      border: 1px solid #8595A6;
+    }
+    
+    .single.tog .slider:before {
+      position: absolute;
+      content: "";
+      height: 14px;
+      width: 14px;
+      left: -3px;
+      bottom: -2px;
+      -webkit-transition: .4s;
+      transition: .4s;
+      background: #8595A6 ;
+      
+    }
+    
+    .single.tog input:checked + .slider {
+      background-color: #fff;
+      border:1px solid #5C67E6;
+    }
+    
+    .single.tog input:focus + .slider {
+      box-shadow: 0 0 1px #2196F3;
+      
+    }
+    
+    .single.tog input:checked + .slider:before {
+      -webkit-transform: translateX(15px);
+      -ms-transform: translateX(15px);
+      transform: translateX(15px);
+      background: #5C67E6 !important;
+    }
+    
+    /* Rounded sliders */
+    .single.tog .slider.round {
+      border-radius: 34px;
+    }
+    
+    .single.tog .slider.round:before {
+      border-radius: 50%;
+      border: 1px solid #5C67E6 !important;
+    }
+  }
+  
+  .worksheets.cherrypickQuestion{
+    .total_marks{
+      width: 108px; 
+    }
+    .question-block{
+      height: auto;
+      background-color: #ffffff;
+      -webkit-box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+      box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+      // border: 1px solid #D1DAE6;
+      .questionNum{
+        color: #172B4D;	font-size: 16px;	font-weight: 600;	line-height: 22px;
+      }
+      .question{
+        color: #3A5077;	font-size: 14px;	line-height: 21px;
+      }
+      .ques-tag{
+        height: 28px;	width: 111px;	border: 1px solid #3A5077;	border-radius: 2px;	background-color: #fff;
+        a{
+          color: #3A5077;	font-size: 12px;	line-height: 20px;
+        }
+      }
+      .chapter{
+        color: #172B4D;	font-size: 12px;	font-weight: 600;	line-height: 18px;
+      }
+    }
+  }
+
+  .grayedout {
+    // opacity: 0.3;
+  }
+  /*-------------------------end class setup---------------*/
+
+  #AddSectionTeacher[_ngcontent-c5]{
+    overflow: hidden !important;
+    right: 639px !important;
+  }
+
+
+//  /*--------Table-fixed--------------------------*/
+// /* Use overflow:scroll on your container to enable scrolling: */
+// .class_setup  {
+//   max-width: 100%;
+//   max-height: 498px;
+//   overflow: scroll;
+// }
+// /* Use position: sticky to have it stick to the edge
+//  * and top, right, or left to choose which edge to stick to: */
+// thead th {
+//   position: -webkit-sticky; /* for Safari */
+//   position: sticky;
+//   top: -2px;
+// }
+
+// /* Just to display it nicely: */
+// thead th{
+//   border-top: 1px solid #dee2e6 !important;
+//   background: #FFF;
+// }
+// thead th{
+//   z-index:9999;
+// }
+// /*----------------------table-fiexd-------------------*/
+
+
+.class_setup th{
+    font-size: 14px;
+    font-weight: 600;
+} 
+table{
+    margin:0px;
+    max-width: 100%;
+}
+
+
+ /*------table-fixed------*/
+table {
+	// max-width:980px;
+	table-layout:fixed;
+	margin:auto;
+}
+
+thead{
+	background:#f9f9f9;
+	display:table;
+	width:100%;
+	// width:calc(100% - 18px);
+}
+tbody {
+	height: calc(100vh - 232px);
+	overflow:auto;
+	overflow-x:hidden;
+	display:block;
+	width:100%;
+}
+tbody tr {
+	display:table;
+	width:100%;
+	table-layout:fixed;
+}
+/*----fixed-table---*/
+
+td .single .dropdown.show .dropdown-toggle:after{
+  border-right: .3em solid transparent;
+    border-bottom: .3em solid;
+    border-left: .3em solid transparent;
+    border-top: 0;
+}
+
+::ng-deep .class_teacher .ng-select .ng-arrow-wrapper {
+  cursor: pointer;
+  position: absolute;
+  text-align: right;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  right: 12px;
+  width: 100%;
+}

@@ -1,0 +1,1030 @@
+<!-- Page Content -->
+<input type="hidden" id="hiddenHeight" value="{{cheight}}">
+<input type="hidden" id="hiddenWidth" value="{{cwidth}}">
+<div id="page-content-wrapper">
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+            <div class="col-lg-12 col-md-12 p-0">
+                <div class="fa-worksheets imported-data">
+                    <a (click)="editLogo()" class="icon-edit-right">
+                        <!-- <img src="assets/images/icons/pen.svg" class="icon-edit-right"> -->
+                        <span style="float: right;" class="edit_add_paper">
+                            <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1"
+                                xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+                                <title>Edit Paper</title>
+                                <desc>Created with sketchtool.</desc>
+                                <defs>
+                                    <path
+                                        d="M17.1024173,2.86922981 C15.9464396,1.71025673 13.9288785,1.71025673 12.7713008,2.86922981 L3.83467302,11.8228178 C3.74907467,11.9085786 3.69147578,12.0095679 3.65307652,12.1169693 C3.65067657,12.1241828 3.64347671,12.1289919 3.64107675,12.1362054 L2.04110759,16.9452223 C1.94510944,17.2329618 2.02030799,17.5511584 2.23470386,17.7651597 C2.38670093,17.9182467 2.59149698,18 2.80029296,18 C2.88509132,18 2.96988969,17.987176 3.05308808,17.9591234 L7.85299557,16.3561177 C7.86019543,16.3537132 7.86499534,16.3464997 7.8721952,16.3440952 C7.97939314,16.305623 8.08019119,16.2479148 8.16578954,16.162154 L17.1024173,7.20856606 C17.6808062,6.62907952 18,5.85803381 18,5.03889793 C18,4.21896055 17.6808062,3.44871634 17.1024173,2.86922981 L17.1024173,2.86922981 Z M15.9712391,6.07524108 L15.6000463,6.44713838 L13.5312861,4.3744521 L13.902479,4.00255479 C14.4552683,3.44871634 15.4184498,3.44871634 15.9712391,4.00255479 C16.2480338,4.27987477 16.4000308,4.64776456 16.4000308,5.03889793 C16.4000308,5.43003131 16.2480338,5.7979211 15.9712391,6.07524108 L15.9712391,6.07524108 Z M4.74985538,13.873062 L6.11942898,15.2452348 L4.06506858,15.9313212 L4.74985538,13.873062 Z M7.60020044,14.4621666 L5.53144032,12.3894803 L12.4001079,5.50777708 L14.4688681,7.58046337 L7.60020044,14.4621666 Z"
+                                        id="pathedit"></path>
+                                </defs>
+                                <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none"
+                                    fill-rule="evenodd">
+                                    <g id="28.-SM---Add-Student-Manually---Update-Photo"
+                                        transform="translate(-821.000000, -222.000000)">
+                                        <g id="Group" transform="translate(819.000000, 219.000000)">
+                                            <g id="IconSet/Delete/Default-Copy"
+                                                transform="translate(0.000000, 1.000000)">
+                                                <mask id="mask-2" fill="white">
+                                                    <use xlink:href="#pathedit"></use>
+                                                </mask>
+                                                <use id="Mask" fill="#8595A6" xlink:href="#pathedit"></use>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </g>
+                            </svg>
+                            Edit Header</span>
+                    </a>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 my-3 ml-3">
+                            <img src="{{papaerHeader.InstituteImage}}" height="100px;"
+                                *ngIf="papaerHeader.InstituteImage !=''">
+                        </div>
+                        <div class="col-lg-6 col-md-6 my-3 px-3">
+                            <h2 class="smart-studies text-center px-3">
+                                <span>{{papaerHeader.InstituteName}}</span>
+                            </h2>
+                            <p class="text-center px-3">
+                                {{papaerHeader.InstituteAddress }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row headsection-worksheet border-top m-0">
+                        <div class="my-2 col-md-6 col-sm-6 col-12" style="text-transform: capitalize;"
+                            [ngClass]="{'col-lg-4': createTemplateDataObj.PaperType == 4, 'col-lg-5' : createTemplateDataObj.PaperType != 4}">
+                            <h3 class="sub-head m-0" style="text-transform: capitalize;">
+                                Test/Exam Name:
+                                {{createTemplateDataObj.Name | lowercase}}
+                            </h3>
+                        </div>
+                        <div class="my-2 col-md-6 col-sm-6 col-12"
+                            [ngClass]="{'col-lg-4': createTemplateDataObj.PaperType == 4, 'col-lg-3' : createTemplateDataObj.PaperType != 4}">
+                            <h3 class="sub-head m-0" style="text-transform: capitalize;">
+                                Standard:
+                                {{createTemplateDataObj.ClassName | lowercase}}
+                            </h3>
+                        </div>
+                        <div class="my-2 col-lg-4 col-md-6 col-sm-6 col-12">
+                            <h3 class="sub-head m-0" style="text-transform: capitalize;">
+                                Subject: {{createTemplateDataObj.SubjectName | lowercase}}
+                            </h3>
+                        </div>
+
+                        <!-- <div class="my-2 col-lg-3 col-md-6 col-sm-6 col-12">
+                            <h3 class="sub-head  m-0">Academic Year:
+                                {{ createTemplateDataObj.PeriodFrom | date: 'yyyy'
+                                }}-{{createTemplateDataObj.PeriodTo | date :'yy'}}
+                            </h3>
+                        </div> -->
+                    </div>
+                    <div class="row headsection-worksheetblank m-0" *ngIf="createTemplateDataObj.PaperType != 4">
+                        <div class="my-2 col-lg-5 col-md-8 col-sm-12 col-12 student-name">
+                            <div class="sub-head text-left m-0">Student Name:</div>
+                            <div class="blankspace"></div>
+                        </div>
+                        <div class="my-2 col-lg-3 col-md-4 col-sm-6 col-12 section">
+                            <div class="sub-head  text-left m-0">Section:</div>
+                            <div class="blankspace"></div>
+                        </div>
+                        <div class="my-2 col-lg-4 col-md-4 col-sm-6 col-12 roll-no">
+                            <div class="sub-head  text-left m-0">Roll No.:</div>
+                            <div class="blankspace"></div>
+                        </div>
+                    </div>
+                    <div class="row headsection-worksheet m-0 border-bottom justify-content-end">
+                        <div class="total_ques my-1 mr-1 text-center">
+                            <p class="m-1">QUESTIONS:
+                                {{createTemplateDataObj.TotalQuestionCount}}</p>
+                        </div>
+
+                        <div class="total_ques my-1 mr-1 width170 text-center"
+                            *ngIf="createTemplateDataObj['IsOMRPaper']">
+                            <p class="m-1">NEGATIVE MARKS: {{createTemplateDataObj.NegativeMarks}}</p>
+                        </div>
+
+                        <div class="total_ques my-1 mr-1 text-center">
+                            <p class="m-1">TIME: {{createTemplateDataObj.Duration}} MINS</p>
+                        </div>
+                        <div class="total_marks my-1 mr-1 text-center">
+                            <p class="m-1">MARKS: {{createTemplateDataObj.TotalMarks}}</p>
+                        </div>
+                    </div>
+                    <div class="row px-3">
+                        <div class="col-12 col-md-12 worksheet-instruction genework">
+                            <div class="row mt-2 headsection-worksheetblank">
+                                <div class="texthead py-2 col-md-3" *ngIf="HeaderInstruction.length > 0">
+                                    Instructions
+                                </div>
+                                <div class="float-right mb-2"
+                                    [ngClass]="(HeaderInstruction.length == 0)?'col-md-12 text-right':'col-md-9 text-right'"
+                                    *ngIf="!isEditPaper && (this.isAddMoreEnabled==true)">
+
+
+                                    <div class="select custombtn mt-1 btn-group mr-1 ml-1 flex-wrap">
+                                        <select placeholder="Font-Family" class="select-opt" name="font"
+                                            [(ngModel)]="fontFamilyNGModel" (change)="changeFontFamily($event)">
+                                            <option *ngFor="let family of fontFamily" [ngValue]="family.key">
+                                                {{family.value}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div
+                                        class="select custombtn mt-1 btn-group cus mr-1 ml-1 flex-wrap editor-font-size">
+                                        <select placeholder="Font Size" name="font-size" class="select-opt"
+                                            [(ngModel)]="fontSizeNGModel" (change)="changeFontSize($event)">
+                                            <option *ngFor="let size of fontSizes" [ngValue]="size.key">
+                                                {{size.value}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <span class="edit_add_paper" *ngIf="imgcount>0">
+                                        <div class="btn-group mr-1 ml-1 flex-wrap" role="group" aria-label="...">
+                                            <button type="button"
+                                                class="btn custombtn mt-1 btn-default text-secondary mr-1">Change Image
+                                                Size
+                                                :</button>
+
+                                            <button type="button" (click)="iscustom=false;setImageSize('25','25')"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">25%</button>
+                                            <button type="button" (click)="iscustom=false;setImageSize('50','50')"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">50%</button>
+                                            <button type="button" (click)="iscustom=false;setImageSize('75','75')"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">75%</button>
+                                            <button type="button" (click)="iscustom=false;setImageSize('100','100')"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">100%</button>
+                                            <button type="button" (click)="iscustom=true" *ngIf="!iscustom"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">Custom</button>
+
+                                            <input type="text" *ngIf="iscustom" (keypress)="validateInput($event)"
+                                                style="width: 70px;text-align: center;"
+                                                class="form-control custombtn mt-1 mr-1" [(ngModel)]="cheight"
+                                                placeholder="H">
+                                            <input type="text" *ngIf="iscustom" (keypress)="validateInput($event)"
+                                                style="width: 70px;text-align: center"
+                                                class="custombtn mt-1 form-control mr-1" [(ngModel)]="cwidth"
+                                                placeholder="W">
+                                            <button type="button" *ngIf="iscustom"
+                                                (click)="setImageSize(cheight,cwidth);iscustom=false;"
+                                                class="btn custombtn mt-1 btn-default text-secondary">Set
+                                                Custom</button>
+                                        </div>
+                                    </span>
+                                    <span class="edit_add_paper float-right">
+                                        <div class="btn-group mr-1 ml-1 flex-wrap" role="group" aria-label="...">
+                                            <span style="float: right;" class="btn edit_add_paper"
+                                                (click)="addNewHeaderInstruction();">
+                                                <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <!-- Generator: sketchtool 54 (76480) - https://sketchapp.com -->
+                                                    <title>Add New Header Instruction</title>
+                                                    <desc>Created with sketchtool.</desc>
+                                                    <defs>
+                                                        <path
+                                                            d="M11.9,6.3 L7.7,6.3 L7.7,2.1 C7.7,1.7136 7.3864,1.4 7,1.4 C6.6136,1.4 6.3,1.7136 6.3,2.1 L6.3,6.3 L2.1,6.3 C1.7136,6.3 1.4,6.6136 1.4,7 C1.4,7.3864 1.7136,7.7 2.1,7.7 L6.3,7.7 L6.3,11.9 C6.3,12.2871 6.6136,12.6 7,12.6 C7.3864,12.6 7.7,12.2871 7.7,11.9 L7.7,7.7 L11.9,7.7 C12.2871,7.7 12.6,7.3864 12.6,7 C12.6,6.6136 12.2871,6.3 11.9,6.3"
+                                                            id="path-plus"></path>
+                                                    </defs>
+                                                    <g id="Reports---2" stroke="none" stroke-width="1" fill="none"
+                                                        fill-rule="evenodd">
+                                                        <g id="03.-Report---Student-Report---Chapter-&amp;-Topic"
+                                                            transform="translate(-550.000000, -834.000000)">
+                                                            <g id="Group" transform="translate(544.000000, 828.000000)">
+                                                                <g id="IconSet/Add-Icon/Default"
+                                                                    transform="translate(5.000000, 5.000000)">
+                                                                    <mask id="mask-2" fill="white">
+                                                                        <use xlink:href="#path-plus"></use>
+                                                                    </mask>
+                                                                    <use id="Mask" fill="#8595A6"
+                                                                        xlink:href="#path-plus"></use>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                                Add Instruction
+                                            </span>
+                                            <span style="float: right;" class="btn edit_add_paper"
+                                                (click)="editPaper();isErrorShow = true">
+                                                <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+                                                    <title>Edit Paper</title>
+                                                    <desc>Created with sketchtool.</desc>
+                                                    <defs>
+                                                        <path
+                                                            d="M17.1024173,2.86922981 C15.9464396,1.71025673 13.9288785,1.71025673 12.7713008,2.86922981 L3.83467302,11.8228178 C3.74907467,11.9085786 3.69147578,12.0095679 3.65307652,12.1169693 C3.65067657,12.1241828 3.64347671,12.1289919 3.64107675,12.1362054 L2.04110759,16.9452223 C1.94510944,17.2329618 2.02030799,17.5511584 2.23470386,17.7651597 C2.38670093,17.9182467 2.59149698,18 2.80029296,18 C2.88509132,18 2.96988969,17.987176 3.05308808,17.9591234 L7.85299557,16.3561177 C7.86019543,16.3537132 7.86499534,16.3464997 7.8721952,16.3440952 C7.97939314,16.305623 8.08019119,16.2479148 8.16578954,16.162154 L17.1024173,7.20856606 C17.6808062,6.62907952 18,5.85803381 18,5.03889793 C18,4.21896055 17.6808062,3.44871634 17.1024173,2.86922981 L17.1024173,2.86922981 Z M15.9712391,6.07524108 L15.6000463,6.44713838 L13.5312861,4.3744521 L13.902479,4.00255479 C14.4552683,3.44871634 15.4184498,3.44871634 15.9712391,4.00255479 C16.2480338,4.27987477 16.4000308,4.64776456 16.4000308,5.03889793 C16.4000308,5.43003131 16.2480338,5.7979211 15.9712391,6.07524108 L15.9712391,6.07524108 Z M4.74985538,13.873062 L6.11942898,15.2452348 L4.06506858,15.9313212 L4.74985538,13.873062 Z M7.60020044,14.4621666 L5.53144032,12.3894803 L12.4001079,5.50777708 L14.4688681,7.58046337 L7.60020044,14.4621666 Z"
+                                                            id="pathedit"></path>
+                                                    </defs>
+                                                    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1"
+                                                        fill="none" fill-rule="evenodd">
+                                                        <g id="28.-SM---Add-Student-Manually---Update-Photo"
+                                                            transform="translate(-821.000000, -222.000000)">
+                                                            <g id="Group" transform="translate(819.000000, 219.000000)">
+                                                                <g id="IconSet/Delete/Default-Copy"
+                                                                    transform="translate(0.000000, 1.000000)">
+                                                                    <mask id="mask-2" fill="white">
+                                                                        <use xlink:href="#pathedit"></use>
+                                                                    </mask>
+                                                                    <use id="Mask" fill="#8595A6"
+                                                                        xlink:href="#pathedit"></use>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                                Edit Paper</span>
+
+                                        </div>
+                                    </span>
+                                </div>
+                                <div [ngClass]="(HeaderInstruction.length == 0)?'col-md-12 text-right':'col-md-9 text-right'"
+                                    *ngIf="isEditPaper">
+                                    <div class="select custombtn mt-1 btn-group mr-1 ml-1 flex-wrap">
+                                        <select placeholder="Font-Family" class="select-opt" name="font"
+                                            [(ngModel)]="fontFamilyNGModel" (change)="changeFontFamily($event)">
+                                            <option *ngFor="let family of fontFamily" [ngValue]="family.key">
+                                                {{family.value}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <div
+                                        class="select custombtn mt-1 btn-group cus mr-1 ml-1 flex-wrap editor-font-size">
+                                        <select placeholder="Font Size" name="font-size" class="select-opt"
+                                            [(ngModel)]="fontSizeNGModel" (change)="changeFontSize($event)">
+                                            <option *ngFor="let size of fontSizes" [ngValue]="size.key">
+                                                {{size.value}}
+                                            </option>
+                                        </select>
+                                    </div>
+                                    <span>
+                                        <div class="btn-group mr-1 ml-1 flex-wrap" role="group" aria-label="...">
+
+                                            <button type="button"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">Change Image
+                                                Size
+                                                :</button>
+
+                                            <button type="button" (click)="iscustom=false;setImageSize('25','25')"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">25%</button>
+                                            <button type="button" (click)="iscustom=false;setImageSize('50','50')"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">50%</button>
+                                            <button type="button" (click)="iscustom=false;setImageSize('75','75')"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">75%</button>
+                                            <button type="button" (click)="iscustom=false;setImageSize('100','100')"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">100%</button>
+                                            <button type="button" (click)="iscustom=true" *ngIf="!iscustom"
+                                                class="btn custombtn mt-1 btn-default mr-1 text-secondary">Custom</button>
+
+                                            <input type="text" *ngIf="iscustom" style="width: 70px;text-align: center;"
+                                                class="custombtn mt-1 form-control mr-1" [(ngModel)]="cheight"
+                                                placeholder="Height">
+                                            <input type="text" *ngIf="iscustom" style="width: 70px;text-align: center"
+                                                class="custombtn mt-1 form-control mr-1" [(ngModel)]="cwidth"
+                                                placeholder="Width">
+                                            <button type="button" *ngIf="iscustom"
+                                                (click)="setImageSize(cheight,cwidth);iscustom=false;"
+                                                class="btn custombtn mt-1 btn-default text-secondary">Set
+                                                Custom</button>
+                                        </div>
+                                    </span>
+                                    <span style="float: right;margin-top: 7px" class="edit_add_paper"
+                                        (click)="isEditPaper = !isEditPaper;">
+                                        <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <title>Edit Paper</title>
+                                            <desc>Created with sketchtool.</desc>
+                                            <defs>
+                                                <path
+                                                    d="M9,0 C4.0374,0 0,4.0374 0,9 C0,13.9626 4.0374,18 9,18 C13.9626,18 18,13.9626 18,9 C18,4.0374 13.9626,0 9,0 M9,16.2 C5.0301,16.2 1.8,12.9699 1.8,9 C1.8,5.0301 5.0301,1.8 9,1.8 C12.9699,1.8 16.2,5.0301 16.2,9 C16.2,12.9699 12.9699,16.2 9,16.2 M11.0636999,6.56370012 L8.10000003,9.52740005 L6.93630007,8.36370008 C6.58440008,8.01180008 6.0156001,8.01180008 5.66370011,8.36370008 C5.31180013,8.71560007 5.31180013,9.28440006 5.66370011,9.63630005 L7.46370005,11.4363 C7.63920005,11.6118 7.86960004,11.7 8.10000003,11.7 C8.33040002,11.7 8.56080002,11.6118 8.73630001,11.4363 L12.3362999,7.83630009 C12.6881999,7.4844001 12.6881999,6.91560011 12.3362999,6.56370012 C11.9843999,6.21180013 11.4155999,6.21180013 11.0636999,6.56370012"
+                                                    id="path-right"></path>
+                                            </defs>
+                                            <g id="Exam-Automation" stroke="none" stroke-width="1" fill="none"
+                                                fill-rule="evenodd">
+                                                <g id="14.1-ES---T&amp;E---Preview-&amp;-Launch---Edit-Instruction"
+                                                    transform="translate(-1318.000000, -265.000000)">
+                                                    <g id="Group-8" transform="translate(1318.000000, 263.000000)">
+                                                        <g id="IconSet/Edit/Default"
+                                                            transform="translate(0.000000, 2.000000)">
+                                                            <mask id="mask-2" fill="white">
+                                                                <use xlink:href="#path-right"></use>
+                                                            </mask>
+                                                            <use id="Icon" fill="#5C67E6" xlink:href="#path-right">
+                                                            </use>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        Done
+                                    </span>
+
+                                    <span style="float: right;margin-top: 7px;" class="edit_add_paper"
+                                        (click)="addNewHeaderInstruction();">
+                                        <svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            xmlns:xlink="http://www.w3.org/1999/xlink">
+                                            <!-- Generator: sketchtool 54 (76480) - https://sketchapp.com -->
+                                            <title>Add New Header Instruction</title>
+                                            <desc>Created with sketchtool.</desc>
+                                            <defs>
+                                                <path
+                                                    d="M11.9,6.3 L7.7,6.3 L7.7,2.1 C7.7,1.7136 7.3864,1.4 7,1.4 C6.6136,1.4 6.3,1.7136 6.3,2.1 L6.3,6.3 L2.1,6.3 C1.7136,6.3 1.4,6.6136 1.4,7 C1.4,7.3864 1.7136,7.7 2.1,7.7 L6.3,7.7 L6.3,11.9 C6.3,12.2871 6.6136,12.6 7,12.6 C7.3864,12.6 7.7,12.2871 7.7,11.9 L7.7,7.7 L11.9,7.7 C12.2871,7.7 12.6,7.3864 12.6,7 C12.6,6.6136 12.2871,6.3 11.9,6.3"
+                                                    id="path-plus"></path>
+                                            </defs>
+                                            <g id="Reports---2" stroke="none" stroke-width="1" fill="none"
+                                                fill-rule="evenodd">
+                                                <g id="03.-Report---Student-Report---Chapter-&amp;-Topic"
+                                                    transform="translate(-550.000000, -834.000000)">
+                                                    <g id="Group" transform="translate(544.000000, 828.000000)">
+                                                        <g id="IconSet/Add-Icon/Default"
+                                                            transform="translate(5.000000, 5.000000)">
+                                                            <mask id="mask-2" fill="white">
+                                                                <use xlink:href="#path-plus"></use>
+                                                            </mask>
+                                                            <use id="Mask" fill="#8595A6" xlink:href="#path-plus"></use>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                        Add Instruction
+                                    </span>
+
+
+                                </div>
+                            </div>
+                            <div class="row" *ngFor="let instruction of HeaderInstruction; let indx = index">
+                                <!-- <div class="pl-2">
+                                    <div class="stepnum text-center float-right">{{indx+1}} .</div>
+                                </div> -->
+                                <div class="instructions ml-3" [ngClass]="{'active': isEditPaper}"
+                                    (mouseover)="instruction.isMousEnetr= !instruction.isMousEnetr"
+                                    (mouseout)="instruction.isMousEnetr = !instruction.isMousEnetr">
+                                    <div *ngIf="!instruction.isInstructionEdit" class="steptext"
+                                        [ngClass]="{'active': isEditPaper}">
+                                        <span class="steptext mr-1"> {{indx+1}}. </span>
+                                        {{instruction.Instruction}}
+                                    </div>
+                                    <div class="float-right ml-3 text-center text-editor"
+                                        *ngIf="!instruction.isInstructionEdit"
+                                        [ngClass]="{'activetooltip': instruction.isMousEnetr && isEditPaper, 'active':isEditPaper}">
+                                        <div class="icon">
+                                            <a (click)="InstructionEdit(indx)">
+                                                <svg width="14.4px" height="15px" viewBox="0 0 16 16" version="1.1"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <title>Edit</title>
+                                                    <desc>Created with sketchtool.</desc>
+                                                    <defs>
+                                                        <path
+                                                            d="M17.1024173,2.86922981 C15.9464396,1.71025673 13.9288785,1.71025673 12.7713008,2.86922981 L3.83467302,11.8228178 C3.74907467,11.9085786 3.69147578,12.0095679 3.65307652,12.1169693 C3.65067657,12.1241828 3.64347671,12.1289919 3.64107675,12.1362054 L2.04110759,16.9452223 C1.94510944,17.2329618 2.02030799,17.5511584 2.23470386,17.7651597 C2.38670093,17.9182467 2.59149698,18 2.80029296,18 C2.88509132,18 2.96988969,17.987176 3.05308808,17.9591234 L7.85299557,16.3561177 C7.86019543,16.3537132 7.86499534,16.3464997 7.8721952,16.3440952 C7.97939314,16.305623 8.08019119,16.2479148 8.16578954,16.162154 L17.1024173,7.20856606 C17.6808062,6.62907952 18,5.85803381 18,5.03889793 C18,4.21896055 17.6808062,3.44871634 17.1024173,2.86922981 L17.1024173,2.86922981 Z M15.9712391,6.07524108 L15.6000463,6.44713838 L13.5312861,4.3744521 L13.902479,4.00255479 C14.4552683,3.44871634 15.4184498,3.44871634 15.9712391,4.00255479 C16.2480338,4.27987477 16.4000308,4.64776456 16.4000308,5.03889793 C16.4000308,5.43003131 16.2480338,5.7979211 15.9712391,6.07524108 L15.9712391,6.07524108 Z M4.74985538,13.873062 L6.11942898,15.2452348 L4.06506858,15.9313212 L4.74985538,13.873062 Z M7.60020044,14.4621666 L5.53144032,12.3894803 L12.4001079,5.50777708 L14.4688681,7.58046337 L7.60020044,14.4621666 Z"
+                                                            id="pen"></path>
+                                                    </defs>
+                                                    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1"
+                                                        fill="none" fill-rule="evenodd">
+                                                        <g id="28.-SM---Add-Student-Manually---Update-Photo"
+                                                            transform="translate(-821.000000, -222.000000)">
+                                                            <g id="Group" transform="translate(819.000000, 219.000000)">
+                                                                <g id="IconSet/Delete/Default-Copy"
+                                                                    transform="translate(0.000000, 1.000000)">
+                                                                    <mask id="mask-2" fill="white">
+                                                                        <use xlink:href="#pen"></use>
+                                                                    </mask>
+                                                                    <use id="Mask" fill="#fff" xlink:href="#pen"></use>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                        <div class="bline"></div>
+                                        <div class="icon">
+                                            <a
+                                                (click)="confirmDeleteWing(confirmDialogTemplate, instruction.PaperInstructionId, indx)">
+                                                <svg width="14.4px" height="15px" viewBox="0 0 16 20" version="1.1"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <title>86AAAEFF-306A-4CEB-8714-8D802E854748</title>
+                                                    <desc>Created with sketchtool.</desc>
+                                                    <defs>
+                                                        <path
+                                                            d="M17,4 L14,4 L14,2 C14,0.897 13.103,0 12,0 L8,0 C6.897,0 6,0.897 6,2 L6,4 L3,4 C2.447,4 2,4.448 2,5 C2,5.552 2.447,6 3,6 L3,19 C3,19.552 3.447,20 4,20 L16,20 C16.553,20 17,19.552 17,19 L17,6 C17.553,6 18,5.552 18,5 C18,4.448 17.553,4 17,4 L17,4 Z M5,18 L15,18 L15,6 L5,6 L5,18 Z M8,4 L12,4 L12,2 L8,2 L8,4 Z M8,16 C8.553,16 9,15.552 9,15 L9,9 C9,8.448 8.553,8 8,8 C7.447,8 7,8.448 7,9 L7,15 C7,15.552 7.447,16 8,16 M12,16 C12.553,16 13,15.552 13,15 L13,9 C13,8.448 12.553,8 12,8 C11.447,8 11,8.448 11,9 L11,15 C11,15.552 11.447,16 12,16"
+                                                            id="removeimg"></path>
+                                                    </defs>
+                                                    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1"
+                                                        fill="none" fill-rule="evenodd">
+                                                        <g id="10.-SM---School-Photo"
+                                                            transform="translate(-992.000000, -201.000000)">
+                                                            <g id="IconSet/Delete/Default"
+                                                                transform="translate(990.000000, 201.000000)">
+                                                                <mask id="mask-2" fill="white">
+                                                                    <use xlink:href="#removeimg"></use>
+                                                                </mask>
+                                                                <use id="Icon" fill="#fff" xlink:href="#removeimg">
+                                                                </use>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                    <!-- </div> -->
+                                    <!-- (blur)="saveInstruction(instruction, 'edit', indx)" -->
+                                    <div *ngIf="instruction.isInstructionEdit"
+                                        style="width: 90%; max-width: 600px; position: relative;"
+                                        class="instruct_main_ta">
+                                        <textarea type="text" class="w-100" [(ngModel)]="instruction.Instruction"
+                                            name="editIns_{{index}}" maxlength="250"
+                                            placeholder="Start typing here..."></textarea>
+                                        <span class="remove-instruction-icon" (click)="removeInstruction(indx)">
+                                            <!-- <i class="fa fa-times"></i> -->
+                                            Close
+                                        </span>
+                                        <span class="divider-instruction-icon">&nbsp;|&nbsp;</span>
+                                        <span class="done-instruction-icon"
+                                            (click)="saveInstruction(instruction, 'edit', indx)">
+                                            Save
+                                        </span>
+                                        <div class="errortext" *ngIf="instruction.Instruction == ''">* Please
+                                            enter instruction.</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <div class="row px-3 mb-3" *ngIf="isErrorShow && imgcount > 0">
+                                <div class="btn-group mr-1 ml-1" style="width: 100%; display: flex;
+                                align-items: center;justify-content: center;" role="group" aria-label="...">
+                                    <button type="button" class="btn btn-default mr-1">Customize Image size</button>
+                                    <button type="button" (click)="iscustom=false;setImageSize('25%','25%')"
+                                        class="btn btn-default mr-1">25%</button>
+                                    <button type="button" (click)="iscustom=false;setImageSize('50%','50%')"
+                                        class="btn btn-default mr-1">50%</button>
+                                    <button type="button" (click)="iscustom=false;setImageSize('75%','75%')"
+                                        class="btn btn-default mr-1">75%</button>
+                                    <button type="button" (click)="iscustom=false;setImageSize('100%','100%')"
+                                        class="btn btn-default mr-1">100%</button>
+                                    <button type="button" (click)="iscustom=true"
+                                        class="btn btn-default mr-1">Custom</button>
+                                    <input type="text" *ngIf="iscustom" class="form-control mr-1" [(ngModel)]="cheight"
+                                        placeholder="Height">
+                                    <input type="text" *ngIf="iscustom" class="form-control mr-1" [(ngModel)]="cwidth"
+                                        placeholder="Width">
+                                    <button type="button" *ngIf="iscustom" (click)="setImageSize(cheight,cwidth)"
+                                        class="btn btn-default">Set Custom</button>
+                                </div>
+                            </div> -->
+                    <div class=" row headsection-worksheet m-0">
+                        <div class="col-md-12">
+                            <span style="font-size: 15px;color: brown;">All your changes will be saved on click
+                                'Save as Draft' or 'Approve' button.</span>
+                        </div>
+                    </div>
+
+                    <div class="row px-3 question-preview m-0"
+                        *ngFor="let questions of QuestionInstruction; let parentIndx = index;">
+                        <ng-container
+                            *ngFor="let question of questions.Questions; let chIndx = index; let last = last;">
+                            <div class="w-100 question" *ngIf="(question.SubQuestionIndex==1) && question.IsOr ">
+                                <!-- <div class="or text-center my-3 mx-auto"><span>OR</span></div> -->
+                                <div class="or-tag question text-center mx-auto"><span>OR</span></div>
+                            </div>
+
+                            <div class="col-12 col-md-12 col-lg-12 p-0 w-100">
+
+                                <!----r comment and inner code-->
+                                <div class="row m-0 h-auto" (mouseout)="question.isMousEnetr = !question.isMousEnetr"
+                                    *ngIf="isShowPaperInfo && !questions.isInstructionEdit && chIndx == 0">
+                                    <!-- <div class="question-headsteptext py-2 pr-2 pl-0 float-left" >
+                                                {{questions.Instruction}}
+                                            </div> -->
+
+                                    <div *ngIf="!questions.isInstructionEdit"
+                                        class=" float-left ml-3 text-center d-none questionhead-editor"
+                                        [ngClass]="{'activetooltip': question.isMousEnetr && isEditPaper, 'active':isEditPaper}">
+                                        <div class="icon">
+                                            <a (click)="InstructionQuestionEdit(parentIndx)">
+                                                <svg width="14.4px" height="18px" viewBox="0 0 16 16" version="1.1"
+                                                    xmlns="http://www.w3.org/2000/svg"
+                                                    xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                    <title>Edit Instruction</title>
+                                                    <desc>Created with sketchtool.</desc>
+                                                    <defs>
+                                                        <path
+                                                            d="M17.1024173,2.86922981 C15.9464396,1.71025673 13.9288785,1.71025673 12.7713008,2.86922981 L3.83467302,11.8228178 C3.74907467,11.9085786 3.69147578,12.0095679 3.65307652,12.1169693 C3.65067657,12.1241828 3.64347671,12.1289919 3.64107675,12.1362054 L2.04110759,16.9452223 C1.94510944,17.2329618 2.02030799,17.5511584 2.23470386,17.7651597 C2.38670093,17.9182467 2.59149698,18 2.80029296,18 C2.88509132,18 2.96988969,17.987176 3.05308808,17.9591234 L7.85299557,16.3561177 C7.86019543,16.3537132 7.86499534,16.3464997 7.8721952,16.3440952 C7.97939314,16.305623 8.08019119,16.2479148 8.16578954,16.162154 L17.1024173,7.20856606 C17.6808062,6.62907952 18,5.85803381 18,5.03889793 C18,4.21896055 17.6808062,3.44871634 17.1024173,2.86922981 L17.1024173,2.86922981 Z M15.9712391,6.07524108 L15.6000463,6.44713838 L13.5312861,4.3744521 L13.902479,4.00255479 C14.4552683,3.44871634 15.4184498,3.44871634 15.9712391,4.00255479 C16.2480338,4.27987477 16.4000308,4.64776456 16.4000308,5.03889793 C16.4000308,5.43003131 16.2480338,5.7979211 15.9712391,6.07524108 L15.9712391,6.07524108 Z M4.74985538,13.873062 L6.11942898,15.2452348 L4.06506858,15.9313212 L4.74985538,13.873062 Z M7.60020044,14.4621666 L5.53144032,12.3894803 L12.4001079,5.50777708 L14.4688681,7.58046337 L7.60020044,14.4621666 Z"
+                                                            id="pen"></path>
+                                                    </defs>
+                                                    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1"
+                                                        fill="none" fill-rule="evenodd">
+                                                        <g id="28.-SM---Add-Student-Manually---Update-Photo"
+                                                            transform="translate(-821.000000, -222.000000)">
+                                                            <g id="Group" transform="translate(819.000000, 219.000000)">
+                                                                <g id="IconSet/Delete/Default-Copy"
+                                                                    transform="translate(0.000000, 1.000000)">
+                                                                    <mask id="mask-2" fill="white">
+                                                                        <use xlink:href="#pen"></use>
+                                                                    </mask>
+                                                                    <use id="Mask" fill="#fff" xlink:href="#pen"></use>
+                                                                </g>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </svg>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!----r comment and inner code-->
+                                <br />
+                                <div class="row">
+                                    <div class="col-lg-9 col-md-9 col-8 question">
+                                        <div class="float-left" *ngIf="chIndx == 0"
+                                            [ngClass]="{'question-counts': question.SubQuestionIndex>0,'question-count': question.SubQuestionIndex==0}">
+                                            Q{{question.QueIndex}}
+                                        </div>
+
+                                        <div class="question float-left pl-2" style="width: 95%;">
+                                            <mathjax class="question main-answer-img"
+                                                [ngClass]="{'main-questions': question.SubQuestionIndex>0,'main-question': question.SubQuestionIndex==0}"
+                                                [content]="question.QuestionDescription"
+                                                (htmlChanged)="question.QuestionDescription=$event"
+                                                (dblclick)="question.isedit = true;isErrorShow = true"
+                                                *ngIf="!question.isedit">
+                                            </mathjax>
+
+                                            <div class="row w-100" *ngIf="question.isedit">
+                                                <div class="col-md-12" style="margin-left:15px">
+                                                    <textarea [attr.id]="'editor_'+parentIndx"
+                                                        [ckdata]="question.QuestionDescription" appCkeditor
+                                                        [id]="'editor_'+parentIndx"
+                                                        (change)="ckeditorChange(evet)"></textarea>
+                                                </div>
+                                            </div>
+
+                                            <div class="row main pl-2 question">
+                                                <div class="item" *ngFor="let omrOption of question.lstOption">
+                                                    <span
+                                                        class="float-left question-opt px-2">{{omrOption.OptionSlag}}</span>
+                                                    <mathjax class="float-left question main-answer-img"
+                                                        [content]="omrOption.OptionValue"
+                                                        (htmlChanged)="omrOption.OptionValue=$event">
+                                                    </mathjax>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-3 col-md-3 col-4 question">
+
+                                        <button type="button" id="replaceques_btn"
+                                            class="btn px-1 replaceques-btn text-center float-right"
+                                            (click)="question.isedit = true" *ngIf="!question.isedit && isEditPaper">
+
+                                            <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+                                                <title>Edit Paper</title>
+                                                <desc>Created with sketchtool.</desc>
+                                                <defs>
+                                                    <path
+                                                        d="M17.1024173,2.86922981 C15.9464396,1.71025673 13.9288785,1.71025673 12.7713008,2.86922981 L3.83467302,11.8228178 C3.74907467,11.9085786 3.69147578,12.0095679 3.65307652,12.1169693 C3.65067657,12.1241828 3.64347671,12.1289919 3.64107675,12.1362054 L2.04110759,16.9452223 C1.94510944,17.2329618 2.02030799,17.5511584 2.23470386,17.7651597 C2.38670093,17.9182467 2.59149698,18 2.80029296,18 C2.88509132,18 2.96988969,17.987176 3.05308808,17.9591234 L7.85299557,16.3561177 C7.86019543,16.3537132 7.86499534,16.3464997 7.8721952,16.3440952 C7.97939314,16.305623 8.08019119,16.2479148 8.16578954,16.162154 L17.1024173,7.20856606 C17.6808062,6.62907952 18,5.85803381 18,5.03889793 C18,4.21896055 17.6808062,3.44871634 17.1024173,2.86922981 L17.1024173,2.86922981 Z M15.9712391,6.07524108 L15.6000463,6.44713838 L13.5312861,4.3744521 L13.902479,4.00255479 C14.4552683,3.44871634 15.4184498,3.44871634 15.9712391,4.00255479 C16.2480338,4.27987477 16.4000308,4.64776456 16.4000308,5.03889793 C16.4000308,5.43003131 16.2480338,5.7979211 15.9712391,6.07524108 L15.9712391,6.07524108 Z M4.74985538,13.873062 L6.11942898,15.2452348 L4.06506858,15.9313212 L4.74985538,13.873062 Z M7.60020044,14.4621666 L5.53144032,12.3894803 L12.4001079,5.50777708 L14.4688681,7.58046337 L7.60020044,14.4621666 Z"
+                                                        id="pathedit"></path>
+                                                </defs>
+                                                <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1"
+                                                    fill="none" fill-rule="evenodd">
+                                                    <g id="28.-SM---Add-Student-Manually---Update-Photo"
+                                                        transform="translate(-821.000000, -222.000000)">
+                                                        <g id="Group" transform="translate(819.000000, 219.000000)">
+                                                            <g id="IconSet/Delete/Default-Copy"
+                                                                transform="translate(0.000000, 1.000000)">
+                                                                <mask id="mask-2" fill="white">
+                                                                    <use xlink:href="#pathedit"></use>
+                                                                </mask>
+                                                                <use id="Mask" fill="#8595A6" xlink:href="#pathedit">
+                                                                </use>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg>&nbsp;
+                                            Edit Question</button>
+
+                                        <button type="button" id="replaceques_btn"
+                                            class="btn px-1 replaceques-btn text-center float-right"
+                                            (click)="onEditDoneClick(question,parentIndx)" *ngIf="question.isedit">
+                                            <svg width="18px" height="18px" viewBox="0 0 18 18" version="1.1"
+                                                xmlns="http://www.w3.org/2000/svg"
+                                                xmlns:xlink="http://www.w3.org/1999/xlink">
+                                                <title>Edit Paper</title>
+                                                <desc>Created with sketchtool.</desc>
+                                                <defs>
+                                                    <path
+                                                        d="M9,0 C4.0374,0 0,4.0374 0,9 C0,13.9626 4.0374,18 9,18 C13.9626,18 18,13.9626 18,9 C18,4.0374 13.9626,0 9,0 M9,16.2 C5.0301,16.2 1.8,12.9699 1.8,9 C1.8,5.0301 5.0301,1.8 9,1.8 C12.9699,1.8 16.2,5.0301 16.2,9 C16.2,12.9699 12.9699,16.2 9,16.2 M11.0636999,6.56370012 L8.10000003,9.52740005 L6.93630007,8.36370008 C6.58440008,8.01180008 6.0156001,8.01180008 5.66370011,8.36370008 C5.31180013,8.71560007 5.31180013,9.28440006 5.66370011,9.63630005 L7.46370005,11.4363 C7.63920005,11.6118 7.86960004,11.7 8.10000003,11.7 C8.33040002,11.7 8.56080002,11.6118 8.73630001,11.4363 L12.3362999,7.83630009 C12.6881999,7.4844001 12.6881999,6.91560011 12.3362999,6.56370012 C11.9843999,6.21180013 11.4155999,6.21180013 11.0636999,6.56370012"
+                                                        id="path-right"></path>
+                                                </defs>
+                                                <g id="Exam-Automation" stroke="none" stroke-width="1" fill="none"
+                                                    fill-rule="evenodd">
+                                                    <g id="14.1-ES---T&amp;E---Preview-&amp;-Launch---Edit-Instruction"
+                                                        transform="translate(-1318.000000, -265.000000)">
+                                                        <g id="Group-8" transform="translate(1318.000000, 263.000000)">
+                                                            <g id="IconSet/Edit/Default"
+                                                                transform="translate(0.000000, 2.000000)">
+                                                                <mask id="mask-2" fill="white">
+                                                                    <use xlink:href="#path-right"></use>
+                                                                </mask>
+                                                                <use id="Icon" fill="#5C67E6" xlink:href="#path-right">
+                                                                </use>
+                                                            </g>
+                                                        </g>
+                                                    </g>
+                                                </g>
+                                            </svg> &nbsp;
+                                            Done
+                                        </button>
+
+
+                                        <button type="button" id="replaceques_btn"
+                                            class="btn px-1 replaceques-btn float-right mr-2"
+                                            (click)="replaceQuestionAction(question, chIndx, parentIndx);isErrorShow = true">
+                                            Replace Que.
+                                        </button>
+
+                                        <div class="marks-col mr-2 float-right" [ngClass]="{'active':  isEditPaper}"
+                                            *ngIf="chIndx == 0 && createTemplateDataObj.PaperType != 4">
+                                            <input type="text" name="marks" class="form-control marksinput"
+                                                [(ngModel)]="questions.TotalMarks" id="txtMarks" type="number"
+                                                [disabled]="true"
+                                                onKeyDown="if(this.value.length==3 && event.keyCode>47 && event.keyCode < 58)return false;"
+                                                (keypress)="numericOnly($event)" min="1" max="999">
+                                            <span class="marks_suffix">Marks</span>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="question-desc float-left row m-0 mb-1 w-100" *ngIf="isShowPaperInfo">
+
+                                    <div class="question-desc float-left row m-0 w-100" *ngIf="isShowPaperInfo">
+                                        <div class="ques-tag text-center float-left mr-2"
+                                            style="text-transform: capitalize" *ngIf="question.QuestionNatureName !=''">
+                                            {{question.QuestionNatureName | lowercase}}
+                                        </div>
+
+                                        <div class="Dot mr-2" *ngIf="question.QuestionNatureName !=''">
+                                        </div>
+
+                                        <div class="ques-tag text-center float-left mr-2"
+                                            style="text-transform: capitalize"
+                                            *ngIf="!isCheryPick && question.BloomTaxonomyName !=''">
+                                            {{question.BloomTaxonomyName | lowercase}}
+                                        </div>
+
+                                        <div class="Dot mr-2" *ngIf="!isCheryPick && question.BloomTaxonomyName !=''">
+                                        </div>
+                                        <div class="ques-tag text-center float-left mr-2"
+                                            style="text-transform: capitalize"
+                                            *ngIf="question.DifficultyLevelName != ''">
+                                            {{question.DifficultyLevelName | lowercase}}
+                                        </div>
+
+                                        <div class="Dot mr-2" *ngIf="question.DifficultyLevelName != ''">
+                                        </div>
+
+                                        <div class="ques-tag text-center float-left mr-2"
+                                            style="text-transform: capitalize"
+                                            *ngIf="question.QuestionLengthName != ''">
+                                            {{question.QuestionLengthName | lowercase}}
+                                        </div>
+
+                                        <div class="Dot mr-2" *ngIf="question.QuestionLengthName != ''">
+                                        </div>
+
+                                        <div class="ques-tag mr-2" style="text-transform: capitalize">
+                                            <span>{{question.ChapterName | lowercase}}</span>
+                                        </div>
+                                        <div class="Dot mr-2" *ngIf="question.YearCode != ''"></div>
+                                        <div class="ques-tag mr-2" *ngIf="question.YearCode != ''">
+                                            <span>Asked in {{question.YearCode |
+                                                lowercase}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="w-100 question"
+                                    *ngIf="(((questions.Questions.length /2)-1) == chIndx) && question.IsOr ">
+                                    <div class="or-tag question text-center mx-auto"><span>OR</span></div>
+                                </div>
+                            </div>
+                        </ng-container>
+                    </div>
+                    <div *ngIf="!isPaperMarksValid" class=" row m-0">
+                        <p class="p-1 error m-3 ">Question marks total must be equal to total marks count.</p>
+                    </div>
+
+                    <div class="row p-2 m-0 fa-worksheets d-flex justify-content-end sticky-footer text-right footer-buttons"
+                        style="border-top: 0px solid #D1DAE6; box-shadow:none; border-radius:0px;"
+                        *ngIf="(!isEditPaper) || HeaderInstruction.length <= 0">
+
+                        <button type="button" class="btn blue-button text-center m-1"
+                            (click)="saveQuestionPaper('7')">Save As Draft</button>
+
+                        <button type="button" class="btn blue-button text-center m-1"
+                            (click)="saveQuestionPaper('5')">Approve</button>
+
+                        <button type="button" class="btn blue-button text-center m-1"
+                            (click)="saveQuestionPaper('6')">Reject</button>
+
+                        <button type="button" id="openInPDF_btn" class="btn blue-button text-center m-1"
+                            (click)="openInPDF()">Open in PDF</button>
+
+                        <button type="button" class="btn viewAnswers-btn green-button text-center m-1"
+                            (click)="viewAnswer()">View Answers</button>
+
+                        <!-- <button type="button" id="close_btn" class="btn close-btn text-center m-2 float-right">Close</button> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<!-- /#page-content-wrapper -->
+
+<div class="modal right fade" id="replaceQuestionModal" bsModal #replaceQuestion="bs-modal">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header py-2 rounded-0">
+                <div class="align-items-center ml-0 row w-100">
+                    <div class="col-auto" (click)="closeFilterBox();">
+                        <button type="button" (click)="closeReplacePopup()"
+                            class="close float-left pt-1 position-static" data-dismiss="modal" aria-label="Close"><span
+                                aria-hidden="true">&times;</span></button>
+                    </div>
+                    <div class="col" (click)="closeFilterBox();">
+                        <div class="h6 modal-title text-body text-center w-100 m-auto" id="AddWing_header">Replace
+                            Question</div>
+                    </div>
+                    <div class="col-auto">
+                        <div class="filterbtntable float-right ml-2">
+                            <div class="single tog">
+                                <button class="dropdown-btn dropdown-toggle " id="dropdownMenuButton"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+                                    (click)="showFilterBox();">Filters</button>
+                                <ul class="dropdown-container dropdown-menu p-0 m-0" type="none"
+                                    [ngClass]="showFilter ? 'show' : ''" *ngIf="showFilter" (blur)="showFilterBox();">
+                                    <li class="p-3">
+                                        <div class="w-100">
+                                            <h3 class="w-50 float-left">Filter By</h3>
+                                            <a class="w-50 float-right text-right" (click)=" clearFilter()">Clear
+                                                Filter</a>
+                                        </div>
+                                    </li>
+                                    <form name="filterFrm">
+                                        <div class="addsection-form py-1">
+                                            <div class=" col-md-12 col-12 p-0">
+                                                <div class="form-group col-md-12 col-sm-12 select-student-filter">
+                                                    <div class="single tog">
+                                                        <angular2-multiselect [data]="allFiltersList.allchapterlist"
+                                                            [(ngModel)]="filtersObj.ChapterID" name="chapter"
+                                                            [settings]="chapterDropdownSetting"
+                                                            (onSelect)="onSelectItem(true)"
+                                                            (onSelectAll)="onSelectItem(true)"
+                                                            (onDeSelectAll)="onDeSelectAll(1,true)"
+                                                            (onDeSelect)="onSelectItem(true)" #dropdownRef>
+                                                        </angular2-multiselect>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12 select-student-filter">
+                                                    <div class="single tog">
+                                                        <angular2-multiselect [data]="allFiltersList.markList"
+                                                            [(ngModel)]="filtersObj.Marks"
+                                                            [settings]="marksDropdownSetting" name="question_marks"
+                                                            (onSelect)="onSelectItem(false)"
+                                                            (onSelectAll)="onSelectItem(false)"
+                                                            (onDeSelect)="onSelectItem(false)"
+                                                            (onDeSelectAll)="onDeSelectAll(2,false)" #dropdownRef1>
+                                                        </angular2-multiselect>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12 select-student-filter">
+                                                    <div class="single tog">
+                                                        <angular2-multiselect [data]="allFiltersList.NatureList"
+                                                            [(ngModel)]="filtersObj.nature"
+                                                            [settings]="natureDropdownSetting" name="question_nature"
+                                                            (onSelect)="onSelectItem(false)"
+                                                            (onSelectAll)="onSelectItem(false)"
+                                                            (onDeSelectAll)="onDeSelectAll(3,false)"
+                                                            (onDeSelect)="onSelectItem(false)" #dropdownRef2>
+                                                        </angular2-multiselect>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12 select-student-filter">
+                                                    <div class="single tog">
+                                                        <angular2-multiselect [data]="allFiltersList.QuestionLengthList"
+                                                            [(ngModel)]="filtersObj.questionlength"
+                                                            [settings]="lengthDropdownSetting" name="question_length"
+                                                            (onSelect)="onSelectItem(false)"
+                                                            (onSelectAll)="onSelectItem(false)"
+                                                            (onDeSelect)="onSelectItem(false)"
+                                                            (onDeSelectAll)="onDeSelectAll(4,false)" #dropdownRef3>
+                                                        </angular2-multiselect>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12 select-student-filter"
+                                                    *ngIf="!isCheryPick">
+                                                    <div class="single tog">
+                                                        <angular2-multiselect [data]="allFiltersList.BloomTexonomylList"
+                                                            [(ngModel)]="filtersObj.bloom"
+                                                            [settings]="bloomDropdownSetting" name="bloom_level"
+                                                            (onSelect)="onSelectItem(false)"
+                                                            (onSelectAll)="onSelectItem(false)"
+                                                            (onDeSelect)="onSelectItem(false)"
+                                                            (onDeSelectAll)="onDeSelectAll(5,false)" #dropdownRef4>
+                                                        </angular2-multiselect>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12 select-student-filter">
+                                                    <div class="single tog">
+                                                        <angular2-multiselect
+                                                            [data]="allFiltersList.DifficultyLevelList"
+                                                            [(ngModel)]="filtersObj.difficulty"
+                                                            [settings]="difficultyDropdownSetting"
+                                                            name="difficulty_level" (onSelect)="onSelectItem(false)"
+                                                            (onSelectAll)="onSelectItem(false)"
+                                                            (onDeSelect)="onSelectItem(false)"
+                                                            (onDeSelectAll)="onDeSelectAll(6,false)" #dropdownRef5>
+                                                        </angular2-multiselect>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group col-md-12 col-sm-12">
+                                                    <button type="button" id="filterbutton" [disabled]="false"
+                                                        class="btn filterBtn w-100 mt-1" (click)="callFilter()">Apply
+                                                        Filter</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-body" (click)="closeFilterBox();">
+                <label class=" px-3 radio box question-preview m-0 py-3"
+                    *ngFor="let question of replaceQuestionList;let rIndx = index;">
+                    <h4 class="question-head  w-100">Question {{rIndx+1}}</h4>
+                    <!-- <p class="question mb-2 mr-5" [innerHTML]="question.QuestionDescription"></p> -->
+                    <mathjax class="question main-answer-img" [content]="question.QuestionDescription"
+                        (htmlChanged)="question.QuestionDescription=$event"></mathjax>
+
+                    <div class="question-desc row m-0 w-100" *ngIf="isShowPaperInfo">
+                        <div class="ques-tag text-center float-left mr-2" style="text-transform:capitalize"
+                            *ngIf="question.QuestionNatureName != ''">
+                            {{question.QuestionNatureName | lowercase}}</div>
+                        <div class="Dot mr-2" *ngIf="!isCheryPick && question.BloomTaxonomyName != ''"></div>
+
+                        <div class="ques-tag text-center float-left mr-2" style="text-transform:capitalize"
+                            *ngIf="!isCheryPick && question.BloomTaxonomyName != ''">
+                            {{question.BloomTaxonomyName | lowercase}}</div>
+
+                        <div class="Dot mr-2" *ngIf="question.DifficultyLevelName != ''"></div>
+
+                        <div class="ques-tag text-center float-left mr-2" style="text-transform:capitalize"
+                            *ngIf="question.DifficultyLevelName != ''">
+                            {{question.DifficultyLevelName | lowercase}}</div>
+
+                        <div class="Dot mr-2" *ngIf="question.ChapterName != ''"></div>
+
+                        <div class="chapter" style="text-transform:capitalize" *ngIf="question.ChapterName != ''">
+                            <span>{{question.ChapterName | lowercase}} </span>
+                        </div>
+                    </div>
+
+                    <input type="radio" name="selectedQuestion" [value]="question" class="w-auto"
+                        (click)="selectQuestionForReplace(question)">
+                    <span class="checkmark"></span>
+                </label>
+
+                <div class="no-data-found" *ngIf="replaceQuestionList.length == 0">No Data Found</div>
+                <div class="col-md-12 text-center my-4" *ngIf="totalNoOfPages > lastIndex">
+                    <button class="btn btn-info showMoreQuestionBtn" (click)="showMoreQuestions()">Show More
+                        Questions</button>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button [disabled]="!isReplacedQuestionSelected" type="button" id="replaceQuestion_btn"
+                    class="btn replaceQuestion-btn w-100 close_modal" data-dismiss="modal"
+                    (click)="replaceQuestionData()">Replace Question</button>
+            </div>
+
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+
+<style>
+    .errortext {
+        color: rgb(184, 68, 32);
+        font-size: 18px;
+    }
+
+    .no-data-found {
+        font-size: 22px;
+        font-weight: 500;
+        text-align: center;
+        border-top: 1px solid #e9ecef;
+        padding-top: 15px;
+    }
+</style>
+
+<ng-template #confirmDialogTemplate>
+    <div class="modal-body text-center">
+        <h4>Are you sure?</h4>
+        <p>You won't be able to revert this!</p>
+        <div class="col-md-12 col-lg-12 p-0">
+            <button type="button" class="btn btn-default btn-yes" (click)="deleteHeaderInstruction()">Yes</button>
+            <button type="button" class="btn btn-primary btn-no" (click)="modalRef.hide()">No</button>
+        </div>
+
+    </div>
+</ng-template>
+
+<div class="modal fade modal-md" id="editHeader" bsModal #editHeader="bs-modal"
+    [config]="{backdrop: 'static',  keyboard: false}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title ">Edit Header</h4>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editHeaderForm">
+                    <div class="row">
+                        <div class="form-group col-md-12 col-lg-12">
+                            <label><strong>Institute Name :</strong></label>
+                            <label class="float-right img-remove d-block" (click)="clearInstituteName()">
+                                <a>clear</a>
+                            </label>
+                            <input type="text" class="form-control" value="" placeholder="e.g. Bruce" minlength="3"
+                                formControlName="PaperHeaderName" name="PaperHeaderName" />
+                        </div>
+
+                        <div class="form-group col-md-12 col-lg-12">
+                            <label><strong>Address :</strong></label>
+                            <label class="float-right img-remove d-block" (click)="clearInstituteAddress()">
+                                <a>clear</a>
+                            </label>
+                            <input type="text" class="form-control" value="" placeholder="Enter your full address"
+                                formControlName="Address" name="Address" />
+                        </div>
+                        <div class="form-group col-md-12 col-lg-12">
+                            <label><strong>Header Image :</strong></label>
+                            <label *ngIf="papaerHeader.InstituteImage" style="float:right;" class="mx-auto"><a
+                                    style="color: Red;" href="javascript:void(0)" (click)="removeImage();">Remove
+                                    Image</a></label>
+                            <!-- <label class="float-right img-remove d-block" (click)="removeLogo()">
+                                <a><img src="assets/images/icons/remove.svg" class=""> </a>
+                            </label> -->
+
+                            <div class="image-upload text-center w-100" id="dvImportSegments">
+                                <input type="file" name="HeaderLogoImg" id="HeaderLogoImg" accept=".png,.jpg"
+                                    (change)="changeListener($event);preview($event.target.files)"
+                                    style="margin-top: 20px;" />
+                                <div class="csv-edit">
+                                    <label for="csupload">
+                                        <div id="csv" class="csv">
+                                            <img *ngIf="!headerlogoFileSrc" class="mt-2 mb-2"
+                                                src="{{papaerHeader.InstituteImage}}" alt="logo uploader"
+                                                style="width: 100%;" />
+                                            <img *ngIf="headerlogoFileSrc" class="mt-2 mb-2" [src]="headerlogoFileSrc"
+                                                style="width: 100%;">
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <p *ngIf="headerlogoFileName == ''" class="text-center csv-upload-text mb-0 mt-2">Drag or
+                                Click here to change Your Logo</p>
+                            <p *ngIf="headerlogoFileName != ''" class="text-center csv-upload-text mb-0 mt-2">
+                                {{headerlogoFileName}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-12 p-0">
+                        <button type="button" class="btn btn-yes float-right ml-2"
+                            (click)="saveheaderData()">Save</button>
+                        <button type="button" class="btn btn-no float-right ml-2"
+                            (click)="closeeditheaderDialog()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+</div>
+
+<input type="file" id="imgupload" (change)="setFile($event)" style="display:none" />

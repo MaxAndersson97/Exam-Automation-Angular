@@ -1,0 +1,95 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header pb-5">
+      <button type="button" class="close float-left pt-1" aria-label="Close" (click)="close({isRefresh: false})"><span
+          aria-hidden="true">&times;</span></button>
+      <h4 class="modal-title text-center m-auto" id="AddWing_header">
+        {{(selectedWing == null) ? 'Add Wing' : 'Edit Wing'}}</h4>
+    </div>
+    <div class="modal-body">
+      <form [formGroup]="addWingform" (ngSubmit)="onSubmit()">
+        <div class="addWing-form p-4">
+          <div class="row">
+            <div class="form-group col-md-12 col-sm-12">
+              <label class="">Wing Name</label>
+              <input type="text" name="wingName" class="form-control" formControlName="WingName"
+                placeholder="eg. Primary Section" id="txtwingName" required />
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12 col-sm-12 classesform">
+              <label class="">Classes From</label>
+              <ng-select formControlName="ClassIdFrom" [items]="classes" bindLabel="ClassName"
+                placeholder="eg. 1st Standard" bindValue="ClassID" [searchable]=false required
+                (change)="validateClass( $event, 'FROM' )">
+                <ng-template ng-option-tmp let-item="item">
+                  <span style="text-transform: capitalize;">{{item.ClassName | lowercase}}</span>
+                </ng-template>
+                <ng-template ng-label-tmp let-item="item">
+                  <span *ngIf="item.ClassName" style="text-transform: capitalize;">
+                    {{item.ClassName  | lowercase}}</span>
+                  <span *ngIf="!item.ClassName" style="color: #999999;">eg. 1st Standard</span>
+                </ng-template>
+              </ng-select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12 col-sm-12 classesto">
+              <label class="">Classes To</label>
+              <ng-select formControlName="ClassIdTo" [items]="classes" bindLabel="ClassName"
+                placeholder="eg. 4th Standard" bindValue="ClassID" [searchable]=false required
+                (change)="validateClass( $event, 'TO' )" >
+                <ng-template ng-option-tmp let-item="item" >
+                  <span style="text-transform: capitalize;">{{item.ClassName | lowercase}}</span>
+                </ng-template>
+                <ng-template ng-label-tmp let-item="item">
+                  <span *ngIf="item.ClassName" style="text-transform: capitalize;">
+                    {{item.ClassName  | lowercase}}</span>
+                  <span *ngIf="!item.ClassName" style="color: #999999;">eg. 1st Standard</span>
+                </ng-template>
+              </ng-select>
+            </div>
+            <div *ngIf="isValidClass" class="danger">
+                'From Class' can not be greater or equal to 'To Class'.
+              </div>
+          </div>
+        
+          <div class="row">
+            <div class="form-group col-md-12 col-sm-12 winghead">
+              <label class="">Wing Head</label>
+              <!-- <select formControlName="WingHeadID" class="form-control" name="ddlWingHead" class="form-control"
+                id="ddlWingHead" required>
+                <option *ngFor="let staff of staffs" [value]="staff.UserID">{{staff.UserName}}</option>
+              </select> -->
+              <ng-select formControlName="WingHeadID" [items]="staffs" bindLabel="UserName"
+                placeholder="eg. Bruce Wayne" bindValue="UserID" [searchable]=false required>
+                <ng-template ng-option-tmp let-item="item">
+                  {{item.FirstName + " " + item.LastName}}
+                </ng-template>
+                <ng-template ng-label-tmp let-item="item">
+                  <span *ngIf="item.FirstName || item.LastName ">
+                    {{(item.FirstName || "") + " " + (item.LastName || "")}}</span>
+                  <span *ngIf="!item.FirstName && !item.LastName" style="color: #999999;"> Select Wing Head</span>
+                </ng-template>
+              </ng-select>
+            </div>
+          </div>
+          <div class="row">
+            <div class="form-group col-md-12 col-lg-12">
+              <button type="submit" [disabled]="!addWingform.valid || isValidClass"
+                class="btn createwing-btn w-100 mt-2">{{(selectedWing == null) ? 'Create Wing' : 'Update Wing'}}</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<style>
+  .danger {
+    font-size: 80%;
+    color: #dc3545;
+    margin-left: 14px;
+  }
+</style>

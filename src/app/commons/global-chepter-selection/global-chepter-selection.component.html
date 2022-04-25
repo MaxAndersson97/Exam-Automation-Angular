@@ -1,0 +1,138 @@
+<div class="modal-body pdb70 step-2 p-3 d-block" data-step="2" *ngIf="found">
+    <form>
+        <div class="row">
+            <div class="col-6 col-md-6">
+                <h3 class="sectionhead mt-3">Select Chapters</h3>
+            </div>
+            <div class="col-6 col-md-6">
+                <h4 class="text-right sectionheadright mt-4">{{countChepter}} Chapters from
+                    {{selectedTextBook && selectedTextBook.length}} {{selectedTextBook && selectedTextBook.length > 1 ?
+                    'Books': 'Book'}}</h4>
+            </div>
+        </div>
+
+        <!-- other source chepters -->
+        <div class="row m-0" *ngIf="PaperSetChapterList &&  PaperSetChapterList.length ">
+            <div class="select-chaptermodal w-100">
+                <div class="row w-100 m-0">
+                    <div class="col-lg-12 col-md-12 other-source-chapters">
+                        <div class="head row d-flex justify-content-between align-items-center flex-wrap p-3">
+
+                            <div class="m-1">
+                                <h3 class="texthead float-left" style="margin: 0 !important">Question Bank</h3>
+                            </div>
+
+                            <div class="d-inline-flex m-1">
+                                <div class="hide-btn mr-3"><a data-toggle="collapse" data-target="#englishcomm_wq"
+                                        (click)="isExpandAccordion = !isExpandAccordion">{{(!!isExpandAccordion) ?
+                                        'Show': 'Hide'}} </a></div>
+                                <div class="chapter-number text-center mr-3">
+                                    <!-- <span>{{PaperSetChapterList.length}}</span> -->
+                                    <span
+                                        *ngIf="countOtherSourceSelectedChepter > 0">{{countOtherSourceSelectedChepter}}</span>
+                                    <span *ngIf="!countOtherSourceSelectedChepter">0</span>
+                                </div>
+                                <div class="select_all_chbox float-right mr-4">
+                                    <p class="m-0">Select All </p>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" class="form-check-input h-auto m-0" value=""
+                                            name="chepter343" [checked]="selectAllOther" (change)="selectAllOtherFn();">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row collapse show pb-5" id="englishcomm_wq">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 chapter-col h-auto"
+                                *ngFor="let chepter of PaperSetChapterList | sortBy:'asc':'ChapterName'; let i= index">
+                                <label class="checkbox-container" for="chepter_{{i}}">
+                                    <input type="checkbox" class="form-check-input h-auto m-0"
+                                        value="{{chepter.ChapterID}}" name="chepter_{{i}}" id="chepter_{{i}}"
+                                        (click)="countBooksAndChepterForOther(); checkIfAllSelectedOther();"
+                                        (change)="chepter.isSelected = !chepter.isSelected"
+                                        [checked]="chepter.isSelected">
+                                    <span class="checkmark"></span>
+
+                                    <p class="mb-0" style="text-transform: capitalize;">
+                                        {{chepter.ChapterName.toLowerCase()}}({{chepter.QuestionCount}}) </p>
+                                    <div class="clearfix" *ngIf="($index+1)%4==0"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row m-0" *ngIf="cheptersList && cheptersList.length ">
+            <div class="select-chaptermodal w-100">
+                <div class="row w-100 m-0">
+                    <div class="col-lg-12 col-md-12 my-3" *ngFor="let book of cheptersList; let i= index">
+                        <div class="head row d-flex justify-content-between align-items-center flex-wrap p-3">
+
+                            <div class='m-1'>
+                                <h3 class="texthead float-left"
+                                    style="text-transform: capitalize; margin: 0 !important">
+                                    {{book.TextBookName.toLowerCase()}}</h3>
+                            </div>
+
+                            <div class='d-inline-flex m-1'>
+                                <div class="hide-btn mr-3"><a data-toggle="collapse"
+                                        attr.data-target="#englishcomm_{{i+1}}"
+                                        (click)="book.isExpandAccordion = !book.isExpandAccordion">{{(!!book.isExpandAccordion)
+                                        ? 'Show': 'Hide'}} </a></div>
+                                <div class="chapter-number text-center mr-3">
+                                    <span *ngIf="book.count > 0">{{book.count}}</span>
+                                    <span *ngIf="!book.count">0</span>
+                                </div>
+                                <div class="select_all_chbox float-right mr-4">
+                                    <p class="m-0">Select All</p>
+                                    <label class="checkbox-container">
+                                        <input type="checkbox" class="form-check-input h-auto m-0" value=""
+                                            name="book_{{i}}" [checked]="book.selectedAll" (change)="selectAll(i);"
+                                            [disabled]="book.listEAChapterInfoMember.length < 1">
+                                        <span class="checkmark"></span>
+                                    </label>
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                        <div class="row collapse show" id="englishcomm_{{i+1}}">
+                            <div class="col-xs-12 col-sm-12 col-md-6 col-lg-4 chapter-col h-auto"
+                                *ngFor="let chepter of book.listEAChapterInfoMember; let chIndex = index;">
+                                <label class="checkbox-container" for="chepter_{{i}}_{{chIndex}}">
+                                    <input type="checkbox" class="form-check-input h-auto m-0"
+                                        value="{{chepter.ChapterID}}" name="chepter_{{chIndex}}"
+                                        id="chepter_{{i}}_{{chIndex}}" (change)="chepter.isSelected = !chepter.isSelected"
+                                        [checked]="chepter.isSelected"
+                                        (click)="countBooksAndChepter(); checkIfAllSelected()">
+                                    <span class="checkmark"></span>
+
+                                    <p class="mb-0" style="text-transform: capitalize;">
+                                        {{chepter.ChapterName.toLowerCase()}}({{chepter.QuestionCount}}) </p>
+                                    <div class="clearfix" *ngIf="($index+1)%4==0"></div>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+<ng-container *ngIf="!found">
+    <div class="no-result-found">No Books and Chapters available in selected subject, please select another subject.
+    </div>
+</ng-container>
+
+<div class="modal-footer bottom_btn px-4 border-0 sticky-footer p-3" *ngIf="found">
+    <button type='button' class="saveAndProceed-btn step step-1 btn" data-step="2" (click)="submitStepTwo()"
+        [disabled]="countChepter < 1 && countOtherSourceSelectedChepter < 1">
+        {{ispapereditoradd == 0 ? "Update & Proceed" : "Save and Proceed"}}
+    </button>
+</div>

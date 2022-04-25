@@ -1,0 +1,386 @@
+.toggled .big{
+  display:none;
+}
+.toggled.d-flex .small{
+display: block;
+}
+.toggled.d-flex .small svg{
+  width:22px;
+}
+.d-flex .small{
+  display:none;
+}
+td.action_col{
+  border-top:0px;
+}
+
+.worksheet-tab{
+width: 174px !important;
+}
+
+.select-standard-filter, .select-section-filter, .exam-group-filter{
+width: 17%;
+// margin-right:11px;
+}
+.select-student-filter{
+width: 17%;
+padding-right: 12px;
+}
+::ng-deep .sl_report .ng-select{
+padding-right:12px;
+}
+::ng-deep .sl_report .select-student-filter .cuppa-dropdown{
+border: 1px solid #ced4da !important;
+height: 36px;
+padding-right:12px;
+}
+::ng-deep .sl_report .select-student-filter .cuppa-dropdown .selected-list{
+color: #999999;
+}
+::ng-deep .sl_report .select-student-filter .cuppa-dropdown .selected-list .c-angle-up{
+border-color: transparent transparent #999999;
+border-width: 0 5px 5px;
+width: 0px;
+height: 0px;
+border-style: solid;
+}
+::ng-deep .sl_report .select-student-filter .cuppa-dropdown .selected-list .c-angle-down{
+border-color: #999999 transparent transparent;
+border-style: solid;
+border-width: 5px 5px 2.5px;
+width: 0px;
+height: 0px;
+}
+::ng-deep .sl_report .list-area span{
+font-size:13px;
+}
+::ng-deep .sl_report .list-area span .grp-item label{
+font-size:13px;
+font-weight: 400 !important;
+}
+::ng-deep .sl_report .list-area label{
+font-size:13px;
+font-weight: 500 !important;
+}
+::ng-deep .sl_report .select-student-filter .cuppa-dropdown .c-btn{
+display: block;
+min-height: 34px !important;
+font-size: 13px;
+font-weight: 400;
+line-height: 1.5;
+padding: 8px 10px;
+}
+::ng-deep .sl_report .select-student-filter .cuppa-dropdown .c-btn:focus{
+outline: none;
+}
+::ng-deep .sl_report .pure-checkbox input[type=checkbox]+label:before{
+// height: 20px;
+// width: 20px;
+border: 1px solid #5c67e6;
+border-radius: 4px;
+}
+::ng-deep .sl_report .pure-checkbox input[type=checkbox]:checked+label:after{
+width: 3px;
+height: 8px;
+border: solid #5c67e6;
+transform: rotate(45deg) !important;
+border-width: 0 2px 2px 0;
+left: 6px;
+top: 8px;
+}
+::ng-deep .sl_report .selected-list .c-list .c-token{
+background: #3A5077;
+color: #fff;
+margin-right: 9px !important;
+margin-left: -4px;
+margin-top: -4px !important;
+display: none;
+}
+::ng-deep .sl_report .selected-list .c-list .c-token:nth-child(1),::ng-deep .selected-list .c-list .c-token:nth-child(2) {
+display: block;
+}
+::ng-deep .sl_report .selected-list .c-list .c-token .c-label{
+max-width: 87px;
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis;
+}
+.selected-list{
+height: 36px;
+}
+.select-standard-filter .dropdown-btn, .select-section-filter .dropdown-btn, .exam-group-filter .dropdown-btn, .select-student-filter .dropdown-btn{
+border: 1px solid #D1DAE6;	
+border-radius: 2px;	
+background-color: #FFFFFF;
+color: #8595A6;	
+font-family: Inter;	
+font-size: 14px;	
+line-height: 21px;
+width: 94%;
+height: 45px;
+margin-right: 14px;
+}
+.select-standard-filter .dropdown-btn:after, .select-section-filter .dropdown-btn:after, .exam-group-filter .dropdown-btn:after, .select-student-filter .dropdown-btn:after{
+  float: right;
+  margin-top: 8px;
+}
+.select-standard-filter .single.show .dropdown-btn:after, .select-section-filter .single.show .dropdown-btn:after, .exam-group-filter .single.show .dropdown-btn:after, .select-student-filter .single.show .dropdown-btn:after{
+  border-right: .3em solid transparent;
+  border-bottom: .3em solid;
+  border-left: .3em solid transparent;
+  border-top: 0;
+}
+.show-result-btn{
+width: 15%;
+height: 36px;
+border-radius: 4px;	
+background-color: #4952B9;
+color: #FFFFFF;	
+font-family: Inter;	
+font-size: 12px;	
+font-weight: 600;	
+line-height: 18px;
+}
+.report-setup .reportsetup-img {
+width: 170px;
+}		
+.report-setup .reportsetup-description{
+color: #8595A6;	
+font-size: 17px;	
+line-height: 24px;
+}
+.filter-row .single .dropdown-container li{
+padding: 10px;
+}
+.filter-row .single .dropdown-container li span{
+padding-left: 28px;
+}
+body{
+background-color: #F6F7FB;
+}
+.report-pname{
+color: #172B4D;	
+font-family: Inter;	
+font-size: 24px;	
+font-weight: 500;	
+line-height: 34px;
+}
+.block-1, .block-2{
+height: auto;
+border-radius: 4px;	
+background-color: #FFFFFF;	
+box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+}
+.overall-rank-head{
+color: #172B4D;	
+font-size: 19px;	
+font-weight: 600;	
+line-height: 27px;
+}
+.st-rank{
+height: 27px;	
+width: auto;	
+border: 1px solid #5C67E6;	
+border-radius: 2px;	background-color: rgba(92,103,230,0.1);
+color: #5C67E6;	
+font-size: 13px;	
+font-weight: 600;	
+line-height: 21px;
+padding: 3px 10px;
+}
+.student-score div{
+height: 12px;	width: 12px;	background-color: #00A1FF;
+}
+.class-avg-score div{
+height: 12px;	width: 12px;	background-color: #7357CD;
+}
+.class-avg-score, .student-score{
+color: #3A5077;	font-family: Inter;	font-size: 11px;	font-weight: 500;	line-height: 15px;
+}
+
+.overall-rank-table tr{
+height: 60px;	
+background-color: #FFFFFF;	
+border: 1px solid #D1DAE6;
+}
+.overall-rank-table td{
+color: #172B4D;	font-family: Inter;	font-size: 14px;	font-weight: 600;	line-height: 18px;
+height: 60px;	
+background-color: #FFFFFF;	
+border: 1px solid #D1DAE6;
+padding: 10px;
+word-break: break-word;
+}
+.overall-rank-table th{
+ color: #3A5077;	font-family: Inter;	font-size: 11px;	font-weight: 500;	line-height: 18px;
+height: 45px;	
+background-color: #FFFFFF;	
+border: 1px solid #D1DAE6;
+padding: 10px;
+}
+.note-para{
+color: #8595A6;	font-family: Inter;	font-size: 13px;	line-height: 20px;
+}
+
+
+
+
+
+#Question_Detail .question-head{
+  color: #172B4D;	font-family: Inter;	font-size: 16px;	font-weight: 600;	line-height: 22px;
+}
+#Question_Detail .question, #Question_Detail .marks{
+  color: #3A5077;	font-family: Inter;	font-size: 14px;	line-height: 21px;
+}
+#Question_Detail .question-desc{
+  color: #172B4D;	font-family: Inter;	font-size: 12px;	font-weight: 600;	line-height: 18px;
+}
+#Question_Detail .modal-dialog{
+  width: 605px;
+}
+#Question_Detail .modal-dialog{
+  width: 605px;
+}
+#Question_Detail.modal.right{
+  right: 492px;
+}
+#Question_Detail .question-detail{
+  padding: 10px 0px;
+  border-bottom: 1px solid #D1DAE6;
+}
+#Question_Detail .modal-header {
+  border-bottom: 1px solid #D1DAE6 !important;
+  padding-bottom: 30px;
+}
+
+.filter-row {
+  height: 100%;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+          box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+          .worksheettab-row {
+  border-bottom: 1px solid #D1DAE6;
+}
+
+.worksheettab-row .worksheettab {
+  width: 100%;
+  height: 48px;
+  background-color: #ffffff;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab {
+  width: 179px;
+  float: left;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab h4 {
+  color: #8595A6;
+  font-size: 13px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.worksheettab-row .worksheettab .bloomdifficulty-tab {
+  width: 253px;
+  float: left;
+}
+
+.worksheettab-row .worksheettab .bloomdifficulty-tab h4 {
+  color: #8595A6;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.worksheettab-row .worksheettab button.preview-btn {
+  width: 264px;
+  background-color: #3A5077;
+  color: #ffffff;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  border-radius: 0px;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab.active, .worksheettab-row .worksheettab .bloomdifficulty-tab.active {
+  border-bottom: 2px solid #5C67E6;
+}
+
+.worksheettab-row .worksheettab .worksheet-tab.active h4, .worksheettab-row .worksheettab .bloomdifficulty-tab.active h4 {
+  color: #5C67E6;
+  font-weight: 500;
+}
+
+ ::ng-deep .sl_report .highcharts-title{
+  display: none !important;
+}
+
+
+::ng-deep .sl_report .highcharts-credits{
+  display: none;
+}
+::ng-deep .sl_report .highcharts-legend{
+  display: none;
+}
+
+.report-setup .top-header{
+  font-size: 22px;
+}
+.report-setup .reportsetup-description{
+  font-size: 15px;
+}
+.filter-row .filterBy h4 {
+  color: #172B4D;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 27px;
+}
+::ng-deep .sl_report .ng-select{
+  font-size: 13px;
+}
+
+::ng-deep .sl_report .dropdown-list .list-area{
+width: max-content !important;
+}
+
+::ng-deep .sl_report .ng-select .ng-select-container .ng-value-container .ng-placeholder{
+color: #8595A6;
+}
+
+.w_fix{
+max-width:1200px;
+margin: auto;
+}
+
+::ng-deep .sl_report .select-student-filter .cuppa-dropdown .list-message{
+font-size: 13px !important;
+color: #cccccc;
+padding: 8px 10px;
+font-weight:400;
+}
+
+.filter-row .filterBy{
+position: relative;
+.clear_filter{
+    position: absolute;
+    right: 16px;
+    top: 9px;
+    font-family: Inter;
+    font-size: 12px;
+    line-height: 21px;
+    text-align: center;
+    padding-top: 10px;
+    border-radius: 0px !important;
+    border: 1px solid #ced4da !important;
+    padding: 5px 15px;
+    cursor: pointer;
+}
+.clear_filter:hover{
+    color: #5C67E6;
+}
+}

@@ -1,0 +1,314 @@
+<div id="page-content-wrapper">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="worksheettab-row">
+                    <div class="col-md-12 col-lg-12 p-0 worksheettab">
+                        <div class="worksheet-tab active h-100">
+                            <h4>Nature Settings</h4>
+                        </div>
+                        <div class="bloomdifficulty-tab h-100" [ngStyle]="{'pointer-event': isEdit ? 'auto' : 'none'}">
+                            <h4>Bloom & Difficulty Composition</h4>
+                        </div>
+                        <!-- <div class="bloomdifficulty-tab h-100" (click)="isEdit? gotToTemplateSetting(): null;"
+                            [ngStyle]="{'pointer-event': isEdit ? 'auto' : 'none'}">
+                            <h4>Bloom & Difficulty Composition</h4>
+                        </div> -->
+                        <div class=" float-right view-previous-selection h-100" (clickOutside)="closeDropDown($event)">
+                            <div class="single tog h-100">
+                                <button type="button" id="Preview_btn" data-toggle="dropdown" id="dropdownMenuButton"
+                                    class="  btn dropdown-btn dropdown-toggle preview-btn text-left float-right h-100"
+                                    (click)="ShowPriviousSelection();" aria-haspopup="true" aria-expanded="false">
+
+                                    <svg width="20px" class="mx-2" height="20px" viewBox="0 0 20 20" version="1.1"
+                                        xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: sketchtool 54 (76480) - https://sketchapp.com -->
+                                        <title>CEFEF4E9-5AFE-4275-928B-416E1DF1E8BF</title>
+                                        <desc>Created with sketchtool.</desc>
+                                        <g id="Exam-Automation" stroke="none" stroke-width="1" fill="none"
+                                            fill-rule="evenodd">
+                                            <g id="19.-ES---T&amp;E---Cherry-Pick"
+                                                transform="translate(-1202.000000, -75.000000)" fill="#FFFFFF">
+                                                <g id="IconSet/Information/Default"
+                                                    transform="translate(1202.000000, 75.000000)">
+                                                    <path
+                                                        d="M19,0 L1,0 C0.447,0 0,0.447 0,1 L0,19 C0,19.553 0.447,20 1,20 L19,20 C19.553,20 20,19.553 20,19 L20,1 C20,0.447 19.553,0 19,0 L19,0 Z M2,18 L18,18 L18,2 L2,2 L2,18 Z M9,7 L15,7 C15.553,7 16,6.553 16,6 C16,5.447 15.553,5 15,5 L9,5 C8.447,5 8,5.447 8,6 C8,6.553 8.447,7 9,7 M5,7 C5.553,7 6,6.553 6,6 C6,5.447 5.553,5 5,5 C4.447,5 4,5.447 4,6 C4,6.553 4.447,7 5,7 M9,11 L15,11 C15.553,11 16,10.553 16,10 C16,9.447 15.553,9 15,9 L9,9 C8.447,9 8,9.447 8,10 C8,10.553 8.447,11 9,11 M5,11 C5.553,11 6,10.553 6,10 C6,9.447 5.553,9 5,9 C4.447,9 4,9.447 4,10 C4,10.553 4.447,11 5,11 M9,15 L15,15 C15.553,15 16,14.553 16,14 C16,13.447 15.553,13 15,13 L9,13 C8.447,13 8,13.447 8,14 C8,14.553 8.447,15 9,15 M5,15 C5.553,15 6,14.553 6,14 C6,13.447 5.553,13 5,13 C4.447,13 4,13.447 4,14 C4,14.553 4.447,15 5,15"
+                                                        id="Icon"></path>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </svg>
+                                    View Previous Selection</button>
+                                <ul class="dropdown-container dropdown-menu p-0 m-0 show"
+                                    [ngClass]="isShowPriviousSelection ? 'show' : ''" *ngIf="isShowPriviousSelection">
+                                    <li>
+                                        <p class="preview-head mb-1">Template Name</p>
+                                        <p class="preview-detail m-0" style="text-transform: capitalize;">
+                                            {{createTemplateData.Name | lowercase}}</p>
+                                    </li>
+                                    <li>
+                                        <p class="preview-head mb-1">Details</p>
+                                        <p class="preview-detail m-0" style="text-transform: capitalize;">
+                                            {{createTemplateData.ClassName | lowercase}},
+                                            {{createTemplateData.SubjectName | lowercase}}
+
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="m-3">
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="worksheets imported-data template"
+                            *ngIf="prepareDataForTables && prepareDataForTables.length > 0">
+                            <div class="row ">
+                                <div class="col-lg-5 col-md-5 my-3">
+                                    <h2 class="top-head  px-3">Nature Settings</h2>
+                                </div>
+
+                                <div class="col-lg-7 col-md-7 float-right my-3 px-3">
+                                    <div class="total_marksedit ml-2 mr-3  float-right text-center"
+                                        [ngClass]="{'error': totalTime < 1}">
+                                        <p class="mb-0 p-1">
+                                            <span class="pr-1 float-left">TIME:</span>
+
+                                            <input id="time" class="" type="text" name="time" [(ngModel)]="totalTime"
+                                                onkeypress="return (event.charCode == 8 || event.charCode == 1) ? null : event.charCode >= 48 && event.charCode <= 57"
+                                                maxlength="3" [disabled]="!isMinEditable" (keyup)="validateForm()"
+                                                required #duration>
+                                            <span class="time-minutes">MINS</span>
+
+                                            <a style="cursor: pointer"
+                                                (click)="isMinEditable = !isMinEditable; editDuration()"
+                                                *ngIf="!isMinEditable">EDIT</a>
+
+                                            <a (click)="isMinEditable = !isMinEditable" *ngIf="isMinEditable">DONE</a>
+                                        </p>
+                                    </div>
+                                    <div class="total_ques ml-2 float-right text-center">
+                                        <p class="mb-0 p-1">TOTAL QUE: {{countTotalQuestions}}</p>
+                                    </div>
+                                    <div class="total_marks float-right text-center">
+                                        <p class="mb-0 p-1">TOTAL MARKS: {{totalMarks}}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-3 error-container">
+                                <!-- {{addedIndex}} -->
+                                <p *ngIf="indexErrorMsg" class="mb-1">{{indexErrorMsg}}</p>
+                                <p *ngIf="indexErrorMsgForIndex" class="mb-1">{{indexErrorMsgForIndex}}</p>
+                                <p *ngIf="mandatoryQuesError" class="mb-1">{{mandatoryQuesError}}</p>
+                                <p *ngIf="naturecountErrorMsg != ''" class="mb-1">{{naturecountErrorMsg}}</p>
+                            </div>
+                            <div class="px-3 mb-1 imported-data worksheetSetting ">
+                                <div class="overflow">
+                                    <table class="w-100 ">
+                                        <thead>
+                                            <tr>
+                                                <th class="checkbox th_fixed"></th>
+                                                <th width="" class="th_fixed question-nature">QUESTION NATURE </th>
+                                                <th width="" class="th_fixed noOfQues">NO. OF QUE.</th>
+                                                <th width="" class="th_fixed">MARKS</th>
+                                                <th width="" class="th_fixed">MANDATORY</th>
+                                                <th width="" class="th_fixed">INDEX</th>
+                                                <th width="" class="th_fixed">ALTERNATE</th>
+                                                <th width="" class="remove th_fixed"></th>
+                                                <th width="" class="addquestionset th_fixed"></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+
+                                            <tr
+                                                *ngFor="let item of prepareDataForTables; let i = index; trackBy:trackByIndex;">
+                                                <ng-container *ngIf="item.QuestionCount > 0">
+                                                    <td [attr.rowspan]="item.checkboxSpan" *ngIf="item.checkboxSpan">
+                                                        <label class="checkbox-container">
+                                                            <input type="checkbox" name="checkboxmulti_{{i}}"
+                                                                [(ngModel)]="item.isChecked" 
+                                                                (click)=" !item.isChecked ? onUncheckedAction(i, item.QuestionNatureName) : null; item.isChecked ? onCheckedAction (i, item.QuestionNatureName) : null;"
+                                                                (change)="checkItemenable();"
+                                                                (blur)="countIndex(item);">
+                                                            <span class="checkmark"></span>
+                                                        </label>
+                                                    </td>
+                                                    <!--NATURE NAME-->
+                                                    <td class="question-nature" [attr.rowspan]="item.checkboxSpan"
+                                                        *ngIf="item.checkboxSpan" scope="rowgroup"
+                                                        style="text-transform: capitalize;">
+                                                        <span>{{item.QuestionNatureName | lowercase}}
+                                                            ({{item.QuestionCount}})</span>
+                                                    </td>
+                                                    <!--NO OF QUESTION-->
+                                                    <td [ngClass]="{'custom-disabled':  !item.isChecked }">
+                                                        <input class="form-control counternum" type="number"
+                                                            (keypress)="numericOnly($event)" min="1" max="999"
+                                                            onKeyDown="if(this.value.length==3 && event.keyCode>47 && event.keyCode < 58)return false;"
+                                                            name="name_{{i}}" [(ngModel)]="item.noOfQuestion"
+                                                            (blur)="countQuestion(item.noOfQuestion); item.mandatory= item.noOfQuestion; validateMandatoryQues(i); allvalmandQues(); validateForm();countIndex(item);  countTotalMark(item.mandatory, item.marks);"
+                                                            (focus)="onFocuscountQuestion(item.noOfQuestion);validateMandatoryQues(i)"
+                                                            (keyup)="validateForm()">
+                                                    </td>
+                                                    <!--MARKS-->
+                                                    <td [ngClass]="{'custom-disabled':  !item.isChecked }">
+                                                        <input id="marks_{{i}}" class="form-control counternum"
+                                                            type="number" (keypress)="numericOnly($event)" min="1"
+                                                            max="999" name="marks_{{i}}" [(ngModel)]="item.marks"
+                                                            #marks_{{j}}_{{i}}="ngModel"
+                                                            (blur)="countTotalMark(item.mandatory, item.marks); validateForm(); marksvalidation(item);"
+                                                            (focus)="onFocuscountTotalMark(item.mandatory, item.marks)"
+                                                            onKeyDown="if(this.value.length==3 && event.keyCode>47 && event.keyCode < 58)return false;">
+                                                    </td>
+                                                    <!--MANDATORY-->
+                                                    <td [ngClass]="{'custom-disabled':  !item.isChecked}">
+                                                        <input id="mandatory_{{i}}" class="form-control counternum"
+                                                            type="number" (keypress)="numericOnly($event)" min="1"
+                                                            max="999" name="mandatory_{{i}}"
+                                                            [(ngModel)]="item.mandatory"
+                                                            (blur)="countTotalMark(item.mandatory, item.marks); validateMandatoryQues(i)"
+                                                            (focus)="onFocuscountTotalMark(item.mandatory, item.marks); validateMandatoryQues(i)"
+                                                            (keyup)="validateForm()"
+                                                            onKeyDown="if(this.value.length==3 && event.keyCode>47 && event.keyCode < 58)return false;">
+                                                    </td>
+                                                    <!--INDEX-->
+                                                    <td [ngClass]="{'custom-disabled':  !item.isChecked || item.noOfQuestion == item.mandatory}">
+                                                        <!-- <span>{{item.addedIndex}}</span> -->
+                                                        <input id="index_{{i}}" class="form-control counternum custom-disabled"
+                                                            type="text"  min="0"
+                                                            max="999" name="index_{{j}}" [(ngModel)]="item.index"
+                                                            (blur)="updateCheckedQuestionNatureList(item); validateForm();"
+                                                            onKeyDown="if(this.value.length==3 && event.keyCode>47 && event.keyCode < 58)return false;">
+                                                    </td>
+                                                    <!--ALTERNATE-->
+                                                    <td [ngClass]="{'custom-disabled':  !item.isChecked || item.noOfQuestion > 1}">
+                                                        <div class="single alternate_q">
+                                                            <ng-select [(ngModel)]="item.alternateQues"
+                                                                [items]="alternateList" bindLabel="name"
+                                                                placeholder="Select Alternate Question" bindValue="value"
+                                                                [searchable]=false name="alternateQues_{{i}}" id="alternateQues_{{i}}" (clickOutside)="closeDropDown($event)">
+
+                                                                <ng-template ng-option-tmp let-item="item">
+                                                                    <span 
+                                                                        style="text-transform: capitalize">{{item.name}}</span>
+                                                                </ng-template>
+
+                                                                <ng-template ng-label-tmp let-item="item">
+                                                                    <span *ngIf="item.name"
+                                                                        style="text-transform: capitalize">
+                                                                        {{item.name}}</span>
+                                                                    <span *ngIf="!(!!item.name)"
+                                                                        style="color: #999999;"> Select Alternate
+                                                                        Question
+                                                                    </span>
+                                                                </ng-template>
+                                                            </ng-select>
+                                                        </div>
+                                                    </td>
+                                                <!--DELETE ROW-->
+                                                    <td (click)="deleteRow(i);"
+                                                        [ngClass]="{'custom-disabled':  !item.isChecked || item.checkboxSpan != 0 }">
+                                                        <div class="remove"><a style="cursor:pointer"><img
+                                                                    src="assets/images/icons/remove.svg"
+                                                                    alt="remove row" /></a></div>
+                                                    </td>
+
+                                                    <td [attr.rowspan]="item.checkboxSpan" *ngIf="item.checkboxSpan"
+                                                        class="addques h-100">
+                                                        <div class="addquestion m-auto"
+                                                            [ngClass]="{'custom-disabled':  !item.isChecked }"><a
+                                                                style="cursor: pointer;"
+                                                                (click)="addNewRowwithSpan(item,i);this.countQuestion(1);this.countTotalMark(1, 1);">Add
+                                                                Que. Set</a></div>
+                                                    </td>
+                                                </ng-container>
+                                            </tr>
+                                            <!-- </form> -->
+
+                                        <tbody>
+                                            <tr class="border-0">
+                                                <td class="tablespace"></td>
+                                            </tr>
+                                        </tbody>
+                                        <tbody>
+                                            <tr class="border-0">
+                                                <td colspan="10">
+                                                    <span class="error-container">
+                                                        <strong>Required Data:</strong>
+                                                        <span class="steptext">
+                                                            Nature selection, Total no. of ques, Total no. of marks, Chapter selection
+                                                        </span>
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="row m-0">
+                                <div class="col-lg-12 col-md-12 my-3">
+                                    <span class="error-container" *ngIf="totalTime < 1">*Please enter time to "proceed
+                                        paper".</span>
+                                    <button *ngIf="!isEdit && isfirsttimesavenature" type="button" id="saveProceedWorksheet_btn"
+                                        class="btn saveProceedWorksheet-btn float-right h-100"
+                                        (click)="Openconfirmation()" [disabled]="!isFormValid || (checkenablebtn==0)">Save and Proceed</button>
+
+                                        <button *ngIf="!isEdit && !isfirsttimesavenature" type="button" id="saveProceedWorksheet_btn"
+                                        class="btn saveProceedWorksheet-btn float-right h-100"
+                                        (click)="saveAndProceed()" [disabled]="!isFormValid || (checkenablebtn==0)">Save and Proceed</button>
+
+                                    <button *ngIf="isEdit" type="button" id="saveProceedWorksheet_btn"
+                                        class="btn saveProceedWorksheet-btn float-right h-100" [disabled]="!isFormValid || (checkenablebtn==0)"
+                                        (click)="saveAndProceed()">Update and Proceed</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-md" id="timeconfirmation"  bsModal #timeconfirmation="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" >
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+              <h4 class="modal-title " >Please Confirm </h4>
+                <!-- <button type="button"  class="close float-left pt-1" style="margin-top: -2px;" data-dismiss="modal" aria-label="Close" (click)="closeModal()"><span aria-hidden="true">&times;</span></button> -->
+            </div>
+            <div class="modal-body text-center">
+              <p class="text-left">Time is set to {{totalTime}} minutes. Do you wish to change?</p>
+              <div class="col-md-12 col-lg-12 p-0">
+                  <button type="button" class="btn btn-yes float-right ml-2"
+                  (click)="changetotaltime()">Yes</button>
+                  <button type="button" class="btn btn-no float-right ml-2"
+                      (click)="closeModalsaveData()">No</button>
+              </div>
+          </div>
+    </div><!-- modal-dialog -->
+  </div><!-- modal -->
+  </div>
+
+<style>
+    .custom-disabled {
+        opacity: 0.5 !important;
+        cursor: not-allowed;
+        pointer-events: none;
+
+    }
+
+    .error {
+        border: 1px solid rgb(184, 68, 32) !important;
+    }
+
+    .error-container {
+        color: rgb(184, 68, 32);
+    }
+</style>

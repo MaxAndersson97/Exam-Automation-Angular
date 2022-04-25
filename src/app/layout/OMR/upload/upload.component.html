@@ -1,0 +1,194 @@
+
+<div class="container-fluid p-0 d-none">
+  <div class="row">
+      <div class="col-md-12 col-lg-12">
+          <div class="m-3">
+              <div class="col-lg-12 col-md-12 p-0">
+                  <h2 class="top-header mb-3 pl-1">Upload Multiple Student OMR Answersheet</h2>
+              </div>
+              <div class="col-lg-12 col-md-12 p-0">
+                  <div class="row">
+                      <div class="col-md-9 col-9">
+                          <div class="csv-left">
+                              <div class="col-12 col-md-12">
+                                  <div class="row py-3 tborder">
+                                  </div>
+                              </div>
+                              <div class="csv-right col-12 col-md-12">
+                                <div class="col-12 col-md-12 tborder">
+                                    <p class="texthead m-0 py-4 ">Upload OMR Sheet</p>
+                                </div>
+                                <div id="dvImportSegments" class="fileupload mx-auto text-center p-4">
+                                    <input type="file" name="File Upload" id="txtFileUpload"  accept=".png, .jpg, .jpeg, .zip" (change)="changeListener($event); preview($event.target.files)" />
+                                    <div class="csv-edit">
+                                        <label for="csupload">
+                                            <div id="csv" class="csv">
+                                                <img *ngIf="!image_upload" class="mt-3"
+                                                    src="assets/images/csv-importer.svg" alt="csv uploader" />
+                                                <span *ngIf="image_upload" class="mt-3" >
+                                                  <img [src]="imgURL" alt="" *ngIf="!!imgURL" width ="60px;">
+                                                </span>
+                                            </div>
+                                        </label>
+                                        <p *ngIf="!filename" class="csv-upload-text mb-0 mt-4">Drag or Click here <br/>to browse the
+                                            .jpg, .jpeg, .zip file</p>
+                                        <p *ngIf="filename" class="csv-upload-text mb-0 mt-5">{{data.file.name}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                    <div class="m-0 py-4">
+                                        <button type="button" id="upload_and_proceedcsv" (click)="onUploadAndProceed()"
+                                            [disabled]="!(data && data1)"
+                                            class="btn uploadproceedcsv-btn float-right">Upload and
+                                            Proceed</button>
+                                    </div>
+                                </div>
+                            </div>
+                   </div>
+                      </div>
+                      <div class="col-md-3 col-3 pl-0">
+
+                   </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</div>
+
+
+
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="m-3">
+                <div class="col-lg-12 col-md-12 p-0">
+                    <h2 class="top-header mb-3 pl-1">Upload OMR Answer Sheets</h2>
+                    <!-- <h4>Class {{data.ClassName}}  <span>Section {{data.SectionName}} </span></h4> -->
+                    <div _ngcontent-siq-c16="" class="steptext my-2"><strong>Note:</strong> After the OMR file/s are uploaded successfully, it will take couple of minutes to provide you with the results. Kindly refresh the pages after some time. </div>
+                </div>
+                <div class="col-lg-12 col-md-12 p-0">
+                    <div class="row">
+                        <div class="col-md-9 col-9">
+                            <div class="csv-left">
+                                <div class="col-12 col-md-12">
+                                    <div class="row py-3 tborder">
+                                        <div class="col-12 col-md-12">
+                                            <p class="texthead m-0 py-2">This feature allows you to Upload the OMR Sheets of multiple students simultaneously. 
+                                              </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                    <div class="row py-3 ">
+                                        <div class="col-12 col-md-12">
+                                            <p class="texthead m-0 pl-1 py-2">Follow the steps</p>
+                                            <div class="row mt-3">
+                                                <div class="col-md-1 col-1 pr-0">
+                                                    <div class="stepnum text-center pt-2 m-auto">1</div>
+                                                    <div class="btwborder"></div>
+                                                </div>
+                                                <div class="col-md-11 col-11">
+                                                    <div class="steptext mt-2">Click on the download button on Assign Exam Screen to download OMR Answer Sheet.</div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-1 col-1 pr-0">
+                                                    <div class="stepnum text-center pt-2 m-auto">2</div>
+                                                    <div class="btwborder"></div>
+                                                </div>
+                                                <div class="col-md-11 col-11">
+                                                    <div class="steptext mt-2">Upload the OMR sheets ZIP or a single sheet</div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-1 col-1 pr-0">
+                                                    <div class="stepnum text-center pt-2 m-auto">3</div>
+                                                </div>
+                                                <div class="col-md-11 col-11">
+                                                    <div class="steptext mt-2">Click the Upload and Proceed button.
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>                                 
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-3 pl-0">
+                            <div class="csv-right">
+                                <div class="col-12 col-md-12 tborder">
+                                    <p class="texthead m-0 py-4 ">Upload CSV File</p>
+                                </div>
+  
+                                <div id="dvImportSegments" class="fileupload mx-auto text-center p-4">
+                                    <input type="file" name="File Upload" id="txtFileUpload"  accept=".png, .jpg, .jpeg, .zip" (change)="changeListener($event); preview($event.target.files)" />
+                                    <div class="csv-edit">
+  
+                                        <label for="csupload">
+                                            <div id="csv" class="csv">
+                                                <img *ngIf="!image_upload" class="mt-3"
+                                                    src="assets/images/csv-importer.svg" alt="csv uploader" />
+                                                <span *ngIf="image_upload" class="mt-3" >
+                                                  <!-- <i class="fa fa-file-archive-o " aria-hidden="true"></i> -->
+                                                  <img [src]="imgURL" alt="" *ngIf="!!imgURL" width ="60px;">
+                                                </span>
+                                            </div>
+                                        </label>
+                                        <p *ngIf="!filename" class="csv-upload-text mb-0 mt-4">Drag or Click here <br/>to browse the
+                                            .jpg, .jpeg, .zip file</p>
+                                        <p *ngIf="filename" class="csv-upload-text mb-0 mt-4">{{data.file.name}}</p>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-12">
+                                    <div class="m-0 py-4">
+                                        <button type="button" id="upload_and_proceedcsv" (click)="onUploadAndProceed()"
+                                            [disabled]="!(data && data1)"
+                                            class="btn uploadproceedcsv-btn float-right w-100">Upload and
+                                            Proceed</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+
+
+  <!-- <div [class.hidden]="!show">
+    <div class="loader-overlay">
+      <div *ngIf="show" class="loader"></div>
+    </div>
+  </div> -->
+  <div *ngIf="show" class="upload_loader">
+  <!-- <div class="sk-chase" *ngIf="show">
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+    <div class="sk-chase-dot"></div>
+  </div> -->
+  <div class="progress form-group " *ngIf="progress > 0">
+    <div class="progress-bar progress-bar-striped active"  role="progressbar" [style.width.%]="progress">
+        {{progress}}%
+    </div>
+    </div>
+  
+</div>
+
+<style>
+  .fa-file-archive-o{
+    
+    font-size: 60px;
+    color: #5C67E6;
+  }
+  .steptext{
+    color: #3A5077;
+    font-size: 14px;
+    line-height: 21px;
+  }
+</style>

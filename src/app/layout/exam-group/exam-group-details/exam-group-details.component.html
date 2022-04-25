@@ -1,0 +1,101 @@
+<div id="page-content-wrapper">
+
+
+  <div class="container-fluid p-0">
+          <div class="row">
+              <div class="col-md-12 col-lg-12">
+                  <div class="exam-group-row  mx-5 my-4">
+                      <div class="col-lg-12 col-md-12 pl-0">
+                          <h2 class="top-header mb-3">Exam Setup</h2>
+                      </div>
+                      <div class="row">
+                          <div class="col-md-4 col-lg-4">
+                              <div class="exam-groups mb-4">
+                                  <div class="col-md-12">
+                                      <div class="py-2 px-3 row">
+                                          <div class="col-12 p-0">
+                                              <div class="circle mx-auto mt-3" (click)="navigateToDasboard()"></div>
+                                              <h5 class="class_range text-center">Add Exam Group</h5>
+                                              <p class="w_sectiontext text-center">Create new exam group</p>
+                                          </div>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                         <div class="col-md-4 col-lg-4" *ngFor="let group of examgroupDataList; let i = index;">
+                              <div class="exam-groups mb-4">
+                                  <div class="col-md-12 wing-top">
+                                      <div class="p-3 row">
+                                          <div class="col-md-9 pl-0">
+                                              <h3 class="section-header mb-0">{{group.ExamGroupName}}</h3>
+                                          </div>
+                                          <div class="col-md-3 text-right" (click)="changeStatus(group.ExamGroupID); ">
+                                              <a style="cursor: pointer;">
+                                                  <div class="aca_session float-right" [ngClass]="{active: group.ExamGroupStatus == 1}">
+                                                      <div class="inneraca_session"></div>
+                                                  </div>
+                                              </a>
+                                          </div>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-12 wing-top py-2">
+                                      <p class="Institute-code-text my-2">Institute Code</p>
+                                      <p class="Institute-code my-2">{{group.ExamGroupCode}}</p>
+                                  </div>
+                                  <div class="col-md-12 text-center">
+                                      <p class="edit-group-link my-2"><a data-toggle="modal" data-target="#editExamGroup" (click)="openEditModal(i)">Edit Group</a></p>
+                                  </div>
+                              </div>
+                          </div>                       
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+</div>
+<!-- edit exam group modal -->
+
+<div class="modal right fade" id="editExamGroup" bsModal #editExamGroupModal="bs-modal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header pb-4">
+                <button type="button" class="close float-left pt-1" (click)="closeEditModal()" data-dismiss="modal" aria-label="Close"><span >&times;</span></button>
+                <h4 class="modal-title text-center m-auto" id="AddSectionTeacher_header">Edit Exam Group </h4>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editExamGroupFrm">
+                    <div class="addsection-form  py-2 my-3">
+                        <div class=" col-md-12 col-12 p-0">
+                            <label class="col-md-12 col-sm-12">Exam Name</label>
+                            <div class="form-group col-md-12 col-sm-12 ">
+                                <input id="examName" class="form-control" type="text" name="examName" placeholder="eg. Monthly Test" formControlName="ExamGroupName" required>
+                            </div>
+                            <label class="col-md-12 col-sm-12">Exam code</label>
+                            <div class="form-group col-md-12 col-sm-12">
+                                <input id="examCode" class="form-control" type="text" name="examCode" placeholder="eg. 100001" formControlName="ExamGroupCode" required (keypress)="numberOnly($event)" > 
+                            </div>
+                            <div class="single tog form-group col-md-12 col-12 ">
+                                <div class="exam-group-status">
+                                <a><span>Exam Group Status</span>  
+                                    <label class="switch">
+                                        <input type="checkbox"  formControlName = "ExamGroupStatus"
+                                        [checked]="f.ExamGroupStatus.value == 1" >
+                                        <span class="slider round"></span>
+                                     </label>
+                                </a>
+                            </div>
+                            </div>
+                            <div class="form-group col-md-12 col-sm-12">
+                                <button type="button" id="createexamgroupbtn" data-dismiss="modal" aria-label="Close"  class="btn createexamgroupbtn w-100 mt-1" [disabled] = "editExamGroupFrm.invalid" (click)="updateExamGroup()">Update Exam Group</button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- <div class="modal-footer">
+                    <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+            </div> -->
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div>
+

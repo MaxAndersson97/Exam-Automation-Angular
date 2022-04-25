@@ -1,0 +1,73 @@
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header pb-4">
+            <button type="button" class="close float-left pt-1" aria-label="Close"
+            (click)="close({isRefresh: false})"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title text-center m-auto" id="AddWing_header" *ngIf="!isEdit">Create Template</h4> 
+              <h4 class="modal-title text-center m-auto" id="AddWing_header" *ngIf="isEdit">Update Template</h4> 
+          </div>
+          <div class="modal-body">
+            <form [formGroup]="addTemplateform" >
+                  <h3 class="sectionhead mt-3 px-4">Template Details</h3>
+                  <div class="addWing-form pt-1 px-4 pb-4">
+                    <div class="row addsection-form py-1">
+                        <div class="form-group col-md-12 col-sm-12">
+                            <label class="">Select Class</label>
+                            <ng-select formControlName="ClassID" (click)="getClassId()"
+                                [items]="classesList" placeholder="Select Class"
+                                bindValue="ClassID" [searchable]=false required>
+
+                                <ng-template ng-option-tmp let-item="item">
+                                    <span
+                                        style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                                </ng-template>
+                                <ng-template ng-label-tmp let-item="item">
+                                    <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                        {{item.ClassName.toLowerCase()}}</span>
+                                    <span *ngIf="!(!!item.ClassName)" style="color: #999999;"> Select
+                                        Standard</span>
+                                </ng-template>
+                            </ng-select>
+                            </div>
+                    </div>
+                    <div class="row ">
+                        <div class="form-group col-md-12 col-sm-12">
+                            <label class="">Select Subject</label>
+                            <ng-select formControlName="SubjectID" [items]="subjects" bindLabel="SubjectName"
+                                placeholder="Select Subject" bindValue="SubjectID" [searchable]=false required>
+                                <ng-template ng-option-tmp let-item="item">
+                                    <span
+                                        style="text-transform: capitalize">{{item.SubjectName.toLowerCase()}}</span>
+                                </ng-template>
+                                <ng-template ng-label-tmp let-item="item">
+                                    <span *ngIf="item.SubjectName" style="text-transform: capitalize">
+                                        {{item.SubjectName.toLowerCase()}}</span>
+                                    <span *ngIf="!(!!item.SubjectName)" style="color: #999999;"> Select Standard</span>
+                                </ng-template>
+                            
+                            </ng-select>
+
+
+                        </div>
+                    </div>
+                      <div class="row mb-5 pb-5">
+                          <div class="form-group col-md-12 col-sm-12">
+                              <label class="">Template Name</label>
+                              <input type="text" name="newPassword" class="form-control"  formControlName="Name" placeholder="eg. User Template" id="txtnewPassword" required /> 
+                          </div>
+                      </div>
+                      
+                      <div class="row">
+                          <div class="form-group col-md-12 col-lg-12">
+                              <button *ngIf="!isEdit" type="submit" id="saveAndProceed_btn" (click)="onSubmit()" class="mt-5 btn saveAndProceed-btn w-100 mt-2" [disabled]= "!this.addTemplateform.valid">Save and Proceed</button>
+                              <button *ngIf="isEdit" type="submit" id="saveAndProceed_btn" (click)="onSubmit()" class="mt-5 btn saveAndProceed-btn w-100 mt-2" [disabled]= "!this.addTemplateform.valid">Update and Proceed</button>
+                          </div>      
+                      </div>
+                  </div>
+              </form>
+          </div>
+          <!-- <div class="modal-footer">
+                  <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+          </div> -->
+      </div><!-- modal-content -->
+  </div><!-- modal-dialog -->

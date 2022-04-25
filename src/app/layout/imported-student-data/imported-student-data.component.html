@@ -1,0 +1,327 @@
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <nav aria-label="breadcrumb" class="mx-5 mt-4 ">
+                <ol class="breadcrumb p-0 m-0">
+                    <li class="breadcrumb-item"><a routerLink="/exam/student">Students</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/exam/upload-csv">Upload CSV</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Imported Data</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="mx-5 my-4">
+                <div class="col-lg-12 col-md-12 p-0">
+                    <div class="row">
+                        <div class="col-5 col-md-5">
+                            <h2 class="top-header mb-2">Imported Student Data ({{studentData && studentData.length}})</h2>
+                            
+                        </div>
+                        <div class="col-7 col-md-7 text-right">
+                            <div class="w-100 m-0">
+                                <div class="float-right">
+                                    <button type="button" id="saveandclose" class="btn saveandclose-btn mb-2 mr-2"
+                                        (click)="OnSaveAndCloseClick()" [disabled]="!isFormValid">Save & Close</button>
+                                    <button type="button" id="addnewrow" class="btn addnewrow-btn mb-2 ml-2"
+                                        (click)="onAddNewRow()" [disabled]="!isFormValid">Add New Row</button>
+                                </div>
+                                <div class=" import float-right mr-2">
+                                    <!-- <span class="error">We found 2 Error in the students information</span> -->
+                                    <span class="success" *ngIf="isFormValid">Information looks perfect!</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-12 col-md-12 mb-4">
+                            <div class="top-tag text-center float-left mr-2">Class {{uploadedData.ClassName}}</div>
+                            <div class="Dot mr-2"></div>
+                            <div class="top-tag text-center float-left mr-2">Section {{uploadedData.SectionName}}</div>
+                            <div class="Dot mr-2"></div>
+                            <div class="top-tag text-center float-left mr-2">Academic Year {{uploadedData.AcademicSessionName}}</div>
+                            <!-- <p>Class {{uploadedData.ClassName}} * Section {{uploadedData.SectionName}} * Academic Year {{uploadedData.AcademicSessionName}}</p> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 p-0">
+                    <div class="class_setup imported-data">
+                        <div class="overflow">
+
+                            <table class="w-100">
+                                <thead>
+                                    <tr>
+                                        <th width="">FIRST NAME</th>
+                                        <th width="">MIDDLE NAME</th>
+                                        <th width="">LAST NAME</th>
+                                        <th width="">MOTHER'S NAME</th>
+                                        <th width="">MOBILE NUMBER</th>
+                                        <!-- <th width="">ROLL NUMBER</th> -->
+                                        <th width="">ADMISSION NUMBER</th>
+                                        <!-- <th width="">STANDARD</th> -->
+                                        <th width="">GENDER</th>
+                                        <th width="">BIRTH DATE(DD/MM/YYYY)</th>
+                                        <th width="">ADDRESS</th>
+                                        <!-- <th width="">LANDMARK</th> -->
+                                        <th width="">COUNTRY</th>
+                                        <th width="">STATE</th>
+                                        <th width="">CITY</th>
+                                        <th width="">PINCODE</th>
+                                        <th width="">AADHAR NO.</th>
+                                        <th width="">SECONDARY EMAIL ID</th>
+                                        <th width="">USER NAME</th>
+                                        <th width="">PARENT'S MOBILE NO.</th>
+                                        <!-- <th width="">PROVIDE RELATIONSHIP</th>
+                                                <th width="">PARENT'S LAST NAME</th>
+                                                <th width="">PARENT'S FIRST NAME</th>
+                                                <th width="">PARENT'S Middle NAME</th>
+                                                <th width="">PARENT'S MOBILE NO.</th>
+                                                <th width="">PARENT'S EMAIL ID</th>
+                                                <th width="">PARENT'S ADDRESS</th>
+                                                <th width="">PARENT'S LANDMARK</th>
+                                                <th width="">PARENT'S COUNTRY</th> 
+                                                <th width="">PARENT'S STATE</th>
+
+                                                <th width="">PARENT'S CITY</th>
+                                                <th width="">PARENT'S PINCODE</th>
+                                                <th width="">PARENT'S NO.</th> -->
+
+
+                                        <th class="delete_col">
+                                            <div class="remove"></div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    
+                                    <tr class="" *ngFor="let student of studentData; let i=index"
+                                        [ngClass]="{'errorInStudentInfo': !student.isRowValid}">
+                                        <td [ngClass]="{'error': !student.isFirstNameValid}">
+                                            <input type="text" name="name" class="form-control"
+                                                [(ngModel)]="student.Name" placeholder="" id="txtFirstName" (keydown.space)="$event.preventDefault()"
+                                                (blur)="changeFirstName(student.Name, i)" minlength="3" />
+
+                                            <span class="text-danger" *ngIf="!student.isFirstNameValid"
+                                                style="font-size: 12px; white-space: nowrap;">{{student.FirstNameErrorMessage}}
+                                                <i class="fa fa-info-circle" popover="{{firstLastnameInstruction}}"
+                                                    *ngIf="!student.isFirstNameNew" triggers="mouseenter:mouseleave">
+                                                </i>
+                                            </span>
+                                        </td>
+                                        
+
+                                        <td><input type="text" name="MiddleName" class="form-control" placeholder=""
+                                                id="txtMiddleName" [(ngModel)]="student.MiddleName" /></td>
+
+                                        <td [ngClass]="{'error': !student.isLastNameValid}">
+                                            <input type="text" name="LastName" class="form-control"
+                                                [(ngModel)]="student.LastName" placeholder="" id="txtLastName"
+                                                (blur)="changeLastName(student.LastName, i)" minlength="3" />
+                                            <span class="text-danger" *ngIf="!student.isLastNameValid"
+                                                style="font-size: 12px; white-space: nowrap;">{{student.LastNameErrorMessage}}
+                                                <i class="fa fa-info-circle" *ngIf="!student.isLastNameNew"
+                                                    popover="{{firstLastnameInstruction}}"
+                                                    triggers="mouseenter:mouseleave"></i>
+                                            </span>
+                                        </td>
+
+                                     
+                                        <td><input type="text" name="MothersName" class="form-control" placeholder=""
+                                                id="txtMothersName" [(ngModel)]="student.MotherName" /></td>
+
+                                        <td [ngClass]="{'error': !student.isMobileValid}">
+                                            <input type="text" name="Mobile" class="form-control"
+                                                [(ngModel)]="student.Mobile" placeholder=""
+                                                (keypress)="numberOnly($event)" id="txtMobile"
+                                                (blur)="onChangeMobile(student.Mobile, i)" maxlength="10" />
+                                            <span class="text-danger" style="font-size: 12px; white-space: nowrap;"
+                                                *ngIf="!student.isMobileValid">{{student.mobileErrorMessage}} <i
+                                                    *ngIf="!student.isMobileValid" class="fa fa-info-circle"
+                                                    popover="{{phoneInstruction}}"
+                                                    triggers="mouseenter:mouseleave"></i></span>
+                                        </td>
+                                       
+                                        <!-- <td [ngClass]="{'error': !student.isRollNoValid}"><input type="text"
+                                            name="RollNo" class="form-control" placeholder="" id="txtRollNo"
+                                            [(ngModel)]="student.CurrentRollNumber" (change)="numberOnly($event)"
+                                            (blur)="changeCurrentRollNumber(student.CurrentRollNumber, i)" />
+                                        <span class="text-danger" *ngIf="!student.isRollNoValid"
+                                            style="font-size: 12px; white-space: nowrap;">{{student.RollNoValidErrorMessage}}
+                                            <i class="fa fa-info-circle" *ngIf="!student.isRollNoValidNew"
+                                                popover="{{rollnoInstruction}}"
+                                                triggers="mouseenter:mouseleave"></i>
+                                        </span>
+                                    </td> -->
+
+                                       <td [ngClass]="{'error': !student.isAdmissionNoValid}"><input type="text"
+                                                name="AdmissionNo" (change)="numberOnly($event)" class="form-control"
+                                                placeholder="" id="txtAdmissionNo" [(ngModel)]="student.AdmissionNumber"
+                                                (blur)="changeAdmissionNumber(student.AdmissionNumber, i)" />
+                                            <span class="text-danger" *ngIf="!student.isAdmissionNoValid"
+                                                style="font-size: 12px; white-space: nowrap;">{{student.admissionNoValidErrorMessage}}
+                                                <i class="fa fa-info-circle" *ngIf="!student.isAdmissionNoNew"
+                                                    popover="{{admissionInstruction}}"
+                                                    triggers="mouseenter:mouseleave"></i>
+                                            </span>
+                                        </td>
+
+                                        <!-- <td [ngClass]="{'error': !student.isClassNameValid}">
+                                            <div class="single"  >
+                                                <ng-select [(ngModel)]="student.ClassID" [items]="classes" placeholder="Selecet Class"
+                                                    bindValue="ClassID" [searchable]=false (change)="onChangeClass($event, i)">
+                                                    <ng-template ng-option-tmp let-item="item">
+                                                        <span
+                                                            style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                                                    </ng-template>
+                                                    <ng-template ng-label-tmp let-item="item">
+                                                        <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                                            {{item.ClassName.toLowerCase()}}</span>
+                                                        <span *ngIf="!item.ClassName" style="color: #999999;"> Select
+                                                            Class</span>
+                                                    </ng-template>
+                                                    
+                                                </ng-select>
+                                               
+                                            </div>
+                                            <span class="text-danger" *ngIf="!student.isClassNameValid"
+                                            style="font-size: 12px;">{{student.ClassNameErrorMessage}} </span>
+                                        </td> -->
+
+                                        <td>
+                                            <div class="single">
+                                                <ng-select name="Gender" [items]="genders" bindLabel="name" placeholder="Selecet Gender"
+                                                    bindValue="name" [searchable]=false [(ngModel)]="student.Gender">
+                                                    <ng-template ng-option-tmp let-item="item">
+                                                        {{item.name}}
+                                                    </ng-template>
+                                                    <ng-template ng-label-tmp let-item="item">
+                                                        <span *ngIf="item.name"> {{item.name}}</span>
+                                                        <span *ngIf="!item.name" style="color: #999999;"> Select
+                                                            Gender</span>
+                                                    </ng-template>
+                                                </ng-select>
+                                            </div>
+                                        </td>
+                                        <!-- nxn start  -->
+                                        <td>
+                                            <!-- <input type="text" name="DOB" class="form-control" placeholder=""
+                                            id="DOB" [(ngModel)]="student.DOB" /> -->
+                                            <input type="text" value="" [(ngModel)]="student.DOB"  placeholder=""  name="DOB"
+                                                class="form-control bg-white" #dp="bsDatepicker" bsDatepicker [maxDate]="maxDate" readonly="true"
+                                                [bsConfig]="{ dateInputFormat: 'DD/MM/YYYY' }" />
+                                        </td>
+                                         <!-- nxn end  -->
+
+                                           <td ><input type="text" name="Address" class="form-control" placeholder=""
+                                                id="Address" [(ngModel)]="student.Address"  (blur)="changeAddress(student.Address, i)"/>
+                                                </td>
+
+                                        <td>
+                                            <ng-select name="StudentCountryID" [items]="countries"
+                                                bindLabel="CountryName" bindValue="CountryName" [searchable]=false
+                                                (change)="onChangeCountry($event, i); validateCountry($event, i)"
+                                                [(ngModel)]="student.CountryName" placeholder="eg. India">
+                                                <ng-template ng-option-tmp let-item="item">
+                                                    {{item.CountryName}}
+                                                </ng-template>
+                                                <ng-template ng-label-tmp let-item="item">
+                                                    <span *ngIf="item.CountryName"> {{item.CountryName}}</span>
+                                                    <span *ngIf="!item.CountryName" style="color: #999999;"> Select
+                                                        Country</span>
+                                                </ng-template>
+                                            </ng-select>
+                                            <span class="text-danger" *ngIf="!student.isCountryNameValid"
+                                                style="font-size: 12px;">{{student.CountryErrorMessage}} </span>
+
+                                        </td>
+                                        <td>
+                                            <ng-select [(ngModel)]="student.StateName" name="StateID" [items]="states" placeholder="Select
+                                            State"                                            bindValue="StateName" [searchable]=false
+                                                (change)="onChangeState($event, i)">
+                                                <ng-template ng-option-tmp let-item="item">
+                                                    {{item.StateName}}
+                                                </ng-template>
+                                                <ng-template ng-label-tmp let-item="item">
+                                                    <span *ngIf="item.StateName"> {{item.StateName}}</span>
+                                                    <span *ngIf="!item.StateName" style="color: #999999;"> Select
+                                                        State</span>
+                                                </ng-template>
+                                            </ng-select>
+                                            <span class="text-danger" *ngIf="!student.isStateNameValid"
+                                                style="font-size: 12px;">{{student.stateErrorMessage}} </span>
+
+                                        </td>
+                                        <td><input type="text" name="City" class="form-control" placeholder="" id="City"
+                                                [(ngModel)]="student.City" /></td>
+
+                                        <td [ngClass]="{'error': !student.isPinValid}">
+                                            <input type="text" name="Pincode" class="form-control"
+                                                [(ngModel)]="student.Pincode" placeholder="" id="txtPincode"
+                                                (blur)="onChangePin(student.Pincode, i)" (keypress)="numberOnly($event)"
+                                                maxlength="6" />
+                                            <span class="text-danger" style="font-size: 12px; white-space: nowrap;"
+                                                *ngIf="!student.isPinValid">{{student.pinErrorMessage}}<i
+                                                    class="fa fa-info-circle" popover="{{pinInstruction}}"
+                                                    triggers="mouseenter:mouseleave"></i></span>
+                                        </td>
+
+                                        <td [ngClass]="{'error': !student.isAadharValid}">
+                                            <input type="text" name="AadharNumber" class="form-control"
+                                                [(ngModel)]="student.AadharNumber" placeholder="" id="txtAadharNumber"
+                                                (blur)="onChangeAadhar(student.AadharNumber, i)"
+                                                (keypress)="numberOnly($event)" maxlength="12" />
+                                            <span class="text-danger" style="font-size: 12px; white-space: nowrap;"
+                                                *ngIf="!student.isAadharValid">{{student.aadharErrorMessage}}<i
+                                                    class="fa fa-info-circle" popover="{{aadharInstruction}}"
+                                                    triggers="mouseenter:mouseleave"></i></span>
+                                        </td>
+                                        <td [ngClass]="{'error': !student.isSecEmailValid}">
+                                            <input type="text" name="SecondaryEmail" class="form-control"
+                                                [(ngModel)]="student.SecondaryEmail" placeholder=""
+                                                id="txtSecondaryEmail" (blur)="onSecEmailChange(student.SecondaryEmail, i)" /> 
+                                                <span class="text-danger" style="font-size: 12px; white-space: nowrap;"
+                                                *ngIf="!student.isSecEmailValid">{{student.secEmailErrorMessage}} </span>
+                                            </td>
+                                        
+                                        <td [ngClass]="{'error': !student.isEmailValid}">
+                                            <input [ngClass]="{'error': !student.isEmailValid}"type="text" name="UserName" class="form-control"
+                                                [(ngModel)]="student.Email" (blur)="changeUserName(student.SecondaryEmail, i)" placeholder=""
+                                                id="txtUserName" /> 
+                                                <span class="text-danger" style="font-size: 12px; white-space: nowrap;"
+                                                *ngIf="!student.isEmailValid">{{student.emailErrorMessage}} </span>
+                                            </td>
+
+
+                                            <td [ngClass]="{'error': !student.isparentcontactValid}">
+                                                <input type="text" name="MobileNumber" class="form-control"
+                                                    [(ngModel)]="student.objParentInfoMember.MobileNumber" placeholder=""
+                                                    (keypress)="numberOnly($event)" id="txtMobileNumber"
+                                                     maxlength="10"
+                                                     (blur)="onChangeMobile1(student.objParentInfoMember.MobileNumber, i)" />
+                                                    
+                                                <span class="text-danger" style="font-size: 12px; white-space: nowrap;"
+                                                    *ngIf="!student.isparentcontactValid">{{student.parentmobileErrorMessage}} <i
+                                                        *ngIf="!student.isparentcontactValid" class="fa fa-info-circle"
+                                                        popover="{{phoneInstruction}}"
+                                                        triggers="mouseenter:mouseleave"></i></span>
+                                            </td>
+
+
+                                        <td class="delete_col">
+                                            <div class="remove" (click)="onDeleteRowClick(student)"><a><img
+                                                        src="assets/images/icons/remove.svg" alt="remove row" /></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <!-- </ng-template> -->
+                                    <!-- </form> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

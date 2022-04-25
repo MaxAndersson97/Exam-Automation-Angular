@@ -1,0 +1,3423 @@
+$color-blue:#5C67E6;
+$color-white: #ffffff;
+$color-dark-blue: #172B4D;
+
+body{
+    font-family: Inter;
+}
+
+.top-header{
+  font-size: 28px;	
+  font-weight: 500;	
+  line-height: 34px;
+  color: $color-dark-blue;
+}
+td{
+  word-break:break-all;
+}
+select option::before{
+  height: 45px;
+}
+.options {
+  height: 45px;
+}
+
+.form-check-input {
+  float: left; 
+  display: block; 
+  margin: 0 10px 0 0; 
+  cursor: pointer; 
+  border: 1px solid #5C67E6;
+  border-radius: 3px; 
+  color: #5C67E6;     
+  width: 20px;
+  height: 20px !important;
+  padding:1px;
+  font-size: 14px;
+}
+.form-check-input.check { background-color: #222; }
+.form-check-label{
+  margin-left:20px;
+}
+.Institute_profile .form-check-input, .class_setup .form-check-input{
+  margin-top:-9px !important;
+  padding: 2px;
+}
+.change-photo a{
+  display: block;
+  color: #8595A6;	
+  font-size: 12px;	
+  font-weight: 600;	
+  line-height: 22px;
+}
+.img-remove a{
+  display: block;
+  color: #8595A6;	
+  font-size: 12px;	
+  font-weight: 600;	
+  line-height: 22px;
+}
+.form-control[readonly]{
+  background: $color-white;
+} 
+button.multiselect{
+  width:100%;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: $color-white;
+}
+.multiselect-native-select .btn-group{
+  width:100%;
+  .dropdown-toggle::after{
+    float:right;
+    margin-top: 8px;
+  }
+}
+.multiselect-selected-text{
+  float:left;
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+.multiselect-container{
+  width: 100%;
+  a{
+    color: #3A5077;
+    font-size: 14px;
+    line-height: 21px;
+  }
+  i.form-check-input{
+  margin-top: 0px !important; 
+  left: 10px;
+  }
+  label{
+    width: 100%;
+    height: 45px !important;
+    padding-top: 12px !important;
+  }
+}
+.single .multiselect-container input{
+  display: none;
+}
+.single .multiselect-container label{
+  padding: 3px 8px;
+}
+.single .multiselect-container li.active{
+  background-color: #F6F7FB !important;
+}
+.single .multiselect-container li:hover{
+  background-color: #F6F7FB !important;
+}
+.single button.multiselect{
+  height: 45px;
+}
+button.multiselect.disabled{
+  background-color: #e9ecef;
+}
+.class_setup .single button.multiselect{
+  height: 36px;
+}
+.class_setup .single .multiselect-container li{
+  height:36px;
+}
+.multiselect-native-select .btn-group .dropdown-toggle::after{
+  color: #3A5077;
+}
+
+// @font-face {
+//   font-family: Sansation;
+//   src: url(../fontawesome/Sansation-Regular.ttf);
+// }
+.login-top-heading {
+  font-family: Sansation !important;
+}
+
+.sidebar-heading{	
+  font-family: Sansation !important;	
+}
+
+.subBookSetupHead button.multiselect .multiselect-selected-text{
+  color: #172B4D;	font-size: 14px;	line-height: 21px;
+}
+/*-------------------------------------------------------------------------------------*/
+/*------------------------------Login page--------------------------*/
+/*------------------------------------------------------------------------------------*/
+.login{
+    .login-top-heading{	
+        color: $color-blue;	
+        font-size: 20px;	
+        font-weight: bold;	
+        line-height: 22px;
+    }
+
+    .login-form, .forgetpass-form, .setup-password{
+        .form-group img{
+            position: absolute;
+            right: 25px;
+            padding: 10px 10px;
+            margin-top: -38px;
+        }
+        label{
+            color: #3A5077;	
+            font-size: 14px;	
+            line-height: 21px;
+        }
+        input{
+            color: #3A5077;	
+            font-size: 14px;	
+            line-height: 21px;
+            height: 45px;
+            border-radius: 2px;
+        }
+        .login-btn, .otp-btn, .verify-proceed-btn{
+            border-radius: 4px;	
+            background-color: $color-blue;
+            color: $color-white;	
+            font-size: 16px;	
+            font-weight: 600;	
+            line-height: 22px;	
+            text-align: center;
+            height: 54px;
+        }
+        .forgot-password, .cancel-link{
+            color: $color-blue;	
+            font-size: 14px;	
+            line-height: 21px;
+            font-weight: 600;
+            cursor: pointer;
+        }
+        .Dont_panic{
+            color: #8595A6;
+            font-size: 12px;	
+            line-height: 20px;
+        }
+    }
+
+    .login-right{
+        background-color: #F6F7FB;
+        img{
+          height: 360px;
+        }
+    }
+    .login-left{
+        background-color: $color-white;
+    }
+    .quick-tip-box{
+        top: -50px;
+        height: 210px;	
+        width: 310px;	
+        border-radius: 4px;	
+        background-color: $color-white;	
+        box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+        position: relative;
+
+        .quick-tip-header h3{
+            color: $color-dark-blue;	
+            font-size: 16px;	
+            font-weight: 600;	
+            line-height: 22px;
+        }
+        .quick-tip-content p{
+            color: #8595A6;	
+            font-size: 17px;	
+            line-height: 24px;
+        }
+    }
+}
+.forgetpass-form{
+    display: none;
+}
+
+.navbar{
+  background: $color-white;
+}
+#sidebar-wrapper{
+  background: $color-white;
+}
+#sidebar-wrappersmall{
+  background: $color-white;
+}
+.quick-tip-left-right .left-quick-tip:hover{
+  text-decoration:none;
+}
+.quick-tip-left-right .left-quick-tip:hover path{
+  fill: $color-blue;
+}
+.quick-tip-left-right .right-quick-tip:hover path{
+  fill: $color-blue;
+}
+/*-------------------------------------------------------------------------------------*/
+/*------------------------------Login page end--------------------------*/
+/*------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------*/
+/*------------------------------institute-profile--------------------------*/
+/*------------------------------------------------------------------------------------*/
+.Institute_profile .main-title{
+    font-size: 21px;	
+    font-weight: 600;	
+    line-height: 27px;
+    color: $color-dark-blue;
+    background: #fff;
+}
+.Institute_profile{
+    box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+    position: relative;
+    height: auto;	
+    width: auto;
+    border-radius: 4px;	
+    .tab-content{
+      background: #fff;
+      height: 100%;
+    }
+}
+
+.Institute_profile .nav-tabs .nav-link{
+  color: #8595A6;	
+  font-family: Inter;	
+  font-size: 16px;	
+  font-weight: 600;	
+  line-height: 22px;
+  border:0;
+  
+}
+.Institute_profile .nav-item{
+  border-bottom: 1px solid  #D1DAE6;
+  border-top: 1px solid  #D1DAE6;
+
+
+  .nav-link:hover{
+    color: $color-blue;
+  }
+  .nav-link path:hover{
+    fill: $color-blue;
+  }
+  .nav-link.active path{
+    fill: $color-blue;
+  }
+  .nav-link.active{
+    color: $color-blue;
+    border-left: 3px solid #5C67E6;
+    border-radius: 0;
+    
+  }
+}
+.Institute_profile .content-right{
+  border-left: 1px solid#D1DAE6;
+}
+.Institute_profile label{
+  color: #3A5077;		
+  font-size: 14px;	
+  line-height: 21px;
+}
+.Institute_profile input, .Institute_profile select{
+  color: #3A5077;	
+  font-size: 14px;	
+  line-height: 21px;
+  border-radius: 0;
+  height: 45px;
+}
+.Institute_profile .saveAndProceed-btn, .Institute_profile .saveAndSubmit-btn{
+  border-radius: 4px;	
+  color: $color-white;	
+  font-size: 16px;	
+  font-weight: 600;	
+  line-height: 22px;	
+  text-align: center;
+  height: 54px;
+  width: 200px;
+  background-color: $color-blue;
+}
+.Institute_profile .you-cannot-edit{
+  color: #8595A6;	
+  font-size: 14px;	
+  line-height: 21px;
+  margin-top: 320px;
+}
+.Institute_profile .you-cannot-edit a{
+  color: $color-blue;
+}
+
+#contactAdministration{
+  .modal-dialog{
+    height: 188px;	
+    width: 400px;	
+    border-radius: 4px;	
+    background-color: $color-white;	
+    box-shadow: 0 0 1px 0 rgba(9,30,66,0.31), 0 4px 8px -2px rgba(9,30,66,0.25);
+  }
+  .modal-title{
+    color: $color-dark-blue;
+    font-size: 21px;	
+    font-weight: 600;	
+    line-height: 27px;
+  }
+  p{
+    color: #3A5077;	
+    font-size: 14px;	
+    line-height: 36px;
+  }
+}
+.dragandDroptextinimg, .dragandDroptextinlogo{
+  color: #8595A6;	
+  font-size: 14px;	
+  line-height: 21px;
+}
+.img-remove, .logo-remove{
+  display: none;
+}
+/*-----------------end-welcome-page----------------*/
+
+/*------------------------class-setup-----------------*/
+.class_setup{
+  background-color: $color-white;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  height: 506px !important;	
+  overflow: scroll;
+  width: auto;
+  border-radius: 4px;
+  td, th{
+    padding: 10px 15px;
+  }
+  tr{
+    border-bottom: 1px solid #D1DAE6;
+  }
+  th{
+    color: #3A5077;	
+    font-size: 12px;	
+    font-weight: 500;	
+    line-height: 18px;
+  }
+  td select{
+    color: #3A5077;		
+    font-size: 14px;	
+    line-height: 21px;
+  }
+  td input , td select{
+    height: 36px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #FFFFFF;
+  }
+  // td a{
+  //   height: 36px;	
+  //   border: 1px solid #D1DAE6;	
+  //   border-radius: 2px;	
+  //   background-color: #FFFFFF;
+  // }
+  td input{
+    color: $color-dark-blue;	
+    font-size: 16px;	
+    line-height: 18px;
+  }
+}
+.addsectionteacher-form{
+  // height: 409px;	
+  //width: 592px;	
+  border: 1px solid #D1DAE6;	
+  border-radius: 4px;	
+  background-color: #FFFFFF;
+  
+    input, select{
+      height: 36px !important;	
+      // width: 254px;	
+    }
+ 
+
+}
+#AddSectionTeacher{
+  overflow: hidden !important;
+  button.save-btn{
+    height: 42px;	width: 165px;	border-radius: 4px;	background-color: #5C67E6;
+    color: #FFFFFF;	font-size: 14px;	font-weight: 600;	line-height: 18px;
+  }
+  tr{
+    border-bottom: 1px solid #D1DAE6;
+  }
+  td .single button.multiselect{
+    height: 36px;		border: 1px solid #D1DAE6;	border-radius: 2px;	background-color: #FFFFFF;
+  }
+  td,  th {
+    padding: 10px 15px;
+  }
+  td input {
+    color: #172B4D;
+    font-size: 16px;
+    line-height: 18px;
+  }
+  td input, td select {
+    height: 36px;
+    border: 1px solid #D1DAE6;
+    border-radius: 2px;
+    background-color: #FFFFFF;
+}
+
+}
+button#addSection{
+  color: $color-white;	
+  font-size: 14px;	
+  font-weight: 600;	
+  height: 42px;	
+  width: 145px;	
+  border-radius: 4px;	
+  background-color: $color-blue;
+}
+
+#AddSection .modal-dialog{
+  width: 400px;
+}
+
+.addSectionBtn{
+  line-height: 18px;
+  color: $color-white;	
+  font-size: 14px;	
+  font-weight: 600;	
+  height: 42px;	
+  width: 145px;	
+  border-radius: 4px;	
+  background-color: $color-blue;
+}
+
+.class_setup .single.tog button{
+  height: 36px;	
+  border: 1px solid #D1DAE6;	
+  border-radius: 2px;	
+  background-color: $color-white;
+  color: #3A5077;
+  font-size: 14px;	
+  line-height: 21px;	
+  text-align: left;
+  
+}
+.class_setup .single.tog button::after{
+  margin-top:8px;
+  float: right;
+}
+.class_setup .single.tog ul li:hover{
+  background: #F6F7FB;
+}
+
+.class_setup .single.tog ul li{
+  height: 45px; padding: 10px !important; 
+  a{
+    color: #3A5077;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+.class_setup{
+  .single.tog .switch {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 12px;
+    top: 8px;
+    float: right;
+  }
+  
+  .single.tog .switch input { 
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  
+  .single.tog .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #fff;
+    -webkit-transition: .4s;
+    transition: .4s;
+    border:1px solid #5C67E6;
+  }
+  
+  .single.tog .slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: -3px;
+    bottom: -2px;
+    -webkit-transition: .4s;
+    transition: .4s;
+    background: #5C67E6;
+    
+  }
+  
+  .single.tog input:checked + .slider {
+    background-color: #fff;
+    border:1px solid #5C67E6;
+  }
+  
+  .single.tog input:focus + .slider {
+    box-shadow: 0 0 1px #2196F3;
+    
+  }
+  
+  .single.tog input:checked + .slider:before {
+    -webkit-transform: translateX(15px);
+    -ms-transform: translateX(15px);
+    transform: translateX(15px);
+  }
+  
+  /* Rounded sliders */
+  .single.tog .slider.round {
+    border-radius: 34px;
+  }
+  
+  .single.tog .slider.round:before {
+    border-radius: 50%;
+  }
+}
+
+.worksheets.cherrypickQuestion{
+  .total_marks{
+    width: 108px; 
+  }
+  .border-left{
+    border-right: 1px solid #D1DAE6;
+    .overflow{
+      height: 538px;
+      overflow-x: auto;
+    }
+  }
+  .total_marksedit{
+    height: 27px;
+    width: 145px;
+    border: 1px solid #D1DAE6;
+    border-radius: 2px;
+    background-color: #ffffff;
+    
+    .total_marksedit input{
+      color: #3A5077;
+      font-size: 12px;
+      font-weight: 500;
+      line-height: 18px;
+      border: 0px;
+      width: 100px;
+      height: 17px;
+      
+    }
+    a{
+      color: #5C67E6 !important;
+      font-size: 12px !important;
+      font-weight: 500 !important;
+      line-height: 18px !important;
+    }
+  }
+  .Suggested-ques{
+    padding: 24px 0px;
+    a{
+      color: #5C67E6;font-size: 14px;	line-height: 21px;	text-align: right;
+    }
+    .add_section a{
+      color: #5C67E6;font-size: 14px;	line-height: 21px;	text-align: right;
+    }
+    .add_section p{
+        margin-top:-4px;
+    }
+  }
+  .Suggested-ques.right{
+    border-bottom: 1px solid #D1DAE6;
+  }
+  .question-block{
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+    box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+    background-color: #FFFFFF;	box-shadow: 0 1px 0 0 #D1DAE6;
+    border-top:1px solid #D1DAE6;
+    .questionNum{
+      color: $color-dark-blue;	font-size: 16px;	font-weight: 600;	line-height: 22px;
+    }
+    .question{
+      color: #3A5077;	font-size: 14px;	line-height: 21px;
+    }
+    .ques-tag{
+      color: $color-dark-blue;	font-size: 12px;	font-weight: 600;	line-height: 18px;
+    }
+    .Dot{
+      height: 4px;
+      width: 4px;
+      background-color: #172B4D;
+      border-radius: 50%;
+      display: inline-block;
+      margin-top: 8px;
+    }
+    .marks-col{
+      height: 28px;	width: 81px;	border: 1px solid #3A5077;	border-radius: 2px;	background-color: #FFFFFF;
+      color: #3A5077;	font-size: 12px;	line-height: 20px;
+      .counternum{
+        height: 26px;
+        width: 78px;
+        border: 0px solid #3A5077;
+        border-radius: 2px;
+        background-color: #FFFFFF;
+        color: #3A5077;
+        font-size: 12px;
+        line-height: 20px;
+      }
+    }
+    .chapter{
+      color: $color-dark-blue;	font-size: 12px;	font-weight: 600;	line-height: 18px;
+    }
+  }
+  .bottom-btn{
+    border-top: 1px solid #D1DAE6;
+  }
+  .No-Question{
+    h3{
+      color: #172B4D;	font-size: 28px;	font-weight: 500;	line-height: 34px;	text-align: center;
+    }  
+    p{
+      color: #8595A6; font-size: 17px;	line-height: 24px;	text-align: center;
+    }
+  }
+}
+#createQuestionModal{
+  right: 595px;
+  .modal-content {
+    width: 605px;
+  }
+  textarea{
+    height: 90px !important;	width: 562px;	border: 1px solid #D1DAE6;	border-radius: 2px;	background-color: #FFFFFF;
+    color: #8595A6;
+    font-size: 14px;
+    line-height: 21px;
+    border-radius: 0;
+    height: 45px;
+    padding: .375rem .75rem;
+  }
+  .question-have{
+    height: 45px;	border: 1px solid #D1DAE6;	border-radius: 2px;	background-color: #FFFFFF; padding: 8px;
+    a{
+      color: #3A5077;	font-family: Inter;	font-size: 14px;	line-height: 21px;
+    }
+    .single.tog .switch {
+        position: relative;
+        display: inline-block;
+        width: 25px;
+        height: 12px;
+        top: 8px;
+        float: right;
+    }
+      
+    .single.tog .switch input { 
+        opacity: 0;
+        width: 0;
+        height: 0;
+    }
+      
+    .single.tog .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #fff;
+        -webkit-transition: .4s;
+        transition: .4s;
+        border:1px solid #5C67E6;
+    }
+      
+    .single.tog .slider:before {
+        position: absolute;
+        content: "";
+        height: 14px;
+        width: 14px;
+        left: -3px;
+        bottom: -2px;
+        -webkit-transition: .4s;
+        transition: .4s;
+        background: #5C67E6;
+        
+    }
+    
+    .single.tog input:checked + .slider {
+        background-color: #fff;
+        border:1px solid #5C67E6;
+    }
+      
+    .single.tog input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+        
+    }
+      
+    .single.tog input:checked + .slider:before {
+        -webkit-transform: translateX(15px);
+        -ms-transform: translateX(15px);
+        transform: translateX(15px);
+    }
+      
+    /* Rounded sliders */
+    .single.tog .slider.round {
+        border-radius: 34px;
+    }
+      
+    .single.tog .slider.round:before {
+        border-radius: 50%;
+    }
+  }
+  .addQuestionBtn{
+    color: #FFFFFF;	font-family: Inter;	font-size: 16px;	font-weight: 600;	line-height: 22px;	text-align: center;
+    height: 54px;	width: 557px;	border-radius: 4px;	background-color: #5C67E6;
+  }
+  .bottombtn{
+    background-color: #F6F7FB;height: 86px; padding: 12px 0px; border-top:1px solid #D1DAE6;
+
+  }
+}
+/*-------------------------end class setup---------------*/
+
+
+
+/*-----------------wing-setup--------------*/
+.wing_setup{
+  background-color: $color-white;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  height: 660px;		
+  width: auto;
+  border-radius: 4px;
+  .createaWing-btn{
+    border-radius: 4px;	
+    color: $color-white;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;	
+    height: 54px;
+    width: 200px;
+    background-color: $color-blue;
+  }
+  .createaWing-content .createaWing-header{
+    color: $color-dark-blue;	
+    font-size: 28px;	
+    font-weight: 500;	
+    line-height: 34px;
+  }
+  .createaWing-content .createaWing-description{
+    color: #8595A6;	
+    font-size: 17px;	
+    line-height: 24px;	
+  }
+  .wing-img{ 
+    width: 394px;
+  }
+}
+.circle {
+  border-radius: 50%;
+  height: 84px;	
+  width: 84px;	
+  background-color: rgba(1,202,133,0.1);
+  position: relative;
+}
+.circle::after {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #01CA85;
+  height: 5px;
+  top: 48%;
+  left: 25px;
+  right: 25px;
+  z-index: 9;
+}
+.circle::before {
+  content: " ";
+  position: absolute;
+  display: block;
+  background-color: #01CA85;
+  width: 5px;
+  left: 48%;
+  top: 25px;
+  bottom: 25px;
+  z-index: 9;
+}
+
+
+#AddWing .createwing-btn{
+  height: 42px;
+  border-radius: 4px;	
+  background-color: $color-blue;
+  color: $color-white;	
+  font-size: 14px;	
+  font-weight: 600;	
+  line-height: 18px;	
+  text-align: center;
+}
+
+.wing_row{
+  width: auto;
+  .wing{
+    height: 200px;	
+    border-radius: 4px;	
+    background-color: #FFFFFF;
+    box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+    .section-header{
+      color: $color-dark-blue;
+      font-size: 19px;	
+      font-weight: 600;	
+      line-height: 27px;
+    }
+    .wing-top{
+      border-bottom: 1px solid #F6F7FB;
+    }
+    .class-rangehead, .class-WingHeadText{
+      color: #8595A6;	
+      font-size: 12px;	
+      line-height: 18px;
+    }
+    .w_sectiontext{
+      color: #8595A6;	
+      font-size: 14px;	
+      line-height: 18px;
+    }
+    .class_range, .class-WingHeadName{
+      color: $color-dark-blue;
+      font-size: 15px;	
+      font-weight: 600;	
+      line-height: 22px;
+    }
+    .w-backg{
+      height: 60px;		
+      border-radius: 4px;	
+      background-color: #F6F7FB;
+    }
+  }
+  
+  .wing .single ul li:hover{
+      background: #F6F7FB;
+  }
+  .wing .single ul li{
+    height: 45px;	padding: 10px;
+    a{
+      color: #3A5077;	
+      font-size: 14px;	
+      line-height: 21px;
+    }
+  }
+  .wing .single .dropdown-toggle{
+    cursor: pointer;
+  }
+  .wing .single a.dropdown-toggle::after{
+    display: none !important;
+  }
+  .wing .single.drop ul.dropdown-menu{
+    left: -72px !important;
+  }
+}
+
+.modal#deleteWingModal{
+  .modal-content{
+    height: 199px;	
+    width: 400px;	
+    border-radius: 4px;	
+    background-color: #FFFFFF;	
+    box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  }
+  .modal-header{
+    border: 0px;
+    h4{
+      color: #172B4D;	
+      font-size: 21px;	
+      font-weight: 600;	
+      line-height: 27px;
+    }
+  }
+  .modal-body{
+    border: 0px;
+    p{
+      color: #3A5077;	
+      font-size: 14px;	
+      font-weight: 500;	
+      line-height: 21px;
+    }
+    button.yes-btn{
+      height: 42px;	width: 96px;	border-radius: 4px;	background-color: #01CA85;
+      color: #FFFFFF;	font-size: 14px;	font-weight: 600;	line-height: 18px;	text-align: center;
+    }
+    button.no-btn{
+      height: 42px;	width: 96px;	border-radius: 4px;	background-color: #5C67E6;
+      color: #FFFFFF;	font-size: 14px;	font-weight: 600;	line-height: 18px;	text-align: center;
+    }
+  }
+}
+.validation-error{
+  box-sizing: border-box;	
+  height: 65px;	
+  width: 361px;	
+  border: 1px solid #E52254;	
+  border-radius: 2px;	
+  background-color: #FFFFFF;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: absolute;
+  right: 50px;
+  padding: 12px 0px;
+  p{
+    color: #E52254;	font-size: 14px;	line-height: 20px;
+  }
+  .close a{
+    color: #E52254; width: 13%; float:left;font-weight: 500; opacity:1;
+  }
+  .close{
+    opacity: 1;
+  }
+  .img{
+    width: 13%; float:left;
+    path{
+      fill:#E52254;
+    }
+  }
+  .desc{
+    width: 74%; float:left;
+  }
+
+}
+.validation-success{
+  box-sizing: border-box;	
+  height: 65px;	
+  width: 361px;	
+  border: 1px solid #69BB10;	
+  border-radius: 2px;	
+  background-color: #FFFFFF;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: absolute;
+  right: 440px;
+  padding: 12px 0px;
+  p{
+    color: #69BB10;	font-size: 14px;	line-height: 20px;
+  }
+  .close a{
+    color: #69BB10; width: 13%; float:left;font-weight: 500; opacity:1;
+  }
+  .close{
+    opacity: 1;
+  }
+  .img{
+    width: 13%; float:left;
+    path{
+      fill:#69BB10;
+    }
+  }
+  .desc{
+    width: 74%; float:left;
+  }
+}
+/*************modal*********************/
+
+.modal.right .modal-dialog {
+  position: fixed;
+  margin: auto;
+  width: 400px;
+  height: 100%;
+  -webkit-transform: translate3d(0%, 0, 0);
+      -ms-transform: translate3d(0%, 0, 0);
+       -o-transform: translate3d(0%, 0, 0);
+          transform: translate3d(0%, 0, 0);
+  .modal-content {
+    border-radius: 0px;
+  } 
+  .modal-header .close{
+    margin: 0px;
+    padding-top: 0px;
+    position: absolute;
+    left: 22px;
+  }
+  .modal-title{
+    height: 22px;
+    color: $color-dark-blue;	
+    font-family: Inter;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 35px;	
+    text-align: center;
+  }
+}
+.modal{
+  th{
+    color: #3A5077;	
+    font-size: 12px;
+    line-height: 21px; font-weight: 500;
+  }
+  label{
+    color: #3A5077;	
+    font-size: 14px;
+    line-height: 21px;
+  }
+  select,  input{
+    height: 45px;	
+    //width: 352px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: $color-white;
+    color: #3A5077;		
+    font-size: 14px;
+  }
+}
+.modal.right .modal-content {
+  height: 100%;
+  overflow-y: auto;
+}
+
+.modal.right .modal-body{
+  padding: 0px 15px;;
+}
+.modal.right{
+right: 383px;
+left:auto;
+top:-1px;
+}   
+/*Right*/
+.modal.right.fade .modal-dialog {
+  //right: -320px;
+  -webkit-transition: opacity 0.3s linear, right 0.3s ease-out;
+     -moz-transition: opacity 0.3s linear, right 0.3s ease-out;
+       -o-transition: opacity 0.3s linear, right 0.3s ease-out;
+          transition: opacity 0.3s linear, right 0.3s ease-out;
+}
+
+#AddSectionTeacher .modal-content{
+  width: 640px;
+}
+#AddSectionTeacher{
+  right: 628px;
+}
+
+/***************end-modal**************/
+
+/*-----------------end-wing-setup-----------*/
+
+/*--------------------Academic year--------------*/
+.studentUsingPortal img{
+  height: 20px;	width: 56px;
+}
+.total_studentin_school{
+  font-size: 9px;	
+  font-weight: bold;	
+  line-height: 14px;
+  color: $color-dark-blue;
+}
+.students_using_portal{
+  font-size: 9px;	
+  font-weight: bold;	
+  line-height: 14px;
+  color: $color-dark-blue;
+}
+
+.aca_session{
+  width : 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #BFCDDA;	
+  background-color: #FFFFFF;
+  .inneraca_session{
+    height: 12px;
+    width: 12px;
+    background-color: #BFCDDA;
+    border-radius: 50%;
+    margin: 3px auto;
+  }
+}
+.active.aca_session{	
+  background-color: #69BB10;
+  .inneraca_session{
+    background-color: #fff;
+  }
+}
+/*-----------------------end Academic year------------*/
+
+/*----------------Welcome-page------------------*/
+.welcome{
+  height: 690px;	
+  width: 940px;	
+  border-radius: 4px;	
+  background-color: $color-white;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  .welcome-img{
+    width: 394px;
+  }
+  .welcome-content .welcome-header{
+    color: $color-dark-blue;	
+    font-size: 28px;	
+    font-weight: 500;	
+    line-height: 34px;
+  }
+  .welcome-content .welcome-description{
+    color: #8595A6;	
+    font-size: 17px;	
+    line-height: 24px;	
+  }
+  .letsGetStart-btn{
+    border-radius: 4px;	
+    color: $color-white;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;	
+    height: 54px;
+    width: 200px;
+    background-color: $color-blue;
+  }
+}
+.top-feature{	
+  width: 940px;	
+  .topfeature1, .topfeature2, .topfeature3{
+    height: 176px;	
+    width: 300px;	
+    border-radius: 4px;	
+    background-color: #FFFFFF;	
+    box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  }
+  .t-feature-heading{
+    color: #172B4D;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;
+  }
+  .feature-content{
+    color: #8595A6;
+    font-size: 14px;	
+    line-height: 21px;
+  }
+  .viewFeature-btn{
+    height: 42px;	
+    width: 100%;	
+    border-radius: 4px;	
+    background-color: #01CA85;
+    color: $color-white;	
+    font-size: 14px;	
+    font-weight: 600;	
+    line-height: 18px;
+  }
+}
+
+body{
+  background-color: #F6F7FB;
+}
+/*---------------------end-welcome-page------------*/
+/*!
+ * Start Bootstrap - Simple Sidebar (https://startbootstrap.com/template-overviews/simple-sidebar)
+ * Copyright 2013-2019 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-simple-sidebar/blob/master/LICENSE)
+  */
+body {
+    overflow-x: hidden;
+}
+.dropdown-container{
+  display:none;
+}
+  
+.frontlink.active{
+  height: 40px;
+  background-color: #e9eafc;
+  border-left: 4px solid #5C67E6;
+}
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+#sidebar-wrappersmall {
+  min-height: 100vh;
+  -webkit-transition: margin .25s ease-out;
+  -moz-transition: margin .25s ease-out;
+  -o-transition: margin .25s ease-out;
+  transition: margin .25s ease-out;
+}
+  
+.sidebar-heading {
+  font-size: 24px;	
+  font-weight: bold;	
+  line-height: 22px;
+  color: $color-blue;
+}
+  
+h6{
+  color: #8595A6;	
+  font-size: 12px;	
+  font-weight: 600;	
+  line-height: 18px;
+}
+.list-group a{
+  color: #3A5077;	
+  font-size: 14px;
+  font-weight: 500;	
+  line-height: 22px;
+  cursor: pointer;
+  height: 40px;
+}
+  
+.list-group a img, .list-group a svg{
+  width: 20px;
+  padding-right: 5px;
+  margin-top: -5px;
+}
+.list-group a:hover{
+    color: $color-blue;
+    fill: $color-blue;
+    text-decoration: none;
+}
+.list-group a.active{
+  color: $color-blue;
+  height: 40px;	
+  width: 240px;	
+  // border-left: 2px solid $color-blue;
+}
+.small .list-group a path.active{
+  fill:#5C67E6;
+}
+.small .list-group a path:hover{
+  fill:#5C67E6;
+}
+.list-group ul li:hover{
+    color: $color-blue;
+}
+.list-group ul li:active{
+    color: $color-blue;
+}
+button#menu-toggle{
+  background: #fff;
+  border:none;
+  outline: none; 
+}
+button#menu-toggle:hover{
+  cursor: pointer;
+  path{
+    fill: #172B4D;
+  }
+}
+// .list-group .active.dropdown-toggle::after{
+//     border-right: .3em solid transparent;
+//     border-bottom: .3em solid;
+//     border-left: .3em solid transparent;
+//     border-top:0;
+// }
+.list-group .dropdown-toggle::after{
+    margin-top:8px;
+    float: right;
+}
+.list-group ul li a{
+  color: #8595A6;		
+  font-size: 12px;
+  font-weight: 500;	
+  line-height: 22px;
+}
+.user-name{
+  color: $color-dark-blue;	
+  font-size: 12px;	
+  font-weight: 600;	
+  line-height: 18px;
+}
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+  
+#page-content-wrapper {
+  min-width: 100vw;
+}
+  
+#wrapper.toggled #sidebar-wrapper {
+   margin-left: 0;
+}
+.navbartoggle-btn{
+  width: 70px;
+}
+  
+@media (min-width: 768px) {
+    #sidebar-wrapper {
+      margin-left: 0;
+    }
+  
+    #page-content-wrapper {
+      min-width: 0;
+      width: 100%;
+    }
+  
+    #wrapper.toggled #sidebar-wrapper {
+      margin-left: -15rem;
+    }
+}
+
+
+
+
+/*----------image-upload-----------------*/
+ 
+.image-upload , .logo-upload{
+  height: 217px;	
+  width: 286px;	
+  border: 2px dashed #D1DAE6;	
+  background-color: #F6F7FB;
+  padding: 15px;
+}
+.image-upload .image-edit input, .logo-upload .logo-edit input {
+  display: none;
+}
+.image-upload img, .logo-upload img{
+  height: 180px;
+}
+
+/*----------slider-tooltip-----------------*/
+   .Institute_profile .slider{
+     width: 100% !important;
+   }
+   .Institute_profile .slider .slider-tick{
+    height: 6px;	
+    width: 6px;	
+    border: 1px solid #BFCDDA;
+    background-image: linear-gradient(to bottom, $color-white 0%, $color-white 100%);
+    top: 3px;
+   }
+   .Institute_profile .slider.slider-horizontal .slider-tick, .Institute_profile .slider.slider-horizontal .slider-handle {
+    margin-left: -5px;
+   }
+   .Institute_profile .slider .slider-handle {
+    height: 16px;	
+    width: 16px;	
+    border: 1px solid #BFCDDA;	
+    background-image: linear-gradient(to bottom, $color-white 0%, $color-white 100%);
+    top: -2px;
+   }
+   .Institute_profile .slider.slider-horizontal .slider-track {
+    height: 1px;
+   }
+   .Institute_profile .slider-selection.tick-slider-selection {
+    border-radius: 1.5px;
+    background-color: #BFCDDA;
+    height: 3px !important;
+    background-image: linear-gradient(to bottom, #BFCDDA 0%, #BFCDDA 100%);
+   }
+   .Institute_profile .slider-tick-label-container{
+     display: none;
+   }
+   .Institute_profile .standard-label{
+    color: #8595A6;	
+    font-size: 12px;
+   }
+
+
+   /***************/
+   
+   /*---------------------------student page----------------*/
+  #upload_Student_csv{
+    .modal-dialog{
+      height: 333px;	
+      width: 400px;	
+      border-radius: 4px;	
+      background-color: $color-white;	
+      box-shadow: 0 0 1px 0 rgba(9,30,66,0.31), 0 4px 8px -2px rgba(9,30,66,0.25);
+    }
+    .modal-title{
+      color: $color-dark-blue;
+      font-size: 21px;	
+      font-weight: 600;	
+      line-height: 27px;
+    }
+    a.close{
+      color: #8595A6;	
+      font-size: 14px;	
+      line-height: 21px;
+    }
+    button.submit-uploadcsv{
+      height: 42px;	
+      width: 110px;	
+      border-radius: 4px;	
+      background-color: $color-blue;
+      color: $color-white;	
+      font-size: 14px;	
+      font-weight: 600;	
+      line-height: 18px;	
+    }
+  }
+  .downloadstudentcsv_btn{
+    height: 42px;	
+    width: 196px;	
+    border-radius: 4px;	
+    background-color: #01CA85;
+    color: $color-white;	
+    font-size: 14px;	
+    font-weight: 600;	
+    line-height: 18px;	
+  }
+.import{
+  font-size: 12px;	
+  font-weight: 500;	
+  line-height: 18px;	
+  text-align: right;
+  margin-top:12px;
+  .error{
+    color: rgb(184, 68, 32);
+  }
+  .success{
+    color: #3A5077;
+  }
+}
+button.saveandclose-btn{
+  background-color: #01CA85; 
+  color: $color-white; 
+  height: 42px; 
+  width:145px ;
+  font-size: 14px;	
+  font-weight: 600; 
+  line-height: 18px;
+}
+button.addnewrow-btn{
+  background-color: $color-blue; 
+  color: $color-white; 
+  height: 42px; 
+  width:145px ;
+  font-size: 14px;	
+  font-weight: 600; 
+  line-height: 18px;
+  
+}
+.addstudent{
+  .addnewrow-btn{
+    background-color: $color-blue; 
+  color: $color-white; 
+  height: 42px; 
+  width:145px ;
+  font-size: 14px;	
+  font-weight: 600; 
+  line-height: 18px;
+  }
+  .dropdown-toggle::after{
+    display:none;
+  }
+  ul.dropdown-menu{
+    left: -57px !important;
+  }
+  ul.dropdown-menu li:hover{
+    background: #F6F7FB;
+  }
+  ul.dropdown-menu li{
+    height: 45px;	
+    width: 220px;
+    padding: 12px;
+    a{
+      color: #3A5077;	
+    font-size: 14px;	
+    line-height: 21px;
+    }
+  }
+}
+.imported-data{
+  
+  td input, td select, td .multiselect{
+    width: 160px;
+  }
+  th.delete_col{
+    position: absolute;
+    border-left: 1px solid #D1DAE6;
+    right:0;
+    background: $color-white;
+    .remove{
+      width: 40px;
+      height: 36px;
+      background-color: $color-white;
+      text-align:center;
+    }
+  }
+  td.delete_col{
+    position: absolute;
+    border-left: 1px solid #D1DAE6;
+    right:0;
+    background: $color-white;
+    .remove{
+      width: 40px;
+      height: 36px;
+      border: 1px solid #D1DAE6;
+      border-radius: 2px;
+      background-color: $color-white;
+      text-align:center;
+    }
+  }
+  .overflow{
+    overflow-x: auto;
+  }
+  tr.errorInStudentInfo{
+    background-color: rgba(229,34,84,0.1);
+    border-left: 3px solid #E52254;
+    td.error button.multiselect{
+      border: 1px solid #E52254 !important; 
+    }
+    td.error input, td.error td select{
+      border: 1px solid #E52254 !important; 
+    }
+  }
+}
+button.save-btn{
+  height: 54px;	
+  width: 109px;	
+  border-radius: 4px;	
+  background-color: #01CA85;
+  color: #FFFFFF;	
+  font-size: 16px;	
+  font-weight: 600;	
+  line-height: 22px;	
+  text-align: center;
+}
+button.submitstudent-btn{
+  height: 54px;	
+  width: 279px;	
+  border-radius: 4px;	
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 16px;
+  font-weight: 600;	
+  line-height: 22px;	
+  text-align: center;
+}
+
+.addstudentimage{
+  .change-photo a{
+    display: block;
+    color: #8595A6;	
+    font-size: 12px;	
+    font-weight: 600;	
+    line-height: 22px;
+  }
+  .img-remove a{
+    display: block;
+    color: #8595A6;	
+    font-size: 12px;	
+    font-weight: 600;	
+    line-height: 22px;
+  }
+}
+th.action_col{
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right:0;
+  border-bottom: 1px solid #D1DAE6;
+  background: $color-white;
+  .action{
+    height: 18px;	
+    width: 101px;
+    background-color: $color-white;
+    text-align:center;
+  }
+}
+td.action_col{
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right:0;
+  background: $color-white;
+  border-bottom: 1px solid #D1DAE6;
+  .single.tog button{
+    height: 36px;	
+    width: 101px;
+    border: 1px solid #D1DAE6;
+    border-radius: 2px;
+    background-color: $color-white;
+    text-align:center;
+  }
+}
+th .tablespace{
+  width:85px;
+}
+.studlist .filterbtntable .addsection-form .multiselect-container li a i.form-check-input{
+  display: none;
+}
+.student-list{
+  td{
+    padding: 17px 15px;
+  }
+  td.action_col {
+    padding: 8px 15px;
+  }
+  th p{
+    width: 128px;
+    margin:0px !important;
+  }
+  th.colwidth p{
+    width: 90px;
+  }
+  td{
+      height: 60px;
+  }
+  td.active{
+    color: #69BB10;
+  }
+  td.inactive{
+    color: #E52254;
+  }
+}
+
+.viewbtntable{
+  height: 42px;	
+  width: 97px;	
+  .single.tog ul li{
+    color: #3A5077;	
+    font-size: 14px;	
+    line-height: 21px;
+    height: 45px;	
+    width: 189px;	
+    padding: 12px;
+    background: $color-white;
+    span{
+      margin: 30px;
+    }
+    i{
+      padding: 2px;
+    }
+  }
+  .single.tog button{
+    height: 42px;	
+    width: 97px;	
+    border-radius: 2px;
+    border: 1px solid #D1DAE6;
+    background-color: #ffffff;
+    color: #172B4D;	
+    font-size: 14px;	
+    line-height: 21px;	
+    text-align: center;
+  }
+}
+.filterbtntable{
+  height: 42px;	
+  width: 97px;	
+  // border: 1px solid $color-white;	
+  border-radius: 2px;
+  // margin-top: -1px;
+  .single.tog ul{
+    height: auto;	
+    width: 367px;	
+    box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+    li{
+      height: 45px;	
+      // padding: 15px;
+      background: $color-white;
+    }
+    h3{
+      color: #172B4D;	
+      font-size: 16px;	
+      font-weight: 600;	
+      line-height: 22px;	
+    }
+    a{
+      color: #3A5077;	
+      font-size: 14px;	
+      line-height: 21px;
+    }
+  }
+  .single.tog button.dropdown-btn{
+    height: 42px;	
+    width: 97px;	
+    border-radius: 2px;
+    border: 1px solid #D1DAE6;
+    background-color: #ffffff;
+    color: #172B4D;	
+    font-size: 14px;	
+    line-height: 21px;	
+    text-align: center;
+  }
+  .filterBtn{
+    height: 42px;	
+    border-radius: 4px;	
+    background-color: #01CA85;
+    color: $color-white;	
+    font-size: 14px;	
+    font-weight: 600;	
+    line-height: 18px;	
+  }
+}
+.searchbartable{	
+  button{
+    position: absolute;
+    background: $color-white;
+    height: 40px;
+    border:none;
+    padding: 8px 0px;
+    margin-left: 8px;
+    margin-top: 1px;
+    i{
+      color: #8595A6;	
+    }
+  }
+  input{
+    width: 194px;
+    height: 42px;		
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px 0 0 2px;
+    padding-left: 30px;
+    color: #8595A6;	
+    font-size: 14px;	
+    line-height: 21px;
+  }
+}
+#ResetPassword{
+  .resetPassword-btn{
+    height: 42px;	
+    border-radius: 4px;	
+    background-color: #5C67E6;
+    color: $color-white;	
+    font-size: 14px;	
+    font-weight: 600;	
+    line-height: 18px;	
+  }
+}
+.modal#ResetPassword{
+  right: 383px;
+  left: auto;
+  top: -1px;
+  .modal-dialog {
+      position: fixed;
+      margin: auto;
+      width: 400px;
+      height: 100%;
+      -webkit-transform: translate3d(0%, 0, 0);
+      transform: translate3d(0%, 0, 0);
+  }
+}
+/*--------------------------------csv-upload--------------------*/
+
+.fileupload .csv-edit input{
+  display: none;
+}
+.fileupload{
+  height: 210px;	
+  width: 210px;	
+  border-radius: 4px;	
+  background-color: #F6F7FB;
+  margin-top: 85px !important;
+  .csv{
+    height: 57.6px;	
+    width: 57.6px;
+  }
+  .csv-upload-text{
+    color: #8595A6;	
+    font-size: 14px;	
+    line-height: 21px;	
+    text-align: center;
+  }
+}
+.texthead{
+  color: $color-dark-blue;		
+  font-size: 16px;	
+  font-weight: 600;	
+  line-height: 22px;
+}
+.csv-left, .csv-right{
+  height: 598px;	
+  border-radius: 4px;	
+  background-color: #FFFFFF;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  .tborder{
+    border-bottom: 1px solid #D1DAE6;
+  }
+  button.uploadproceedcsv-btn{
+    height: 54px;	
+    border-radius: 4px;	
+    background-color: $color-blue;
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;	
+    color: $color-white;
+    margin-top: 120px;
+  }
+}
+
+.csv-left{
+  .stepnum{
+    height: 36px;
+    width: 36px;
+    border: 1px solid #D1DAE6;
+    background-color: #F6F7FB;
+    color: #8595A6;
+    font-size: 14px;
+    line-height: 21px;
+    border-radius: 50%;
+  }
+  .btwborder{
+    border-bottom: 20px solid #D1DAE6;
+    height: 20px;
+    width:1px;
+    margin: auto;
+  }
+  .steptext{
+    height: 21px;
+    color: #3A5077;	
+    font-size: 14px;	
+    line-height: 21px;
+  }
+  .red-note{
+    height: 20px;	
+    color: #E52254;	
+    font-size: 12px;	
+    line-height: 20px;
+  }
+}
+
+/*--------------------------------end-csv-upload----------------------*/
+/*-------------------------------------student-page-end--------------------*/
+
+
+/*----------------------------Staff Page-----------------------------------*/
+button.addStaffManually-btn{
+  width: 240px;
+  height: 54px;	
+  border-radius: 4px;	
+  background-color: $color-blue;
+  color: $color-white;		
+  font-size: 16px;	
+  font-weight: 600;	
+  line-height: 22px;	
+}
+button.uploadStaffCSV-btn{
+  height: 54px;	
+  width: 240px;	
+  border-radius: 4px;	
+  background-color: #01CA85;
+  color: $color-white;	
+  font-size: 16px;	
+  font-weight: 600;	
+  line-height: 22px;	
+}
+button.downloadstaffcsv-btn{
+  height: 42px;	
+  width: 196px;	
+  border-radius: 4px;	
+  background-color: #01CA85;
+  color: $color-white;	
+  font-size: 14px;	
+  font-weight: 600;	
+  line-height: 18px;	
+}
+.staff-list{
+  th p{
+    width: 128px;
+    margin:0px !important;
+  }
+  th.email p{
+    width:200px;
+  }
+  td{
+      height: 60px;
+      color: #172B4D;	
+      font-size: 16px;	
+      line-height: 18px;
+  }
+  .staff-name{
+    font-weight: 600;
+  }
+  .not-assigned{
+    color: #5C67E6 !important;	
+    font-size: 16px;
+    line-height: 18px;
+    text-decoration: underline;
+  }
+}
+
+
+/*-------------------------------end Staff Page-------------------------------*/
+
+/*--------------------------------Exam setup page------------------------------*/
+.exam_setup{
+  background-color: $color-white;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  height: 660px;		
+  width: auto;
+  border-radius: 4px;
+  .examsetup-img{
+    width: 292px;
+  }
+  .examsetup-description{
+    color: #8595A6;
+    font-size: 17px;
+    line-height: 24px;
+  }
+  /*--------worksheet-------------*/
+  button.createworksheet-btn{
+    height: 54px;	
+    width: 240px;	
+    border-radius: 4px;	
+    background-color: $color-blue;
+    color: $color-white;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;	
+    text-align: center;
+  }
+  
+}
+#createWorksheet.modal.right{
+  right: 594px;
+  .modal-content{
+    width: 605px;	
+    background-color: $color-white;
+  }
+  .modal-step{
+    color: #3A5077;	
+    font-size: 12px;	
+    font-weight: 500;	
+    line-height: 18px;	
+    text-align: right;
+  }
+  .sectionhead{
+    color: #172B4D;	
+    font-size: 21px;	
+    font-weight: 600;	
+    line-height: 27px;
+  }
+  .radio-head{
+    color: #3A5077;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;
+  }
+  .radio-text{
+    color: #8595A6;	
+    font-size: 14px;	
+    line-height: 21px;
+  }
+  .radio.box{
+    height: 79px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #FFFFFF;
+    padding:15px;
+    font-size:22px;
+  }
+  .radio.box.active{
+    border: 1px solid $color-blue;
+    .radio-head{
+      color: $color-blue;
+    }
+  }
+  .saveAndProceed-btn{
+    height: 54px;	
+    border-radius: 4px;	
+    background-color: $color-blue;
+    color: $color-white;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;	
+  }
+  a.step{
+    cursor: pointer;
+  }
+}
+.worksheettab-row{
+  border-bottom: 1px solid #D1DAE6;
+  .worksheettab{
+    width:100%;
+    height: 48px;	
+    background-color: $color-white;	
+    .worksheet-tab {
+      width: 179px;
+      float:left;
+      h4{
+        color: #8595A6;	
+      font-size: 14px;	
+      font-weight: 400;	
+      line-height: 20px;	
+      text-align: center;
+      margin-top:12px;
+      }	
+    }
+    .bloomdifficulty-tab{
+      width: 253px;
+      float:left;
+      h4{
+        color: #8595A6;	
+      font-size: 14px;	
+      font-weight: 400;	
+      line-height: 20px;	
+      text-align: center;
+      margin-top:12px;
+      }	
+    }
+    button.preview-btn{
+      width: 264px;	
+      background-color: #3A5077;
+      color: $color-white;	
+      font-size: 14px;	
+      font-weight: 500;	
+      line-height: 22px;
+      border-radius: 0px;
+    }
+    .worksheet-tab.active, .bloomdifficulty-tab.active{
+      border-bottom: 2px solid #5C67E6;
+      h4{
+        color: #5C67E6;
+        font-weight: 500;
+      }
+    }
+  }
+}
+button.preview-btn:after{
+  display: none;
+}
+
+.worksheets.bloom-summary{
+  th.wsques-nature p{
+    width: 172px;
+  }
+  th.wsmcq p{
+    width: 94px;
+  }
+  th.wssubjective p{
+    width: 140px;
+  }
+  th.wsshort-answer p{
+    width: 164px;
+  }
+  th.wslong-answer p{
+    width: 156px;
+  }
+  th.wstotal-marks p{
+    width: 80px;
+  }
+}
+
+.worksheets{
+  background-color: $color-white;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  height: auto;		
+  width: auto;
+  border-radius: 4px;
+  .top-head{
+    color: #172B4D;	
+    font-size: 21px;	
+    font-weight: 600;	
+    line-height: 27px;
+  }
+  .headsection-worksheet{
+    height: 45px;
+    border-top: 1px solid #D1DAE6;
+    border-bottom: 1px solid #D1DAE6;
+    padding: 12px 0px;
+    .sub-head{
+      color: #3A5077;	
+      font-size: 16px;	
+      font-weight: 500;	
+      line-height: 21px;
+      height: 21px;
+      .blankspace{
+        border-bottom: 1px dashed #D1DAE6;
+      }
+    }
+  }
+  .headsection-worksheetblank{
+    height: 45px;
+    border-bottom: 1px solid #D1DAE6;
+    padding: 12px 0px;
+    .sub-head{
+      color: #3A5077;	
+      font-size: 16px;	
+      font-weight: 500;	
+      line-height: 21px;
+      height: 21px;
+      width: auto;
+      float: left;
+    }
+    .blankspace{
+      border-bottom: 1px dashed #D1DAE6;
+      width: 70%;
+      float: left;
+      height: 21px; margin: 0 2px;
+    }
+  }
+  .total_marksedit{
+    width: 160px;	
+  }
+  .total_marks, .total_ques, .total_marksedit{
+    height: 27px;	
+    width: 145px;	
+    border: 1px solid #D1DAE6;
+    border-radius: 2px;	
+    background-color: $color-white;
+    p{
+      color: #3A5077;	
+      font-size: 12px;	
+      font-weight: 500;	
+      line-height: 18px;
+    }
+    input{
+      color: #3A5077;	
+      font-size: 12px;	
+      font-weight: 500;	
+      line-height: 18px;
+      border:0px;
+      width:100px; height: 17px;
+    }
+    input:focus {
+      outline:none !important;
+      outline-width: 0 !important;
+      box-shadow: none;
+      -moz-box-shadow: none;
+      -webkit-box-shadow: none;
+    }
+    a{
+      color: $color-blue;	font-size: 12px;	font-weight: 500;	line-height: 18px;
+    }
+  }
+  th{
+    color: #3A5077;	
+    font-size: 12px;	
+    font-weight: 500;	
+    line-height: 18px;
+  }
+  th{
+    padding: 10px 15px;
+  }
+  td{
+    padding: 2px 15px;
+    height: 60px;
+  }
+  
+  tr{
+    border: 1px solid #D1DAE6;
+  }
+  .form-check-input.fa-check{
+    padding: 2px;
+  }
+  td.question-nature{
+    color: #172B4D;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;
+  }
+  td.checkbox{
+    width: 54px;
+    border-right: 1px solid #D1DAE6;
+  }
+  td.question-nature{
+    width: 229px;
+    border-right: 1px solid #D1DAE6;
+  }
+  td.bloom-level{
+    color: #172B4D;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 18px;
+  }
+  button.bloompreview-btn{
+    height: 54px !important;	
+    width: 200px;	
+    border-radius: 4px;	
+    background-color: $color-blue;
+    color: $color-white;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;	
+    text-align: center;
+  }
+  .worksheet-summary{
+    .total-No{
+      background-color: #F6F7FB;
+    }
+    td{
+      color: #172B4D;
+      font-size: 16px;	
+      font-weight: 600;	
+      line-height: 18px;
+      height: 60px;
+    }
+    th.quest-nature{
+      width: 254px;
+    }
+    th.mcq{
+      width: 124px;
+    }
+    th.subjective{
+      width: 174px;
+    }
+    th.short-answer{
+      width: 208px;
+    }
+    th.long-answer{
+      width: 202px;
+    }
+    th.total-marks{
+      width: 220px;
+    }
+  } 
+  .steptext.active{
+    height: 38px;	
+    width: 501px;	
+    border-radius: 4px 0 0 4px;	
+    background-color: rgba(92,103,230,0.2);
+    border-right: 2px solid #5C67E6;
+  }
+  .activetooltip::before{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-top: 5px;
+    position: absolute;
+    vertical-align: .255em;
+    content: "";
+    border-right: .4em solid;
+    border-left: 0;
+    border-top: .4em solid transparent;
+    border-bottom: .4em solid transparent;
+    color: #3A5077;
+    margin-left: -22px;
+    margin-top: 5px;
+  }
+  .activetooltip{
+    height: 38px;
+    width: 58px;	
+    border-radius: 4px;	
+    background-color: #3A5077;
+    color: #FFFFFF;	
+    font-size: 14px;	
+    line-height: 21px;
+    
+  }
+
+  .genework{
+    .activetooltip{
+      height: 38px;
+      width:95px;
+      border-radius: 4px;	
+      background-color: #3A5077;
+      color: #FFFFFF;	
+      font-size: 14px;	
+      line-height: 21px;
+      .icon{
+        width: 30px;
+        float: left;
+        padding: 9px 0px;
+      }
+      .bline{
+        height: 36px;	width: 1px;	opacity: 0.1;	background-color: #FFFFFF; float:left;
+      }
+    }
+    .activetooltip::before{
+      margin-left: -53px;
+      margin-top: 14px;
+    }
+  }
+
+  h2.smart-studies{
+    color: #3A5077;	
+    font-family: Sansation;	
+    font-size: 24px;	
+    font-weight: bold;	
+    line-height: 22px;
+  }
+  .worksheetSetting{
+    td.question-nature{
+      padding: 10px 15px !important;
+    }
+    td.tablespace{
+      height:10px;
+    }
+
+    td .single.alternate button.multiselect{
+      width: 80px;
+      height: 36px;
+    }
+    td input.counternum{
+      width: 70px;
+      height: 36px;
+      border: 1px solid #D1DAE6;	border-radius: 2px; padding: 6px 8px;
+    }
+    td button.multiselect{
+      width: 102px;
+      height: 36px;
+    }
+    td.chapter button.multiselect{
+      width: 130px;
+    }
+    th,td{
+      padding: 10px 6px;
+    }
+    td.addques{
+      border-left: 1px solid #ced4da;
+      .addquestion{
+        height: 36px;	width: 120px;	border: 1px solid #D1DAE6;	border-radius: 2px;	background-color: $color-white; padding: 4px 10px;
+        a{
+          color: #3A5077; font-size: 14px;	line-height: 21px;	text-align: center;
+        }
+      }
+    }
+    td.checkbox{
+      padding: 0px 2px 0px 0px;
+      .checkrow{
+        width: 20px;
+        margin: auto;
+        margin-top: -10px;
+      }
+    }
+    td .remove{
+      height: 36px;	width: 36px;	border: 1px solid #D1DAE6;	border-radius: 2px;	background-color:$color-white; padding: 4px 9px;
+    }
+  } 
+}
+.worksheet-instruction{
+  .stepnum{
+    height: 36px;
+    width: 36px;
+    border: 1px solid #D1DAE6;
+    background-color: #fff;
+    color: #8595A6;
+    font-size: 14px;
+    line-height: 21px;
+    border-radius: 50%;
+    padding: 6px 4px 6px 3px;
+  }
+  .btwborder{
+    border-bottom: 20px solid #D1DAE6;
+    height: 20px;
+    width: 1px;
+    margin: auto;
+  }
+  .steptext{
+    height: 21px;
+    color: #3A5077;
+    font-size: 14px;
+    line-height: 21px;
+  }
+}
+.question-preview{
+  height: auto;	
+  background-color: $color-white;	
+  box-shadow: 0 -1px 0 0 #D1DAE6, 0 1px 0 0 #D1DAE6;
+  .question-head{
+    color: #172B4D;	
+    font-size: 14px;	
+    font-weight: 500;	
+    line-height: 22px;
+  }
+  .question{
+    color: #3A5077;	
+    font-size: 14px;	
+    line-height: 21px;
+    span{
+      font-weight: 600;
+    }
+  }
+  .question-desc{
+    .ques-tag{
+      color: #172B4D;	
+      font-size: 12px;	
+      font-weight: 600;	
+      line-height: 18px;
+    }
+    .chapter{
+      color: #172B4D;	
+      font-size: 12px;	
+      font-weight: 600;	
+      line-height: 18px;
+    }
+    .Dot{
+      height: 5px;
+      width: 5px;
+      background-color: #172B4D;
+      border-radius: 50%;
+      display: inline-block;
+      margin-top: 6px;
+    }
+  }
+  .replaceques-btn{
+    height: 36px;	
+    width: 120px;
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: $color-white;
+    color: #3A5077;
+    font-size: 14px;	
+    line-height: 21px;	
+  }
+  // input{
+  //   height: 36px;	
+  //   width: 120px;
+  //   border: 1px solid #D1DAE6;	
+  //   border-radius: 2px;	
+  //   background-color: $color-white;
+  // }
+  .or{
+    height: 34px;	
+    width: 34px;	
+    border: 1px solid #D1DAE6;	
+    background-color: #F6F7FB;
+    border-radius: 50%; padding:3px;
+    span{
+      color: #3A5077;	
+      font-size: 12px;	
+      line-height: 20px;
+    }
+  }
+  .marks-col{
+    height: 36px;	width: 90px;	border: 1px solid #D1DAE6;	border-radius: 2px;	background-color: #FFFFFF;
+    p{
+      color: #3A5077;	font-size: 14px;	line-height: 21px; padding: 7px;
+    }
+    input.marksinput{
+      color: #3A5077;	font-size: 14px;	line-height: 21px; padding: 7px; border:0px !important; height: 34px;
+    }
+  }
+}
+.question-preview.radio.active{
+  border-top: 1px solid $color-blue;
+  border-bottom: 1px solid $color-blue;
+  // -webkit-box-shadow: none;
+	// -moz-box-shadow: none;
+  // box-shadow: none;
+  margin-bottom:1px !important;
+  .question-head{
+    color: $color-blue;
+  }
+}
+.worksheets{
+  button.viewAnswers-btn{
+    height: 54px;	width: 182px;	border-radius: 4px;	background-color: #01CA85;
+    font-size: 16px;	font-weight: 600;	line-height: 22px; color: $color-white;
+  }
+  button.approve-btn, button.reject-btn, button.close-btn{
+    height: 54px;	width: 124px;	border-radius: 4px;	background-color: $color-blue;
+    font-size: 16px;	font-weight: 600;	line-height: 22px; color: $color-white;
+  }
+  button.saveProceedWorksheet-btn{
+    height: 54px !important;	width: 200px;	border-radius: 4px;	background-color: $color-blue;
+    color: $color-white; font-size: 16px;	font-weight: 600;	line-height: 22px;;
+  }
+}
+#replaceQuestionModal.modal{
+  right: 594px;
+  .modal-content{
+    width: 605px;	
+    background-color: $color-white;
+  }
+  button.replaceQuestion-btn{
+    height: 54px;	
+    border-radius: 4px;	
+    background-color: $color-blue;
+    color: #fff;	
+    font-size: 16px;
+    font-weight: 600;	
+    line-height: 22px;	
+  }
+
+  .filterbtntable .addsection-form .multiselect-container li a i.form-check-input {
+    display: none;
+  }
+}
+.worksheet-list{
+  background-color: $color-white;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;		
+  width: auto;
+  border-radius: 4px;
+  th{
+    padding: 10px 15px;
+    color: #3A5077;	
+    font-size: 12px;	
+    font-weight: 500;	
+    line-height: 18px;
+  }
+  td{
+    padding:17px 15px;
+    color: #172B4D;	
+    font-size: 16px;	
+  }
+  tr{
+    border-bottom: 1px solid #D1DAE6;
+  }
+  td select{
+    color: #3A5077;		
+    font-size: 14px;	
+    line-height: 21px;
+  }
+  td input , td select{
+    height: 36px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #FFFFFF;
+  }
+  td input{
+    color: $color-dark-blue;	
+    font-size: 16px;	
+    line-height: 18px;
+  }
+  .single.tog button{
+    height: 36px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: $color-white;
+    color: #3A5077;
+    font-size: 14px;	
+    line-height: 21px;	
+    text-align: left;
+  }
+  .single.tog button::after{
+    margin-top:8px;
+    float: right;
+  }
+  .single.tog ul li:hover{
+    background: #F6F7FB;
+  }
+  td.action_col {
+    padding: 8px 15px;
+    button.preview-btn{
+      height: 36px;
+      width: 101px !important;
+      border: 1px solid #D1DAE6;
+      border-radius: 2px;
+      background-color: $color-white;
+      text-align: center;
+      color: $color-dark-blue;
+      font-size: 14px;
+      line-height: 21px;	
+    }
+  }
+ 
+  th.worksheet-name p, th.mode p, th.total-ques p, th p.tablespace{
+    width: 114px;
+  }
+  th.status p{
+    width:136px;
+  }
+ 
+  th.standard p, th.subject p{
+    width:68px;
+  }
+  th.total-marks p, th.duration p, th-status p{
+    width:98px;
+  }
+  th.creationDate p{
+    width: 120px;
+  }
+  th.creationTime p{
+    width: 84px;
+  }
+  .single.tog ul li{
+    height: 45px; padding: 8px !important; 
+    a{
+      color: #3A5077;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+  .single.tog .switch {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 12px;
+    top: 8px;
+    float: right;
+  }
+  .single button.multiselect{
+    height: 36px;
+  }
+  .single .multiselect-container li{
+    height:36px;
+  }
+  .form-check-input{
+    margin-top:-9px !important;
+    padding: 2px;
+  }
+  td.approve{
+    color: #69BB10;
+  }
+  td.inprogress{
+    color: #55CCEE;
+  }
+  td.reject{
+    color: #E52254;
+  }
+}
+.works-list .filterbtntable .multiselect-container li a i.form-check-input{
+    display: none;
+}
+/*------------- end worksheet-------------*/
+/*-----------------create class test--------*/
+button.createclasstestexam-btn{
+  height: 54px;	width: 240px;	border-radius: 4px;	background-color: $color-blue;
+  color: $color-white;	font-size: 16px;	font-weight: 600;	line-height: 22px;
+}
+#createClassExamTest.modal.right{
+  right: 594px;
+  .modal-content{
+    width: 605px;	
+    background-color: $color-white;
+  }
+  .modal-step{
+    color: #3A5077;	
+    font-size: 12px;	
+    font-weight: 500;	
+    line-height: 18px;	
+    text-align: right;
+  }
+  .sectionhead{
+    color: #172B4D;	
+    font-size: 21px;	
+    font-weight: 600;	
+    line-height: 27px;
+  }
+  .radio.box.active{
+    border: 1px solid $color-blue;
+    .radio-head{
+      color: $color-blue;
+    }
+  }
+  .radio-head{
+    color: #3A5077;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;
+  }
+  .radio-text{
+    color: #8595A6;	
+    font-size: 14px;	
+    line-height: 21px;
+    font-weight:400;
+  }
+  .radio.box{
+    height: 79px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #FFFFFF;
+    padding:15px;
+    font-size:22px;
+  }
+  .saveAndProceed-btn{
+    height: 54px;	
+    border-radius: 4px;	
+    background-color: $color-blue;
+    color: $color-white;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;	
+  }
+  a.step{
+    cursor: pointer;
+  }
+  .questionNature, .bloomComposition{
+    border: 1px solid #D1DAE6; border-radius: 0 0 4px 4px;	background-color: #FFFFFF;
+    .form-group{
+      height: 45px;
+      border-bottom: 1px solid #D1DAE6;
+      padding: 12px 15px;
+      i.form-check-input{
+        padding: 2px;
+      }
+      p.main-text{
+        color: #3A5077;	font-size: 12px;	font-weight: 500;	line-height: 18px;
+      }
+      p.text{
+        color: #172B4D; font-size: 14px;	line-height: 18px;
+      }
+    }
+  }
+}
+.fa-worksheets{
+  background-color: $color-white;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  height: auto;		
+  width: auto;
+  border-radius: 4px;
+  .top-head{
+    color: #172B4D;	
+    font-size: 21px;	
+    font-weight: 600;	
+    line-height: 27px;
+  }
+  .headsection-worksheet{
+    height: 45px;
+    border-top: 1px solid #D1DAE6;
+    border-bottom: 1px solid #D1DAE6;
+    padding: 12px 0px;
+    .sub-head{
+      color: #3A5077;	
+      font-size: 16px;	
+      font-weight: 500;	
+      line-height: 21px;
+      height: 21px;
+    }
+  }
+  .headsection-worksheetblank{
+    height: 45px;
+    border-bottom: 1px solid #D1DAE6;
+    padding: 12px 0px;
+    .sub-head{
+      color: #3A5077;	
+      font-size: 16px;	
+      font-weight: 500;	
+      line-height: 21px;
+      height: 21px;
+      width: auto;
+      float: left;
+    }
+    .blankspace{
+      border-bottom: 1px dashed #D1DAE6;
+      width: 70%;
+      float: left;
+      height: 21px; margin: 0 2px;
+    }
+  }
+  .headsection-worksheetblank{
+    height: 45px;
+    border-bottom: 1px solid #D1DAE6;
+    padding: 12px 0px;
+    .sub-head{
+      color: #3A5077;	
+      font-size: 16px;	
+      font-weight: 500;	
+      line-height: 21px;
+      height: 21px;
+      width: auto;
+      float: left;
+    }
+    .blankspace{
+      border-bottom: 1px dashed #D1DAE6;
+      width: 70%;
+      float: left;
+      height: 21px; margin: 0 2px;
+    }
+  }
+  .total_marks, .total_ques{
+    height: 27px;	
+    width: 145px;	
+    border: 1px solid #D1DAE6;
+    border-radius: 2px;	
+    background-color: $color-white;
+    p{
+      color: #3A5077;	
+      font-size: 12px;	
+      font-weight: 500;	
+      line-height: 18px;
+    }
+  }
+  th{
+    color: #3A5077;	
+    font-size: 12px;	
+    font-weight: 500;	
+    line-height: 18px;
+  }
+  th,td{
+    padding: 10px 15px;
+  }
+  tr{
+    border: 1px solid #D1DAE6;
+  }
+  .form-check-input.fa-check{
+    padding: 2px;
+  }
+  td.question-nature{
+    color: #172B4D;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;
+  }
+  td.checkbox{
+    width: 54px;
+    border-right: 1px solid #D1DAE6;
+  }
+  td.question-nature{
+    width: 220px;
+    border-right: 1px solid #D1DAE6;
+  }
+  td.bloom-level{
+    color: #172B4D;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 18px;
+  }
+  button.bloompreview-btn{
+    height: 54px !important;	
+    width: 200px;	
+    border-radius: 4px;	
+    background-color: $color-blue;
+    color: $color-white;	
+    font-size: 16px;	
+    font-weight: 600;	
+    line-height: 22px;	
+    text-align: center;
+  }
+  
+  .worksheet-summary{
+    .total-No{
+      background-color: #F6F7FB;
+    }
+    td{
+      color: #172B4D;
+      font-size: 16px;	
+      font-weight: 600;	
+      line-height: 18px;
+      height: 60px;
+    }
+  } 
+  .steptext.active{
+    height: 38px;	
+    width: 501px;	
+    border-radius: 4px 0 0 4px;	
+    background-color: rgba(92,103,230,0.2);
+    border-right: 2px solid #5C67E6;
+  }
+  .activetooltip::before{
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-top: 5px;
+    position: absolute;
+    vertical-align: .255em;
+    content: "";
+    border-right: .4em solid;
+    border-left: 0;
+    border-top: .4em solid transparent;
+    border-bottom: .4em solid transparent;
+    color: #3A5077;
+    margin-left: -22px;
+    margin-top: 5px;
+  }
+  .activetooltip{
+    height: 38px;
+    width: 58px;	
+    border-radius: 4px;	
+    background-color: #3A5077;
+    color: #FFFFFF;	
+    font-size: 14px;	
+    line-height: 21px;
+  }
+  .genework{
+    .activetooltip{
+      height: 38px;
+      width:95px;
+      border-radius: 4px;	
+      background-color: #3A5077;
+      color: #FFFFFF;	
+      font-size: 14px;	
+      line-height: 21px;
+      .icon{
+        width: 30px;
+        float: left;
+        padding: 9px 0px;
+      }
+      .bline{
+        height: 36px;	width: 1px;	opacity: 0.1;	background-color: #FFFFFF; float:left;
+      }
+    }
+    .activetooltip::before{
+      margin-left: -53px;
+      margin-top: 14px;
+    }
+  }
+  h2.smart-studies{
+    color: #3A5077;	
+    font-family: Sansation;	
+    font-size: 24px;	
+    font-weight: bold;	
+    line-height: 22px;
+  }
+}
+.fa-worksheets{
+  button.viewAnswers-btn{
+    height: 54px;	width: 182px;	border-radius: 4px;	background-color: #01CA85;
+    font-size: 16px;	font-weight: 600;	line-height: 22px; color: $color-white;
+  }
+  button.approve-btn, button.reject-btn, button.close-btn{
+    height: 54px;	width: 124px;	border-radius: 4px;	background-color: $color-blue;
+    font-size: 16px;	font-weight: 600;	line-height: 22px; color: $color-white;
+  }
+  button.saveProceedWorksheet-btn{
+    height: 54px !important;	width: 200px;	border-radius: 4px;	background-color: $color-blue;
+    color: $color-white; font-size: 16px;	font-weight: 600;	line-height: 22px;;
+  }
+  button.modalAnswerSheet-btn{
+    height: 54px;	width: 223px;	border-radius: 4px;	background-color: $color-blue;
+    color: $color-white;	font-size: 16px;	font-weight: 600;	line-height: 22px;
+  }
+  button.exporttoword-btn{
+    height: 54px;	width: 175px;	border-radius: 4px;	background-color: $color-blue;
+    color: $color-white;	font-size: 16px;	font-weight: 600;	line-height: 22px;
+  }
+  button.openpdf-btn{
+    height: 54px;	width: 175px;	border-radius: 4px;	background-color: $color-blue;
+    color: $color-white;	font-size: 16px;	font-weight: 600;	line-height: 22px;
+  }
+  button.gotoexamlist-btn{
+    height: 54px;	width: 185px;	border-radius: 4px;	background-color: $color-blue;
+    color: $color-white;	font-size: 16px;	font-weight: 600;	line-height: 22px;
+  }
+  button.viewsummary-btn{
+    height: 54px;	width: 183px;	border-radius: 4px;	background-color: #01CA85;
+    font-size: 16px;	font-weight: 600;	line-height: 22px; color: $color-white;
+  }
+}
+
+.class-test-exam-setup{
+  background-color: $color-white;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;		
+  width: auto;
+  border-radius: 4px;
+  th{
+    padding: 10px 15px;
+    color: #3A5077;	
+    font-size: 12px;	
+    font-weight: 500;	
+    line-height: 18px;
+  }
+  td{
+    padding:17px 15px;
+  }
+  tr{
+    border-bottom: 1px solid #D1DAE6;
+  }
+  td select{
+    color: #3A5077;		
+    font-size: 14px;	
+    line-height: 21px;
+  }
+  td input , td select{
+    height: 36px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #FFFFFF;
+  }
+  td input{
+    color: $color-dark-blue;	
+    font-size: 16px;	
+    line-height: 18px;
+  }
+  .single.tog button{
+    height: 36px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: $color-white;
+    color: #3A5077;
+    font-size: 14px;	
+    line-height: 21px;	
+    text-align: left;
+  }
+  .single.tog button::after{
+    margin-top:8px;
+    float: right;
+  }
+  .single.tog ul li:hover{
+    background: #F6F7FB;
+  }
+  td.action_col {
+    padding: 8px 15px;
+    button.preview-btn{
+      height: 36px;
+      width: 101px !important;
+      border: 1px solid #D1DAE6;
+      border-radius: 2px;
+      background-color: $color-white;
+      text-align: center;
+      color: $color-dark-blue;
+      font-size: 14px;
+      line-height: 21px;	
+    }
+  }
+ 
+  th p{
+    width: 108px;
+  }
+  th.paper-type p{
+    width: 162px;
+  }
+  .single.tog ul li{
+    height: 45px; padding: 10px !important; 
+    a{
+      color: #3A5077;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+  .single.tog .switch {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 12px;
+    top: 8px;
+    float: right;
+  }
+  .single button.multiselect{
+    height: 36px;
+  }
+  .single .multiselect-container li{
+    height:36px;
+  }
+  .form-check-input{
+    margin-top:-9px !important;
+    padding: 2px;
+  }
+  td.approve{
+    color: #69BB10;
+  }
+  td.inprogress{
+    color: #55CCEE;
+  }
+  td.reject{
+    color: #E52254;
+  }
+}
+.filter-row{
+  height: 100%;	
+  background-color: #FFFFFF;	
+  box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  .viewbtntable{
+    height: 45px;	width: 310px;	border: 1px solid #D1DAE6;	border-radius: 2px;	background-color: #FFFFFF;
+    .single.tog button{
+      height: 43px;	width: 308px;	border: 0px ; border-radius: 2px;	background-color: #FFFFFF;
+    }
+    .dropdown-toggle::after{
+      float: right;
+      margin-top: 10px;
+    }
+  }
+  .applyfilter-btn{
+    height: 42px;	width: 184px;	border-radius: 4px;	background-color: #BFCDDA;
+    color: #FFFFFF;	font-size: 14px;	font-weight: 600;	line-height: 18px;
+  }
+  .filterBy{
+    width: 120px;
+    h4{
+      color: #172B4D;	font-size: 21px;	font-weight: 600;	line-height: 27px;
+    }
+  }
+}
+
+.searchbartable.class-test input{
+  width: 230px;
+}
+.createtestbtn button.createtest-btn{
+  height: 42px;	width: 165px;	border-radius: 4px;	background-color: #5C67E6;
+  color: $color-white; font-size: 14px;	font-weight: 600;	line-height: 18px;
+}
+
+/*---------------create-class-test-end-----------*/
+/*--------------------assign-exam--------------*/
+.searchbartable.assign input{
+  width: 408px; 
+}
+.assign-exam-list{
+  background-color: $color-white;	
+  box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+  position: relative;
+  height: 508px;
+  overflow: scroll;		
+  width: auto;
+  border-radius: 4px;
+  th{
+    padding: 10px 15px;
+    color: #3A5077;	
+    font-size: 12px;	
+    font-weight: 500;	
+    line-height: 18px;
+  }
+  td{
+    padding:17px 15px;
+  }
+  tr{
+    border-bottom: 1px solid #D1DAE6;
+  }
+  td select{
+    color: #3A5077;		
+    font-size: 14px;	
+    line-height: 21px;
+  }
+  td input , td select{
+    height: 36px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #FFFFFF;
+  }
+  td input{
+    color: $color-dark-blue;	
+    font-size: 16px;	
+    line-height: 18px;
+  }
+  .single.tog button{
+    height: 36px;	
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: $color-white;
+    color: #3A5077;
+    font-size: 14px;	
+    line-height: 21px;	
+    text-align: left;
+  }
+  .single.tog button::after{
+    margin-top:8px;
+    float: right;
+  }
+  .single.tog ul li:hover{
+    background: #F6F7FB;
+  }
+  td.action_col {
+    padding: 8px 15px;
+    button.preview-btn{
+      height: 36px;
+      width: 101px !important;
+      border: 1px solid #D1DAE6;
+      border-radius: 2px;
+      background-color: $color-white;
+      text-align: center;
+      color: $color-dark-blue;
+      font-size: 14px;
+      line-height: 21px;	
+    }
+  }
+  th p{
+    width: 105px;
+  }
+  th.worksheet-name p{
+    width: 164px;
+  }
+  th.subject p{ width: 120px;}
+  .single.tog ul li{
+    height: 45px; padding: 10px !important; width: 221px;
+    a{
+      color: #3A5077;
+      font-size: 14px;
+      line-height: 21px;
+    }
+  }
+  .single.tog .switch {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 12px;
+    top: 8px;
+    float: right;
+  }
+  .single button.multiselect{
+    height: 36px;
+  }
+  .single .multiselect-container li{
+    height:36px;
+  }
+  .form-check-input{
+    margin-top:-9px !important;
+    padding: 2px;
+  }
+  td.approve{
+    color: #69BB10;
+  }
+  td.inprogress{
+    color: #55CCEE;
+  }
+  td.reject{
+    color: #E52254;
+  }
+}
+#AssignExam.modal{
+  .checkmark{
+    left:0;
+    top: 0;
+  }
+}
+/*------------------end assign exam-------------*/
+
+/*------------------ template--------------------*/
+#CreateTemplate.modal{
+  right: 595px;
+  .modal-content{
+    position: fixed;
+    margin: auto;
+    width: 605px;
+    height: 100%;
+    -webkit-transform: translate3d(0%, 0, 0);
+        -ms-transform: translate3d(0%, 0, 0);
+        -o-transform: translate3d(0%, 0, 0);
+            transform: translate3d(0%, 0, 0);
+  }
+  button.saveAndProceed-btn{
+    height: 54px;	
+    border-radius: 4px;	
+    background-color: $color-blue;
+    color: $color-white;	font-size: 16px;	font-weight: 600;	line-height: 22px;
+  }
+  h3.sectionhead{
+    color: #172B4D; font-size: 21px;	font-weight: 600;	line-height: 27px;
+  }
+}
+.worksheets.template .worksheetSetting {
+  td.question-nature{
+    width: 360px;
+  }  
+  td input.counternum{
+    width: 70px;
+  }
+}
+.view-previous-selection .single.tog {
+  ul.dropdown-menu{
+    height: auto;
+    width: 367px;
+    border-radius: 4px 0 0 4px;	
+    background-color: #FFFFFF;	
+    box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+    padding:15px;
+  }
+  ul li{
+    border-bottom: 	1px solid #D1DAE6;
+    padding: 15px;
+    p a{
+      color: #5C67E6;	font-size: 14px;	line-height: 21px;
+    }
+  }
+  ul li p.preview-head{
+    color: #3A5077;	
+    font-size: 12px;	
+    font-weight: 500;	
+    line-height: 18px;
+  }
+  ul li p.preview-detail{
+    color: #172B4D;	font-size: 16px;	line-height: 18px; 
+  }
+}
+.template.worksheets .worksheetSetting th, .template.worksheets .worksheetSetting td {
+  padding: 10px 15px;
+}
+
+.worksheets.template-bloomdiff td input{
+  height: 36px;	
+  width: 80px;
+  border: 1px solid #D1DAE6;	
+  border-radius: 2px;	
+  background-color: #FFFFFF;
+}
+.worksheets.template-bloomdiff .total_marks, .worksheets.template-bloomdiff .total_ques{
+  height: 27px;	width: 113px;	border: 1px solid #D1DAE6;	border-radius: 2px;	background-color: #FFFFFF;
+}
+
+.template-list{
+    background-color: #ffffff;
+    -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+    box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+    position: relative;
+    height: 508px;
+    overflow: scroll;
+    width: auto;
+    border-radius: 4px;
+  tr{
+    border-bottom: 1px solid #D1DAE6;
+  }
+  th.template-name p{
+    width: 132px;
+  }
+  th.standard p{
+    width: 65px;
+  } 
+  th.subject p{
+    width: 102px;
+  }
+  th.total-marks p{
+    width: 85px;
+  }
+  th.duration p{
+    width: 72px;
+  }
+  th.created-by p, th.updated-by p{
+    width: 132px;
+  }
+  th p.tablespace{
+    width: 102px;
+  }
+  th.status p{
+    width: 138px;
+  }
+  th p{
+    margin:0px;
+  }
+  td {
+    height: 60px;
+    padding: 17px 15px;
+  }
+  td.action_col{
+    padding:11px 15px;
+  }
+}
+
+/*------------------end template----------------*/
+/***********radio-btn*********/
+.radio {
+  display: block;
+  position: relative;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+    
+/* Hide the browser's default radio button */
+.radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+    
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 24px;
+  right: 15px;
+  height: 28px;	
+  width: 28px;	
+  border: 1px solid #5C67E6;	
+  background-color: #FFFFFF;
+  border-radius: 50%;
+}
+input[type=radio]:checked ~ label{
+  color: #0DFF92;
+} 
+/* On mouse-over, add a grey background color */
+.radio:hover input ~ .checkmark {
+  background-color: #eee;
+}
+    
+/* When the radio button is checked, add a blue background */
+.radio input:checked ~ .checkmark {
+  background-color: #fff;
+}
+    
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+    display: none;
+}
+    
+/* Show the indicator (dot/circle) when checked */
+.radio input:checked ~ .checkmark:after {
+  display: block;
+}
+    
+/* Style the indicator (dot/circle) */
+.radio .checkmark:after {
+  top: 3px;
+  left: 3px;
+  border-radius: 50%;
+  height: 19.6px;	width: 19.6px;	background-color: #5C67E6;
+}
+/************end-radio btn*******/
+/*--------------------------------end exam setup page---------------------------------*/
+
+
+/*---------------------breadscrumb---------------------*/
+  .breadcrumb{
+    background:0;
+     li{
+    color: #8595A6;	
+    font-size: 12px;	
+    line-height: 20px;
+    a{
+      color: $color-blue;
+    }
+  }
+}
+/*--------------------- end breadscrumb---------------------*/ 

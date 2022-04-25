@@ -1,0 +1,128 @@
+<div id="page-content-wrapper">
+    <div class="container-fluid p-0">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="worksheettab-row">
+                    <div class="col-md-12 col-lg-12 p-0 worksheettab">
+                        <div class="worksheet-tab h-100" (click)="gotToTemplateSetting()" style="cursor: pointer;"><h4>Nature Settings</h4></div>
+                        <div class="bloomdifficulty-tab active h-100"><h4>Bloom & Difficulty Composition</h4></div>
+                        <div class="float-right view-previous-selection h-100">
+                            <div class="single tog h-100">
+                                <button type="button" id="Preview_btn" data-toggle="dropdown" class="  btn dropdown-btn dropdown-toggle preview-btn text-left float-right h-100">
+                                        <svg width="20px" class="mx-2" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                        <!-- Generator: sketchtool 54 (76480) - https://sketchapp.com -->
+                                        <title>CEFEF4E9-5AFE-4275-928B-416E1DF1E8BF</title>
+                                        <desc>Created with sketchtool.</desc>
+                                            <g id="Exam-Automation" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <g id="19.-ES---T&amp;E---Cherry-Pick" transform="translate(-1202.000000, -75.000000)" fill="#FFFFFF">
+                                                    <g id="IconSet/Information/Default" transform="translate(1202.000000, 75.000000)">
+                                                        <path d="M19,0 L1,0 C0.447,0 0,0.447 0,1 L0,19 C0,19.553 0.447,20 1,20 L19,20 C19.553,20 20,19.553 20,19 L20,1 C20,0.447 19.553,0 19,0 L19,0 Z M2,18 L18,18 L18,2 L2,2 L2,18 Z M9,7 L15,7 C15.553,7 16,6.553 16,6 C16,5.447 15.553,5 15,5 L9,5 C8.447,5 8,5.447 8,6 C8,6.553 8.447,7 9,7 M5,7 C5.553,7 6,6.553 6,6 C6,5.447 5.553,5 5,5 C4.447,5 4,5.447 4,6 C4,6.553 4.447,7 5,7 M9,11 L15,11 C15.553,11 16,10.553 16,10 C16,9.447 15.553,9 15,9 L9,9 C8.447,9 8,9.447 8,10 C8,10.553 8.447,11 9,11 M5,11 C5.553,11 6,10.553 6,10 C6,9.447 5.553,9 5,9 C4.447,9 4,9.447 4,10 C4,10.553 4.447,11 5,11 M9,15 L15,15 C15.553,15 16,14.553 16,14 C16,13.447 15.553,13 15,13 L9,13 C8.447,13 8,13.447 8,14 C8,14.553 8.447,15 9,15 M5,15 C5.553,15 6,14.553 6,14 C6,13.447 5.553,13 5,13 C4.447,13 4,13.447 4,14 C4,14.553 4.447,15 5,15" id="Icon"></path>
+                                                    </g>
+                                                </g>
+                                            </g>
+                                        </svg>
+                                    View Previous Selection</button>
+                                <ul class="dropdown-container dropdown-menu p-0 m-0" type="none">
+                                    <li>
+                                        <p class="preview-head mb-1">EXAM TYPE</p>
+                                        <p class="preview-detail m-0">Create Template</p>
+                                    </li>
+                                    <li>
+                                        <p class="preview-head mb-1">DETAILS</p>
+                                        <p class="preview-detail m-0">Monthly Worksheet, 8th Standard, 
+                                            Mathematics, Fully Automated</p>
+                                    </li>
+                                    <li>
+                                        <p class="preview-head mb-1 float-left col-9 col-md-9 p-0">CHAPTER SELECTION</p>
+                                        <p class="mb-1 float-left col-3 col-md-3 p-0 text-right"><a href="" class="">Edit</a></p>
+                                        <p class="preview-detail m-0">5 Chapter(s) from 3 Book(s)</p>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="m-3">
+                    <div class="col-lg-12 col-md-12 p-0">
+                        <div class="worksheets template-bloomdiff">
+                            <div class="row w-100 m-0">
+                                <div class="col-lg-6 col-md-6 my-3">
+                                    <div class="error" *ngIf="totalSumOfBloomQuestionList > totalQuestionCount"><b>Bloom Composition:</b> No of question can not be more than total number of question</div>
+                                    <h2 class="top-head float-left">Bloom Composition</h2>
+                                    <div class="total_ques float-right text-center"><p class="mb-0 p-1">TOTAL QUE:{{totalQuestionCount}}</p></div>
+                                    <div class="row w-100 m-0">
+                                        <div class="col-md-12 col-12 p-0">
+                                            <table class="w-100">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="78%">BLOOM LEVEL</th>
+                                                        <th width="22%">NO. OF QUE.</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                      <tr  *ngFor="let bloomQuestion of bloomQuestionList; let i=index;">
+                                                          <td class="bloom-level">{{bloomQuestion.BloomTaxonomyName}}</td>
+                                                          <td class="">
+                                                              <div class="form-group col-md-12 col-12 p-0 m-0">
+                                                                  <input id="noOfQuestion" class="form-control" type="number"  min="0" name="noOfQuestion{{i}}" [(ngModel)]="bloomQuestion.NumberOfQuestions" (blur)="checkValidation()"> 
+                                                                  <!-- <div class="error" *ngIf="bloomQuestion.noOfQuestion > totalQuestionCount">Number of que can not be more then toatal question</div> -->
+                                                              </div>
+                                                          </td>  
+                                                      </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6 col-md-6 my-3">
+                                      <div class="error" *ngIf="totalDifficultyLevelQuestionList > totalQuestionCount"><b>Difficulty Level Composition:</b> No of question can not be more than total number of question</div>
+                                    <h2 class="top-head float-left">Difficulty Level Composition</h2>
+                                    <div class="total_marks float-right text-center"><p class="mb-0 p-1">TOTAL QUE: {{totalQuestionCount}}</p></div>
+                                    <div class="row w-100 m-0">
+                                        <div class="col-md-12 col-12 p-0">
+                                            <table class="w-100">
+                                                <thead>
+                                                    <tr>
+                                                        <th width="78%">DIFFICULTY LEVEL</th>
+                                                        <th width="22%">NO. OF QUE.</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr  *ngFor="let difficultyQuestion of difficultyLevelQuestionList; let i=index;">
+                                                        <td class="bloom-level">{{difficultyQuestion.DifficultyLevelName}}</td>
+                                                        <td class="">
+                                                            <div class="form-group col-md-12 col-12 p-0 m-0">
+                                                                <input id="noOfQuestion" min="0"  class="form-control" type="number" name="noOfQuestion{{i}}" [(ngModel)]="difficultyQuestion.NumberOfQuestions" (blur)="checkValidationForBloom()"> 
+                                                            </div>
+                                                        </td>  
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mx-0 my-5">
+                                <div class="col-12 col-md-12 mb-4">
+                                    <hr>
+                                    <button type="button" *ngIf="isEdited" id="Preview_btn" class="btn bloompreview-btn float-right  h-100" [disabled]= "!isFormValid"(click)="createTemplateData()">Update Worksheet</button>
+                                    <button type="button" *ngIf="!isEdited" id="Preview_btn" class="btn bloompreview-btn float-right  h-100" [disabled]= "!isFormValid"(click)="createTemplateData()">Create Worksheet</button>
+                                </div>                                 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+  
+  <style>
+  .error{
+      color: rgb(184, 68, 32);
+  }
+  </style>

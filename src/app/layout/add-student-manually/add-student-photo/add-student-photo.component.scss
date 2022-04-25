@@ -1,0 +1,83 @@
+.schoolDetail-form .change-photo a {
+    display: block;
+    color: #8595A6;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 22px;
+}
+.schoolDetail-form .img-remove a {
+    display: block;
+    color: #8595A6;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 22px;
+}
+
+.dragandDroptextinimg, .dragandDroptextinlogo {
+    color: #8595A6;
+    font-size: 14px;
+    line-height: 21px;
+}
+.image-edit img{
+    width: 100%;
+    height: 184px;
+    // margin: 15px 0px;
+}
+
+button.save-btn{
+    height: 47px;	
+    width: 109px;	
+    border-radius: 4px;	
+    background-color: #01CA85;
+    color: #FFFFFF;	
+    font-size: 15px;	
+    font-weight: 600;	
+    line-height: 22px;	
+    text-align: center;
+  }
+  button.submitstudent-btn{
+    height: 47px;	
+    width: 279px;	
+    border-radius: 4px;	
+    background-color: #5C67E6;
+    color: #FFFFFF;
+    font-size: 15px;
+    font-weight: 600;	
+    line-height: 22px;	
+    text-align: center;
+  }
+  .modal-body h4{
+    color: #172B4D;
+    font-size: 21px;
+    font-weight: 600;
+    line-height: 27px;
+}
+.modal-body p{
+    color: #3A5077;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+}
+.modal-body .btn-yes{
+    height: 42px;
+    width: 96px;
+    border-radius: 4px;
+    background-color: #01CA85;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    margin: 8px 0px 0px 8px;
+}
+.modal-body .btn-no{
+    height: 42px;
+    width: 96px;
+    border-radius: 4px;
+    background-color: #5C67E6;
+    color: #FFFFFF;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 18px;
+    text-align: center;
+    margin: 8px 8px 0px 0px;
+}

@@ -1,0 +1,32 @@
+<div class="modal-dialog">
+    <div class="modal-content">
+        <div class="modal-header pb-4">
+            <button type="button" class="close float-left pt-1" data-dismiss="modal" aria-label="Close" (click)="closeModel()"><span aria-hidden="true">&times;</span></button>
+            <h4 class="modal-title text-center m-auto" id="AddWing_header">Select Specific Student</h4>
+        </div>
+        <div class="modal-body">
+            <form>
+                <div class="addWing-form px-4 py-2 mt-4">                        
+                      <div *ngFor="let student of selectedStudentDetails; let i = index" class="col-md-12 col-12 p-0 specific_students h-auto">
+                        <label class="checkbox-container">
+                              <input type="checkbox" class="form-check-input h-auto m-0"  
+                              value="" name="book_{{i}}" [checked]="student.IsAttempted" (change)="updateStudent(i);"  >
+                              <span class="checkmark"></span>
+                          </label>
+                          <p class="ml-4 pl-2 mb-0" style="text-transform: capitalize;">{{student.StudentName}}</p>
+                        </div>
+                        <div class="clearfix"></div>                       
+
+                    <div class="row my-4">
+                        <div class="form-group col-md-12 col-lg-12">
+                            <button type="button" id="selectStudentBtn"  class="btn selectStudentBtn w-100 mt-2" (click)="saveSelectStudent()" [disabled]= "!isStudentSelected">Select Student</button>
+                        </div>      
+                    </div>
+                </div>
+            </form>
+        </div>
+        <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+        </div> -->
+    </div><!-- modal-content -->
+</div><!-- modal-dialog -->

@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,OAAO,CAAC,QAAQ,CAAA;EACZ,OAAO,EAAE,YAAY;CACxB;;AACD,AAAA,OAAO,CAAC,QAAQ,CAAC,cAAc,CAAA;EAC3B,gBAAgB,EAAE,kBAAkB;CACvC",
+    "sources": [
+        "institute-profile-academic.component.scss"
+    ],
+    "names": [],
+    "file": "institute-profile-academic.component.css"
+}

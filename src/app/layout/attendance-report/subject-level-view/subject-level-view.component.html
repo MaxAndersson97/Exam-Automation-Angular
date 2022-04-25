@@ -1,0 +1,114 @@
+<div id="page-content-wrapper " class="">
+  <div class="container-fluid p-0">
+
+    <div class="row">
+      <div class="col-md-12 col-lg-12">
+        <nav aria-label="breadcrumb" class="mt-3  mx-3 mb-0">
+          <ol class="breadcrumb p-0 m-0">
+            <li class="breadcrumb-item" style="text-transform: capitalize;"><a routerLinkActive="active"
+                routerLink="/exam/attendance-report/class-level-view">Attendance Report / Class {{className |
+                lowercase}}</a></li>
+            <!-- <li class="breadcrumb-item" ><a>Subject Level View</a></li> -->
+            <li class="breadcrumb-item " aria-current="page" style="text-transform: capitalize;">{{subjectName |
+              lowercase}}</li>
+          </ol>
+        </nav>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-12">
+        <div class="row assign_report m-3">
+          <div class="col-md-12 col-lg-12">
+            <h2 class="top-header my-3 text-center"> Subject Level View </h2>
+          </div>
+          <div class="col-md-10 col-lg-10 mb-4">
+            <div class="Date_tabs m-auto">
+              <div class="float-left text-center tab" (click)="todayselected();" [ngClass]="{'active':todayd == true}">
+                <p>Today</p>
+              </div>
+              <div class="float-left text-center tab" (click)="sevendaysselected();"
+                [ngClass]="{'active':sevend == true}">
+                <p>7 Days</p>
+              </div>
+              <div class="float-left text-center tab" (click)="thirtydaysselected();"
+                [ngClass]="{'active':thirtyd == true}">
+                <p>30 Days</p>
+              </div>
+              <div class="float-left text-center Custom-No" [ngClass]="{'active':customd == true}">
+                <input placeholder="Custom" type="text" [(ngModel)]="BelowcustomShowLimit" class="w-100 enter-custom-no"
+                  onKeyDown="if(this.value.length==3 && event.keyCode>47 && event.keyCode < 58)return false;"
+                  (keypress)="numericOnly($event)" type="number" min="1" max="999">
+                <button type="button" style="cursor: pointer;" (click)="onselectcustomdate(BelowcustomShowLimit);"
+                  [ngStyle]="{'color': BelowcustomShowLimit > 0 ? '#28a745' : '#8595A6'}"
+                  [disabled]="BelowcustomShowLimit == 0 || BelowcustomShowLimit == '' || BelowcustomShowLimit == null">
+                  <!-- <i class="fa fa-check-circle"></i> -->
+                  Click Here
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-2 col-lg-2 mb-4">
+            <div class="Date_tabs m-auto">
+              <div class="float-left text-center tab" style="cursor: pointer;" (click)="exportexcel();">
+                <p>Export <i class="fa fa-file-excel-o" aria-hidden="true"></i></p>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-12 col-lg-12 p-0 t_top_border">
+            <div class="assignment_report ">
+              <div>
+                <table class="w-100 table assignment_list-list" id="excel-table">
+                  <thead>
+                    <tr style="text-transform: capitalize" class="table-row">
+                      <!-- <th class="left_td_one">Class</th>
+                      <th class="left_td_two">Subject</th> -->
+                      <th class="left_td_three">Student Name</th>
+                      <th class="left_td_four">Attendance Percentage</th>
+                      <ng-container *ngFor="let key of dates">
+                        <th class="text-center">{{key}}</th>
+                      </ng-container>
+                    </tr>
+                  </thead>
+                  <tbody id="myTable">
+                    <ng-container *ngFor="let item of subjectlevellist">
+                      <tr *ngIf="item.adhocrow==true && item.adhocrow">
+                        <td class="left_td_three adhoc_attend"><strong>Adhoc Attendance</strong></td>
+                        <td class="left_td_four adhoc_attend"></td>
+                        <ng-container *ngFor="let key of dates">
+                          <td class="adhoc_attend"></td>
+                        </ng-container>
+                      </tr>
+                      <tr *ngIf="item.lstAttandanceSubjectData!=[] && item.lstAttandanceSubjectData_adhoc!=[]">
+                        <!-- <td [attr.rowspan]="item.rowSpan" *ngIf="item.rowSpan" class="t_right_border left_td_one">{{item.ClassName | lowercase}} {{item.SectionName}}</td>
+                        <td [attr.rowspan]="item.rowSpan" *ngIf="item.rowSpan" class="left_td_two t_right_border">{{item.SubjectName | lowercase}}
+                          <p class="w-100 subject_teacher_name mb-0">{{item.SubjectTeacherName | lowercase}}</p>
+                        </td>  -->
+                        <td (click)="getstudentlevel(item)" class="left_td_three subject_name">{{item.StudentName |
+                          lowercase}}</td>
+                        <td class="left_td_four">{{item.PresentOfPeriod_Subject | number:'1.2-2'}}%</td>
+                        <ng-container *ngFor="let subitem of item.lstStudentReportInfoMember">
+
+                          <td
+                            [ngClass]="{'present':subitem.StudentPresent == true && subitem.IsDateHaveAttendance , 'absent':subitem.StudentPresent == false && subitem.IsDateHaveAttendance}">
+                            <span *ngIf="subitem.IsDateHaveAttendance">
+                              <span *ngIf="subitem.StudentPresent== true">Present</span>
+                              <span *ngIf="subitem.StudentPresent== false">Absent</span>
+                            </span>
+                            <span *ngIf="!subitem.IsDateHaveAttendance">N/A</span>
+                          </td>
+                        </ng-container>
+
+                      </tr>
+                    </ng-container>
+                  </tbody>
+                </table>
+                <p *ngIf="nodataavailble" class="no_data_available">No Data Available</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

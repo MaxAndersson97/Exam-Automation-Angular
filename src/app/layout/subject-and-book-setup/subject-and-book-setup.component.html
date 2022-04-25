@@ -1,0 +1,117 @@
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="m-3">
+                <div class="col-lg-12 col-md-12 p-0">
+                    <div class="row subBookSetupHead">
+                        <div class="col-md-8 col-8">
+                            <h2 class="top-header mb-3">Subject and Book Setup</h2>
+                        </div>
+                        <div class="col-4 col-md-4">
+                            <div class="form-group col-md-12 col-sm-12 single p-0">
+                                <ng-select [items]="classList" bindLabel="ClassName" placeholder="Select Class"
+                                    bindValue="ClassID" [searchable]=false (change)=classChanged($event) required>
+                                    <ng-template ng-option-tmp let-item="item">
+                                        <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                                    </ng-template>
+                                    <ng-template ng-label-tmp let-item="item">
+                                        <span *ngIf="item.ClassName" style="text-transform: capitalize">
+                                            {{item.ClassName.toLowerCase()}}</span>
+                                        <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                                    </ng-template>
+                                </ng-select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 p-0" *ngIf="subjectList.length > 0 && isDataShow">
+                    <div class="class_setup subBookSetup">
+                        <div class="class_setup_inner" >
+                            <table class="w-100 fixed_header">
+                                <thead>
+                                    <tr>
+                                        <th width="5%"></th>
+                                        <th width="30%">SUBJECT</th>
+                                        <th width="65%" colspan="2">BOOK(S)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let subject of subjectList">
+                                        <td width="5%">
+                                            <label class="checkbox-container">
+                                                <input type="checkbox" [(ngModel)]="subject.IsSelected"
+                                                    (click)=" onSubjectChecked(subject)" value="sub"
+                                                    [checked]="subject.IsSelected">
+                                                <span class="checkmark"></span>
+                                            </label>
+                                            <!-- <input type="checkbox" [(ngModel)]="subject.IsSelected" (click)="onSubjectChecked(subject)" class="form-check-input h-auto m-0" value="sub" [checked]="subject.IsSelected"> -->
+                                        </td>
+                                        <td width="30%"><input type="text" name="subjectName" class="form-control"
+                                                value="{{subject.SubjectName | titlecase}}"
+                                                [disabled]="!subject.IsSelected" placeholder="Select Subject"
+                                                id="txtsubjectName" required readonly
+                                                [ngClass]="{'subject-text-disabled': subject.IsSelected}" /></td>
+                                        <td width="58%" class="multiselectvalue">
+                                            <ng-select [items]="subject.Books"
+                                                [(ngModel)]="subject.listEASubjectBookMappingInfoMember"
+                                                bindLabel="TextBookName" placeholder="Select Book(s)" [searchable]=false
+                                                [multiple]=true [closeOnSelect]=false (close)="onChangeBook(subject)"
+                                                [ngClass]="{'grayedout-disabled': !subject.IsSelected}" 
+                                                [disabled]="!subject.IsSelected"
+                                                required>
+                                                <ng-template ng-option-tmp let-item="item">
+                                                    <input style="height: 13px !important"
+                                                        [checked]="isCheckedBook(subject.listEASubjectBookMappingInfoMember, item.TextBookID)"
+                                                        type="checkbox">
+                                                    {{item.TextBookName}}
+                                                    <!-- <span class="ng-value-icon right" (click)="onChangeBook(item)" aria-hidden="true">×</span> -->
+                                                </ng-template>
+                                            </ng-select>
+                                        </td>
+                                        <td width="7%">
+                                            <button class="btn btn-primary" [disabled]="!subject.IsSelected" (click)="onChangeBook(subject)" type="button">SAVE</button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12 col-md-12 p-0" *ngIf="!isDataShow" >
+                    <div class="col-md-12 col-lg-12 col-sm-12" >
+                      <div class="dcsetup-img mx-auto mt-3">
+                        <img src="assets/images/No-Content-Module.svg" alt="" class="w-100">
+                      </div>
+                    </div>
+                    <div class="col-md-12 col-lg-12 col-sm-12">
+                      <div class="examsetup-content mx-auto ">
+                        <h2 class="text-center top-header my-3">No subjects to show</h2>
+                        <p class="text-center detailcontrol-description mb-0" *ngIf="!isDataShow">Please let us know the Class from the above</p>
+                        <p class="text-center detailcontrol-description" *ngIf="!isDataShow">dropdown to get the results</p>
+                      </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    ::ng-deep .ng-select.ng-select-multiple.ng-select-disabled>.ng-select-container .ng-value-container .ng-value {
+        background-color: #c5c8cc !important;
+    }
+
+    .subject-text-disabled {
+        background-color: #FFF;
+
+    }
+
+    ::ng-deep .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value {
+        background-color: #E9EAFF;
+    }
+
+    ::ng-deep .ng-select.ng-select-multiple .ng-select-container .ng-value-container .ng-value .ng-value-icon.left {
+        border-right: 1px solid #5C67E6;
+    }
+</style>

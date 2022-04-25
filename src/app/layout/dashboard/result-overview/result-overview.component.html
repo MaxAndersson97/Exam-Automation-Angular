@@ -1,0 +1,167 @@
+<div class="container-fluid p-0 result_oview">
+  <div class="row">
+    <div class="col-md-12 col-lg-12">
+      <div class="filter-row py-3">
+          <div class="col-md-12 col-lg-12 p-0">
+            <div class="filterBy float-left py-2 px-3  text-left w-100">
+              <h4>Filters</h4>
+              <div class="clear_filter" (click)="onClearClick();">Clear Filter</div>
+            </div>
+            <div class="w-100 px-3 pb-2">
+              <div class="float-left select-standard-filter">
+                <div class="single tog">
+                  <ng-select [(ngModel)]="studentFilterObj.ClassID" [items]="classes" bindLabel="ClassName" placeholder="Select Class"
+                    bindValue="ClassID" [searchable]=false (change)="getSectionByClassID(studentFilterObj.ClassID);">
+                    <ng-template ng-option-tmp let-item="item">
+                      <span style="text-transform: capitalize">{{item.ClassName.toLowerCase()}}</span>
+                    </ng-template>
+                    <ng-template ng-label-tmp let-item="item">
+                      <span *ngIf="item.ClassName" style="text-transform: capitalize"> {{item.ClassName.toLowerCase()}}</span>
+                      <span *ngIf="!item.ClassName" style="color: #999999;"> Select Class</span>
+                    </ng-template>
+        
+                  </ng-select>
+                </div>
+              </div>
+              <div class="float-left select-standard-filter">
+                <div class="single tog">
+                  <ng-select [(ngModel)]="studentFilterObj.EA_SectionID" name="EA_SectionID" [items]="sectionList" bindValue="AESectionID" [searchable]='false' placeholder="Select Section" >
+                    <ng-template ng-option-tmp let-item="item" >
+                        {{ item.SectionName}}
+                    </ng-template>
+                    <ng-template ng-label-tmp let-item="item">
+                        <span *ngIf="item.SectionName"> {{ item.SectionName}}</span>
+                        <span *ngIf="!(item.SectionName)" style="color: #999999;"> Select Section</span>
+                    </ng-template>
+                </ng-select>
+                </div>
+              </div>
+              
+              <button type="button" id="showResultBtn" class="btn show-result-btn" (click)="onSearchClick()">
+                Show Result
+              </button>
+            </div>
+          </div>
+      </div>
+    </div>
+
+    <div class="col-md-12 col-lg-12" *ngIf="isDataShow">
+        <div class="m-3 row">
+              <h2 class="class_wise_performance_head">Result Overview</h2>
+              <div class="float-right pre-academic-year">
+                <span>% comparision from year {{previous_academic_year}}</span>
+              </div>
+              <div class="col-12 mt-2 p-0">
+                <div class="class_wise_performance p-3">
+                  <div class="class_wise_performance_table w-100 mt-2">
+                    <table class="w-100">
+                      <thead>
+                        <tr>
+                          <th>CLASS & SECTION</th>
+                          <th>FACULTY NAME</th>
+                          <th>FIRST DIVISION</th>
+                          <th>SECOND DIVISION</th>
+                          <th>THIRD DIVISION</th>
+                          <th>FAIL</th>
+                          <th style="width: 270px;">REMARK</th>
+                          <th>Action</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let student of studentResultData | paginate: {itemsPerPage: rowsOnPage, currentPage:page, id: '1'};">
+                          <td class="b_clr">
+                            <a routerLink="/exam/dashboard/class-performance-details">
+                              {{student.ClassName | lowercase}}-{{student.SectionName}}
+                            </a>
+                          </td>
+                          <!-- <td ><img [src]="student.teacher_profilelink"/>{{student.teacherName}}</td> -->
+                          <td class="b_clr">
+                            <a routerLink="/exam/dashboard/teacher-performance-overview">
+                              <!-- <div class="name_img" *ngIf="student.teacher_profilelink!=''">
+                                <img class="" [src]='student.teacher_profilelink'></div> -->
+                              <div class="name"><p>{{student.ClassTeacher.toUpperCase().charAt(0)}}</p></div>
+                              <div class="py-2 b_clr"> {{student.ClassTeacher}}</div>
+                            </a>
+                          </td>
+                          <td>{{student.first_division}}%
+                            <div class="last_yr_compare float-right" *ngIf="(student.first_division != student.previous_first_division)" [ngClass]="{'green':(student.first_division > student.previous_first_division) , 'red':(student.first_division < student.previous_first_division)}">
+                              <span class="arrow">
+                                <span class="up" *ngIf="(student.first_division > student.previous_first_division)">&uarr;</span>
+                                <span class="down" *ngIf="(student.first_division < student.previous_first_division)">&darr;</span>
+                              </span>
+                              <span class="percent"> {{student.first_division - student.previous_first_division}}%
+                                
+                              </span>
+                            </div>
+                          </td>
+                          <td>{{student.second_division}}%
+                            <div class="last_yr_compare float-right" *ngIf="(student.second_division != student.previous_second_division)" [ngClass]="{'green':(student.second_division > student.previous_second_division) , 'red':(student.second_division < student.previous_second_division)}">
+                              <span class="arrow">
+                                <span class="up" *ngIf="(student.second_division > student.previous_second_division)">&uarr;</span>
+                                <span class="down" *ngIf="(student.second_division < student.previous_second_division)">&darr;</span>
+                              </span>
+                              <span class="percent"> {{student.second_division - student.previous_second_division}}%                                
+                              </span>
+                            </div>
+
+                          </td>
+                          <td>{{student.third_division}}%
+                            <div class="last_yr_compare float-right" *ngIf="(student.third_division != student.previous_third_division)" [ngClass]="{'green':(student.third_division > student.previous_third_division) , 'red':(student.third_division < student.previous_third_division)}">
+                              <span class="arrow">
+                                <span class="up" *ngIf="(student.third_division > student.previous_third_division)">&uarr;</span>
+                                <span class="down" *ngIf="(student.third_division < student.previous_third_division)">&darr;</span>
+                              </span>
+                              <span class="percent"> {{student.second_division - student.previous_second_division}}%                                
+                              </span>
+                            </div>
+                          </td>
+                          <td>{{student.failed}}%
+                            <div class="last_yr_compare float-right" *ngIf="(student.failed != student.previous_failed)" [ngClass]="{'green':(student.failed > student.previous_failed) , 'red':(student.failed < student.previous_failed)}">
+                              <span class="arrow">
+                                <span class="up" *ngIf="(student.failed > student.previous_failed)">&uarr;</span>
+                                <span class="down" *ngIf="(student.failed < student.previous_failed)">&darr;</span>
+                              </span>
+                              <span class="percent"> {{student.second_division - student.previous_second_division}}%                                
+                              </span>
+                            </div>
+                          </td>
+                          <td>
+                            <span> <i> {{student.result_remark}}</i></span>
+                          </td>
+                          <td class="b_clr"><a (click)="navigateToCPDV()">See More</a></td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="pages w-100">
+                  <pagination-controls class="pages" (pageChange)="page = $event" id="1" [maxSize]="10" 
+                      directionLinks="true" previousLabel=""
+                      nextLabel="" responsive="true">
+                  </pagination-controls>
+              </div>
+              <div class="selectWrapper">
+                      <ng-select class="select_Show" id="1"  [(ngModel)]="rowsOnPage">
+                              <ng-option  *ngFor="let row of rowsOnPageSet" [value]="row" >Show {{ row }} Results</ng-option>
+                      </ng-select>
+              </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="ng-star-inserted  col-md-12 col-12 col-lg-12" *ngIf="!isDataShow">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <div class="dcsetup-img mx-auto mt-3">
+          <img src="assets/images/reports.svg" alt="" class="w-100">
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <div class="examsetup-content mx-auto ">
+          <h2 class="text-center top-header my-3">No report to show</h2>
+          <p class="text-center detailcontrol-description mb-0">Please let us know the standard and section</p>
+          <p class="text-center detailcontrol-description">from the above dropdown to get the results</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

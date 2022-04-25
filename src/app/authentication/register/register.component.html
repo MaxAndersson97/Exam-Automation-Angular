@@ -1,0 +1,266 @@
+<ng-http-loader spinner="sk-wave"></ng-http-loader>
+<div class="login">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-5 col-lg-5 login-left">
+        <div class="row pt-5 px-4 mt-4 pb-3 m-2">
+          <div class="col-md col-lg">
+            <h1 class="login-top-heading">Assesment Creation Tool</h1>
+          </div>
+        </div>
+        <form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+          <div class="login-form" id="login_form">
+            <div class="row pt-2 px-4 pb-1 m-2">
+              <div class="col-md-12 col-lg-12">
+                <h2 class="top-header mb-5">Register New Account</h2>
+              </div>
+            </div>
+            <div class="row px-4 m-2">
+              <label class="col-md-12 col-sm-12">
+                Email ID&nbsp;<span class="required-mark">*</span>&nbsp;<span class="steptext col-md-12 col-sm-12">
+                  <br />(Please enter a valid Email Id, we will mail you all paper on this.)</span>
+              </label>
+              <div class="form-group col-md-12 col-sm-12">
+                <input type="text" formControlName="username" class="form-control" placeholder="eg. bruce@wayne.com"
+                  required (keypress)="enterevent($event)" (blur)="enterevent($event)" />
+                <div *ngIf="f.username.errors && (f.username.dirty || f.username.touched)">
+                  <div *ngIf="f.username.errors && f.username.errors.required " class="danger">Email is required.</div>
+                  <div *ngIf="f.username.errors.emailvalidator" class="danger">Email must be a valid email address.
+                  </div>
+                </div>
+                <div *ngIf="emailavailablemessage != '' && (!f.username.errors)" class="danger">
+                  {{emailavailablemessage}}</div>
+              </div>
+              <!-- <span class="steptext col-md-12 col-sm-12">this will be used as your login username and we will send you all papers on this id only.</span> -->
+            </div>
+            <div class="row px-4 m-2">
+              <div class="form-group col-md-6 col-sm-6 passwordfield">
+                <label>Password&nbsp;<span class="required-mark">*</span></label>
+                <input [type]="togglePasswordBool ? 'text' : 'password'" formControlName="password" class="form-control"
+                  placeholder="********" required (keydown)="avoidSpace($event)" />
+                <svg (click)="togglePassword()" [ngClass]="{'color-change': togglePasswordBool}" width="16px"
+                  height="14px" viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <title>0ABAF2E8-4963-42A5-8C3C-AFB241376176</title>
+                  <defs>
+                    <path
+                      d="M15.9695998,7.78 C15.9511998,7.7184 14.1327998,1.6 7.99999989,1.6 C1.86719997,1.6 0.0487999993,7.7184 0.0303999996,7.78 C-0.0103999999,7.924 -0.0103999999,8.076 0.0303999996,8.22 C0.0487999993,8.2816 1.86719997,14.4 7.99999989,14.4 C14.1327998,14.4 15.9511998,8.2816 15.9695998,8.22 C16.0103998,8.076 16.0103998,7.924 15.9695998,7.78 M7.99999989,12.8 C3.62639992,12.8 1.99039992,8.9824 1.64159993,8 C1.99039992,7.0176 3.62639992,3.2 7.99999989,3.2 C12.3751999,3.2 14.0111999,7.0208 14.3583999,8 C14.0103999,8.9824 12.3735999,12.8 7.99999989,12.8 M7.99999989,9.6 C7.11759989,9.6 6.39999989,8.8824 6.39999989,8 C6.39999989,7.1176 7.11759989,6.4 7.99999989,6.4 C8.88239989,6.4 9.59999989,7.1176 9.59999989,8 C9.59999989,8.8824 8.88239989,9.6 7.99999989,9.6 M7.99999989,4.8 C6.23519989,4.8 4.79999989,6.2352 4.79999989,8 C4.79999989,9.7648 6.23519989,11.2 7.99999989,11.2 C9.76479989,11.2 11.1999999,9.7648 11.1999999,8 C11.1999999,6.2352 9.76479989,4.8 7.99999989,4.8"
+                      id="path"></path>
+                  </defs>
+                  <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="01.-Login" transform="translate(-432.000000, -364.000000)">
+                      <g id="IconSet/View/Default" transform="translate(432.000000, 363.000000)">
+                        <mask id="mask-2" fill="white">
+                          <use xlink:href="#path"></use>
+                        </mask>
+                        <use id="Icon" fill="#8595A6" xlink:href="#path"></use>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+
+                <div *ngIf="f.password.errors && (f.password.dirty || f.password.touched)">
+                  <div *ngIf="f.password.errors && f.password.errors.required " class="danger">Password required.</div>
+                  <div *ngIf=" f.password.errors.minlength" class="danger">Password must be 8 character long.</div>
+                </div>
+
+                <div *ngIf="f.repassword.errors && (f.repassword.dirty || f.repassword.touched)">
+                  <div *ngIf="f.repassword.errors.mustMatch" class="danger">Password & Confirm password should be same.
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col-md-6 col-sm-6 passwordfield">
+                <label>Confirm Password&nbsp;<span class="required-mark">*</span></label>
+                <input [type]="togglerePasswordBool ? 'text' : 'password'" formControlName="repassword"
+                  class="form-control" placeholder="********" required (keydown)="avoidSpace($event)" />
+
+                <svg (click)="toggleRePassword()" [ngClass]="{'color-change': togglerePasswordBool}" width="16px"
+                  height="14px" viewBox="0 0 16 14" version="1.1" xmlns="http://www.w3.org/2000/svg"
+                  xmlns:xlink="http://www.w3.org/1999/xlink">
+                  <title>0ABAF2E8-4963-42A5-8C3C-AFB241376176</title>
+                  <defs>
+                    <path
+                      d="M15.9695998,7.78 C15.9511998,7.7184 14.1327998,1.6 7.99999989,1.6 C1.86719997,1.6 0.0487999993,7.7184 0.0303999996,7.78 C-0.0103999999,7.924 -0.0103999999,8.076 0.0303999996,8.22 C0.0487999993,8.2816 1.86719997,14.4 7.99999989,14.4 C14.1327998,14.4 15.9511998,8.2816 15.9695998,8.22 C16.0103998,8.076 16.0103998,7.924 15.9695998,7.78 M7.99999989,12.8 C3.62639992,12.8 1.99039992,8.9824 1.64159993,8 C1.99039992,7.0176 3.62639992,3.2 7.99999989,3.2 C12.3751999,3.2 14.0111999,7.0208 14.3583999,8 C14.0103999,8.9824 12.3735999,12.8 7.99999989,12.8 M7.99999989,9.6 C7.11759989,9.6 6.39999989,8.8824 6.39999989,8 C6.39999989,7.1176 7.11759989,6.4 7.99999989,6.4 C8.88239989,6.4 9.59999989,7.1176 9.59999989,8 C9.59999989,8.8824 8.88239989,9.6 7.99999989,9.6 M7.99999989,4.8 C6.23519989,4.8 4.79999989,6.2352 4.79999989,8 C4.79999989,9.7648 6.23519989,11.2 7.99999989,11.2 C9.76479989,11.2 11.1999999,9.7648 11.1999999,8 C11.1999999,6.2352 9.76479989,4.8 7.99999989,4.8"
+                      id="path"></path>
+                  </defs>
+                  <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="01.-Login" transform="translate(-432.000000, -364.000000)">
+                      <g id="IconSet/View/Default" transform="translate(432.000000, 363.000000)">
+                        <mask id="mask-2" fill="white">
+                          <use xlink:href="#path"></use>
+                        </mask>
+                        <use id="Icon" fill="#8595A6" xlink:href="#path"></use>
+                      </g>
+                    </g>
+                  </g>
+                </svg>
+
+                <div *ngIf="f.repassword.errors && (f.repassword.dirty || f.repassword.touched)">
+                  <div *ngIf="f.repassword.errors && f.repassword.errors.required " class="danger">Confirm password
+                    required.</div>
+                  <div *ngIf=" f.repassword.errors.minlength" class="danger">Confirm password must be 8 character long.
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row px-4 m-2">
+              <div class="form-group col-md-6 col-sm-6 passwordfield">
+                <label>First Name&nbsp;<span class="required-mark">*</span></label>
+                <input type="text" formControlName="FirstName" class="form-control" placeholder="e.g. Bruce" required />
+
+                <div *ngIf="f.FirstName.errors && (f.FirstName.dirty || f.FirstName.touched)">
+                  <div *ngIf="f.FirstName.errors && f.FirstName.errors.required " class="danger">First Name required.
+                  </div>
+                  <div *ngIf=" f.FirstName.errors.minlength && !f.FirstName.errors.pattern" class="danger">First name
+                    length at least 3 characters.</div>
+                </div>
+
+              </div>
+              <div class="form-group col-md-6 col-sm-6 passwordfield">
+                <label>Last Name&nbsp;<span class="required-mark">*</span></label>
+                <input type="text" formControlName="LastName" class="form-control" placeholder="e.g. Wayne" required />
+
+                <div *ngIf="f.LastName.errors && (f.LastName.dirty || f.LastName.touched)">
+                  <div *ngIf="f.LastName.errors && f.LastName.errors.required " class="danger">Last Name required.</div>
+                  <div *ngIf=" f.LastName.errors.minlength && !f.LastName.errors.pattern" class="danger">Last Name
+                    length at least 3 characters.</div>
+                </div>
+
+              </div>
+            </div>
+            <div class="row px-4 m-2">
+              <div class="form-group col-md-12 col-sm-12 passwordfield">
+                <label>Mobile No.&nbsp;<span class="required-mark">*</span></label>
+
+                <div class="row">
+                  <div class="col-md-4">
+                    <ng-select formControlName="CountryCode" [items]="countrylist" bindLabel="country"
+                      bindValue="calling_code">
+                    </ng-select>
+
+                    <div *ngIf="f.CountryCode.errors && (f.CountryCode.dirty || f.CountryCode.touched)">
+                      <div *ngIf="f.CountryCode.errors && f.CountryCode.errors.required " class="danger">Select Country.
+                      </div>
+                    </div>
+
+                  </div>
+                  <div class="col-md-8">
+                    <input type="text" formControlName="Mobile" class="form-control ml-25" placeholder="e.g. 1234113491"
+                      required />
+                  </div>
+
+                  <div *ngIf="f.Mobile.errors && (f.Mobile.dirty || f.Mobile.touched)">
+                    <div *ngIf="f.Mobile.errors && f.Mobile.errors.required " class="danger">Mobile Number required.
+                    </div>
+                    <div *ngIf="f.Mobile.errors.minlength || f.Mobile.errors.maxlength" class="danger">Mobile number
+                      lenght must be 10 character.</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row px-4 m-2">
+              <div class="col-md-12 col-lg-12">
+                <button type="submit" class="btn login-btn w-100" [disabled]="signUpForm.invalid">Register</button>
+              </div>
+            </div>
+            <div class="row pt-2 px-4 pb-2 m-2">
+              <div class="col-md-12 col-lg-12">
+                <a routerLink="/authentication/login">
+                  <p class="text-center forgot-password">Back To Login</p>
+                </a>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="col-md-7 col-md-7 p-0 login-right">
+        <div class="row pt-5 px-5 mx-2">
+          <div class="col-md col-lg">
+            <img src="assets/images/login.svg" class="w-100">
+          </div>
+        </div>
+        <div class="row px-5 mx-2">
+          <div class="col-md col-lg p-0">
+            <div class="quick-tip-box p-3 carousel slide" data-interval="false" id="quick-tip-box">
+              <div class="quick-tip-header">
+                <h3>Quick Tip</h3>
+              </div>
+              <div class="quick-tip-content carousel-inner">
+                <p class="carousel-item active">
+                  <strong>Time is Money!</strong><br />
+                  <span>Make Question papers and worksheets in Just 5 Minutes. </span><br />
+                  <span>Goodbye! to Tedious Cumbersome Manual Process at Just ₹ 4999</span>
+                </p>
+                <p class="carousel-item">
+                  Get started! A fully automated, hassle-free software. Assessment, Evaluation, Reports, Share & more.
+                </p>
+                <p class="carousel-item ">
+                  Graphical analysis: Reports that speak for itself. Beautiful graphical representation of performance.
+                </p>
+                <p class="carousel-item ">
+                  Time is Money! Design all exam papers in few clicks. Goodbye! To tedious cumbersome manual process.
+                </p>
+                <!-- <p class="carousel-item ">
+                  Invest in future: Analyse the results and engage in activities that would help get better results with our superb Analytical Report Mechanism.
+                </p> -->
+              </div>
+              <div class="quick-tip-left-right">
+                <a class="left-quick-tip mr-2 left" href="#quick-tip-box" data-slide="prev" style="cursor: pointer">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 30 30"
+                    xml:space="preserve">
+                    <path class="icon" fill="#8595A6"
+                      d="M17,9 L5.414,9 L8.707,5.707 C9.098,5.316 9.098,4.684 8.707,4.293 C8.316,3.902 7.684,3.902 7.293,4.293 L2.293,9.293 C1.902,9.684 1.902,10.316 2.293,10.707 L7.293,15.707 C7.488,15.902 7.744,16 8,16 C8.256,16 8.512,15.902 8.707,15.707 C9.098,15.316 9.098,14.684 8.707,14.293 L5.414,11 L17,11 C17.553,11 18,10.552 18,10 C18,9.448 17.553,9 17,9">
+                    </path>
+                  </svg>
+                </a>
+                <a style="cursor: pointer" class="left-quick-tip ml-2 right" href="#quick-tip-box" data-slide="next">
+                  <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                    x="0px" y="0px" width="20px" height="20px" viewBox="0 0 20 20" enable-background="new 0 0 30 30"
+                    xml:space="preserve">
+                    <path class="icon" fill="#8595A6"
+                      d="M17.707,9.293 L12.707,4.293 C12.316,3.902 11.684,3.902 11.293,4.293 C10.902,4.684 10.902,5.316 11.293,5.707 L14.586,9 L3,9 C2.447,9 2,9.448 2,10 C2,10.552 2.447,11 3,11 L14.586,11 L11.293,14.293 C10.902,14.684 10.902,15.316 11.293,15.707 C11.488,15.902 11.744,16 12,16 C12.256,16 12.512,15.902 12.707,15.707 L17.707,10.707 C18.098,10.316 18.098,9.684 17.707,9.293">
+                    </path>
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <app-footer></app-footer>
+</div>
+
+<script>
+  $('.quick-tip-box').carousel('cycle');
+  $('.carousel-sync').on('click', '.carousel-control[data-slide]', function (ev) {
+    ev.preventDefault();
+    $('.quick-tip-box').carousel($(this).data('slide'));
+  });
+  $('.quick-tip-box').on('mouseover', function (ev) {
+    ev.preventDefault();
+    $('.quick-tip-box').carousel('pause');
+  });
+  $('.quick-tip-box').on('mouseleave', function (ev) {
+    ev.preventDefault();
+    $('.quick-tip-box').carousel('cycle');
+  });
+
+  $('#quick-tip-box').bind('slid.bs.carousel', function (e) {
+
+    var $this = $(this);
+
+    $this.children('.carousel-control').show();
+
+    if ($('.carousel-inner .item:last').hasClass('active')) {
+      $('#quick-tip-box').carousel('pause');
+      $this.children('.right.carousel-control').hide();
+    } else if ($('.carousel-inner .item:first').hasClass('active')) {
+      $this.children('.left.carousel-control').hide();
+    }
+  });
+</script>

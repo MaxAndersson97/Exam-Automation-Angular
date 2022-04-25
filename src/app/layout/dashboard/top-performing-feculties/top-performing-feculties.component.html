@@ -1,0 +1,70 @@
+<div class="container-fluid p-0">
+  <div class="row">
+      <div class="col-md-12 col-lg-12">
+          <div class="m-3 row">
+              <h2 class="top_performing_feculties_head">Top Performing Faculties</h2>
+
+              <!---------------low-course-completion----------->
+              <div class="col-12 mt-2 p-0">
+                <div class="top_performing_feculties p-3">
+                  <div class="top_performing_feculties_table w-100 mt-2">
+                    <table class="w-100">
+                      <thead>
+                        <tr>
+                          <th>RANK</th>
+                          <th width="20%">FACULTY NAME</th>
+                          <th>TOTAL CLASS</th>
+                          <th width="10%">CLASS & SUBJECT</th>
+                          <th>COURSE COMPLETED</th>
+                          <th>ASSESSMENT TAKEN</th>
+                          <th>RESULT %</th>
+                          <th>AVG. ATTENDANCE IN EXAM</th>
+                          <th>RANK SCORE</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let dt of top_performing_feculties | paginate: {itemsPerPage: rowsOnPage, currentPage:page, id: '1'} | sortBy:'desc':'Total_per'; let i = index;">
+                          <td class="">{{i+1}}</td>
+                          <td class="b_clr">
+                            <a routerLink="/exam/dashboard/teacher-performance-overview">
+                              <div class="name_img" *ngIf="dt.SubjectTeacherProfileImageLink!=''"><img class="" [src]='dt.SubjectTeacherProfileImageLink'></div>
+                              <div class="name" *ngIf="dt.SubjectTeacherProfileImageLink==''"><p>{{dt.SubjectTeacher.toUpperCase().charAt(0)}}</p></div>
+                              <div class="py-2 b_clr"> {{dt.SubjectTeacher | lowercase}} </div>
+                            </a>
+                          </td>
+                          <td>{{dt.total_class}}</td>
+                          <td class="b_clr">
+                            <a routerLink="/exam/dashboard/class-performance-details">
+                              {{dt.class_sec_sub[0].ClassName | lowercase}}-{{dt.class_sec_sub[0].SectionName}}
+                            </a>
+                            <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                              <div>{{dt.class_sec_sub[0].SubjectName | lowercase}}</div>
+                            </a>
+                          </td>
+                          <td>{{dt.course_completed}}%</td>
+                          <td>{{dt.assessment_taken}}</td>
+                          <td>{{dt.result_percentage}}%</td>
+                          <td>{{dt.avg_attendance}}%</td>
+                          <td>{{dt.score | number:'1.3-3'}}</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="pages w-100">
+                  <pagination-controls class="pages" (pageChange)="page = $event" id="1" [maxSize]="10" 
+                      directionLinks="true" previousLabel=""
+                      nextLabel="" responsive="true">
+                  </pagination-controls>
+              </div>
+              <div class="selectWrapper">
+                      <ng-select class="select_Show" id="1"  [(ngModel)]="rowsOnPage">
+                              <ng-option  *ngFor="let row of rowsOnPageSet" [value]="row" >Show {{ row }} Results</ng-option>
+                      </ng-select>
+              </div>
+            </div>
+
+          </div>
+      <div>
+  </div>
+</div>

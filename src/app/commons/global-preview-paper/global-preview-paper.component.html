@@ -1,0 +1,351 @@
+<div id="page-content-wrapper">
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+            <div class="col-lg-12 col-md-12 p-0 ">
+                <div class="fa-worksheets imported-data">
+                    <div class="row">
+                        <a (click)="editLogo()" class="icon-edit-right" *ngIf="!isHeaderEdit">
+                            <!-- <img src="assets/images/icons/pen.svg" class="icon-edit-right"> -->
+                            <span style="float: right;" class="edit_add_paper">
+                                <svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1"
+                                    xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                    <!-- Generator: sketchtool 53.2 (72643) - https://sketchapp.com -->
+                                    <title>Edit Paper</title>
+                                    <desc>Created with sketchtool.</desc>
+                                    <defs>
+                                        <path
+                                            d="M17.1024173,2.86922981 C15.9464396,1.71025673 13.9288785,1.71025673 12.7713008,2.86922981 L3.83467302,11.8228178 C3.74907467,11.9085786 3.69147578,12.0095679 3.65307652,12.1169693 C3.65067657,12.1241828 3.64347671,12.1289919 3.64107675,12.1362054 L2.04110759,16.9452223 C1.94510944,17.2329618 2.02030799,17.5511584 2.23470386,17.7651597 C2.38670093,17.9182467 2.59149698,18 2.80029296,18 C2.88509132,18 2.96988969,17.987176 3.05308808,17.9591234 L7.85299557,16.3561177 C7.86019543,16.3537132 7.86499534,16.3464997 7.8721952,16.3440952 C7.97939314,16.305623 8.08019119,16.2479148 8.16578954,16.162154 L17.1024173,7.20856606 C17.6808062,6.62907952 18,5.85803381 18,5.03889793 C18,4.21896055 17.6808062,3.44871634 17.1024173,2.86922981 L17.1024173,2.86922981 Z M15.9712391,6.07524108 L15.6000463,6.44713838 L13.5312861,4.3744521 L13.902479,4.00255479 C14.4552683,3.44871634 15.4184498,3.44871634 15.9712391,4.00255479 C16.2480338,4.27987477 16.4000308,4.64776456 16.4000308,5.03889793 C16.4000308,5.43003131 16.2480338,5.7979211 15.9712391,6.07524108 L15.9712391,6.07524108 Z M4.74985538,13.873062 L6.11942898,15.2452348 L4.06506858,15.9313212 L4.74985538,13.873062 Z M7.60020044,14.4621666 L5.53144032,12.3894803 L12.4001079,5.50777708 L14.4688681,7.58046337 L7.60020044,14.4621666 Z"
+                                            id="pathedit"></path>
+                                    </defs>
+                                    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none"
+                                        fill-rule="evenodd">
+                                        <g id="28.-SM---Add-Student-Manually---Update-Photo"
+                                            transform="translate(-821.000000, -222.000000)">
+                                            <g id="Group" transform="translate(819.000000, 219.000000)">
+                                                <g id="IconSet/Delete/Default-Copy"
+                                                    transform="translate(0.000000, 1.000000)">
+                                                    <mask id="mask-2" fill="white">
+                                                        <use xlink:href="#pathedit"></use>
+                                                    </mask>
+                                                    <use id="Mask" fill="#8595A6" xlink:href="#pathedit"></use>
+                                                </g>
+                                            </g>
+                                        </g>
+                                    </g>
+                                </svg>
+                                Edit Header</span>
+                        </a>
+                        <div class="col-lg-3 col-md-3 my-3 ml-3" *ngIf="!isHeaderEdit">
+                            <img src="{{papaerHeader.InstituteImage}}" height="100px;"
+                                *ngIf="papaerHeader.InstituteImage !=''">
+                        </div>
+                        <div class="col-lg-6 col-md-6 my-3 px-3" *ngIf="!isHeaderEdit">
+                            <h2 class="smart-studies text-center px-3">
+                                <span>{{papaerHeader.InstituteName }}</span>
+                            </h2>
+                            <p class="smart-studies text-center px-3">
+                                {{papaerHeader.InstituteAddress}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="row headsection-worksheet border-top m-0">
+                        <div class="my-2 col-md-6 col-sm-6 col-12"
+                            [ngClass]="{'col-lg-4': createTemplateDataObj.PaperType == 4, 'col-lg-5' : createTemplateDataObj.PaperType != 4}">
+                            <h3 class="sub-head m-0" style="text-transform: capitalize;">
+                                <span *ngIf="createTemplateDataObj.PaperType != 4">Test/Exam Name:</span>
+                                <span *ngIf="createTemplateDataObj.PaperType == 4">Worksheet Name:</span>
+                                {{createTemplateDataObj.Name | lowercase}}
+                            </h3>
+                        </div>
+                        <div class="my-2 col-md-6 col-sm-6 col-12"
+                            [ngClass]="{'col-lg-4': createTemplateDataObj.PaperType == 4, 'col-lg-3' : createTemplateDataObj.PaperType != 4}">
+                            <h3 class="sub-head m-0" style="text-transform: capitalize;">
+                                Standard:
+                                {{createTemplateDataObj.ClassName | lowercase}}
+                            </h3>
+                        </div>
+                        <div class="my-2 col-lg-4 col-md-6 col-sm-6 col-12">
+                            <h3 class="sub-head m-0" style="text-transform: capitalize;">
+                                Subject:
+                                {{createTemplateDataObj.SubjectName | lowercase}}
+                            </h3>
+                        </div>
+
+                        <!-- <div class="my-2 col-lg-3 col-md-6 col-sm-6 col-12" *ngIf="createTemplateDataObj.PaperType != 4">
+                            <h3 class="sub-head m-0">Academic Year: {{ createTemplateDataObj.PeriodFrom | date:
+                                'yyyy' }}-{{createTemplateDataObj.PeriodTo | date :'yy'}}</h3>
+                        </div> -->
+                    </div>
+                    <div class="row headsection-worksheetblank m-0" *ngIf="createTemplateDataObj.PaperType !=4">
+                        <div class="my-2 col-lg-5 col-md-8 col-sm-12 col-12 student-name">
+                            <div class="sub-head text-left m-0">Student Name:</div>
+                            <div class="blankspace"></div>
+                        </div>
+                        <div class="my-2 col-lg-3 col-md-4 col-sm-6 col-12 section">
+                            <div class="sub-head text-left m-0">Section:</div>
+                            <div class="blankspace"></div>
+                        </div>
+                        <div class="my-2 col-lg-4 col-md-4 col-sm-6 col-12 roll-no">
+                            <div class="sub-head text-left m-0">Roll No.:</div>
+                            <div class="blankspace"></div>
+                        </div>
+                    </div>
+                    <div class="row headsection-worksheet m-0 border-bottom justify-content-end"
+                        *ngIf="createTemplateDataObj.PaperType !=4">
+                        <div class="total_marks my-1 mr-1 text-center">
+                            <p class="mb-0 p-1">Questions:
+                                {{createTemplateDataObj.TotalQuestionCount}}</p>
+                        </div>
+                        <div class="total_marks my-1 mr-1 text-center">
+                            <p class="mb-0 p-1">Time: {{createTemplateDataObj.Duration}} Mins</p>
+                        </div>
+                        <div class="total_marks my-1 mr-1 text-center width170"
+                            *ngIf="createTemplateDataObj['IsOMRPaper']">
+                            <p class="mb-0 p-1">Negative Marks: {{createTemplateDataObj.NegativeMarks}}</p>
+                        </div>
+
+                        <div class="total_marks my-1 mr-1 text-center">
+                            <p class="mb-0 p-1">Marks: {{createTemplateDataObj.TotalMarks}}</p>
+                        </div>
+                    </div>
+                    <div class="row px-3 border-top" *ngIf="HeaderInstruction.length > 0">
+                        <div class="col-12 col-md-12 worksheet-instruction">
+                            <p class="texthead py-2 m-0 pl-1 ">Instructions</p>
+                            <div class="ml-1"
+                                *ngFor="let instruction of HeaderInstruction; let indx = index; let last = last;">
+                                <div class="steptext">{{indx+1}}. {{instruction.Instruction}}</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row question-preview m-0 py-1"
+                        *ngFor="let questions of QuestionInstruction; let parentIndx = index;">
+                        <!-- <h4 class="question-head w-100 float-left" *ngIf="isShowPaperInfo" > {{questions.Instruction}}</h4> -->
+                        <ng-container
+                            *ngFor="let question of questions.Questions; let chIndx = index; let last = last;">
+                            <div class="w-100 question" *ngIf="(question.SubQuestionIndex==1) && question.IsOr ">
+                                <!-- <div class="or text-center my-3 mx-auto"><span>OR</span></div> -->
+                                <div class="or-tag question text-center mx-auto"><span>OR</span></div>
+                            </div>
+                            <div class="col-12 col-md-12 col-lg-12 p-0 row" *ngIf="createTemplateDataObj.PaperType !=4"
+                                style="margin-left: 5px;">
+                                <div class="col-10 col-md-10 col-lg-10">
+                                    <div class="float-left question" *ngIf="(chIndx == 0)" style="margin-top: 1px;">
+                                        <div class="w-auto float-left mr-2">
+                                            Q{{question.QueIndex}}. <br />
+                                        </div>
+                                    </div>
+
+                                    <div class="float-left" style="width: 92%;margin-top: 1px;text-align: justify;">
+                                        <mathjax class="question" [content]="question.QuestionDescription"></mathjax>
+
+                                        <div class="row w-100 question main">
+                                            <div class="item" *ngFor="let omrOption of question.lstOption">
+                                                <span class="float-left px-2">{{omrOption.OptionSlag}}</span>
+                                                <mathjax class="float-left main-answer-img"
+                                                    [content]="omrOption.OptionValue">
+                                                </mathjax>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-2 col-md-2 col-lg-2 float-left" *ngIf="(chIndx == 0)">
+                                    <div class="marks-col text-right w-auto" style="margin-top: 1px;">
+                                        <!-- <input type="text" name="marks" class="py-0 form-control marksinput text-left"
+                                            [(ngModel)]="questions.TotalnpmMarks" id="txtMarks" readonly> -->
+                                        <span class="marksinput question text-left"
+                                            style="font-size: 18px;">{{questions.TotalMarks}}</span>
+                                        <span class="marksinInput question ml-1" *ngIf="+question.Marks <2">Mark</span>
+                                        <span class="marksinInput question ml-1"
+                                            *ngIf="+question.Marks > 1 ">Marks</span>
+                                    </div>
+                                </div>
+                                <!-------Question---Description-->
+                                <div class="question-desc float-left row ml-3 m-0 w-100" *ngIf="isShowPaperInfo">
+                                    <div class="ques-tag text-center float-left mr-2" style="text-transform: capitalize"
+                                        *ngIf="question.QuestionNatureName != ''">
+                                        {{question.QuestionNatureName | lowercase}}
+                                    </div>
+                                    <div class="Dot mr-2" *ngIf="question.QuestionNatureName != ''"></div>
+
+                                    <div class="ques-tag text-center float-left mr-2" style="text-transform: capitalize"
+                                        *ngIf="!isCheryPick && question.BloomTaxonomyName != ''">
+                                        {{question.BloomTaxonomyName | lowercase}}
+                                    </div>
+                                    <div class="Dot mr-2" *ngIf="!isCheryPick && question.BloomTaxonomyName != ''">
+                                    </div>
+
+                                    <div class="ques-tag text-center float-left mr-2" style="text-transform: capitalize"
+                                        *ngIf="question.QuestionLengthName != ''">
+                                        {{question.QuestionLengthName | lowercase}}
+                                    </div>
+                                    <div class="Dot mr-2" *ngIf="question.QuestionLengthName != ''"></div>
+
+
+
+                                    <div class="ques-tag text-center float-left mr-2" style="text-transform: capitalize"
+                                        *ngIf="question.DifficultyLevelName != ''">
+                                        {{question.DifficultyLevelName | lowercase}}
+                                    </div>
+                                    <div class="Dot mr-2" *ngIf="question.DifficultyLevelName != ''"></div>
+
+                                    <div class="ques-tag mr-2" style="text-transform: capitalize"
+                                        *ngIf="question.ChapterName != ''">
+                                        <span>{{question.ChapterName | lowercase}}</span>
+                                    </div>
+
+                                    <div class="Dot mr-2" *ngIf="question.YearCode != ''"></div>
+                                    <div class="ques-tag mr-2" *ngIf="question.YearCode != ''">
+                                        <span>Asked in {{question.YearCode |
+                                            lowercase}}</span>
+                                    </div>
+
+
+                                </div>
+                                <!-------Question Description-->
+                            </div>
+
+                            <div class="col-12 col-md-12 col-lg-12 p-0" *ngIf="createTemplateDataObj.PaperType == 4">
+                                <div class="col-12 col-md-12 col-lg-12 float-left question" style="width: 100%;">
+                                    <div class="w-auto float-left mr-2" style="width: 3%;">
+                                        Q{{question.QueIndex}}.
+                                    </div>
+                                    <div class="float-left question " style="width: 91%;">
+                                        <mathjax class="question" [content]="question.QuestionDescription"></mathjax>
+
+                                        <div class="row w-100 main-question question">
+                                            <div class="col-6 col-md-6 col-lg-6 float-left mb-3"
+                                                *ngFor="let omrOption of question.lstOption">
+                                                <span class="float-left px-2">{{omrOption.OptionSlag}}</span>
+                                                <mathjax class="float-left" [content]="omrOption.OptionValue">
+                                                </mathjax>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-------Question---Description-->
+                                <div class="question-desc float-left row m-0 w-100 ml-3" *ngIf="isShowPaperInfo">
+                                    <div class="ques-tag text-center float-left mr-2" style="text-transform: capitalize"
+                                        *ngIf="question.QuestionNatureName != ''">
+                                        {{question.QuestionNatureName | lowercase}}</div>
+                                    <div class="Dot mr-2" *ngIf="question.QuestionNatureName != ''"></div>
+                                    <div class="ques-tag text-center float-left mr-2" style="text-transform: capitalize"
+                                        *ngIf="!isCheryPick && question.BloomTaxonomyName != ''">
+                                        {{question.BloomTaxonomyName | lowercase}}</div>
+                                    <div class="Dot mr-2" *ngIf="!isCheryPick && question.BloomTaxonomyName != ''">
+                                    </div>
+                                    <div class="ques-tag text-center float-left mr-2" style="text-transform: capitalize"
+                                        *ngIf="question.DifficultyLevelName != ''">
+                                        {{question.DifficultyLevelName | lowercase}}</div>
+                                    <div class="Dot mr-2" *ngIf="question.DifficultyLevelName != ''"></div>
+                                    <div class="chapter" style="text-transform: capitalize"
+                                        *ngIf="question.ChapterName != ''">
+                                        <span>{{question.ChapterName | lowercase}}</span>
+                                    </div>
+                                </div>
+                                <!-------Question Description-->
+                            </div>
+
+                            <div class="w-100 question"
+                                *ngIf="(((questions.Questions.length /2)-1) == chIndx) && question.IsOr ">
+                                <!-- <div class="or text-center my-3 mx-auto"><span>OR  </span></div> -->
+                                <div class="or-tag question text-center mx-auto"><span>OR</span></div>
+                            </div>
+                        </ng-container>
+                    </div>
+
+                </div>
+                <div class="row px-2 py-2 m-0 fa-worksheets sticky-footer"
+                    style="border-top: 0px solid #D1DAE6; box-shadow:none; border-radius:0px;">
+                    <div class="col-12 col-md-12">
+                        <button type="button" id="viewSummary_btn"
+                            class="btn viewsummary-btn text-center ml-2 mt-1 float-right" (click)="viewSummary()"
+                            *ngIf="createTemplateDataObj.PaperGenerationMethod != 3">View Summary</button>
+                        <button type="button" id="goTOExamList_btn"
+                            class="btn gotoexamlist-btn text-center ml-2 mt-1 float-right" (click)="gotToExamList()">Go
+                            to
+                            Exam List</button>
+
+                        <button type="button" id="openInPDF_btn"
+                            class="btn openpdf-btn text-center mt-1 ml-2 float-right" (click)="openInPDF()">Open in
+                            PDF</button>
+
+                        <button type="button" id="modalAnswerSheet_btn"
+                            class="btn modalAnswerSheet-btn text-center ml-2 mt-1 float-right"
+                            (click)="viewAnswerSheet()">Model Answer Sheet</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade modal-md" id="editHeader" bsModal #editHeader="bs-modal"
+    [config]="{backdrop: 'static',  keyboard: false}">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title ">Edit Header</h4>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="editHeaderForm" #staffForm="ngForm">
+                    <div class="row">
+                        <div class="form-group col-md-12 col-lg-12">
+                            <label><strong>Institute Name :</strong></label>
+                            <label class="float-right img-remove d-block" (click)="clearInstituteName()">
+                                <a>clear</a>
+                            </label>
+                            <input type="text" class="form-control" value="" placeholder="e.g. Bruce" minlength="3"
+                                formControlName="PaperHeaderName" name="PaperHeaderName" />
+                        </div>
+
+                        <div class="form-group col-md-12 col-lg-12">
+                            <label><strong>Address :</strong></label>
+                            <label class="float-right img-remove d-block" (click)="clearInstituteAddress()">
+                                <a>clear</a>
+                            </label>
+                            <input type="text" class="form-control" value="" placeholder="Enter your full address"
+                                formControlName="Address" name="Address" />
+                        </div>
+                        <div class="form-group col-md-12 col-lg-12">
+                            <label><strong>Header Image :</strong></label>
+                            <label *ngIf="papaerHeader.InstituteImage" style="float:right;" class="mx-auto">
+                                <a style="color: Red;" href="javascript:void(0)" (click)="removeImage();">Remove Image</a>
+                            </label>
+                            <!-- <label class="float-right img-remove d-block" (click)="removeLogo()">
+                                <a><img src="assets/images/icons/remove.svg" class=""> </a>
+                            </label> -->
+
+                            <div class="image-upload text-center w-100" id="dvImportSegments">
+                                <input type="file" name="HeaderLogoImg" id="HeaderLogoImg" accept=".png,.jpg"
+                                    (change)="changeListener($event);preview($event.target.files)"
+                                    style="margin-top: 20px;" />
+                                <div class="csv-edit">
+                                    <label for="csupload">
+                                        <div id="csv" class="csv">
+                                            <img *ngIf="!headerlogoFileSrc" class="mt-2 mb-2"
+                                                src="{{papaerHeader.InstituteImage}}" alt="logo uploader"
+                                                style="height: 160px;" />
+                                            <img *ngIf="headerlogoFileSrc" class="mt-2 mb-2" [src]="headerlogoFileSrc"
+                                                style="height: 160px;">
+                                        </div>
+                                    </label>
+                                </div>
+                            </div>
+                            <p *ngIf="headerlogoFileName == ''" class="text-center csv-upload-text mb-0 mt-2">Drag or
+                                Click here to change Your Logo</p>
+                            <p *ngIf="headerlogoFileName != ''" class="text-center csv-upload-text mb-0 mt-2">
+                                {{headerlogoFileName}}</p>
+                        </div>
+                    </div>
+                    <div class="col-md-12 col-lg-12 p-0">
+                        <button type="button" class="btn btn-yes float-right ml-2"
+                            (click)="saveheaderData()">Save</button>
+                        <button type="button" class="btn btn-no float-right ml-2"
+                            (click)="closeeditheaderDialog()">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+</div>

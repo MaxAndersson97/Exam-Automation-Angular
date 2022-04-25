@@ -1,0 +1,331 @@
+.filter-row{
+    height: 100%;
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 0 0 #D1DAE6, 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+.filter-row .filterBy h4 {
+    color: #172B4D;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 27px;
+}
+.select-standard-filter{
+    width: 28%;
+    margin-right:10px;
+}
+.selected-list{
+    height: 36px;
+  }
+  .select-standard-filter .dropdown-btn{
+    border: 1px solid #D1DAE6;	
+    border-radius: 2px;	
+    background-color: #FFFFFF;
+    color: #8595A6;	
+    font-family: Inter;	
+    font-size: 13px;	
+    line-height: 21px;
+    width: 94%;
+    height: 45px;
+    margin-right: 14px;
+  }
+  .select-standard-filter .dropdown-btn:after{
+      float: right;
+      margin-top: 8px;
+  }
+  .select-standard-filter .single.show .dropdown-btn:after{
+      border-right: .3em solid transparent;
+      border-bottom: .3em solid;
+      border-left: .3em solid transparent;
+      border-top: 0;
+  }
+  .show-result-btn{
+    width: 12%;
+    height: 36px;
+    border-radius: 4px;	
+    background-color: #4952B9;
+    color: #FFFFFF;	
+    font-family: Inter;	
+    font-size: 12px;	
+    font-weight: 600;	
+    line-height: 18px;
+  }
+  .filter-row .single .dropdown-container li{
+    padding: 10px;
+  }
+  .filter-row .single .dropdown-container li span{
+    padding-left: 28px;
+  }
+  body{
+    background-color: #F6F7FB;
+  }
+
+::ng-deep .chapter_student_per .select-standard-filter .ng-select-container .ng-value-container{
+    font-size:13px;
+}
+::ng-deep .chapter_student_per .select-standard-filter .ng-select-bottom .ng-option{
+    font-size:13px;
+}
+
+
+.chapter_student_head{
+    color: #172B4D;
+    font-family: Inter;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 34px;
+}
+
+
+.chapter_student_wise{
+    border-radius: 4px;
+    background-color: #FFFFFF;
+    height: calc(100vh - 198px) !important;
+   
+    box-shadow: 0 0 1px 0 rgba(133,149,166,0.4), 0 4px 8px -2px rgba(173,189,203,0.4);
+    .chapter_student_table{
+      overflow: auto;
+      height:100%;
+        .b_clr{
+          color: #5C67E6;
+        }
+        td{
+          font-family: Inter;
+          font-size: 14px;
+          line-height: 18px;
+          border: 1px solid #D1DAE6;
+          font-weight: 500;
+          word-break: keep-all;
+          padding: 7px 10px;
+          text-align: center;
+        }
+        td .name_img img{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          float: left;
+          margin-right: 15px;
+          }
+          td .name{
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+              background-color: #5C67E6;
+              padding-top: 6px;
+              padding-left: 10px;
+              float: left;
+              margin-right: 15px;
+              p{color: #fff; font-size: 14px;}
+          }
+          tr{
+              background-color: #FFFFFF;
+              border: 1px solid ;
+          }
+          th{
+              color: #3A5077;
+              font-family: Inter;
+              font-size: 12px;
+              font-weight: 600;
+              line-height: 18px;
+              height: 45px;
+              background-color: #FFFFFF;
+              border: 1px solid #D1DAE6;
+              padding: 10px;
+              text-align: center;
+          }
+          
+          
+          .small_text{
+            font-size:11px;
+          }
+      
+    }
+  }
+  
+  
+  /*----------------------Pagination-------------------*/
+  ::ng-deep .pages {
+      margin-top: 10px;
+      position: absolute;
+      right: 0px;
+    }
+    
+    .selectWrapper {
+      margin-top: 10px;
+      position: absolute;
+      left: 0;
+      padding: 0px;
+    }
+    
+    
+    
+    /*-------------pagination----------------*/
+    ::ng-deep .selectWrapper .select_Show {
+      height: 38px;
+      width: auto;
+      border: 1px solid #D1DAE6;
+      border-radius: 2px;
+      background-color: #FFFFFF;
+      color: #8595A6;
+      font-family: Inter;
+      font-size: 13px;
+      line-height: 21px;
+      margin-top: 9px;
+    }
+    
+    ::ng-deep .selectWrapper {
+      padding: 0px 15px;
+    }
+    
+    ::ng-deep .ngx-pagination li {
+      background-color: #FFFFFF;
+      border-right: 1px solid #D1DAE6;
+      margin-right: 0px !important;
+    }
+    
+    ::ng-deep .ngx-pagination a {
+      color: #8595A6 !important;
+      font-family: Inter;
+      font-size: 14px;
+      line-height: 21px;
+      padding: 8px 16px !important;
+      background-color: #fff;
+    }
+    
+    ::ng-deep .ngx-pagination {
+      border: 1.2px solid #D1DAE6;
+      padding: 0px;
+    }
+    
+    ::ng-deep .pages .current {
+      color: #8595A6 !important;
+      font-family: Inter;
+      font-size: 14px;
+      line-height: 21px;
+      padding: 8px 16px !important;
+      background-color: #e6e6e6 !important;
+    }
+    
+    ::ng-deep .ngx-pagination .pagination-previous a::before,
+    ::ng-deep .ngx-pagination .pagination-previous.disabled::before {
+      content: '<' !important;
+      font-weight: 600;
+    }
+    
+    ::ng-deep .ngx-pagination .pagination-next a::after,
+    ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+      content: '>' !important;
+      font-weight: 600;
+    }
+    
+    ::ng-deep .show-for-sr {
+      display: none;
+    
+    }
+    
+    ::ng-deep .ngx-pagination .pagination-next a::after,
+    ::ng-deep .ngx-pagination .pagination-previous a::before {
+      color: #172B4D;
+    }
+    
+    ::ng-deep .ngx-pagination .pagination-previous.disabled::before,
+    ::ng-deep .ngx-pagination .pagination-next.disabled::after {
+      color: #8595A6;
+    }
+    
+    ::ng-deep .ng-select .ng-select-container .ng-value-container .ng-input>input {
+      display: none !important;
+    }
+    
+    /*---------------pagination---------------*/
+
+    .class_wise_table{
+      td{
+          padding: 10px;
+      }
+      td .name_small{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          background-color: #5C67E6;
+          padding-top: 6px;
+          padding-left: 10px;
+          float: left;
+          margin-right: 15px;
+          p{color: #fff; font-size: 14px;}
+      }
+      td .name_small_img img{
+          width: 30px;
+          height: 30px;
+          border-radius: 50%;
+          float: left;
+          margin-right: 15px;
+      }
+      td .name{
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          background-color: #5C67E6;
+          padding-top: 1px;
+          padding-left: 7px;
+          float: left;
+          margin-right: 4px;
+          p{color: #fff; font-size: 10px;}
+      }
+      td .name_img img{
+          width: 20px;
+          height: 20px;
+          border-radius: 50%;
+          float: left;
+          margin-right: 4px;
+      }
+      td.green_success{
+          background-color: rgba(105,187,16,0.05);
+          color: #69BB10;
+      }
+      td.orange_good{
+          background-color: rgba(255,121,56,0.05);
+          color: #FF7938;
+      }
+      td.red_avg{
+          background-color: rgba(229,34,84,0.05);
+          color: #E52254;
+      }
+      .name_text{
+          color: #5C67E6;
+          font-family: Inter;
+          font-size: 10px;
+          line-height: 18px;
+          margin-top: 2px;
+      }
+      .b_clr{
+          color: #5C67E6;
+      }
+  }
+
+.dcsetup-img {
+    width: 270px;
+}
+.dcsetup-img img{
+  width: 260px;
+}
+
+.filter-row .filterBy{
+  position: relative;
+  .clear_filter{
+      position: absolute;
+      right: 16px;
+      top: 9px;
+      font-family: Inter;
+      font-size: 12px;
+      line-height: 21px;
+      text-align: center;
+      padding-top: 10px;
+      border-radius: 0px !important;
+      border: 1px solid #ced4da !important;
+      padding: 5px 15px;
+      cursor: pointer;
+  }
+  .clear_filter:hover{
+      color: #5C67E6;
+  }
+}

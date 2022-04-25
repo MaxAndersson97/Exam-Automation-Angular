@@ -1,0 +1,252 @@
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="m-3 row">
+                <div class="col-lg-6 col-md-6 p-0">
+                    <h2 class="top-header mb-0">Class Setup</h2>
+                </div>
+                <div class="col-lg-6 col-md-6 p-0">
+                    <button type="button" id="addSection" (click)="showCreateSectionModal();" class="btn addsectionbtn float-right">Add Section</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-12 col-lg-12" *ngIf="classList && classList.length > 0 && isDataShow">
+            <div class="m-3">
+                <div class="col-lg-12 col-md-12 p-0">
+                    <div class="class_setup">
+                        <div class="">
+                            <table class="w-100">
+                                <thead>
+                                    <tr>
+                                        <th width="41%">STANDARD</th>
+                                        <th width="9%">SECTION</th>
+                                        <th width="32%">CLASS TEACHER</th>
+                                        <th width="15%"></th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <div style="color: red" *ngIf="!sectionNameError">
+                                            Section Name must contain 1 uppercase alphabet.
+                                    </div>
+                                    <tr *ngFor="let institutionClass of classList">
+                                        <td width="41%">{{titlecaseClassName(institutionClass.ClassName)}}</td>
+                                        <td width="9%">
+                                            <input type="text" name="section" class="form-control text-center" [(ngModel)]="institutionClass.SectionName"
+                                                placeholder="" id="txtsection" (focus)="sectionOldValue=institutionClass.SectionName" (blur)="onSectionChange(institutionClass)" minlength="1" maxlength="50" (keyup)="validateSectionName(institutionClass.SectionName)"/> 
+                                                
+                                            </td>
+                                        <td width="32%" class="class_teacher">
+                                            <div class="single">                                        
+
+                                                <ng-select [items]="classTeachers"  [clearable]="true"  [(ngModel)]="institutionClass.ClassTeacherUserID" bindValue="UserID" bindLabel="fullName" placeholder="Select Teacher"  [searchable]=false (change)="onClassTeacherChange(institutionClass)"  > 
+                                                        <ng-template ng-option-tmp let-item="item">
+                                                                {{item.fullName}}
+                                                </ng-template>
+                                                    <ng-template ng-label-tmp let-item="item">
+                                                        <span *ngIf="!!(item.fullName)">{{item.fullName}}</span>
+                                                        <span  *ngIf="!(!!item.fullName )" style="color: #999999;"> Select Teacher</span>
+                                                    </ng-template>  
+                                                </ng-select>
+                                            </div>
+                                        </td>
+                                        <td width="15%">
+                                            <div class="single tog">
+                                                <div class="dropdown ">
+                                                    <button class="btn btn-primary dropdown-toggle form-control" type="button"  data-toggle="dropdown">Action
+                                                        <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu p-0 class-drop-down-menu">
+                                                        <li (click)="showChildModal(institutionClass)">
+                                                            <a class="AddTeacher cursor-pointer">Add Subject Teacher</a>
+                                                        </li>
+                                                        <li>
+                                                            <a>
+                                                                <span class="cursor-auto">Status:{{ institutionClass.SectionStatus === 1 ? ' Active' : ' Inactive' }}</span>
+                                                                <label class="switch">
+                                                                    <input (click)="$event.stopPropagation();" type="checkbox" (change)="updateSectionList(institutionClass); $event.stopPropagation();" [checked]="institutionClass.SectionStatus === 1">
+                                                                    <span class="slider round" [ngClass]="{'grayedout': institutionClass.SectionStatus === 2}"></span>
+                                                                </label>
+                                                            </a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- no data found block -->
+        <div class="col-lg-12 col-md-12 p-0" *ngIf="!isDataShow" >
+                <div class="col-md-12 col-lg-12 col-sm-12" >
+                  <div class="dcsetup-img mx-auto mt-3">
+                    <img src="assets/images/No-Content-Module.svg" alt="" class="w-100">
+                  </div>
+                </div>
+                <div class="col-md-12 col-lg-12 col-sm-12">
+                  <div class="examsetup-content mx-auto ">
+                    <h2 class="text-center top-header my-3">No Classes to show</h2>
+                    <!-- <p class="text-center detailcontrol-description mb-0" *ngIf="!isDataShow">Please let us know the Class from the above</p>
+                    <p class="text-center detailcontrol-description" *ngIf="!isDataShow">dropdown to get the results</p> -->
+                  </div>
+                </div>
+            </div>
+
+
+    </div>
+</div>
+
+<!-------for Validation--------->
+<!-- <div class="validation-error">
+    <div class="row m-0">
+        <div class="img text-center">
+            <svg width="20px" height="20px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>001110D7-EB25-45FF-B358-EC8394A4D87E</title>
+                <desc>Created with sketchtool.</desc>
+                <defs>
+                    <path d="M10,0 C4.486,0 0,4.486 0,10 C0,15.514 4.486,20 10,20 C15.514,20 20,15.514 20,10 C20,4.486 15.514,0 10,0 M10,18 C5.589,18 2,14.411 2,10 C2,5.589 5.589,2 10,2 C14.411,2 18,5.589 18,10 C18,14.411 14.411,18 10,18 M10,11 C10.553,11 11,10.553 11,10 L11,6 C11,5.447 10.553,5 10,5 C9.447,5 9,5.447 9,6 L9,10 C9,10.553 9.447,11 10,11 M10,12.9004 C9.393,12.9004 8.9,13.3924 8.9,14.0004 C8.9,14.6074 9.393,15.0994 10,15.0994 C10.607,15.0994 11.1,14.6074 11.1,14.0004 C11.1,13.3924 10.607,12.9004 10,12.9004"
+                        id="path-1"></path>
+                </defs>
+                <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="07.-SM---School-Academic-Details" transform="translate(-304.000000, -709.000000)">
+                        <g id="IconSet/Info/Default" transform="translate(304.000000, 709.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <use id="Icon" fill="#8595A6" xlink:href="#path-1"></use>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div class="desc">
+            <p>Error! You don’t have the permission to change the Name of the Section.</p>
+        </div>
+        <div class="close text-center">
+            <a href="">
+                <span aria-hidden="true">×</span>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="validation-success">
+    <div class="row m-0">
+        <div class="img text-center">
+            <svg width="20px" height="20px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <title>704B3FE5-374B-4859-8417-F83269BFE9B7</title>
+                <desc>Created with sketchtool.</desc>
+                <defs>
+                    <path d="M8,0 C3.5888,0 0,3.5888 0,8 C0,12.4112 3.5888,16 8,16 C12.4112,16 16,12.4112 16,8 C16,3.5888 12.4112,0 8,0 M8,14.4 C4.4712,14.4 1.6,11.5288 1.6,8 C1.6,4.4712 4.4712,1.6 8,1.6 C11.5288,1.6 14.4,4.4712 14.4,8 C14.4,11.5288 11.5288,14.4 8,14.4 M9.83439994,5.8344001 L7.20000003,8.46880004 L6.16560006,7.43440007 C5.85280007,7.12160008 5.34720009,7.12160008 5.0344001,7.43440007 C4.72160011,7.74720006 4.72160011,8.25280005 5.0344001,8.56560004 L6.63440005,10.1656 C6.79040004,10.3216 6.99520003,10.4 7.20000003,10.4 C7.40480002,10.4 7.60960001,10.3216 7.76560001,10.1656 L10.9655999,6.96560008 C11.2783999,6.65280009 11.2783999,6.1472001 10.9655999,5.8344001 C10.6527999,5.52160011 10.1471999,5.52160011 9.83439994,5.8344001"
+                        id="successval"></path>
+                </defs>
+                <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="03.-Forgot-Password---OTP" transform="translate(-436.000000, -268.000000)">
+                        <g id="IconSet/Tick/Active" transform="translate(436.000000, 268.000000)">
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#successval"></use>
+                            </mask>
+                            <use id="Icon" fill="#69BB10" xlink:href="#successval"></use>
+                        </g>
+                    </g>
+                </g>
+            </svg>
+        </div>
+        <div class="desc">
+            <p>You have successfully changed the class teacher of 1st Standard</p>
+        </div>
+        <div class="close text-center">
+            <a href="">
+                <span aria-hidden="true">×</span>
+            </a>
+        </div>
+    </div>
+</div> -->
+<!--------end for validation------>
+
+<!-- Modal -->
+<div *ngIf="isCreateSectionModalOpen" [config]="{ show: true }" (onHidden)="onHideCreateSectionModal()" class="modal right fade" bsModal #createSection="bs-modal">
+    <app-add-section (closeEvent)="closeCreateSectionDialog($event)"></app-add-section>
+</div>
+<!-- modal -->
+<!-- modal------------------------------------------------------------------------------- -->
+
+<!-- Modal--------------------------------------------------------------------- -->
+<!-- Modal -->
+
+<div class="modal right fade"   id="AddSectionTeacher" bsModal #childModal="bs-modal" tabindex="-1" role="dialog" aria-labelledby="add-section-name">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header pb-4">
+                <button type="button" class="close float-left pt-1 pl-0" data-dismiss="modal" aria-label="Close" (click)="hideChildModal()">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 *ngIf="selectedClass" class="modal-title text-center m-auto" id="AddSectionTeacher_header">Class Details for
+                    <span *ngIf="selectedClass.ClassName">{{ selectedClass.ClassName.toLowerCase() }} Standard</span>
+                    <span class="pl-1" *ngIf="selectedClass.SectionName">({{ selectedClass.SectionName }})</span>
+                </h4>
+            </div>
+            <div class="modal-body px-4">
+                <!-- <form> -->
+                <div class="addsectionteacher-form  h-auto w-100 mt-3 ">
+                    <div class="col-12 p-0">
+                        <table class="w-100">
+                            <thead>
+                                <tr>
+                                    <th width="50%">SUBJECT(S)</th>
+                                    <th width="50%">TEACHER(S)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let subject of subjectList">
+                                    <td>
+                                        <input type="text" name="Subjectname" class="form-control" 
+                                        value="{{subject.SubjectName.toLowerCase()}}"
+                                            id="txtsubjectName" disabled required style="text-transform: capitalize" /> 
+                                            <!-- <span>{{subject.SubjectTeacherUserID}}</span> -->
+                                    </td>
+                                    <td>
+                                        <div class="single">
+                                            <ng-select [items]="classTeachers"  
+                                            [clearable]="true"  
+                                            [(ngModel)]="subject.SubjectTeacherUserID" 
+                                            bindValue="UserID" bindLabel="fullName" 
+                                            placeholder="Select Teacher"  
+                                            [searchable]=true > 
+                                                <ng-template ng-option-tmp let-item="item">
+                                                        {{item.fullName}}
+                                        </ng-template>
+                                            <ng-template ng-label-tmp let-item="item">
+                                                <span *ngIf="!!(item.fullName)">{{item.fullName}}</span>
+                                                <span  *ngIf="!(!!item.fullName )" style="color: #999999;"> Select Teacher</span>
+                                            </ng-template>  
+                                        </ng-select>
+
+                                        </div>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <!-- </form> -->
+                <div class="row pt-2 px-0 pb-2 mt-2">
+                    <div class="col-md-12 col-lg-12">
+                        <button type="button" id="save" (click)="saveSubjectList()" class="btn save-btn float-right">Save</button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                            <button type="button" class="btn btn-danger close_modal" data-dismiss="modal">Close</button>
+                    </div> -->
+        </div>
+        <!-- modal-content -->
+    </div>
+    <!-- modal-dialog -->
+</div>
+<!-- modal -->
+

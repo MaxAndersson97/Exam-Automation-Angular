@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="18px" height="20px" viewBox="0 0 18 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: sketchtool 53 (72520) - https://sketchapp.com -->
+    <title>D794B884-2E92-4B9A-9C06-6540E4D79CC5</title>
+    <desc>Created with sketchtool.</desc>
+    <defs>
+        <path d="M17,18 L3,18 L3,15.363 L6.789,10.814 L8.105,13.447 C8.257,13.749 8.55,13.954 8.885,13.993 C9.218,14.036 9.553,13.898 9.769,13.641 L13,9.763 L13,11 C13,11.553 13.447,12 14,12 C14.553,12 15,11.553 15,11 L15,7 C15,6.984 14.992,6.972 14.991,6.957 C14.988,6.885 14.968,6.817 14.949,6.748 C14.934,6.689 14.925,6.632 14.9,6.579 C14.875,6.524 14.834,6.479 14.799,6.428 C14.758,6.371 14.721,6.314 14.669,6.268 C14.657,6.257 14.652,6.242 14.641,6.231 C14.604,6.201 14.56,6.191 14.521,6.167 C14.461,6.129 14.404,6.092 14.337,6.068 C14.271,6.044 14.204,6.037 14.136,6.027 C14.089,6.021 14.048,6 14,6 L10,6 C9.447,6 9,6.447 9,7 C9,7.553 9.447,8 10,8 L11.864,8 L9.211,11.186 L7.895,8.553 C7.743,8.251 7.45,8.046 7.115,8.007 C6.784,7.966 6.447,8.102 6.231,8.359 L3,12.237 L3,2 L13.586,2 L17,5.414 L17,18 Z M18.707,4.293 L14.707,0.293 C14.52,0.105 14.266,0 14,0 L2,0 C1.447,0 1,0.447 1,1 L1,19 C1,19.553 1.447,20 2,20 L18,20 C18.553,20 19,19.553 19,19 L19,5 C19,4.734 18.895,4.48 18.707,4.293 L18.707,4.293 Z" id="path-1"></path>
+    </defs>
+    <g id="Login-&amp;-Onboarding" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="07.-SM---School-Academic-Details" transform="translate(-25.000000, -160.000000)">
+            <g id="sidebar-normal" transform="translate(0.000000, 60.000000)">
+                <g id="IconSet/Sidenav/Reports/Default" transform="translate(24.000000, 100.000000)">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="Icon" fill="#3A5077" xlink:href="#path-1"></use>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

@@ -1,0 +1,66 @@
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <nav aria-label="breadcrumb" class="m-3 ">
+                <ol class="breadcrumb p-0 m-0">
+                <li class="breadcrumb-item"><a  routerLinkActive="active"
+                  routerLink="/exam/student">Students</a></li>
+                <!--  <li class="breadcrumb-item active" aria-current="page">Add Student Manually</li> -->
+                <li class="breadcrumb-item active" aria-current="page" *ngIf="!isEditMode"> Add Student Manually</li>
+                <li class="breadcrumb-item active" aria-current="page" *ngIf="isEditMode"> Edit Student Manually</li>
+              
+              </ol>
+            </nav>
+        </div>
+    </div>
+  </div>  
+  <div class="container-fluid p-0">
+  <div class="row">
+    <div class="col-md col-lg col-sm">
+      <div class="Institute_profile m-3">
+        <div class="col-md-12 col-lg-12 pl-0 pr-0">
+          <!-- <h2 class=" border-bottom p-3 m-0 main-title">Add Student Manually</h2> -->
+          <button type="submit" id="save"  class="btn btn-success m-2 float-right go-back-btn mt-3 mx-4" style="background-color: #5C67E6; border-color: #5C67E6" (click)="goBack()">Go Back To Student List</button>
+
+          <h2 class=" border-bottom p-4 m-0 main-title" *ngIf="!isEditMode">Add Student Manually</h2>
+          <h2 class=" border-bottom p-4 m-0 main-title" *ngIf="isEditMode">Edit Student Manually</h2>
+        </div>
+        <div class="col-md-12 col-lg-12 pl-0 pr-0">
+          <div class="row">
+            <div class="col-md-4 col-lg-4 pr-0">
+              <ul class="nav nav-tabs" role="">
+                <li class="nav-item w-100  ">
+                  <a class="nav-link py-3 " routerLinkActive="active"
+                    routerLink="/exam/add-student-manually/student">
+                    <img src="assets/images/icons/addstudent/studentinfo.svg" alt="studentinfo" class="mr-2" />Student
+                    Information
+                  </a>
+                </li>
+                <li class="nav-item w-100 ">
+                  <a class="nav-link py-3" routerLinkActive="active" routerLink="/exam/add-student-manually/parent">
+                    <img src="assets/images/icons/addstudent/parentinfo.svg" alt="studentinfo" class="mr-2">Parent
+                    Information
+                  </a>
+                </li>
+                <li class="nav-item w-100 ">
+                  <a class="nav-link py-3" routerLinkActive="active" routerLink="/exam/add-student-manually/photo">
+                    <img src="assets/images/icons/addstudent/studentphoto.svg" alt="studentinfo" class="mr-2">Student's
+                    Photo
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-8 col-lg-8 content-right pl-0">
+              <!-----------tab content-->
+              <div class="tab-content ">
+                <router-outlet></router-outlet>
+
+            </div>
+            <!------end tab-content-->
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>

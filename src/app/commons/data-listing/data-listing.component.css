@@ -1,0 +1,338 @@
+.custom-control-label {
+  cursor: pointer;
+}
+
+.imported-data td input, .imported-data td select, .imported-data td .multiselect {
+  width: 160px;
+}
+
+.imported-data th.delete_col {
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right: 0;
+  background: #fff;
+}
+
+.imported-data th.delete_col .remove {
+  width: 40px;
+  height: 36px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.imported-data td.delete_col {
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right: 0;
+  background: #fff;
+}
+
+.imported-data td.delete_col .remove {
+  width: 40px;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.imported-data .overflow {
+  overflow-x: auto;
+}
+
+.imported-data tr.errorInStudentInfo {
+  background-color: rgba(229, 34, 84, 0.1);
+  border-left: 3px solid #E52254;
+}
+
+.imported-data tr.errorInStudentInfo td.error button.multiselect {
+  border: 1px solid #E52254 !important;
+}
+
+.imported-data tr.errorInStudentInfo td.error input, .imported-data tr.errorInStudentInfo td.error td select {
+  border: 1px solid #E52254 !important;
+}
+
+td input, td select {
+  color: #3A5077 !important;
+  font-size: 14px !important;
+  line-height: 21px !important;
+  height: 36px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #FFFFFF;
+}
+
+th .tablespace {
+  width: 85px;
+}
+
+.imported-data tr.errorInStaffInfo {
+  background-color: rgba(229, 34, 84, 0.1);
+  border-left: 3px solid #E52254;
+}
+
+.imported-data tr.errorInStaffInfo td.error input, .imported-data tr.errorInStaffInfo td.error td select {
+  border: 1px solid #E52254 !important;
+}
+
+.import .error {
+  color: #E52254;
+}
+
+.import .success {
+  color: #3A5077;
+}
+
+.import {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+  margin-top: 12px;
+}
+
+button.saveandclose-btn {
+  background-color: #01CA85;
+  color: #ffffff;
+  height: 42px;
+  width: 140px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+button.addnewrow-btn {
+  background-color: #5C67E6;
+  color: #ffffff;
+  height: 42px;
+  width: 140px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+td.action_col .single.tog button {
+  height: 36px;
+  width: 101px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+td.action_col {
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right: 0;
+  background: #ffffff;
+  border-bottom: 1px solid #D1DAE6;
+  border-top: 0px;
+}
+
+th.action_col {
+  position: absolute;
+  border-left: 1px solid #D1DAE6;
+  right: 0;
+  background: #ffffff;
+  border-bottom: 0px !important;
+}
+
+th.action_col .action {
+  height: 18px;
+  width: 101px;
+  background-color: #ffffff;
+  text-align: center;
+}
+
+.table thead th {
+  border-bottom: 1px solid #dee2e6 !important;
+}
+
+.staff-list td {
+  padding: 17px 15px;
+}
+
+.staff-list td.action_col {
+  padding: 8px 15px;
+}
+
+.staff-list th p {
+  width: 128px;
+  margin: 0px !important;
+}
+
+.staff-list th.email p {
+  width: 200px;
+}
+
+.staff-list th.staff-name p {
+  width: 140px;
+}
+
+.staff-list td {
+  height: 60px;
+  color: #172B4D;
+  font-size: 16px;
+  line-height: 18px;
+}
+
+.staff-list .staff-name {
+  font-weight: 600;
+}
+
+.staff-list .not-assigned {
+  color: #5C67E6 !important;
+  font-size: 16px;
+  line-height: 18px;
+  text-decoration: underline;
+}
+
+.viewbtntable {
+  height: 42px;
+  width: 97px;
+}
+
+.viewbtntable .single.tog ul li {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+  height: 45px;
+  width: 189px;
+  padding: 12px;
+  background: #fff;
+}
+
+.viewbtntable .single.tog ul li span {
+  margin: 30px;
+}
+
+.viewbtntable .single.tog ul li i {
+  padding: 2px;
+}
+
+.viewbtntable .single.tog button {
+  height: 42px;
+  width: 97px;
+  border-radius: 2px;
+  border: 1px solid #D1DAE6;
+  background-color: #ffffff;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.filterbtntable {
+  height: 42px;
+  width: 97px;
+  border-radius: 2px;
+}
+
+.filterbtntable .single.tog ul {
+  height: auto;
+  width: 367px;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+}
+
+.filterbtntable .single.tog ul li {
+  height: 45px;
+  background: #fff;
+}
+
+.filterbtntable .single.tog ul h3 {
+  color: #172B4D;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 22px;
+}
+
+.filterbtntable .single.tog ul a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.filterbtntable .single.tog button.dropdown-btn {
+  height: 42px;
+  width: 97px;
+  border-radius: 2px;
+  border: 1px solid #D1DAE6;
+  background-color: #ffffff;
+  color: #172B4D;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.filterbtntable .filterBtn {
+  height: 42px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.searchbartable button {
+  position: absolute;
+  background: #fff;
+  height: 40px;
+  border: none;
+  padding: 8px 0px;
+  margin-left: 8px;
+  margin-top: 1px;
+}
+
+.searchbartable button i {
+  color: #8595A6;
+}
+
+.searchbartable input {
+  width: 194px;
+  height: 42px;
+  border: 1px solid #D1DAE6;
+  border-radius: 2px 0 0 2px;
+  padding-left: 30px;
+  color: #8595A6;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+.addstaff .addnewrow-btn {
+  background-color: #5C67E6;
+  color: #fff;
+  height: 42px;
+  width: 145px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+}
+
+.addstaff .dropdown-toggle::after {
+  display: none;
+}
+
+.addstaff ul.dropdown-menu {
+  left: -57px !important;
+}
+
+.addstaff ul.dropdown-menu li:hover {
+  background: #F6F7FB;
+}
+
+.addstaff ul.dropdown-menu li {
+  height: 45px;
+  width: 220px;
+  padding: 12px;
+}
+
+.addstaff ul.dropdown-menu li a {
+  color: #3A5077;
+  font-size: 14px;
+  line-height: 21px;
+}
+
+/*# sourceMappingURL=data-listing.component.css.map */

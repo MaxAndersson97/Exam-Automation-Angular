@@ -1,0 +1,75 @@
+
+<div class="tab-pane active" id="schoolAcademicDetails" role="tabpanel">
+  <form >
+        <div class="schoolacademicdetail-form p-4" *ngIf="schoolProfile" >
+            <div class="row">
+                <div class="form-group col-md-12 col-sm-12">
+                    <label class="">School Name</label>
+                    <input type="text" name="schoolName" class="form-control"  [(ngModel)]="schoolProfile.PartnerName" placeholder="School Name" id="txtschoolName" required /> 
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 col-lg-6">
+                    <label class="">Year of Establishment</label>
+                    <input type="text" name="year"  onkeypress="if(this.value.length==10) return false;return event.charCode >= 48 && event.charCode <= 57 ||event.charCode == '.' || event.charCode == 250" class="form-control"  [(ngModel)]="schoolProfile.YearOfEstablishment" placeholder="Year of Establishment"  minlength="4" maxlength="4" id="txtschoolYear" #YearOfEstablishment="ngModel" pattern="[0-9]*"/>
+                    <div style="color: #dc3545;">
+                        <div class="danger-text" *ngIf="YearOfEstablishment.errors && YearOfEstablishment.errors.required">
+                            Please enter 4 digit Year of Establishment. 
+                        </div>
+                        <div *ngIf="YearOfEstablishment.errors && YearOfEstablishment.errors.minlength && !YearOfEstablishment.errors.pattern">
+                            Please enter 4 digit Year of Establishment. 
+                        </div>
+                        <div class="danger-text" *ngIf="YearOfEstablishment.errors && YearOfEstablishment.errors.pattern">
+                            Please enter 4 digit Year of Establishment. 
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group col-md-6 col-lg-6 single">
+                    <label class="">Affiliation Number</label>
+                    <input type="text" name="AffNo" class="form-control" [(ngModel)]="schoolProfile.AffiliationNumber" placeholder="Affiliation Number" id="txtBoardAffilation" />
+                </div>
+            </div>
+            <div class="row" *ngIf="ticks">
+                <div class="form-group col-md-12 col-lg-12" >
+                    <label class="">Standard</label>
+                    <mv-slider style="pointer-events: none" [(value)]="classValue" [min]="1" [max]="12"  [ticks]="ticks" [range]="true"></mv-slider>
+                    <p class="standard-label">
+                        <span>1st</span>
+                        <span class="float-right">12th</span></p>
+                </div> 
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 col-lg-6 single">
+                    <label class="">Academic year starts from</label>
+                    <input type="text" name="AcademicYear" class="form-control" [value]="schoolProfile.formateMonth" placeholder="July" id="txtAcademicYear" disabled />
+                </div>
+                <div class="form-group col-md-6 col-lg-6 single">
+                    <label class="">Student Name Format</label>
+                    <!-- <select [(ngModel)]="schoolProfile.StudentNameFormat"  class="form-control multiselect" id="ddlStudentNameFormat" name="ddlStudentNameFormat" required> 
+                        <option value='1'>First | Middle | Last</option>
+                        <option value='2'>Last | First | Middle</option>
+                    </select> -->
+                    <ng-select id="ddlStudentNameFormat" name="ddlStudentNameFormat" [(ngModel)]="schoolProfile.StudentNameFormat" placeholder="Select Name Format" [items]="nameFormat" bindLabel="label" bindValue="value" [searchable]=false></ng-select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6 col-lg-6 single">
+                    <label class="">Actual Students</label>
+                    <input type="text" name="actualStudents" class="form-control" [(ngModel)]="schoolProfile.ActualStudentCount" placeholder="Actual Students" id="txtActualStudents" disabled />
+                </div>
+                <div class="form-group col-md-6 col-lg-6 single">
+                    <label class="">Total Students</label>
+                    <input type="number" name="TotalStudents" class="form-control" [(ngModel)]="schoolProfile.TotalStudentCount" min="0" placeholder="Total Students" id="txtTotalStudents" />
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-12 col-lg-12">
+                    <button type="button" id="save_And_Proceed" (click)="onSubmit();" 
+                    [ngClass]="{'disableValidationButton': !schoolProfile.PartnerName ||YearOfEstablishment.errors }"
+                    [disabled]="!schoolProfile.PartnerName || YearOfEstablishment.errors" class="btn saveAndProceed-btn float-right ">Save and Proceed</button>
+                </div>      
+            </div>
+
+        </div>
+   </form>
+</div>

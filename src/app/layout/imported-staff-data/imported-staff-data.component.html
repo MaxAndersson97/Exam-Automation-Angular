@@ -1,0 +1,257 @@
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <nav aria-label="breadcrumb" class="mx-5 mt-4 ">
+                <ol class="breadcrumb p-0 m-0">
+                    <li class="breadcrumb-item"><a routerLink="/exam/staff">Staff</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/exam/upload-staff-csv">Upload CSV</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Imported Data</li>
+                </ol>
+            </nav>
+        </div>
+    </div>
+</div>
+<div class="container-fluid p-0">
+    <div class="row">
+        <div class="col-md-12 col-lg-12">
+            <div class="mx-5 my-4">
+                <div class="col-lg-12 col-md-12 p-0">
+                    <div class="row">
+                        <div class="col-5 col-md-5">
+                            <h2 class="top-header mb-3">Imported Staff Data ({{staffArr &&staffArr.length}})</h2>
+                        </div>
+                        <div class="col-7 col-md-7 text-right">
+                            <div class="w-100 m-0">
+                                <div class="float-right">
+                                    <button type="button" id="saveandclose" [disabled]="!isFormValid"
+                                        class="btn saveandclose-btn mb-3 mr-2" (click)="OnSaveAndCloseClick()">Save
+                                        & Close</button>
+                                    <button type="button" id="addnewrow" class="btn addnewrow-btn mb-3 ml-2"
+                                        (click)="onAddNewRow()" [disabled]="!isFormValid">Add New
+                                        Row</button>
+                                </div>
+                                <div class=" import float-right mr-2">
+                                    <!-- <span class="error" *ngIf="ErrorCount > 0">We found some errors in the staff information</span> -->
+                                    <span class="success" *ngIf="isFormValid">Information looks perfect!</span>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-lg-12 col-md-12 p-0">
+                    <div class="class_setup imported-data">
+                        <div class="overflow">
+                            <table class="w-100">
+                                <thead>
+                                    <tr>
+                                        <th width="">FIRST NAME</th>
+                                        <th width="">MIDDLE NAME</th>
+                                        <th width="">LAST NAME</th>
+                                        <th width="">ROLE</th>
+                                        <th width="">GENDER</th>
+                                        <th width="">BIRTH DATE</th>
+                                        <th width="">ADDRESS</th>
+                                        <th width="">LANDMARK</th>
+                                        <th width="">COUNTRY</th>
+                                        <th width="">STATE</th>
+                                        <th width="">CITY</th>
+                                        <th width="">PINCODE</th>
+                                        <th width="">AADHAR NUMBER</th>
+                                        <th width="">MOBILE</th>
+                                        <th width="">EMAIL ID</th>
+                                        <th width="">SECONDARY EMAIL ID</th>
+                                        <!-- <th width="">STD/SUB</th> -->
+
+                                        <th>
+                                            <p class="tablespace"></p>
+                                        </th>
+                                        <th class="delete_col">
+                                            <div class="remove"></div>
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr *ngFor="let staff of staffArr; let i = index"
+                                        [ngClass]="{'errorInStudentInfo': !staff.isRowValid}">
+
+                                        <td [ngClass]="{'error': !staff.isFirstNameValid}">
+
+                                            <input type="text" name="FirstName" class="form-control" (keydown.space)="$event.preventDefault()"
+                                                [(ngModel)]="staff.FirstName" placeholder="" id="txtFirstName"
+                                                (blur)="changeFirstName(staff.FirstName, i)" minlength="3" />
+
+                                            <span class="text-danger" *ngIf="!staff.isFirstNameValid"
+                                                style="font-size: 12px; white-space: nowrap;">{{staff.FirstNameErrorMessage}}
+                                                <i class="fa fa-info-circle" popover="{{firstLastnameInstruction}}"
+                                                    *ngIf="!staff.isFirstNameNew" triggers="mouseenter:mouseleave">
+                                                </i>
+                                            </span>
+                                        </td>
+
+                                        <td>
+                                            <input type="text" name="MiddleName" class="form-control"
+                                                [(ngModel)]="staff.MiddleName" placeholder="" id="txtMiddleName" />
+                                        </td>
+
+                                        <td [ngClass]="{'error': !staff.isLastNameValid}">
+                                            <input type="text" name="LastName" class="form-control" (keydown.space)="$event.preventDefault()"
+                                                [(ngModel)]="staff.LastName" placeholder="" id="txtLastName"
+                                                (blur)="changeLastName(staff.LastName, i)" minlength="3" />
+                                            <span class="text-danger" *ngIf="!staff.isLastNameValid"
+                                                style="font-size: 12px; white-space: nowrap;">{{staff.LastNameErrorMessage}}
+                                                <i class="fa fa-info-circle" *ngIf="!staff.isLastNameNew"
+                                                    popover="{{firstLastnameInstruction}}"
+                                                    triggers="mouseenter:mouseleave"></i>
+                                            </span>
+                                        </td>
+                                        <td [ngClass]="{'error': !staff.isRoleValid}">
+                                            <div class="single role_dropdown">
+                                                <ng-select name="Role" [(ngModel)]="staff.Role" [items]="roles" placeholder="Select Role"
+                                                    bindValue="name" [searchable]=false
+                                                    (change)="changeRole($event, i)">
+                                                    <ng-template ng-option-tmp let-item="item">
+                                                        {{item.name}}
+                                                    </ng-template>
+                                                    <ng-template ng-label-tmp let-item="item">
+                                                        <span *ngIf="item.name"> {{item.name}}</span>
+                                                        <span *ngIf="!item.name" style="color: #999999;"> Select
+                                                            Roles</span>
+                                                    </ng-template>
+                                                </ng-select>
+                                                <span class="text-danger" *ngIf="!staff.isRoleValid"
+                                                    style="font-size: 12px;">{{staff.RoleErrorMessage}} </span>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="single">
+                                                <ng-select name="Gender" [items]="genders" bindLabel="name" placeholder="Select Gender"
+                                                    bindValue="name" [searchable]=false [(ngModel)]="staff.Gender">
+                                                    <ng-template ng-option-tmp let-item="item">
+                                                        {{item.name}}
+                                                    </ng-template>
+                                                    <ng-template ng-label-tmp let-item="item">
+                                                        <span *ngIf="item.name"> {{item.name}}</span>
+                                                        <span *ngIf="!item.name" style="color: #999999;"> Select
+                                                            Gender</span>
+                                                    </ng-template>
+                                                </ng-select>
+                                            </div>
+
+                                        </td>
+                                        <td>
+                                            <input name="BirthDate" class="form-control" [(ngModel)]="staff.DOB"
+                                                #dp="bsDatepicker" bsDatepicker placeholder="" id="txtBirthDate" autocomplete="off" />
+                                        </td>
+                                        <td>
+
+                                            <input type="text" name="Address" class="form-control"
+                                                [(ngModel)]="staff.Address" placeholder="" id="txtAddress" />
+                                        </td>
+                                        <td>
+                                            <input type="text" name="Landmark" class="form-control"
+                                                [(ngModel)]="staff.Landmark" placeholder="" id="txtLandmark" />
+                                        </td>
+                                        <td [ngClass]="{'error': !staff.isCountryNameValid}">
+                                            <ng-select name="CountryName" [items]="countries" bindLabel="CountryName"
+                                                bindValue="CountryName" [searchable]=false
+                                                (change)="onChangeCountry($event, i); validateCountry($event, i)"
+                                                [(ngModel)]="staff.CountryName" placeholder="Select Country">
+                                                <ng-template ng-option-tmp let-item="item">
+                                                    {{item.CountryName}}
+                                                </ng-template>
+                                                <ng-template ng-label-tmp let-item="item">
+                                                    <span *ngIf="item.CountryName"> {{item.CountryName}}</span>
+                                                    <span *ngIf="!item.CountryName" style="color: #999999;"> Select
+                                                        Country</span>
+                                                </ng-template>
+                                            </ng-select>
+                                            <span class="text-danger" *ngIf="!staff.isCountryNameValid"
+                                                style="font-size: 12px;">{{staff.CountryErrorMessage}} </span>
+                                        </td>
+                                        <td [ngClass]="{'error': !staff.isStateNameValid}">
+                                            <ng-select placeholder="Select State" [(ngModel)]="staff.StateID" name="StateID" [items]="states" bindLabel="StateName" bindValue="StateID" [searchable]=false
+                                                (change)="onChangeState($event,i)">
+                                                <ng-template ng-option-tmp let-item="item">
+                                                    {{item.StateName}}
+                                                </ng-template>
+                                                <ng-template ng-label-tmp let-item="item">
+                                                    <span *ngIf="item.StateName"> {{item.StateName}}</span>
+                                                    <span *ngIf="!item.StateName" style="color: #999999;"> Select
+                                                        State</span>
+                                                </ng-template>
+                                            </ng-select>
+                                            <span class="text-danger" *ngIf="!staff.isStateNameValid"
+                                                style="font-size: 12px;">{{staff.stateErrorMessage}} </span>
+                                        </td>
+                                        <td>
+                                            <input type="text" name="City" class="form-control" [(ngModel)]="staff.City"
+                                                placeholder="" id="txtCity" /></td>
+
+
+                                        <td [ngClass]="{'error': !staff.isPinValid}">
+                                            <input type="text" name="Pincode" class="form-control"
+                                                [(ngModel)]="staff.Pincode" placeholder="" id="txtPincode"
+                                                (blur)="onChangePin(staff.Pincode, i)" (keypress)="numberOnly($event)"
+                                                maxlength="6" />
+                                            <span class="text-danger" style="font-size: 12px; white-space: nowrap;"
+                                                *ngIf="!staff.isPinValid">{{staff.pinErrorMessage}}<i
+                                                    class="fa fa-info-circle" popover="{{pinInstruction}}"
+                                                    triggers="mouseenter:mouseleave"></i></span>
+                                        </td>
+                                        <td [ngClass]="{'error': !staff.isAadharValid}">
+                                            <input type="text" name="AadharNumber" class="form-control"
+                                                [(ngModel)]="staff.AadharNumber" placeholder="" id="txtAadharNumber"
+                                                (blur)="onChangeAadhar(staff.AadharNumber, i)"
+                                                (keypress)="numberOnly($event)" maxlength="12" />
+                                            <span class="text-danger" style="font-size: 12px; white-space: nowrap;"
+                                                *ngIf="!staff.isAadharValid">{{staff.aadharErrorMessage}}<i
+                                                    class="fa fa-info-circle" popover="{{aadharInstruction}}"
+                                                    triggers="mouseenter:mouseleave"></i></span>
+                                        </td>
+                                        <td [ngClass]="{'error': !staff.isMobileValid}">
+                                            <input type="text" name="Mobile" class="form-control"
+                                                [(ngModel)]="staff.Mobile" placeholder=""
+                                                (keypress)="numberOnly($event)" id="txtMobile"
+                                                (blur)="onChangeMobile(staff.Mobile, i)" maxlength="10" />
+                                            <span class="text-danger" style="font-size: 12px; white-space: nowrap;"
+                                                *ngIf="!staff.isMobileValid">{{staff.mobileErrorMessage}} <i
+                                                    *ngIf="!staff.isMobileValid" class="fa fa-info-circle"
+                                                    popover="{{phoneInstruction}}"
+                                                    triggers="mouseenter:mouseleave"></i></span>
+                                        </td>
+
+                                        <td [ngClass]="{'error': !staff.isEmailValid}">
+                                            <input type="text" class="form-control" [(ngModel)]="staff.Email"
+                                                placeholder="" id="txtEMail" (blur)="onEmailChange(staff.Email, i)"
+                                                name="email_{{i}}" />
+                                            <span class="text-danger" *ngIf="!staff.isEmailValid"
+                                                style="font-size: 12px;white-space: nowrap;">{{staff.emailErrorMessage}}
+                                              
+                                            </span>
+                                        </td>
+                                        <td [ngClass]="{'error': !staff.isSecEmailValid}">                                         
+                                            <input type="text" name="SecondaryEmail" class="form-control"
+                                                [(ngModel)]="staff.SecondaryEmail" placeholder=""
+                                                id="txtSecondaryEmail" (blur)="onSecEmailChange(staff.SecondaryEmail, i)"/>
+                                                <span class="text-danger" style="font-size: 12px; white-space: nowrap;"
+                                                *ngIf="!staff.isSecEmailValid">
+                                                {{staff.SecEmailErrorMessage}}</span>
+                                            </td>
+
+                                        <td class="delete_col">
+                                            <div class="remove" (click)="onDeleteRowClick(staff)"><a><img
+                                                        src="assets/images/icons/remove.svg" alt="remove row" /></a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

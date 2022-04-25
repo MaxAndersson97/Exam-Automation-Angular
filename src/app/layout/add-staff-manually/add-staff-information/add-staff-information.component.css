@@ -1,0 +1,15 @@
+.danger-text {
+  width: 100%;
+  margin-top: .25rem;
+  font-size: 80%;
+  color: #dc3545;
+}
+
+.schoolacademicdetail-form #ddlState option {
+  text-transform: capitalize;
+}
+
+.schoolacademicdetail-form #ddlCountry option {
+  text-transform: capitalize;
+}
+/*# sourceMappingURL=add-staff-information.component.css.map */

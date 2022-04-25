@@ -1,0 +1,48 @@
+<div class="container-fluid p-0" *ngIf="isNoAcademicDataAvailable">
+  <div class="row">
+    <div class="col-md-12 col-lg-12">
+      <div class="wing_row  m-3">
+        <div class="col-lg-12 col-md-12 pl-0">
+          <h2 class="top-header mb-3">Academic Year</h2>
+        </div>
+        <div class="row">
+          <div class="col-md-4 col-lg-4" *ngFor="let item of academicYears">
+            <div class="wing">
+              <div class="col-md-12 wing-top">
+                <div class="p-3 row">
+                  <div class="col-md-9 pl-0">
+                    <h3 class="section-header mb-0">{{ item.PeriodFrom | date: 'yyyy' }}-{{item.PeriodTo | date :'yy'}} Session</h3>
+                  </div>
+                  <div class="col-md-3 text-right pr-0">
+                    <a style="cursor: pointer">
+                      <div class="aca_session float-right cursor-auto" [ngClass]="{'active': (item.AcademicStatus == 1)}">
+                        <div class="inneraca_session"></div>
+                      </div>
+                    </a>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-12 pb-3">
+                <div class="pt-0 pb-2 px-3 row">
+                  <div class="col-md-12 p-0">
+                    <span class="class-rangehead">Covered Class Range</span>
+                    <h5 class="class_range mb-0 overflow-ellipses-248px" title="{{titlecaseClassName(item.StandardFrom)}} Standard- {{titlecaseClassName(item.StandardTo)}} Standard">
+                      <span id="">{{titlecaseClassName(item.StandardFrom)}}</span> Standard- <span id="">{{titlecaseClassName(item.StandardTo)}} Standard</span>
+                      <!-- 1st Standard - 12th Standard -->
+                    </h5>
+                  </div>
+                </div>
+                <div class="m-0 row w-backg p-2">
+                  <div class="col-md-12 p-0 studentUsingPortal">
+                    <img src="assets/images/Empty-State-Photo-2x.png" alt="" class=" pt-1">
+                    <p class="students_using_portal mb-0">{{item.TotalStudent}} Students using portal</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,162 @@
+<div class="container-fluid p-0">
+  <div class="row">
+      <div class="col-md-12 col-lg-12">
+          <div class="m-3 row">
+              <h2 class="class_wise_performance_head">Class Wise Performance</h2>
+
+
+
+              <div class="col-12 p-0">
+                <div class="row my-4">
+
+                  <!---------------exam-taken-report----------->
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="exam_report_taken p-3">
+                          <div class="row">
+                            <div class="col-12">
+                              <h3 class="mb-0">{{class_wise_performance_male?.current_score}}% Boys Avg. Score</h3>
+                              <p class="">Academic Year {{class_wise_performance_male?.academic_year}}</p>
+                              <div class="last_yr_compare" *ngIf="(class_wise_performance_male?.current_score != class_wise_performance_male?.previous_score)" [ngClass]="{'green':(class_wise_performance_male?.current_score > class_wise_performance_male?.previous_score) , 'red':(class_wise_performance_male?.current_score < class_wise_performance_male?.previous_score)}">
+                                <span class="arrow">
+                                  <span class="up" *ngIf="(class_wise_performance_male?.current_score > class_wise_performance_male?.previous_score)">&uarr;</span>
+                                  <span class="down" *ngIf="(class_wise_performance_male?.current_score < class_wise_performance_male?.previous_score)">&darr;</span>
+                                </span>
+                                <span class="percent"> {{classPerformanceMalePercent}}%</span>
+                                <span> from {{class_wise_performance_male?.previous_academic_year}}</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="right_image">
+                            <img src="assets/images/ic_graph_purple.svg" class="w-100">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+  
+  
+                  <!---------------hours-time-saved----------->
+                  <div class="col-6">
+                    <div class="row">
+                      <div class="col-12">
+                        <div class="exam_report_taken p-3">
+                          <div class="row">
+                            <div class="col-12">
+                              <h3 class="mb-0">{{class_wise_performance_female?.current_score}}% Girls Avg. Score</h3>
+                              <p class="">Academic Year {{class_wise_performance_female?.academic_year}}</p>
+                              <div class="last_yr_compare" *ngIf="(class_wise_performance_female?.current_score != class_wise_performance_female?.previous_score)" [ngClass]="{'green':(class_wise_performance_female?.current_score > class_wise_performance_female?.previous_score) , 'red':(class_wise_performance_female?.current_score < class_wise_performance_female?.previous_score)}">
+                                <span class="arrow">
+                                  <span class="up" *ngIf="(class_wise_performance_female?.current_score > class_wise_performance_female?.previous_score)">&uarr;</span>
+                                  <span class="down" *ngIf="(class_wise_performance_female?.current_score < class_wise_performance_female?.previous_score)">&darr;</span>
+                                </span>
+                                <span class="percent">{{classPerformanceFemalePercent}}%</span>
+                                <span> from {{class_wise_performance_female?.previous_academic_year}}</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="right_image">
+                            <img src="assets/images/ic_graph_blue.svg" class="w-100">
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!---------------Academic Year----------->
+              
+
+              <div class="col-12 mt-2 p-0">
+                <div class="class_wise_performance p-3">
+                  <div class="class_wise_performance_table w-100 mt-2">
+                    <table class="w-100">
+                      <thead>
+                        <tr>
+                          <th>CLASS & SECTION</th>
+                          <th width="20%">FACULTY NAME</th>
+                          <th>TOTAL STUDENTS</th>
+                          <th>COURSE COMPLETED</th>
+                          <th>ASSESSMENT TAKEN</th>
+                          <th>AVG. ATTENDANCE IN EXAM</th>
+                          <th>CURRENT AY AVERAGE SCORE</th>
+                          <th>BEST SUBJECT</th>
+                          <th>POOR SUBJECT</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr *ngFor="let dt of academic_year | paginate: {itemsPerPage: rowsOnPage, currentPage:page, id: '1'}; let i = index;">
+                          <td class="b_clr">
+                            <a routerLink="/exam/dashboard/class-performance-details">
+                              {{dt?.ClassName | lowercase}} - {{dt?.SectionName | lowercase }}
+                            </a>
+                          </td>
+                          <td class="b_clr">
+                            <a routerLink="/exam/dashboard/teacher-performance-overview">
+                              <div class="name_img" *ngIf="dt?.ClassTeacherProfileImageLink!=''"><img class="" [src]='dt?.ClassTeacherProfileImageLink'></div>
+                              <div class="name" *ngIf="dt?.ClassTeacherProfileImageLink==''"><p>{{dt?.ClassTeacher.toUpperCase().charAt(0)}}</p></div>
+                              <div class="py-2 b_clr"> {{dt?.ClassTeacher | lowercase}} </div>
+                            </a>
+                          </td>
+                          <td class="">{{dt?.total_students}}</td>
+                          <td class="">{{dt?.course_completed}}</td>
+                          <td class="">{{dt?.assessment_taken}}
+                            <div class="last_yr_compare float-right" *ngIf="(dt?.assessment_taken != dt?.assessment_taken_prev)" [ngClass]="{'green':(dt?.assessment_taken > dt?.assessment_taken_prev) , 'red':(dt?.assessment_taken < dt?.assessment_taken_prev)}">
+                              <span class="arrow">
+                                <span class="up" *ngIf="(dt?.assessment_taken > dt?.assessment_taken_prev)">&uarr;</span>
+                                <span class="down" *ngIf="(dt?.assessment_taken < dt?.assessment_taken_prev)">&darr;</span>
+                              </span>
+                              <span class="percent"> {{(dt?.assessment_taken_prev/dt?.assessment_taken)*100}}%</span>
+                            </div>
+                          </td>
+                          <td class="">{{dt?.avg_attendance}}%
+                            <div class="last_yr_compare float-right" *ngIf="(dt?.avg_attendance != dt?.avg_attendance_prev)" [ngClass]="{'green':(dt?.avg_attendance > dt?.avg_attendance_prev) , 'red':(dt?.avg_attendance < dt?.avg_attendance_prev)}">
+                              <span class="arrow">
+                                <span class="up" *ngIf="(dt?.avg_attendance > dt?.avg_attendance_prev)">&uarr;</span>
+                                <span class="down" *ngIf="(dt?.avg_attendance < dt?.avg_attendance_prev)">&darr;</span>
+                              </span>
+                              <span class="percent"> {{(dt?.avg_attendance_prev/dt?.avg_attendance)*100}}%</span>
+                            </div>
+                          </td>
+                          <td class="">{{dt?.overall_result}}%
+                            <div class="last_yr_compare float-right" *ngIf="(dt?.overall_result != dt?.overall_result_prev)" [ngClass]="{'green':(dt?.overall_result > dt?.overall_result_prev) , 'red':(dt?.overall_result < dt?.overall_result_prev)}">
+                              <span class="arrow">
+                                <span class="up" *ngIf="(dt?.overall_result > dt?.overall_result_prev)">&uarr;</span>
+                                <span class="down" *ngIf="(dt?.overall_result < dt?.overall_result_prev)">&darr;</span>
+                              </span>
+                              <span class="percent"> {{(dt?.overall_result_prev/dt?.overall_result)*100}}%</span>
+                            </div>
+                          </td>
+                          <td class="b_clr">
+                            <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                              {{dt?.best_subject | lowercase}}
+                            </a>
+                          </td>
+                          <td class="b_clr">
+                            <a routerLink="/exam/dashboard/chapter-student-performance-details">
+                              {{dt?.poor_subject | lowercase}}
+                            </a>
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+                <div class="pages w-100">
+                  <pagination-controls class="pages" (pageChange)="page = $event" id="1" [maxSize]="10" 
+                      directionLinks="true" previousLabel=""
+                      nextLabel="" responsive="true">
+                  </pagination-controls>
+              </div>
+              <div class="selectWrapper">
+                      <ng-select class="select_Show" id="1"  [(ngModel)]="rowsOnPage">
+                              <ng-option  *ngFor="let row of rowsOnPageSet" [value]="row" >Show {{ row }} Results</ng-option>
+                      </ng-select>
+              </div>
+            </div>
+
+          </div>
+      <div>
+  </div>
+</div>

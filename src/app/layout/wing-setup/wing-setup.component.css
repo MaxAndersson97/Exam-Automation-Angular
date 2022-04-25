@@ -1,0 +1,73 @@
+.wing-top .section-header {
+  text-transform: capitalize;
+}
+
+.modal-content {
+  height: 199px;
+  width: 400px;
+  border-radius: 4px;
+  background-color: #FFFFFF;
+  -webkit-box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  box-shadow: 0 0 1px 0 rgba(133, 149, 166, 0.4), 0 4px 8px -2px rgba(173, 189, 203, 0.4);
+  margin: auto;
+}
+
+.modal-body h4 {
+  color: #172B4D;
+  font-size: 21px;
+  font-weight: 600;
+  line-height: 27px;
+  text-align: left;
+}
+
+.modal-body p {
+  color: #3A5077;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: left;
+}
+
+.modal-body .btn-yes {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #01CA85;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  float: right;
+  margin: 8px 0px 0px 8px;
+}
+
+.modal-body .btn-no {
+  height: 42px;
+  width: 96px;
+  border-radius: 4px;
+  background-color: #5C67E6;
+  color: #FFFFFF;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: center;
+  float: right;
+  margin: 8px 8px 0px 0px;
+}
+
+.img-child {
+  color: #FFFFFF;
+  font-size: 16px;
+}
+
+.text-img-container {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #5C67E6;
+  padding: 12px;
+  padding-top: 10px;
+  padding-left: 13px;
+  margin-top: 3px;
+}
+/*# sourceMappingURL=wing-setup.component.css.map */

@@ -1,0 +1,38 @@
+<app-global-create-paper *ngIf="isPaperCreatable" dataTitle="CREATE"></app-global-create-paper>
+
+
+<div class="container-fluid p-0" *ngIf="!isPaperCreatable">
+    <div class="row">
+        <div class="col-md col-lg col-sm">
+            <div class="exam_setup m-3">
+                <div class="col-md-12 col-lg-12 pl-0 pr-0">
+                    <div class=" row">
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="examsetup-img mx-auto mt-5">
+                                <img src="assets/images/EmptyState-ExamSetup.svg" alt="" class="w-100 mt-5">
+                            </div>
+                        </div>
+                        <div class="col-md-12 col-lg-12 col-sm-12">
+                            <div class="examsetup-content mx-auto ">
+                                <h2 class="text-center top-header my-3">Seems like you are out of free credit
+                                </h2>
+                                <p  *ngIf="!isShowAddButton" class="text-center examsetup-description mb-0">
+                                    You have utilized all of your free credit for papers and worksheets.
+                                </p>
+                                <br/>
+                                <div class="start_btn text-center">
+                                    <button type="button" id="create_worksheet" (click)="buyCredit();"
+                                        class="btn createworksheet-btn">Buy Credit</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade modal-md" id="OutOfCreditDialogTemplate"  bsModal #OutOfCreditDialogTemplate="bs-modal" [config]="{backdrop: 'static',  keyboard: false}" >
+    <app-buy-credit (closePopupEvent)="closeModalOutOfCredit($event)"></app-buy-credit>
+</div> 
